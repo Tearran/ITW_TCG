@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Into the Wild TCG — Editable Card Template (2.5in x 3.5in)
+  Inkscape-friendly SVG
+  Size: 750 x 1050 (300 DPI poker card)
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1">
+
+  <defs>
+    <!-- ===== COLOR SYSTEM (US Forest Service-inspired) ===== -->
+    <!-- EDIT: frame and body tones -->
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+
+    <!-- EDIT: light banner/panel tone -->
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+
+    <!-- EDIT: default illustration placeholder gradient -->
+    <linearGradient id="artBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3a152"/>
+      <stop offset="40%" stop-color="#fcd797"/>
+      <stop offset="100%" stop-color="#e0cfb3"/>
+    </linearGradient>
+
+    <!-- Clip path for art area -->
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- ===== PRINT GUIDES (delete or hide before final export if needed) ===== -->
+  <!-- Bleed (outer), Trim (cut), Safe (text-safe) -->
+  <rect x="0" y="0" width="750" height="1050" fill="none" stroke="#cc0000" stroke-width="2" stroke-dasharray="10,8"/>
+  <rect x="37.5" y="37.5" width="675" height="975" fill="none" stroke="#0066cc" stroke-width="2" stroke-dasharray="10,8"/>
+  <rect x="75" y="75" width="600" height="900" fill="none" stroke="#2e7d32" stroke-width="2" stroke-dasharray="10,8"/>
+
+  <!-- ===== CARD FRAME ===== -->
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#1c241c" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#435d44" stroke-width="4"/>
+
+  <!-- ===== HEADER ===== -->
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+
+  <!-- EDIT: Card Name -->
+  <text x="84" y="112"
+        font-family="Georgia, serif"
+        font-size="42"
+        font-weight="700"
+        fill="#162016">Card Name</text>
+
+  <!-- ===== COST PIPS (right side) ===== -->
+  <!-- EDIT: duplicate/remove circles as needed for costs -->
+  <circle cx="632" cy="102" r="21" fill="#2b5c8f" stroke="#162016" stroke-width="2"/>
+  <!-- EDIT: cost icon/text -->
+  <text x="632" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">W</text>
+
+  <circle cx="583" cy="102" r="21" fill="#6A994E" stroke="#162016" stroke-width="2"/>
+  <text x="583" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">F</text>
+
+  <circle cx="534" cy="102" r="21" fill="#9e2a2b" stroke="#162016" stroke-width="2"/>
+  <text x="534" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">P</text>
+
+  <!-- ===== ART BOX ===== -->
+  <g clip-path="url(#imageClip)">
+    <!-- EDIT: Replace this whole block with imported art -->
+    <rect x="64" y="190" width="622" height="350" fill="url(#artBg)"/>
+    <rect x="82" y="208" width="586" height="314" rx="8" fill="#000000" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.35" stroke-dasharray="10,8"/>
+    <text x="375" y="374" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="34" fill="#23362b">[ ARTWORK AREA ]</text>
+    <text x="375" y="414" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="22" fill="#2f473a">Replace with flora/fauna illustration</text>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <!-- ===== TYPE LINE ===== -->
+  <rect x="64" y="556" width="622" height="48" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <!-- EDIT: card subtype line -->
+  <text x="84" y="588"
+        font-family="Georgia, serif"
+        font-size="24"
+        font-weight="700"
+        fill="#162016">Fauna — Predator (Tonto NF)</text>
+
+  <!-- ===== RULES BOX ===== -->
+  <rect x="64" y="618" width="622" height="292" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+
+  <!-- EDIT: keyword label + ability -->
+  <text x="84" y="658" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#9e2a2b">KEYWORD:</text>
+  <text x="220" y="658" font-family="Arial, sans-serif" font-size="24" fill="#000000">Rules text line 1.</text>
+
+  <!-- EDIT: main rules text (add/remove lines as needed) -->
+  <text x="84" y="692" font-family="Arial, sans-serif" font-size="22" fill="#000000">Rules text line 2 for Habitat/Bio-Energy interaction.</text>
+  <text x="84" y="724" font-family="Arial, sans-serif" font-size="22" fill="#000000">Rules text line 3 for timing, trigger, or restriction.</text>
+  <text x="84" y="756" font-family="Arial, sans-serif" font-size="22" fill="#000000">Rules text line 4 (optional).</text>
+  <text x="84" y="788" font-family="Arial, sans-serif" font-size="22" fill="#000000">Rules text line 5 (optional).</text>
+
+  <!-- Flavor divider -->
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+
+  <!-- EDIT: flavor text -->
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">
+    "Flavor text or ecological note line 1."
+  </text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">
+    "Flavor text line 2."
+  </text>
+
+  <!-- ===== FOOTER ===== -->
+  <!-- EDIT: set / collector info -->
+  <text x="70" y="985"
+        font-family="Arial, sans-serif"
+        font-size="16"
+        font-weight="700"
+        fill="#d8d4c9">ALPHA SET • ITW-A001 • 01/32</text>
+
+  <!-- ===== POWER / HEALTH BADGE ===== -->
+  <!-- EDIT: hide this whole group for non-combat cards -->
+  <g transform="translate(646, 968)">
+    <circle cx="0" cy="0" r="36" fill="#162016" stroke="#e3ded2" stroke-width="4"/>
+    <!-- EDIT: attack / health -->
+    <text x="0" y="8"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="700"
+          fill="#f4f1ea"
+          text-anchor="middle">3/2</text>
+  </g>
+</svg>

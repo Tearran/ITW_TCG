@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Into the Wild TCG — Greater Roadrunner Card (Tonto)
+  Built from ITW template for Inkscape editing
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1">
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+
+    <linearGradient id="desertSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3a152"/>
+      <stop offset="40%" stop-color="#fcd797"/>
+      <stop offset="100%" stop-color="#e0cfb3"/>
+    </linearGradient>
+
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- Frame -->
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#1c241c" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#435d44" stroke-width="4"/>
+
+  <!-- Header -->
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="38" font-weight="700" fill="#162016">Greater Roadrunner</text>
+
+  <!-- Cost: 1 Water + 1 Prey -->
+  <circle cx="632" cy="102" r="21" fill="#2b5c8f" stroke="#162016" stroke-width="2"/>
+  <text x="632" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W</text>
+
+  <circle cx="583" cy="102" r="21" fill="#9e2a2b" stroke="#162016" stroke-width="2"/>
+  <text x="583" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">P</text>
+
+  <!-- Art box -->
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#desertSky)"/>
+
+    <!-- Canyon layers -->
+    <polygon points="64,346 170,280 290,318 420,262 560,306 686,252 686,424 64,424" fill="#7a6151" opacity="0.72"/>
+    <polygon points="64,388 220,330 350,374 520,320 686,366 686,424 64,424" fill="#5c4436"/>
+
+    <!-- Ground -->
+    <polygon points="64,404 686,390 686,540 64,540" fill="#c7b393"/>
+
+    <!-- Saguaro silhouette -->
+    <path d="M112,390 L112,284 Q112,276 118,276 Q124,276 124,284 L124,390" fill="#324027"/>
+    <path d="M100,320 Q100,304 110,304 L110,312 Q100,312 100,320" fill="#324027"/>
+    <path d="M138,338 Q138,322 126,322 L126,330 Q138,330 138,338" fill="#324027"/>
+
+    <!-- Roadrunner silhouette/geometric -->
+    <polygon points="140,312 280,362 272,378 122,332" fill="#1b2b24"/>
+    <polygon points="112,302 232,356 226,370 102,320" fill="#2d4239"/>
+
+    <polyline points="356,416 346,456 318,472" fill="none" stroke="#695643" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="392,416 406,456 438,472" fill="none" stroke="#695643" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <ellipse cx="356" cy="392" rx="72" ry="36" fill="#2d4239"/>
+    <path d="M302,392 Q356,364 410,392 Q356,410 302,392 Z" fill="#ebdcb9" opacity="0.42"/>
+
+    <polygon points="402,384 446,294 468,304 424,406" fill="#2d4239"/>
+    <ellipse cx="466" cy="292" rx="28" ry="18" fill="#2d4239"/>
+    <polygon points="444,282 416,260 450,274" fill="#1b2b24"/>
+    <polygon points="454,278 426,250 460,270" fill="#2d4239"/>
+
+    <path d="M470,292 Q482,286 486,294 Z" fill="#3a86c8"/>
+    <path d="M480,296 Q490,292 494,300 Z" fill="#e65c40"/>
+
+    <circle cx="460" cy="288" r="5" fill="#fcd797"/>
+    <circle cx="460" cy="288" r="2" fill="#000000"/>
+
+    <path d="M492,286 Q560,302 492,320 Z" fill="#524337"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <!-- Type line -->
+  <rect x="64" y="556" width="622" height="48" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="588" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#162016">Fauna — Predator (Tonto NF)</text>
+
+  <!-- Rules -->
+  <rect x="64" y="618" width="622" height="292" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+
+  <text x="84" y="658" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#9e2a2b">AMBUSH:</text>
+  <text x="230" y="658" font-family="Arial, sans-serif" font-size="22" fill="#000000">When this enters the Habitat, deal 1 damage to target Prey.</text>
+
+  <text x="84" y="692" font-family="Arial, sans-serif" font-size="22" fill="#000000">Swift Hunter: +1 ATK while attacking Prey cards.</text>
+  <text x="84" y="724" font-family="Arial, sans-serif" font-size="22" fill="#000000">If this defeats a Lizard card, gain 1 temporary Prey this turn.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">"Fast feet, sharp eyes, and a strike before sunrise."</text>
+
+  <!-- Footer -->
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ALPHA SET • ITW-A016 • 16/32</text>
+
+  <!-- Stats -->
+  <g transform="translate(646, 968)">
+    <circle cx="0" cy="0" r="36" fill="#162016" stroke="#e3ded2" stroke-width="4"/>
+    <text x="0" y="8" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#f4f1ea" text-anchor="middle">3/2</text>
+  </g>
+</svg>
