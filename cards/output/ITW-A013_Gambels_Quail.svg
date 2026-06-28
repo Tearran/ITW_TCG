@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A013 Gambel's Quail</title>
+  <desc id="desc">ITW-A013 Gambel's Quail. Common. Bio-Energy (Prey). Cost 0. Provides 1 Prey Bio-Energy per turn. BiomeTag Shrubland. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+    <linearGradient id="quailArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c8a852"/>
+      <stop offset="52%" stop-color="#b08840"/>
+      <stop offset="100%" stop-color="#7a6830"/>
+    </linearGradient>
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#1c241c" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#435d44" stroke-width="4"/>
+
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="38" font-weight="700" fill="#162016">Gambel's Quail</text>
+
+  <circle cx="632" cy="102" r="21" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="632" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">0</text>
+
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#quailArtBg)"/>
+    <!-- Ground -->
+    <path d="M64,476 C160,454 270,462 390,458 C510,454 600,480 686,468 L686,540 L64,540 Z" fill="#6a5828"/>
+    <!-- Shrubs -->
+    <ellipse cx="134" cy="468" rx="48" ry="32" fill="#5a6e30"/>
+    <ellipse cx="118" cy="450" rx="30" ry="20" fill="#6a7e3a"/>
+    <ellipse cx="600" cy="472" rx="40" ry="26" fill="#5a6630"/>
+    <!-- Quail body -->
+    <ellipse cx="380" cy="388" rx="132" ry="82" fill="#7a5030"/>
+    <!-- Quail neck -->
+    <ellipse cx="262" cy="352" rx="38" ry="46" fill="#7a5030"/>
+    <!-- Quail head -->
+    <circle cx="246" cy="308" r="44" fill="#6a4228"/>
+    <!-- Topknot plume (teardrop drooping forward) -->
+    <path d="M246,264 C242,244 234,224 220,214 C212,222 212,242 224,256 C230,246 238,262 246,264 Z" fill="#3a2810"/>
+    <path d="M246,264 C242,244 236,226 228,214" fill="none" stroke="#3a2810" stroke-width="4" stroke-linecap="round"/>
+    <!-- Cream face patch -->
+    <ellipse cx="230" cy="316" rx="20" ry="16" fill="#e8d4a0" opacity="0.9"/>
+    <!-- Rufous crown stripe -->
+    <path d="M232,286 C248,280 264,280 272,288" fill="none" stroke="#5a2810" stroke-width="8" stroke-linecap="round"/>
+    <!-- Wing bar markings -->
+    <path d="M298,342 C358,324 438,328 490,352" fill="none" stroke="#5a3818" stroke-width="10" stroke-linecap="round"/>
+    <path d="M302,362 C362,344 440,348 488,372" fill="none" stroke="#5a3818" stroke-width="7" stroke-linecap="round"/>
+    <!-- Belly scaling pattern -->
+    <path d="M308,402 C324,410 342,414 358,410" fill="none" stroke="#4a2810" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    <path d="M320,422 C340,430 360,434 378,430" fill="none" stroke="#4a2810" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    <!-- Tail feathers (short, angled back-up) -->
+    <path d="M502,362 L558,316 M502,374 L558,340 M502,386 L554,368" stroke="#5a3818" stroke-width="12" stroke-linecap="round"/>
+    <!-- Eye -->
+    <circle cx="228" cy="308" r="9" fill="#101010"/>
+    <circle cx="225" cy="305" r="3" fill="#806040"/>
+    <!-- Beak -->
+    <path d="M204,316 L174,314 L204,326 Z" fill="#3a2810"/>
+    <!-- Legs -->
+    <path d="M340,464 L336,504 L314,514 M336,504 L354,516" stroke="#5a3818" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M402,466 L398,506 L376,518 M398,506 L416,518" stroke="#5a3818" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <rect x="64" y="556" width="622" height="48" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="588" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#162016">Bio-Energy (Prey) • Common</text>
+
+  <rect x="64" y="618" width="622" height="292" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="662" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#8a5b34">Rules:</text>
+  <text x="84" y="700" font-family="Arial, sans-serif" font-size="24" fill="#000000">Provides 1 Prey Bio-Energy per turn.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Shrubland</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A013 • Gambel's Quail</text>
+</svg>

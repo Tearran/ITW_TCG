@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A001 Puddle</title>
+  <desc id="desc">ITW-A001 Puddle. Common. Bio-Energy (Water). Cost 0. Provides 1 Water Bio-Energy per turn. BiomeTag Riparian. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+
+    <linearGradient id="waterArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7db5da"/>
+      <stop offset="50%" stop-color="#9dd0ef"/>
+      <stop offset="100%" stop-color="#d2e8f8"/>
+    </linearGradient>
+
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#1c241c" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#435d44" stroke-width="4"/>
+
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#162016">Puddle</text>
+
+  <circle cx="632" cy="102" r="21" fill="#2b5c8f" stroke="#162016" stroke-width="2"/>
+  <text x="632" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">0</text>
+
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#waterArtBg)"/>
+    <ellipse cx="375" cy="420" rx="250" ry="88" fill="#4f8fbc" opacity="0.6"/>
+    <ellipse cx="375" cy="414" rx="194" ry="62" fill="#73b1da" opacity="0.75"/>
+    <ellipse cx="375" cy="406" rx="132" ry="38" fill="#cfe8f8"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <rect x="64" y="556" width="622" height="48" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="588" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#162016">Bio-Energy (Water) • Common</text>
+
+  <rect x="64" y="618" width="622" height="292" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="662" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#2b5c8f">Rules:</text>
+  <text x="84" y="700" font-family="Arial, sans-serif" font-size="24" fill="#000000">Provides 1 Water Bio-Energy per turn.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Riparian</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A001 • Puddle</text>
+</svg>

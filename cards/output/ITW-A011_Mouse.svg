@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A011 Mouse</title>
+  <desc id="desc">ITW-A011 Mouse. Common. Bio-Energy (Prey). Cost 0. Provides 1 Prey Bio-Energy per turn. BiomeTag Desert Floor. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+
+    <linearGradient id="mouseArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c5b48a"/>
+      <stop offset="56%" stop-color="#d8c9a6"/>
+      <stop offset="100%" stop-color="#8fa277"/>
+    </linearGradient>
+
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#1c241c" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#435d44" stroke-width="4"/>
+
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#162016">Mouse</text>
+
+  <circle cx="632" cy="102" r="21" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="632" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">0</text>
+
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#mouseArtBg)"/>
+    <path d="M64,482 C176,454 294,444 412,450 C524,456 614,484 686,476 L686,540 L64,540 Z" fill="#b59162"/>
+    <ellipse cx="374" cy="374" rx="126" ry="72" fill="#8a694c"/>
+    <ellipse cx="280" cy="334" rx="52" ry="50" fill="#8a694c"/>
+    <circle cx="254" cy="292" r="24" fill="#9a7858"/>
+    <circle cx="304" cy="286" r="22" fill="#9a7858"/>
+    <ellipse cx="472" cy="392" rx="54" ry="26" fill="#8a694c" transform="rotate(10 472 392)"/>
+    <path d="M516,402 C580,394 628,412 676,460" fill="none" stroke="#8a694c" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="254" cy="292" r="10" fill="#dba6a3"/>
+    <circle cx="304" cy="286" r="9" fill="#dba6a3"/>
+    <circle cx="258" cy="342" r="5" fill="#101010"/>
+    <circle cx="238" cy="364" r="4" fill="#403227"/>
+    <path d="M232,364 L202,356 M232,368 L198,370 M232,372 L204,384" stroke="#403227" stroke-width="2.8" stroke-linecap="round"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <rect x="64" y="556" width="622" height="48" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="588" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#162016">Bio-Energy (Prey) • Common</text>
+
+  <rect x="64" y="618" width="622" height="292" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="662" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#8a5b34">Rules:</text>
+  <text x="84" y="700" font-family="Arial, sans-serif" font-size="24" fill="#000000">Provides 1 Prey Bio-Energy per turn.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Desert Floor</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A011 • Mouse</text>
+</svg>

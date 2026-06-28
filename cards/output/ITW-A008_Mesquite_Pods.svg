@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A008 Mesquite Pods</title>
+  <desc id="desc">ITW-A008 Mesquite Pods. Common. Bio-Energy (Flora). Cost 0. Provides 1 Flora Bio-Energy per turn. BiomeTag Sonoran Desert. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+
+    <linearGradient id="mesquiteArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e6cb97"/>
+      <stop offset="48%" stop-color="#d1c28b"/>
+      <stop offset="100%" stop-color="#b9cb94"/>
+    </linearGradient>
+
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#1c241c" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#435d44" stroke-width="4"/>
+
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#162016">Mesquite Pods</text>
+
+  <circle cx="632" cy="102" r="21" fill="#4b7d3c" stroke="#162016" stroke-width="2"/>
+  <text x="632" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">0</text>
+
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#mesquiteArtBg)"/>
+    <path d="M64,474 C182,438 300,426 412,434 C528,444 618,482 686,472 L686,540 L64,540 Z" fill="#c3a26c"/>
+    <path d="M190,484 C204,410 236,338 290,262" fill="none" stroke="#6b5034" stroke-width="16" stroke-linecap="round"/>
+    <path d="M290,262 C330,248 378,250 426,276" fill="none" stroke="#6b5034" stroke-width="12" stroke-linecap="round"/>
+    <path d="M318,292 C352,276 396,278 440,304" fill="none" stroke="#6b5034" stroke-width="10" stroke-linecap="round"/>
+    <g fill="#7a9a58">
+      <ellipse cx="268" cy="310" rx="46" ry="20" transform="rotate(-26 268 310)"/>
+      <ellipse cx="314" cy="280" rx="42" ry="18" transform="rotate(14 314 280)"/>
+      <ellipse cx="364" cy="292" rx="44" ry="18" transform="rotate(-18 364 292)"/>
+      <ellipse cx="414" cy="314" rx="40" ry="18" transform="rotate(18 414 314)"/>
+      <ellipse cx="452" cy="340" rx="36" ry="16" transform="rotate(28 452 340)"/>
+    </g>
+    <g fill="#c9b26c">
+      <rect x="332" y="326" width="24" height="112" rx="12" transform="rotate(12 344 382)"/>
+      <rect x="386" y="342" width="24" height="102" rx="12" transform="rotate(18 398 393)"/>
+      <rect x="438" y="362" width="22" height="92" rx="11" transform="rotate(24 449 408)"/>
+    </g>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <rect x="64" y="556" width="622" height="48" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="588" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#162016">Bio-Energy (Flora) • Common</text>
+
+  <rect x="64" y="618" width="622" height="292" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="662" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#4b7d3c">Rules:</text>
+  <text x="84" y="700" font-family="Arial, sans-serif" font-size="24" fill="#000000">Provides 1 Flora Bio-Energy per turn.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Sonoran Desert</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A008 • Mesquite Pods</text>
+</svg>
