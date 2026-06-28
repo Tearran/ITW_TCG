@@ -46,7 +46,6 @@
     <ellipse cx="375" cy="420" rx="250" ry="88" fill="#4f8fbc" opacity="0.6"/>
     <ellipse cx="375" cy="414" rx="194" ry="62" fill="#73b1da" opacity="0.75"/>
     <ellipse cx="375" cy="406" rx="132" ry="38" fill="#cfe8f8"/>
-    <text x="375" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#193549">Water Bio-Energy Source</text>
   </g>
   <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
 
