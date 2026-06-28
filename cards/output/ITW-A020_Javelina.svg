@@ -102,13 +102,13 @@
   </g>
   <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
 
-  <!-- HP Badge -->
-  <rect x="68" y="516" width="88" height="40" rx="8" fill="#1a5c1a" stroke="#162016" stroke-width="2"/>
-  <text x="112" y="542" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">HP: 5</text>
+  <!-- HP Circle -->
+  <circle cx="112" cy="536" r="26" fill="#1a5c1a" stroke="#162016" stroke-width="2"/>
+  <text x="112" y="544" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
 
-  <!-- ATK Badge -->
-  <rect x="594" y="516" width="88" height="40" rx="8" fill="#8a1a1a" stroke="#162016" stroke-width="2"/>
-  <text x="638" y="542" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">ATK: 2</text>
+  <!-- ATK Circle -->
+  <circle cx="638" cy="536" r="26" fill="#8a1a1a" stroke="#162016" stroke-width="2"/>
+  <text x="638" y="544" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
 
   <!-- Type bar -->
   <rect x="64" y="568" width="622" height="44" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
