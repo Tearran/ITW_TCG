@@ -50,7 +50,7 @@
   <text x="690" y="631" text-anchor="end" class="small">Rarity: Common</text>
 
   <rect x="36" y="674" width="678" height="196" rx="18" fill="#f4fbff" stroke="#9fd1ea" stroke-width="2"/>
-  <text x="56" y="718" class="label">RulesText</text>
+  <text x="56" y="718" class="label">Rules</text>
   <text x="56" y="770" class="rules">Provides 1 Water Bio-Energy per turn.</text>
 
   <rect x="36" y="890" width="678" height="124" rx="16" fill="#ddf2fe" stroke="#86c4e3" stroke-width="2"/>
