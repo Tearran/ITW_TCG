@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A018 Bald Eagle</title>
+  <desc id="desc">ITW-A018 Bald Eagle. Rare. Apex Predator. Cost 2 Water + 2 Prey. HP 4. ATK 4. Flying (may bypass non-Flying defenders). BiomeTag Cliffside/Riparian. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+    <linearGradient id="eagleArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a5878"/>
+      <stop offset="40%" stop-color="#5a7898"/>
+      <stop offset="80%" stop-color="#9a8870"/>
+      <stop offset="100%" stop-color="#706050"/>
+    </linearGradient>
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- Card frame (Rare: gold border accent) -->
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#3a2800" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#c8a020" stroke-width="4"/>
+
+  <!-- Name bar -->
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#162016">Bald Eagle</text>
+
+  <!-- Cost circles: 2W + 2P (W, P, W, P from left to right) -->
+  <circle cx="521" cy="102" r="18" fill="#2b5c8f" stroke="#162016" stroke-width="2"/>
+  <text x="521" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W</text>
+  <circle cx="565" cy="102" r="18" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="565" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">P</text>
+  <circle cx="609" cy="102" r="18" fill="#2b5c8f" stroke="#162016" stroke-width="2"/>
+  <text x="609" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W</text>
+  <circle cx="653" cy="102" r="18" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="653" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">P</text>
+
+  <!-- Art section -->
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#eagleArtBg)"/>
+    <!-- Clouds -->
+    <ellipse cx="180" cy="240" rx="80" ry="30" fill="#d8e4ee" opacity="0.5"/>
+    <ellipse cx="220" cy="228" rx="56" ry="24" fill="#e4eef8" opacity="0.45"/>
+    <ellipse cx="540" cy="254" rx="70" ry="26" fill="#d8e4ee" opacity="0.45"/>
+    <!-- Rocky cliff at bottom -->
+    <path d="M64,476 C140,452 200,470 280,462 C360,454 400,440 480,446 C560,452 620,470 686,460 L686,540 L64,540 Z" fill="#706050"/>
+    <path d="M64,490 C120,478 176,490 240,484 C300,478 340,488 400,482 C460,476 520,488 580,482 C624,478 660,490 686,486 L686,540 L64,540 Z" fill="#605040"/>
+    <!-- Eagle wings (spread wide, in flight) -->
+    <!-- Left wing -->
+    <path d="M375,330 C340,298 296,270 240,256 C190,244 140,248 98,270 C86,278 84,292 96,298 C130,278 176,276 222,292 C280,312 330,342 374,366" fill="#3a2c14"/>
+    <!-- Left wing primary feathers -->
+    <path d="M96,270 L80,298 M112,262 L100,292 M130,256 L122,288 M150,252 L146,284 M170,250 L168,282" stroke="#3a2c14" stroke-width="10" stroke-linecap="round"/>
+    <!-- Right wing -->
+    <path d="M375,330 C412,298 456,270 514,256 C564,244 616,248 658,270 C670,278 672,292 660,298 C626,278 580,276 534,292 C476,312 424,342 376,366" fill="#3a2c14"/>
+    <!-- Right wing primary feathers -->
+    <path d="M658,270 L674,298 M642,262 L654,292 M624,256 L632,288 M604,252 L608,284 M584,250 L586,282" stroke="#3a2c14" stroke-width="10" stroke-linecap="round"/>
+    <!-- Wing coverts (lighter) -->
+    <path d="M200,278 C260,292 318,308 374,332" fill="none" stroke="#5a4828" stroke-width="8" stroke-linecap="round"/>
+    <path d="M554,278 C494,292 436,308 376,332" fill="none" stroke="#5a4828" stroke-width="8" stroke-linecap="round"/>
+    <!-- Eagle body -->
+    <ellipse cx="375" cy="370" rx="72" ry="54" fill="#3a2c14"/>
+    <!-- White head and neck -->
+    <circle cx="375" cy="290" r="52" fill="#f0ece0"/>
+    <ellipse cx="375" cy="328" rx="36" ry="30" fill="#f0ece0"/>
+    <!-- Yellow beak (hooked) -->
+    <path d="M375,308 L330,310 L340,330 L375,326 Z" fill="#e8c020"/>
+    <!-- Beak hook -->
+    <path d="M330,310 L318,322 L332,330" fill="#e8c020"/>
+    <!-- Eye -->
+    <circle cx="356" cy="296" r="11" fill="#101010"/>
+    <circle cx="352" cy="292" r="4" fill="#c09020"/>
+    <!-- Eye ring (yellow) -->
+    <circle cx="356" cy="296" r="14" fill="none" stroke="#e8c020" stroke-width="3"/>
+    <!-- White tail (spread) -->
+    <path d="M340,418 L318,464 M355,422 L340,470 M370,424 L362,472 M385,424 L384,472 M400,422 L406,470 M415,420 L428,464" stroke="#f0ece0" stroke-width="10" stroke-linecap="round"/>
+    <!-- Talons -->
+    <path d="M350,424 L330,460 M362,426 L344,462 M376,426 L366,464" stroke="#5a4828" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <!-- HP Badge -->
+  <rect x="68" y="516" width="88" height="40" rx="8" fill="#1a5c1a" stroke="#162016" stroke-width="2"/>
+  <text x="112" y="542" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">HP: 4</text>
+
+  <!-- ATK Badge -->
+  <rect x="594" y="516" width="88" height="40" rx="8" fill="#8a1a1a" stroke="#162016" stroke-width="2"/>
+  <text x="638" y="542" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">ATK: 4</text>
+
+  <!-- Type bar -->
+  <rect x="64" y="568" width="622" height="44" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="597" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#162016">Apex Predator • Rare</text>
+
+  <!-- Rules box -->
+  <rect x="64" y="626" width="622" height="284" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="668" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8a5b34">Rules:</text>
+  <text x="84" y="704" font-family="Arial, sans-serif" font-size="22" fill="#000000">Flying (may bypass</text>
+  <text x="84" y="732" font-family="Arial, sans-serif" font-size="22" fill="#000000">non-Flying defenders).</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Cliffside/Riparian</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A018 • Bald Eagle</text>
+</svg>

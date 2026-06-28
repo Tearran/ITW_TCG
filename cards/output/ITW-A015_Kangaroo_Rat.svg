@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A015 Kangaroo Rat</title>
+  <desc id="desc">ITW-A015 Kangaroo Rat. Common. Bio-Energy (Prey). Cost 0. Provides 1 Prey Bio-Energy per turn. BiomeTag Arid Basin. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+    <linearGradient id="kratArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4ba70"/>
+      <stop offset="52%" stop-color="#c8a050"/>
+      <stop offset="100%" stop-color="#9a7830"/>
+    </linearGradient>
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#1c241c" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#435d44" stroke-width="4"/>
+
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="38" font-weight="700" fill="#162016">Kangaroo Rat</text>
+
+  <circle cx="632" cy="102" r="21" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="632" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">0</text>
+
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#kratArtBg)"/>
+    <!-- Sandy ground -->
+    <path d="M64,482 C180,464 290,474 400,468 C514,462 604,486 686,474 L686,540 L64,540 Z" fill="#9a7830"/>
+    <!-- Sand ripples -->
+    <path d="M120,490 C158,484 198,490 238,484" fill="none" stroke="#8a6820" stroke-width="2.5" opacity="0.6"/>
+    <path d="M380,492 C420,486 468,492 508,486" fill="none" stroke="#8a6820" stroke-width="2.5" opacity="0.6"/>
+    <!-- Long tail extending to the left -->
+    <path d="M246,434 C206,448 158,450 112,440 C92,434 82,452 92,462 C102,450 110,450 122,456 C152,464 202,462 250,450" fill="none" stroke="#9a6828" stroke-width="10" stroke-linecap="round"/>
+    <!-- Tail tuft -->
+    <ellipse cx="90" cy="462" rx="18" ry="12" fill="#5a3810" transform="rotate(18 90 462)"/>
+    <!-- White stripe on tail -->
+    <path d="M180,444 C160,448 140,448 120,444" fill="none" stroke="#dcd0b0" stroke-width="4" stroke-linecap="round"/>
+    <!-- Body (compact, high-haunched) -->
+    <ellipse cx="370" cy="398" rx="76" ry="60" fill="#c09050"/>
+    <!-- Head (large, round) -->
+    <circle cx="454" cy="348" r="58" fill="#c09050"/>
+    <!-- Belly stripe (white) -->
+    <path d="M298,406 C328,428 352,436 378,434 C396,432 414,426 426,418" fill="none" stroke="#dcd0b0" stroke-width="16" stroke-linecap="round"/>
+    <!-- Massive back legs -->
+    <path d="M316,438 L278,490 L294,504 L316,500 L320,488" stroke="#9a6830" stroke-width="18" stroke-linejoin="round" fill="none" stroke-linecap="round"/>
+    <path d="M360,440 L336,494 L354,508 L376,502 L376,490" stroke="#9a6830" stroke-width="18" stroke-linejoin="round" fill="none" stroke-linecap="round"/>
+    <!-- Small front paws -->
+    <path d="M416,418 L390,448 L402,452" stroke="#9a6830" stroke-width="10" stroke-linecap="round"/>
+    <path d="M404,422 L382,450 L394,454" stroke="#9a6830" stroke-width="10" stroke-linecap="round"/>
+    <!-- Huge dark eye -->
+    <circle cx="434" cy="340" r="22" fill="#101010"/>
+    <circle cx="427" cy="334" r="8" fill="#3a2818" opacity="0.6"/>
+    <!-- Small ear -->
+    <ellipse cx="444" cy="296" rx="14" ry="22" fill="#c09050"/>
+    <ellipse cx="444" cy="296" rx="8" ry="14" fill="#d4a888" opacity="0.7"/>
+    <!-- Nose/snout -->
+    <ellipse cx="508" cy="362" rx="16" ry="10" fill="#b08060"/>
+    <!-- Whiskers -->
+    <path d="M504,360 L554,348 M504,364 L556,364 M504,368 L552,380" stroke="#8a6040" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <rect x="64" y="556" width="622" height="48" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="588" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#162016">Bio-Energy (Prey) • Common</text>
+
+  <rect x="64" y="618" width="622" height="292" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="662" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#8a5b34">Rules:</text>
+  <text x="84" y="700" font-family="Arial, sans-serif" font-size="24" fill="#000000">Provides 1 Prey Bio-Energy per turn.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Arid Basin</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A015 • Kangaroo Rat</text>
+</svg>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A014 Cottontail Rabbit</title>
+  <desc id="desc">ITW-A014 Cottontail Rabbit. Common. Bio-Energy (Prey). Cost 0. Provides 1 Prey Bio-Energy per turn. BiomeTag Grassland. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+    <linearGradient id="rabbitArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8ab068"/>
+      <stop offset="50%" stop-color="#b0c870"/>
+      <stop offset="100%" stop-color="#7a9450"/>
+    </linearGradient>
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#1c241c" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#435d44" stroke-width="4"/>
+
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#162016">Cottontail Rabbit</text>
+
+  <circle cx="632" cy="102" r="21" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="632" y="109" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">0</text>
+
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#rabbitArtBg)"/>
+    <!-- Ground/grass -->
+    <path d="M64,480 C140,456 250,468 370,462 C490,456 590,478 686,470 L686,540 L64,540 Z" fill="#608040"/>
+    <!-- Grass tufts -->
+    <path d="M120,480 L116,454 M128,480 L132,452 M138,480 L134,456" stroke="#4a6830" stroke-width="5" stroke-linecap="round"/>
+    <path d="M200,476 L196,452 M208,476 L212,450" stroke="#4a6830" stroke-width="5" stroke-linecap="round"/>
+    <path d="M540,474 L536,450 M548,474 L552,450 M558,476 L554,454" stroke="#4a6830" stroke-width="5" stroke-linecap="round"/>
+    <!-- Rabbit body -->
+    <ellipse cx="374" cy="390" rx="130" ry="82" fill="#c0a068"/>
+    <!-- Rabbit head (facing left) -->
+    <circle cx="256" cy="334" r="64" fill="#b89058"/>
+    <!-- Ear 1 (left, upright) -->
+    <ellipse cx="228" cy="246" rx="20" ry="68" fill="#b89058" transform="rotate(-8 228 246)"/>
+    <ellipse cx="228" cy="248" rx="10" ry="54" fill="#d4908a" opacity="0.8" transform="rotate(-8 228 248)"/>
+    <!-- Ear 2 (right, slightly spread) -->
+    <ellipse cx="274" cy="240" rx="20" ry="68" fill="#b89058" transform="rotate(6 274 240)"/>
+    <ellipse cx="274" cy="242" rx="10" ry="54" fill="#d4908a" opacity="0.8" transform="rotate(6 274 242)"/>
+    <!-- Belly fur (lighter) -->
+    <ellipse cx="380" cy="408" rx="80" ry="58" fill="#dcc888" opacity="0.65"/>
+    <!-- Cotton tail (white puff) -->
+    <circle cx="498" cy="392" r="36" fill="#e8e4dc"/>
+    <circle cx="498" cy="390" r="24" fill="#f8f6f2"/>
+    <!-- Eye -->
+    <circle cx="230" cy="326" r="12" fill="#101010"/>
+    <circle cx="226" cy="322" r="4" fill="#604030"/>
+    <!-- Nose -->
+    <ellipse cx="196" cy="352" rx="8" ry="6" fill="#d4908a"/>
+    <!-- Whiskers -->
+    <path d="M194,350 L154,340 M192,354 L150,356 M192,358 L154,370" stroke="#9a8060" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Front paws -->
+    <ellipse cx="282" cy="462" rx="28" ry="14" fill="#b89058" transform="rotate(-20 282 462)"/>
+    <ellipse cx="324" cy="468" rx="30" ry="14" fill="#b89058" transform="rotate(-10 324 468)"/>
+    <!-- Large back legs -->
+    <ellipse cx="444" cy="460" rx="52" ry="22" fill="#c0a068" transform="rotate(-28 444 460)"/>
+    <ellipse cx="492" cy="470" rx="48" ry="20" fill="#c0a068" transform="rotate(14 492 470)"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <rect x="64" y="556" width="622" height="48" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="588" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#162016">Bio-Energy (Prey) • Common</text>
+
+  <rect x="64" y="618" width="622" height="292" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="662" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#8a5b34">Rules:</text>
+  <text x="84" y="700" font-family="Arial, sans-serif" font-size="24" fill="#000000">Provides 1 Prey Bio-Energy per turn.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Grassland</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A014 • Cottontail Rabbit</text>
+</svg>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A016 Greater Roadrunner</title>
+  <desc id="desc">ITW-A016 Greater Roadrunner. Uncommon. Predator. Cost 1 Water + 1 Prey. HP 2. ATK 3. Deals double combat damage to Lizard cards. BiomeTag Sonoran Desert. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+    <linearGradient id="roadrunnerArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c87840"/>
+      <stop offset="52%" stop-color="#a86030"/>
+      <stop offset="100%" stop-color="#7a4418"/>
+    </linearGradient>
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- Card frame (Uncommon: amber border accent) -->
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#2c1e06" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#8a6a20" stroke-width="4"/>
+
+  <!-- Name bar -->
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#162016">Greater Roadrunner</text>
+
+  <!-- Cost circles: 1W (blue) + 1P (brown) -->
+  <circle cx="609" cy="102" r="18" fill="#2b5c8f" stroke="#162016" stroke-width="2"/>
+  <text x="609" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W</text>
+  <circle cx="653" cy="102" r="18" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="653" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">P</text>
+
+  <!-- Art section -->
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#roadrunnerArtBg)"/>
+    <!-- Desert ground -->
+    <path d="M64,478 C170,458 280,468 400,462 C520,456 610,480 686,470 L686,540 L64,540 Z" fill="#7a4418"/>
+    <!-- Rocks -->
+    <ellipse cx="560" cy="472" rx="44" ry="22" fill="#8a6040"/>
+    <ellipse cx="548" cy="462" rx="28" ry="16" fill="#9a7050"/>
+    <ellipse cx="150" cy="476" rx="36" ry="18" fill="#8a6040"/>
+    <!-- Roadrunner body (horizontal, running stance) -->
+    <ellipse cx="370" cy="380" rx="140" ry="60" fill="#6a5030" transform="rotate(-8 370 380)"/>
+    <!-- Tail (long, raised at angle) -->
+    <path d="M502,348 L590,262 M498,360 L586,282 M494,372 L580,304 M490,382 L572,326" stroke="#4a3820" stroke-width="14" stroke-linecap="round"/>
+    <!-- Neck -->
+    <ellipse cx="244" cy="358" rx="34" ry="50" fill="#6a5030" transform="rotate(15 244 358)"/>
+    <!-- Head (with crest) -->
+    <ellipse cx="220" cy="316" rx="50" ry="38" fill="#5a4028"/>
+    <!-- Crest feathers -->
+    <path d="M220,278 L214,240 M228,280 L234,242 M210,282 L200,246" stroke="#3a2818" stroke-width="8" stroke-linecap="round"/>
+    <!-- White/cream throat -->
+    <ellipse cx="218" cy="330" rx="26" ry="18" fill="#d8c898" opacity="0.8"/>
+    <!-- Streaked body pattern -->
+    <path d="M280,362 L310,348 M290,374 L322,360 M300,386 L334,372 M310,398 L346,384 M320,410 L360,396" stroke="#dcd0a8" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <!-- Blue-red eye patch -->
+    <ellipse cx="200" cy="312" rx="18" ry="10" fill="#2244aa" opacity="0.7"/>
+    <ellipse cx="218" cy="312" rx="14" ry="8" fill="#cc2222" opacity="0.6"/>
+    <!-- Eye -->
+    <circle cx="200" cy="310" r="9" fill="#101010"/>
+    <circle cx="197" cy="307" r="3" fill="#605040"/>
+    <!-- Long beak (straight) -->
+    <path d="M174,318 L106,310 L174,326 Z" fill="#4a3818"/>
+    <!-- Running legs (spread apart) -->
+    <path d="M298,424 L270,480 L248,488 M270,480 L286,490" stroke="#4a3818" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M368,428 L360,488 L336,498 M360,488 L378,500" stroke="#4a3818" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <!-- HP Badge (green, bottom-left of art) -->
+  <rect x="68" y="516" width="88" height="40" rx="8" fill="#1a5c1a" stroke="#162016" stroke-width="2"/>
+  <text x="112" y="542" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">HP: 2</text>
+
+  <!-- ATK Badge (red, bottom-right of art) -->
+  <rect x="594" y="516" width="88" height="40" rx="8" fill="#8a1a1a" stroke="#162016" stroke-width="2"/>
+  <text x="638" y="542" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">ATK: 3</text>
+
+  <!-- Type bar -->
+  <rect x="64" y="568" width="622" height="44" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="597" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#162016">Predator • Uncommon</text>
+
+  <!-- Rules box -->
+  <rect x="64" y="626" width="622" height="284" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="668" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8a5b34">Rules:</text>
+  <text x="84" y="704" font-family="Arial, sans-serif" font-size="22" fill="#000000">Deals double combat damage</text>
+  <text x="84" y="732" font-family="Arial, sans-serif" font-size="22" fill="#000000">to Lizard cards.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Sonoran Desert</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A016 • Greater Roadrunner</text>
+</svg>

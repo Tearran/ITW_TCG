@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in"
+     height="3.5in"
+     viewBox="0 0 750 1050"
+     version="1.1"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">ITW-A019 Coyote</title>
+  <desc id="desc">ITW-A019 Coyote. Uncommon. Pack Predator. Cost 1 Water + 2 Prey. HP 3. ATK 3. Gains +1 ATK for each other Coyote you control. BiomeTag Multi-biome. ForestTag Tonto National Forest.</desc>
+
+  <defs>
+    <linearGradient id="usfsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c1f"/>
+      <stop offset="60%" stop-color="#162016"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+    <linearGradient id="usfsCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e3ded2"/>
+    </linearGradient>
+    <linearGradient id="coyoteArtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7a9060"/>
+      <stop offset="50%" stop-color="#a89050"/>
+      <stop offset="100%" stop-color="#806838"/>
+    </linearGradient>
+    <clipPath id="imageClip">
+      <rect x="64" y="190" width="622" height="350" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- Card frame (Uncommon: amber border accent) -->
+  <rect x="12" y="12" width="726" height="1026" rx="44" fill="#0b0e0b" stroke="#2c1e06" stroke-width="6"/>
+  <rect x="28" y="28" width="694" height="994" rx="30" fill="url(#usfsBg)" stroke="#8a6a20" stroke-width="4"/>
+
+  <!-- Name bar -->
+  <rect x="64" y="64" width="622" height="76" rx="10" fill="url(#usfsCream)" stroke="#1a261a" stroke-width="3"/>
+  <text x="84" y="112" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#162016">Coyote</text>
+
+  <!-- Cost circles: 1W + 2P -->
+  <circle cx="565" cy="102" r="18" fill="#2b5c8f" stroke="#162016" stroke-width="2"/>
+  <text x="565" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W</text>
+  <circle cx="609" cy="102" r="18" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="609" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">P</text>
+  <circle cx="653" cy="102" r="18" fill="#8a5b34" stroke="#162016" stroke-width="2"/>
+  <text x="653" y="109" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">P</text>
+
+  <!-- Art section -->
+  <g clip-path="url(#imageClip)">
+    <rect x="64" y="190" width="622" height="350" fill="url(#coyoteArtBg)"/>
+    <!-- Mixed terrain ground -->
+    <path d="M64,478 C160,456 270,466 390,460 C510,454 604,478 686,466 L686,540 L64,540 Z" fill="#6a5030"/>
+    <!-- Low scrub brush -->
+    <ellipse cx="140" cy="474" rx="44" ry="24" fill="#5a6a30"/>
+    <ellipse cx="126" cy="458" rx="28" ry="18" fill="#6a7a3a"/>
+    <ellipse cx="590" cy="470" rx="38" ry="22" fill="#5a6a30"/>
+    <!-- Bushy tail (curving up and over the back) -->
+    <path d="M496,400 C548,366 586,330 590,296 C592,278 582,264 566,264 C548,264 538,280 546,298 C550,314 528,342 486,382" fill="none" stroke="#b08040" stroke-width="22" stroke-linecap="round"/>
+    <!-- Tail dark tip -->
+    <circle cx="566" cy="266" r="14" fill="#3a2810"/>
+    <!-- Coyote body -->
+    <ellipse cx="350" cy="384" rx="144" ry="68" fill="#b08840"/>
+    <!-- Belly (lighter) -->
+    <ellipse cx="350" cy="402" rx="96" ry="46" fill="#d4c080" opacity="0.6"/>
+    <!-- Neck -->
+    <ellipse cx="222" cy="352" rx="36" ry="50" fill="#b08840"/>
+    <!-- Head -->
+    <circle cx="196" cy="304" r="60" fill="#a07838"/>
+    <!-- Muzzle (elongated) -->
+    <ellipse cx="152" cy="320" rx="48" ry="30" fill="#a07838"/>
+    <!-- Nose (black) -->
+    <ellipse cx="108" cy="316" rx="12" ry="9" fill="#1a1208"/>
+    <!-- Cream face patches -->
+    <ellipse cx="148" cy="328" rx="26" ry="18" fill="#d8c888" opacity="0.7"/>
+    <!-- Pointed ears (upright, alert) -->
+    <!-- Left ear -->
+    <path d="M164,258 L146,194 L198,234 Z" fill="#a07838"/>
+    <path d="M168,256 L154,202 L192,238 Z" fill="#c0945a" opacity="0.7"/>
+    <!-- Right ear -->
+    <path d="M218,250 L220,184 L264,230 Z" fill="#a07838"/>
+    <path d="M222,250 L226,192 L258,234 Z" fill="#c0945a" opacity="0.7"/>
+    <!-- Eye (alert, amber) -->
+    <circle cx="172" cy="300" r="11" fill="#101010"/>
+    <circle cx="168" cy="296" r="4" fill="#c09020"/>
+    <!-- Whiskers -->
+    <path d="M140,318 L96,306 M138,322 L92,324 M138,326 L98,338" stroke="#d0c090" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Legs (slender, alert stance) -->
+    <path d="M270,440 L264,492 L248,502 M264,492 L280,504" stroke="#906828" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M330,444 L326,496 L310,506 M326,496 L342,508" stroke="#906828" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M410,448 L406,498 L390,508 M406,498 L422,510" stroke="#906828" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M468,446 L466,494 L450,504 M466,494 L482,506" stroke="#906828" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <rect x="64" y="190" width="622" height="350" rx="12" fill="none" stroke="#162016" stroke-width="3"/>
+
+  <!-- HP Badge -->
+  <rect x="68" y="516" width="88" height="40" rx="8" fill="#1a5c1a" stroke="#162016" stroke-width="2"/>
+  <text x="112" y="542" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">HP: 3</text>
+
+  <!-- ATK Badge -->
+  <rect x="594" y="516" width="88" height="40" rx="8" fill="#8a1a1a" stroke="#162016" stroke-width="2"/>
+  <text x="638" y="542" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">ATK: 3</text>
+
+  <!-- Type bar -->
+  <rect x="64" y="568" width="622" height="44" rx="8" fill="url(#usfsCream)" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="597" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#162016">Pack Predator • Uncommon</text>
+
+  <!-- Rules box -->
+  <rect x="64" y="626" width="622" height="284" rx="12" fill="#fbfaf7" stroke="#162016" stroke-width="2.5"/>
+  <text x="84" y="668" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8a5b34">Rules:</text>
+  <text x="84" y="704" font-family="Arial, sans-serif" font-size="22" fill="#000000">Gains +1 ATK for each other</text>
+  <text x="84" y="732" font-family="Arial, sans-serif" font-size="22" fill="#000000">Coyote you control.</text>
+
+  <line x1="84" y1="818" x2="666" y2="818" stroke="#d8cdbf" stroke-width="2"/>
+  <text x="84" y="850" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">BiomeTag: Multi-biome</text>
+  <text x="84" y="876" font-family="Georgia, serif" font-size="18" fill="#5c4436" font-style="italic">ForestTag: Tonto National Forest</text>
+
+  <text x="70" y="985" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#d8d4c9">ITW-A • ITW-A019 • Coyote</text>
+</svg>
