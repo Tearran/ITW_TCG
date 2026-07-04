@@ -24,7 +24,7 @@ Each turn has five phases:
 2. **Draw Phase**
 3. **Play Phase**
 4. **Combat Phase**
-5. **End Phase**
+5. **End Phase** (score Biome Stability, clear Organism damage)
 
 ---
 
