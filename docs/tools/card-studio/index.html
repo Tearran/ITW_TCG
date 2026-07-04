@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Into the Wild Card Studio</title>
+  <meta name="description" content="Production card studio for Into the Wild TCG — offline, print-ready." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── App Header ──────────────────────────────────────────────────────── -->
+  <header class="app-header">
+    <div class="app-header__brand">
+      <span class="app-header__title">Into the Wild Card Studio</span>
+      <span class="app-header__subtitle">Offline · Print-Ready · ES2023</span>
+    </div>
+    <nav class="app-header__nav">
+      <a href="../../index.html" class="header-link">← Docs Home</a>
+    </nav>
+  </header>
+
+  <!-- ── Toast Notification ───────────────────────────────────────────────── -->
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <!-- ── Three-Column Layout ──────────────────────────────────────────────── -->
+  <div class="app-grid">
+
+    <!-- ══════════════════════════════════════════════════════════════
+         LEFT COLUMN: Library, search, filter, card list
+    ══════════════════════════════════════════════════════════════ -->
+    <aside class="panel panel--library" aria-label="Card library">
+
+      <div class="panel__header">
+        <h2 class="panel__title">Card Library</h2>
+        <span class="lib-count" id="libCount">0 cards</span>
+      </div>
+
+      <!-- Search & filter bar -->
+      <div class="lib-controls">
+        <label class="sr-only" for="searchInput">Search cards</label>
+        <input id="searchInput" type="search" class="input input--search"
+               placeholder="Search name, habitat, tag…" autocomplete="off" />
+
+        <label class="sr-only" for="filterTemplate">Filter by template</label>
+        <select id="filterTemplate" class="select select--compact"></select>
+
+        <div class="sort-row">
+          <label class="sr-only" for="sortKey">Sort by</label>
+          <select id="sortKey" class="select select--compact">
+            <option value="name">Name</option>
+            <option value="rarity">Rarity</option>
+            <option value="template">Template</option>
+            <option value="cardNumber">Number</option>
+            <option value="updatedAt">Modified</option>
+          </select>
+          <button id="sortDirBtn" class="btn btn--icon" title="Toggle sort direction">↑ ASC</button>
+        </div>
+      </div>
+
+      <!-- Card list -->
+      <ul id="libraryList" class="lib-list" role="listbox" aria-label="Card list"></ul>
+
+      <!-- Library actions -->
+      <div class="lib-actions">
+        <button id="btnNew"       class="btn btn--primary btn--sm">＋ New</button>
+        <button id="btnDuplicate" class="btn btn--secondary btn--sm">⧉ Duplicate</button>
+        <button id="btnDelete"    class="btn btn--danger btn--sm">✕ Delete</button>
+      </div>
+      <div class="lib-actions">
+        <button id="btnUndo" class="btn btn--ghost btn--sm" disabled>↩ Undo</button>
+        <button id="btnRedo" class="btn btn--ghost btn--sm" disabled>↪ Redo</button>
+      </div>
+      <div class="lib-actions lib-actions--io">
+        <button id="btnExportLibrary" class="btn btn--ghost btn--sm">↓ Save Library</button>
+        <label  class="btn btn--ghost btn--sm" for="loadLibraryInput">↑ Load Library</label>
+        <input  id="loadLibraryInput" type="file" accept=".json,application/json"
+                multiple class="sr-only" />
+      </div>
+    </aside>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         CENTER COLUMN: Tabbed card editor
+    ══════════════════════════════════════════════════════════════ -->
+    <main class="panel panel--editor" id="editorPanel" aria-label="Card editor">
+
+      <div class="panel__header">
+        <h2 class="panel__title">Card Editor</h2>
+      </div>
+
+      <!-- Tab navigation -->
+      <nav class="editor-tabs" role="tablist" aria-label="Editor tabs">
+        <button class="editor-tab-btn active" data-tab="general"  role="tab">General</button>
+        <button class="editor-tab-btn"        data-tab="artwork"  role="tab">Artwork</button>
+        <button class="editor-tab-btn"        data-tab="gameplay" role="tab">Gameplay</button>
+        <button class="editor-tab-btn"        data-tab="text"     role="tab">Text</button>
+        <button class="editor-tab-btn"        data-tab="metadata" role="tab">Metadata</button>
+      </nav>
+
+      <div class="editor-body">
+
+        <!-- ── TAB: General ─────────────────────────────────────────── -->
+        <section class="editor-tab-content" data-tab="general" role="tabpanel">
+          <fieldset class="fieldset">
+            <legend>Identity</legend>
+
+            <label class="field-label" for="edName">Card Name</label>
+            <input id="edName" type="text" class="input" autocomplete="off" />
+
+            <label class="field-label" for="edScientificName">Scientific Name</label>
+            <input id="edScientificName" type="text" class="input" autocomplete="off"
+                   placeholder="Genus species" />
+
+            <label class="field-label" for="edTemplate">Template</label>
+            <select id="edTemplate" class="select"></select>
+
+            <label class="field-label" for="edCategory">Category / Subtype</label>
+            <input id="edCategory" type="text" class="input"
+                   placeholder="e.g. Flora — Succulent" autocomplete="off" />
+
+            <label class="field-label" for="edHabitat">Habitat / Biome</label>
+            <input id="edHabitat" type="text" class="input"
+                   placeholder="e.g. Sonoran Desert" autocomplete="off" />
+
+            <label class="field-label" for="edRarity">Rarity</label>
+            <select id="edRarity" class="select">
+              <option>Common</option>
+              <option>Uncommon</option>
+              <option>Rare</option>
+              <option>Epic</option>
+              <option>Legendary</option>
+              <option>Unique</option>
+            </select>
+          </fieldset>
+        </section>
+
+        <!-- ── TAB: Artwork ─────────────────────────────────────────── -->
+        <section class="editor-tab-content" data-tab="artwork" hidden role="tabpanel">
+          <fieldset class="fieldset">
+            <legend>Artwork</legend>
+
+            <!-- Drop zone -->
+            <div id="artDropZone" class="art-dropzone" aria-label="Artwork drop zone">
+              <img id="artThumb" class="art-thumb" alt="Artwork thumbnail" hidden />
+              <p class="art-dropzone__hint">
+                Drag &amp; drop image here,<br/>
+                paste from clipboard,<br/>
+                or choose a file below.
+              </p>
+            </div>
+
+            <label class="btn btn--ghost btn--sm art-file-label" for="edArtFile">
+              Choose Image…
+            </label>
+            <input id="edArtFile" type="file"
+                   accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                   class="sr-only" />
+
+            <p class="field-help">Supported: PNG, JPG, WEBP, SVG. Local only — no URLs.</p>
+
+            <!-- Zoom / pan controls -->
+            <div class="art-controls">
+              <button id="artZoomIn"  class="btn btn--icon" title="Zoom in">＋</button>
+              <span   id="artZoomDisplay" class="art-zoom-label">100%</span>
+              <button id="artZoomOut" class="btn btn--icon" title="Zoom out">－</button>
+              <button id="artReset"   class="btn btn--ghost btn--sm">Reset</button>
+              <button id="artClear"   class="btn btn--ghost btn--sm">Clear</button>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ── TAB: Gameplay ────────────────────────────────────────── -->
+        <section class="editor-tab-content" data-tab="gameplay" hidden role="tabpanel">
+          <fieldset class="fieldset">
+            <legend>Cost (Bio-Energy)</legend>
+            <div class="stat-row">
+              <label class="field-label" for="edCostWater">Water</label>
+              <input id="edCostWater" type="number" class="input input--stat"
+                     min="0" max="99" step="1" value="0" />
+
+              <label class="field-label" for="edCostFlora">Flora</label>
+              <input id="edCostFlora" type="number" class="input input--stat"
+                     min="0" max="99" step="1" value="0" />
+
+              <label class="field-label" for="edCostFauna">Fauna</label>
+              <input id="edCostFauna" type="number" class="input input--stat"
+                     min="0" max="99" step="1" value="0" />
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend>Statistics</legend>
+            <div class="stat-row">
+              <label class="field-label" for="edAttack">Attack</label>
+              <input id="edAttack" type="number" class="input input--stat"
+                     min="0" max="99" step="1" value="0" />
+
+              <label class="field-label" for="edHealth">Health</label>
+              <input id="edHealth" type="number" class="input input--stat"
+                     min="0" max="99" step="1" value="0" />
+
+              <label class="field-label" for="edDefense">Defense</label>
+              <input id="edDefense" type="number" class="input input--stat"
+                     min="0" max="99" step="1" value="0" />
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ── TAB: Text ────────────────────────────────────────────── -->
+        <section class="editor-tab-content" data-tab="text" hidden role="tabpanel">
+          <fieldset class="fieldset">
+            <legend>Card Text</legend>
+
+            <label class="field-label" for="edAbility">Ability / Rules Text</label>
+            <textarea id="edAbility" class="textarea" rows="4"
+                      placeholder="Mechanic or ability description."></textarea>
+
+            <label class="field-label" for="edFact">Fact Box</label>
+            <textarea id="edFact" class="textarea" rows="3"
+                      placeholder="Real-world fact about the organism or subject."></textarea>
+
+            <label class="field-label" for="edFlavor">Flavor Text</label>
+            <textarea id="edFlavor" class="textarea" rows="2"
+                      placeholder="Italic lore / atmospheric quote."></textarea>
+          </fieldset>
+        </section>
+
+        <!-- ── TAB: Metadata ────────────────────────────────────────── -->
+        <section class="editor-tab-content" data-tab="metadata" hidden role="tabpanel">
+          <fieldset class="fieldset">
+            <legend>Print / Collector Info</legend>
+
+            <label class="field-label" for="edExpansion">Expansion</label>
+            <input id="edExpansion" type="text" class="input"
+                   placeholder="ITW-A" autocomplete="off" />
+
+            <label class="field-label" for="edCardNumber">Collector Number</label>
+            <input id="edCardNumber" type="text" class="input"
+                   placeholder="001" autocomplete="off" />
+
+            <label class="field-label" for="edArtist">Artist</label>
+            <input id="edArtist" type="text" class="input" autocomplete="off" />
+
+            <label class="field-label" for="edCopyright">Copyright Line</label>
+            <input id="edCopyright" type="text" class="input"
+                   value="© Into the Wild TCG" autocomplete="off" />
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend>Tags &amp; Notes</legend>
+
+            <label class="field-label" for="edTags">Tags (comma-separated)</label>
+            <input id="edTags" type="text" class="input"
+                   placeholder="desert, bird, predator" autocomplete="off" />
+
+            <label class="field-label" for="edKeywords">Keywords</label>
+            <input id="edKeywords" type="text" class="input"
+                   placeholder="Flying, Ambush" autocomplete="off" />
+
+            <label class="field-label" for="edNotes">Internal Notes</label>
+            <textarea id="edNotes" class="textarea" rows="2"
+                      placeholder="Private notes (not printed)."></textarea>
+          </fieldset>
+        </section>
+
+      </div><!-- /editor-body -->
+
+      <!-- Export actions (always visible at bottom of editor) -->
+      <div class="export-bar">
+        <span class="export-bar__label">Export:</span>
+        <button id="btnExportSvg"      class="btn btn--export">SVG</button>
+        <button id="btnExportPng"      class="btn btn--export">PNG</button>
+        <button id="btnExportJpg"      class="btn btn--export">JPG</button>
+        <button id="btnExportCardJson" class="btn btn--export">Card JSON</button>
+      </div>
+
+    </main>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         RIGHT COLUMN: Live preview + guide controls
+    ══════════════════════════════════════════════════════════════ -->
+    <aside class="panel panel--preview" aria-label="Card preview">
+
+      <div class="panel__header">
+        <h2 class="panel__title">Live Preview</h2>
+        <span id="printSizeLabel" class="print-size-label">825 × 1125 px @ 300 DPI</span>
+      </div>
+
+      <!-- Guide toggles -->
+      <div class="guide-toggles">
+        <span class="guide-toggles__label">Guides:</span>
+        <label class="toggle-label">
+          <input id="guideBleed" type="checkbox" class="toggle-checkbox" />
+          <span class="toggle-text bleed-text">Bleed</span>
+        </label>
+        <label class="toggle-label">
+          <input id="guideTrim"  type="checkbox" class="toggle-checkbox" checked />
+          <span class="toggle-text trim-text">Trim</span>
+        </label>
+        <label class="toggle-label">
+          <input id="guideSafe"  type="checkbox" class="toggle-checkbox" checked />
+          <span class="toggle-text safe-text">Safe</span>
+        </label>
+      </div>
+
+      <!-- Zoom slider -->
+      <div class="zoom-control">
+        <label class="zoom-control__label" for="previewZoomRange">Zoom</label>
+        <input id="previewZoomRange" type="range"
+               min="0.15" max="1.0" step="0.01" value="0.4" class="zoom-range" />
+        <span id="previewZoomLabel" class="zoom-value">40%</span>
+      </div>
+
+      <!-- Card preview area -->
+      <div id="previewContainer" class="preview-container" aria-live="polite">
+        <p class="preview-empty">Loading…</p>
+      </div>
+
+    </aside>
+
+  </div><!-- /app-grid -->
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
