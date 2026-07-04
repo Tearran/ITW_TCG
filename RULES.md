@@ -69,7 +69,7 @@ Organisms use two stats:
 - **Attack / Health**
 
 ### Combat rules
-- Ready Organisms may attack during Combat Phase.
+- Each ready Organism may attack once during Combat Phase, then becomes exhausted.
 - Combat is between Organisms.
 - Damage dealt equals the attacker’s **Attack**.
 - If an Organism’s accumulated damage is equal to or greater than its **Health**, discard it.
