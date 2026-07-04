@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Into the Wild - Trading Card Editor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Into the Wild - Trading Card Editor</h1>
+    <p>Offline-first editor (HTML/CSS/Vanilla JS)</p>
+  </header>
+
+  <main class="app-grid">
+    <!-- LEFT: EDITOR -->
+    <section class="panel editor-panel" aria-label="Card editor panel">
+      <h2>Card Editor</h2>
+
+      <form id="cardForm" autocomplete="off">
+        <fieldset>
+          <legend>General</legend>
+
+          <label for="name">Card Name</label>
+          <input id="name" type="text" />
+
+          <label for="scientificName">Scientific Name</label>
+          <input id="scientificName" type="text" />
+
+          <label for="cardNumber">Card Number</label>
+          <input id="cardNumber" type="text" placeholder="001/180" />
+
+          <label for="expansion">Expansion</label>
+          <input id="expansion" type="text" placeholder="ITW-Base" />
+
+          <label for="rarity">Rarity</label>
+          <select id="rarity">
+            <option>Common</option>
+            <option>Uncommon</option>
+            <option>Rare</option>
+            <option>Epic</option>
+            <option>Legendary</option>
+            <option>Unique</option>
+          </select>
+
+          <label for="category">Category</label>
+          <select id="category"></select>
+
+          <label for="customCategory">Custom Category (optional)</label>
+          <input id="customCategory" type="text" placeholder="Leave blank to use selected category" />
+
+          <label for="habitat">Habitat</label>
+          <input id="habitat" type="text" />
+
+          <label for="artist">Artist</label>
+          <input id="artist" type="text" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Illustration</legend>
+
+          <label for="illustrationType">Illustration Source Type</label>
+          <select id="illustrationType">
+            <option value="path">Path</option>
+            <option value="url">URL</option>
+            <option value="local">Local file</option>
+          </select>
+
+          <label for="illustrationValue">Illustration Reference (path or URL)</label>
+          <input id="illustrationValue" type="text" placeholder="images/card.png or https://..." />
+
+          <label for="illustrationFile">Select Local Image (preview only)</label>
+          <input id="illustrationFile" type="file" accept="image/*" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Game Data (Cost)</legend>
+
+          <label for="costWater">Water Cost</label>
+          <input id="costWater" type="number" min="0" step="1" value="0" />
+
+          <label for="costFlora">Flora Cost</label>
+          <input id="costFlora" type="number" min="0" step="1" value="0" />
+
+          <label for="costFauna">Fauna Cost</label>
+          <input id="costFauna" type="number" min="0" step="1" value="0" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Statistics</legend>
+
+          <label for="attack">Attack</label>
+          <input id="attack" type="number" min="0" step="1" value="0" />
+
+          <label for="health">Health</label>
+          <input id="health" type="number" min="0" step="1" value="0" />
+
+          <label for="defense">Defense</label>
+          <input id="defense" type="number" min="0" step="1" value="0" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Text</legend>
+
+          <label for="ability">Ability</label>
+          <textarea id="ability" rows="3"></textarea>
+
+          
+          <textarea id="fact" rows="2"></textarea>
+
+          <label for="flavor">Flavor Text</label>
+          <textarea id="flavor" rows="2"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Optional</legend>
+
+          <label for="tags">Tags (comma-separated)</label>
+          <input id="tags" type="text" placeholder="desert, bird, speed" />
+
+          <label for="keywords">Keywords (comma-separated)</label>
+          <input id="keywords" type="text" placeholder="ambush, strike" />
+
+          <label for="notes">Notes</label>
+          <textarea id="notes" rows="2"></textarea>
+
+          <label for="template">Template</label>
+          <select id="template">
+            <option value="organism">Organism</option>
+            <option value="resource">Resource</option>
+            <option value="weather">Weather</option>
+            <option value="cataclysm">Cataclysm</option>
+            <option value="landmark">Landmark</option>
+          </select>
+        </fieldset>
+      </form>
+
+      <section class="action-grid" aria-label="Card actions">
+        <button id="newCardBtn" type="button">New Card</button>
+        <button id="duplicateCardBtn" type="button">Duplicate Card</button>
+        <button id="deleteCardBtn" type="button">Delete Card</button>
+        <button id="saveCurrentJsonBtn" type="button">Save Card JSON</button>
+        <button id="saveLibraryJsonBtn" type="button">Export Library JSON</button>
+        <label class="button-like" for="loadJsonInput">Load JSON</label>
+        <input id="loadJsonInput" type="file" accept=".json,application/json" multiple />
+        <button id="exportSvgBtn" type="button">Export SVG</button>
+        <button id="exportPngBtn" type="button">Export PNG</button>
+        <button id="printBtn" type="button">Print Card</button>
+      </section>
+    </section>
+
+    <!-- CENTER: PREVIEW -->
+    <section class="panel preview-panel" aria-label="Card preview panel">
+      <h2>Live Preview</h2>
+
+      <div id="cardStage">
+        <article id="card" class="card">
+          <div class="card-inner">
+            <header class="card-top">
+              <h3 id="pvName">Card Name</h3>
+              <div class="header-right">
+                <div class="cost-dot water"><span id="pvCostWater">0</span></div>
+                <div class="cost-dot flora"><span id="pvCostFlora">0</span></div>
+                <div class="cost-dot fauna"><span id="pvCostFauna">0</span></div>
+              </div>
+            </header>
+
+            <section class="scientific-line">
+              <span id="pvScientificName"></span>
+              <span id="pvRarity">Common</span>
+            </section>
+
+            <section class="art-frame">
+              <img id="pvImage" alt="Illustration preview" />
+              <div id="pvImagePlaceholder">No image loaded</div>
+            </section>
+
+            <section class="type-line">
+              <span id="pvCategory">Category</span>
+              <span id="pvHabitat">Habitat</span>
+            </section>
+
+            <section class="rules-box">
+              <h4>Ability</h4>
+              <p id="pvAbility"></p>
+              <h4>Fact</h4>
+              <p id="pvFact"></p>
+              <p id="pvFlavor" class="flavor"></p>
+            </section>
+
+            <footer class="card-footer">
+              <div class="footer-left">
+                <div id="pvExpansion">ITW-Base</div>
+                <div id="pvCardNumber">001/180</div>
+                <div id="pvArtist">Artist:</div>
+              </div>
+              <div class="stats-pill">
+                <div class="stat-item"><span class="label">ATK</span><span id="pvAttack">0</span></div>
+                <div class="divider"></div>
+                <div class="stat-item"><span class="label">HP</span><span id="pvHealth">0</span></div>
+                <div class="divider"></div>
+                <div class="stat-item"><span class="label">DEF</span><span id="pvDefense">0</span></div>
+              </div>
+            </footer>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RIGHT: LIBRARY -->
+    <section class="panel library-panel" aria-label="Card library panel">
+      <h2>Card Library</h2>
+
+      <label for="searchInput">Search</label>
+      <input id="searchInput" type="text" placeholder="name, scientific, habitat, category, expansion, tags, rarity" />
+
+      <ul id="libraryList" class="library-list" aria-label="Library list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

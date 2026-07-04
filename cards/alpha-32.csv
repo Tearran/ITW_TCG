@@ -1,33 +1,24 @@
-Set,CollectorID,Name,Rarity,Type,Cost,HP,ATK,RulesText,BiomeTag,ForestTag
-ITW-A,ITW-A001,Puddle,Common,Bio-Energy (Water),0,,,"Provides 1 Water Bio-Energy per turn.",Riparian,Tonto National Forest
-ITW-A,ITW-A002,River,Common,Bio-Energy (Water),0,,,"Provides 1 Water Bio-Energy per turn.",Riparian,Tonto National Forest
-ITW-A,ITW-A003,Theodore Roosevelt Lake,Unique,Unique Bio-Energy (Reservoir),0,,,"Provides 1 Water Bio-Energy per turn. At the start of your turn, gain +1 temporary Water this turn.",Reservoir,Tonto National Forest
-ITW-A,ITW-A004,Seeping Spring,Common,Bio-Energy (Water),0,,,"Provides 1 Water Bio-Energy per turn.",Upland,Tonto National Forest
-ITW-A,ITW-A005,Monsoon Runoff,Common,Bio-Energy (Water),0,,,"Provides 1 Water Bio-Energy per turn.",Seasonal Wash,Tonto National Forest
-ITW-A,ITW-A006,Prickly Pear Fruit,Common,Bio-Energy (Flora),0,,,"Provides 1 Flora Bio-Energy per turn.",Sonoran Desert,Tonto National Forest
-ITW-A,ITW-A007,Desert Alfalfa,Common,Bio-Energy (Flora),0,,,"Provides 1 Flora Bio-Energy per turn.",Grassland Edge,Tonto National Forest
-ITW-A,ITW-A008,Mesquite Pods,Common,Bio-Energy (Flora),0,,,"Provides 1 Flora Bio-Energy per turn.",Sonoran Desert,Tonto National Forest
-ITW-A,ITW-A009,Saguaro Nectar,Common,Bio-Energy (Flora),0,,,"Provides 1 Flora Bio-Energy per turn.",Sonoran Desert,Tonto National Forest
-ITW-A,ITW-A010,Cottonwood Seeds,Common,Bio-Energy (Flora),0,,,"Provides 1 Flora Bio-Energy per turn.",Riparian,Tonto National Forest
-ITW-A,ITW-A011,Mouse,Common,Bio-Energy (Prey),0,,,"Provides 1 Prey Bio-Energy per turn.",Desert Floor,Tonto National Forest
-ITW-A,ITW-A012,Desert Spiny Lizard,Common,Bio-Energy (Prey),0,,,"Provides 1 Prey Bio-Energy per turn.",Rocky Scrub,Tonto National Forest
-ITW-A,ITW-A013,Gambel's Quail,Common,Bio-Energy (Prey),0,,,"Provides 1 Prey Bio-Energy per turn.",Shrubland,Tonto National Forest
-ITW-A,ITW-A014,Cottontail Rabbit,Common,Bio-Energy (Prey),0,,,"Provides 1 Prey Bio-Energy per turn.",Grassland,Tonto National Forest
-ITW-A,ITW-A015,Kangaroo Rat,Common,Bio-Energy (Prey),0,,,"Provides 1 Prey Bio-Energy per turn.",Arid Basin,Tonto National Forest
-ITW-A,ITW-A016,Greater Roadrunner,Uncommon,Predator,1 Water + 1 Prey,2,3,"Deals double combat damage to Lizard cards.",Sonoran Desert,Tonto National Forest
-ITW-A,ITW-A017,Kit Fox,Uncommon,Predator,2 Prey,3,2,"Stealth (cannot be attacked the turn it enters the Habitat).",Desert Flats,Tonto National Forest
-ITW-A,ITW-A018,Bald Eagle,Rare,Apex Predator,2 Water + 2 Prey,4,4,"Flying (may bypass non-Flying defenders).",Cliffside/Riparian,Tonto National Forest
-ITW-A,ITW-A019,Coyote,Uncommon,Pack Predator,1 Water + 2 Prey,3,3,"Gains +1 ATK for each other Coyote you control.",Multi-biome,Tonto National Forest
-ITW-A,ITW-A020,Javelina,Uncommon,Territorial Fauna,2 Water + 1 Flora,5,2,"Trample (excess damage carries to Ecosystem Health).",Sonoran Desert,Tonto National Forest
-ITW-A,ITW-A021,Western Diamondback Rattlesnake,Uncommon,Venomous Predator,1 Prey + 1 Flora,2,2,"Venomous (creatures damaged by this card are composted at end of round).",Rocky Scrub,Tonto National Forest
-ITW-A,ITW-A022,Gila Monster,Rare,Predator,1 Water + 2 Flora,4,2,"Thick Scales 1 (reduce incoming damage from non-Apex predators by 1).",Desert Upland,Tonto National Forest
-ITW-A,ITW-A023,Bobcat,Uncommon,Predator,1 Water + 2 Prey,3,3,"Ambush: When this enters the Habitat, deal 1 damage to target Prey.",Canyon Brush,Tonto National Forest
-ITW-A,ITW-A024,Great Horned Owl,Uncommon,Predator,1 Water + 1 Prey + 1 Flora,3,2,"Flying. Night Hunt: +1 ATK while attacking Prey cards.",Woodland Edge,Tonto National Forest
-ITW-A,ITW-A025,Mule Deer,Common,Territorial Fauna,1 Water + 2 Flora,4,1,"Grazer: When played, you may gain 1 Flora Bio-Energy this turn only.",Woodland/Grassland,Tonto National Forest
-ITW-A,ITW-A026,Desert Tortoise,Common,Territorial Fauna,1 Water + 1 Flora,4,1,"Shell Guard: Reduce incoming combat damage by 1.",Desert Scrub,Tonto National Forest
-ITW-A,ITW-A027,Saguaro Sentinel,Common,Defensive Flora,2 Water + 1 Flora,5,0,"Thorns: When attacked, deal 1 damage to attacker.",Sonoran Desert,Tonto National Forest
-ITW-A,ITW-A028,Mesquite Thicket,Common,Defensive Flora,1 Water + 2 Flora,4,0,"Cover: Friendly Territorial Fauna behind this card take -1 damage from attacks.",Sonoran Desert,Tonto National Forest
-ITW-A,ITW-A029,Monsoon Thunderstorm,Rare,Instance,2 Water,,,"Deal 4 damage to one target.",Seasonal Storm,Tonto National Forest
-ITW-A,ITW-A030,High Desert Winds,Uncommon,Instance,2 Water + 2 Flora,,,"Return target Flying creature to its owner's Canopy.",High Desert,Tonto National Forest
-ITW-A,ITW-A031,Tonto Forest Fire,Rare,Cataclysm Instance,3 Prey + 3 Flora,,,"Deal 3 damage to all creatures in the Habitat and to both players.",Wildfire Event,Tonto National Forest
-ITW-A,ITW-A032,Heat Wave,Uncommon,Instance,3 Water,,,"Each player removes 1 active Water Bio-Energy source from play.",Extreme Weather,Tonto National Forest
+CollectorID,CommonName,ScientificName,DomainGroup,Subgroup,BiomeTag,ForestTag,FactualNote
+ITW-A006,Prickly Pear,Opuntia spp.,Flora,Succulent/Cactus,Sonoran Desert,Tonto National Forest,Cactus genus that stores water in pads and produces fruit used by wildlife.
+ITW-A007,Desert Alfalfa,Medicago sativa (desert forage context),Flora,Forb/Forage Plant,Grassland Edge,Tonto National Forest,Forage legume used by herbivores in open habitats.
+ITW-A008,Mesquite,Prosopis velutina (Arizona mesquite),Flora,Tree/Shrub,Sonoran Desert,Tonto National Forest,Produces pods that are consumed by mammals and birds.
+ITW-A009,Saguaro,Carnegiea gigantea,Flora,Succulent/Cactus,Sonoran Desert,Tonto National Forest,Large columnar cactus providing nectar fruit and nesting structure.
+ITW-A010,Fremont Cottonwood,Populus fremontii,Flora,Tree (Riparian),Riparian,Tonto National Forest,Riparian tree important for shade bank stability and habitat structure.
+ITW-A011,Mouse (deer mouse in-region),Peromyscus maniculatus (regional proxy),Fauna,Mammal - Small Prey,Desert Floor,Tonto National Forest,Small omnivorous rodent serving as prey for snakes, owls, and mesopredators.
+ITW-A012,Desert Spiny Lizard,Sceloporus magister,Fauna,Reptile - Insectivore/Prey,Rocky Scrub,Tonto National Forest,Diurnal lizard feeding mainly on arthropods and preyed on by larger predators.
+ITW-A013,Gambel's Quail,Callipepla gambelii,Fauna,Bird - Omnivore/Prey,Shrubland,Tonto National Forest,Ground-dwelling bird that feeds on seeds, shoots, and insects.
+ITW-A014,Desert Cottontail,Sylvilagus audubonii,Fauna,Mammal - Herbivore/Prey,Grassland,Tonto National Forest,Common rabbit browsing grasses and forbs, supporting predator populations.
+ITW-A015,Merriam's Kangaroo Rat,Dipodomys merriami,Fauna,Mammal - Granivore/Prey,Arid Basin,Tonto National Forest,Nocturnal seed specialist adapted to arid conditions.
+ITW-A016,Greater Roadrunner,Geococcyx californianus,Fauna,Bird - Predator,Sonoran Desert,Tonto National Forest,Fast terrestrial hunter of insects lizards and small vertebrates.
+ITW-A017,Kit Fox,Vulpes macrotis,Fauna,Mammal - Predator/Omnivore,Desert Flats,Tonto National Forest,Nocturnal small canid feeding on rodents insects and fruit.
+ITW-A018,Bald Eagle,Haliaeetus leucocephalus,Fauna,Bird - Apex Predator,Cliffside/Riparian,Tonto National Forest,Large raptor feeding on fish birds and medium-sized vertebrates.
+ITW-A019,Coyote,Canis latrans,Fauna,Mammal - Predator/Omnivore,Multi-biome,Tonto National Forest,Highly adaptable predator-scavenger across varied habitats.
+ITW-A020,Collared Peccary (Javelina),Pecari tajacu,Fauna,Mammal - Omnivore,Sonoran Desert,Tonto National Forest,Social ungulate feeding on cactus pads roots fruits and invertebrates.
+ITW-A021,Western Diamondback Rattlesnake,Crotalus atrox,Fauna,Reptile - Predator,Rocky Scrub,Tonto National Forest,Venomous ambush predator of rodents birds and small mammals.
+ITW-A022,Gila Monster,Heloderma suspectum,Fauna,Reptile - Predator/Omnivore,Desert Upland,Tonto National Forest,Venomous lizard feeding on eggs nestlings and small vertebrates.
+ITW-A023,Bobcat,Lynx rufus,Fauna,Mammal - Predator,Canyon Brush,Tonto National Forest,Solo mesopredator hunting rabbits rodents birds and reptiles.
+ITW-A024,Great Horned Owl,Bubo virginianus,Fauna,Bird - Predator,Woodland Edge,Tonto National Forest,Nocturnal raptor with broad prey range including mammals and birds.
+ITW-A025,Mule Deer,Odocoileus hemionus,Fauna,Mammal - Herbivore,Woodland/Grassland,Tonto National Forest,Browser-grazer feeding on shrubs forbs and grasses.
+ITW-A026,Desert Tortoise,Gopherus morafkai,Fauna,Reptile - Herbivore,Desert Scrub,Tonto National Forest,Long-lived herbivorous tortoise using burrows for thermal refuge.
+ITW-A027,Saguaro,Carnegiea gigantea,Flora,Succulent/Cactus,Sonoran Desert,Tonto National Forest,Keystone desert cactus supporting pollinators frugivores and nesting birds.
+ITW-A028,Mesquite,Prosopis velutina (Arizona mesquite),Flora,Tree/Shrub,Sonoran Desert,Tonto National Forest,Nitrogen-fixing woody plant creating shade and food resources in arid zones.
