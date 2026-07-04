@@ -57,7 +57,7 @@ During your Play Phase, you may play up to:
 
 - **1 Bio-Resource card**
 - **1 Organism card**
-- **1 Instant/Environmental card**
+- **1 Instance card**
 
 Cards resolve immediately unless a card states otherwise.
 
