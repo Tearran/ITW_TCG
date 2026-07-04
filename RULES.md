@@ -1,67 +1,109 @@
-# Into the Wild TCG — Rules (ALPHA v0.1)
+# Into the Wild TCG — Alpha Rules v0.1
 
 ## 1) Objective
-Reduce the opponent's **Ecosystem Health** from 20 to 0.
+Build a stable ecosystem before your opponent.
 
-## 2) Setup
-- Each player shuffles a 32+ card deck.
-- Each player draws 5 cards into the **Canopy**.
+- Each player starts at **0 Biome Stability**.
+- A player wins when their **Biome Stability reaches 10**.
+
+---
+
+## 2) Deck and Start
+- Recommended deck size for alpha: **40 cards**.
+- Shuffle your deck.
+- Each player draws **5 cards**.
 - Determine first player randomly.
-- Recommended balance rule: first player skips draw on turn 1.
+- The first player takes a normal first turn.
 
-## 3) Zones and Terms
-- **Canopy**: hand
-- **Habitat**: in-play area
-- **Compost Pile**: discard pile
-- **Bio-Energy Pool**: available resources this turn
+---
 
-## 4) Bio-Energy Types
-- **Water**
-- **Flora**
-- **Prey**
+## 3) Turn Structure
+Each turn has five phases:
 
-Bio-Energy cards typically have Cost 0 and provide 1 typed energy per turn while active.
+1. **Restore Phase**
+2. **Draw Phase**
+3. **Play Phase**
+4. **Combat Phase**
+5. **End Phase**
 
-## 5) Turn Phases
+---
 
-### Phase 1 — Regrowth
-1. Draw 1 card (except recommended first-player turn-1 skip).
-2. Ready all exhausted cards.
-3. Gain energy from active Bio-Energy sources.
+## 4) Restore and Draw
+### Restore Phase
+- Ready all exhausted cards you control.
+- Restore spent Bio-Resources so they are available again this turn.
 
-### Phase 2 — Habitat Development
-- Play cards from Canopy by paying listed costs.
-- Suggested alpha limiter: play at most 1 new Bio-Energy source per turn.
+### Draw Phase
+- Draw 1 card.
 
-### Phase 3 — Interaction (Attack/Defend)
-1. Active player declares attackers.
-2. Defender assigns blockers from Habitat.
-3. Resolve combat damage.
-4. Unblocked damage is dealt to opponent Ecosystem Health.
+---
 
-### Phase 4 — Composting
-- Any card at 0 Health is placed in the Compost Pile.
-- Active player discards down to 5 cards in Canopy.
+## 5) Bio-Resources
+Bio-Resource types are:
 
-## 6) Instances and Timing
-**Instance** cards may be played:
-- during your turn in valid windows,
-- during opponent turn in response windows.
+- Water
+- Flora
+- Fauna
 
-If a card is **Cataclysm Instance**, apply broad/global effects as written.
+Rules:
+- Card costs are paid using available Bio-Resources.
+- Spent Bio-Resources are unavailable for the rest of the turn.
+- All spent Bio-Resources restore at the start of your next turn.
 
-## 7) Keyword Definitions (Alpha)
-- **Stealth**: cannot be attacked the turn it enters Habitat.
-- **Flying**: can bypass non-Flying defenders unless otherwise stated.
-- **Trample**: excess combat damage carries to Ecosystem Health.
-- **Venomous**: damaged target is composted at end of round.
-- **Thick Scales X**: reduce incoming damage by X from specified sources.
+---
 
-## 8) Deck Construction (Alpha Suggested)
-- Deck minimum: 32 cards
-- Max copies per non-Unique card: 3
-- Unique cards: max 1 copy
+## 6) Play Phase Limits
+During your Play Phase, you may play up to:
 
-## 9) Win/Loss Conditions
-- A player loses when their Ecosystem Health is reduced to 0.
-- Optional alpha rule: if a player must draw but cannot, they lose.
+- **1 Bio-Resource card**
+- **1 Organism card**
+- **1 Instant/Environmental card**
+
+Cards resolve immediately unless a card states otherwise.
+
+---
+
+## 7) Organism Stats and Combat
+Organisms use two stats:
+
+- **Attack / Health**
+
+### Combat rules
+- Ready Organisms may attack during Combat Phase.
+- Combat is between Organisms.
+- Damage dealt equals the attacker’s **Attack**.
+- If an Organism’s accumulated damage is equal to or greater than its **Health**, discard it.
+- Clear Organism damage at End Phase.
+
+---
+
+## 8) Biome Stability Scoring
+At the end of your turn, score Biome Stability:
+
+### Resource Condition
+Gain **+1 Biome Stability** if you control at least one of each:
+
+- Water Resource
+- Flora Resource
+- Fauna Resource
+
+### Biodiversity Condition
+Gain **+1 Biome Stability** if you control at least one of each:
+
+- Apex Predator
+- Predator
+- Herbivore
+- Plant
+
+Each condition can be scored once per turn.
+
+---
+
+## 9) Empty Deck
+If you must draw a card and cannot, you lose.
+
+---
+
+## 10) Alpha Notes
+- This alpha ruleset is intended for gameplay testing.
+- Balance values, categories, and play limits may be adjusted after test sessions.
