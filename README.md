@@ -1,47 +1,33 @@
 # Into the Wild TCG
 
-Into the Wild is a turn-based trading card game (TCG) themed around U.S. national forest biomes, flora, fauna, and environmental events.
+Into the Wild is a turn-based card game based on U.S. biomes, with strong inspiration from U.S. Forest Service landscapes.
 
-## Alpha Scope
-- Set: **ALPHA v0.1**
-- Card pool: **32 cards**
-- Deck size: **32 minimum**
-- Starting hand: **5 cards**
-- Ecosystem Health: **20**
+## Status
+This project is in active alpha iteration.  
+Rules, card text, and formats may change as playtesting continues.
 
-## Core Terms
-- **Habitat**: in-play area (battle area)
-- **Canopy**: hand
-- **Compost Pile**: discard pile
-- **Bio-Energy Pool**: available Water/Flora/Prey resources
+## Source of Truth
+- `RULES.md` = current gameplay rules
+- `cards/` = current card data
 
-## Resource System
-Three Bio-Energy types:
-- Water
-- Flora
-- Prey
+This README stays general on purpose so it does not need frequent updates during alpha.
 
-Bio-Energy sources provide 1 energy of their type per turn while active.
+## Iteration Priority
+Current priority is fast, test-driven iteration:
+- clarify rules wording
+- test balance and pacing
+- refine card roles and interactions
+- keep data consistent with rules
 
-## Turn Structure
-1. **Regrowth** (draw + ready + gain energy)
-2. **Habitat Development** (play sources and habitat cards)
-3. **Interaction** (attack/defend)
-4. **Composting** (remove 0 health cards, discard down to 5)
-
-See `RULES.md` for full rules and timing.
-
-## Card Data
-- `cards/alpha-32.csv` contains the complete 32-card ALPHA list.
+## Feedback
+Use issues/PRs for:
+- playtest results
+- unclear rules text
+- balance concerns
+- card wording/data fixes
 
 ## Versioning
-- Initial target release tag: `v0.1.0-alpha`
-
-## Contributing
-Use Issues/PRs for:
-- balance feedback
-- rules wording clarification
-- card text consistency
+Alpha/pre-release tags may be used as needed.
 
 ## License
-TBD (recommended: CC BY-NC 4.0 for game content).
+TBD.
