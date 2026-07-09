@@ -111,30 +111,12 @@ const el = {
   exportPngBtn: document.getElementById("exportPngBtn"),
   printBtn: document.getElementById("printBtn"),
 
-  // Preview
-  pvName: document.getElementById("pvName"),
-  pvScientificName: document.getElementById("pvScientificName"),
-  pvRarity: document.getElementById("pvRarity"),
-  pvCostWater: document.getElementById("pvCostWater"),
-  pvCostFlora: document.getElementById("pvCostFlora"),
-  pvCostFauna: document.getElementById("pvCostFauna"),
-  pvCategory: document.getElementById("pvCategory"),
-  pvHabitat: document.getElementById("pvHabitat"),
-  pvAbility: document.getElementById("pvAbility"),
-  pvFact: document.getElementById("pvFact"),
-  pvFlavor: document.getElementById("pvFlavor"),
-  pvExpansion: document.getElementById("pvExpansion"),
-  pvCardNumber: document.getElementById("pvCardNumber"),
-  pvArtist: document.getElementById("pvArtist"),
-  pvAttack: document.getElementById("pvAttack"),
-  pvHealth: document.getElementById("pvHealth"),
-  pvDefense: document.getElementById("pvDefense"),
-  pvImage: document.getElementById("pvImage"),
-  pvImagePlaceholder: document.getElementById("pvImagePlaceholder"),
-
   // Library
   searchInput: document.getElementById("searchInput"),
-  libraryList: document.getElementById("libraryList")
+  libraryList: document.getElementById("libraryList"),
+
+  // Preview stage
+  cardStage: document.getElementById("cardStage")
 };
 
 /* =========================
@@ -218,6 +200,27 @@ function normalizeCard(raw) {
 function currentCard() {
   return state.cards[state.currentIndex];
 }
+function wrapText(text, maxChars, maxLines) {
+  const words = txt(text).split(/\s+/);
+  const lines = [];
+  let current = "";
+  for (const word of words) {
+    if (!word) continue;
+    if (!current) {
+      current = word;
+    } else if ((current + " " + word).length <= maxChars) {
+      current += " " + word;
+    } else {
+      lines.push(current);
+      if (lines.length >= maxLines) { current = ""; break; }
+      current = word;
+    }
+  }
+  if (current && lines.length < maxLines) lines.push(current);
+  while (lines.length < maxLines) lines.push("");
+  return lines;
+}
+
 function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -339,53 +342,14 @@ function readCardFromForm() {
    Preview
 ========================= */
 function resolvePreviewImage(card) {
-  // precedence: local selected file > URL type/value
   if (state.localImageDataUrl) return state.localImageDataUrl;
   if (card.illustration.type === "url" && card.illustration.value) return card.illustration.value;
-  return null; // path type shown as placeholder text
+  return null;
 }
 
 function renderPreview() {
   const card = currentCard();
-
-  setText(el.pvName, card.name || "Card Name");
-  setText(el.pvScientificName, card.scientificName || "");
-  setText(el.pvRarity, card.rarity || "Common");
-
-  setText(el.pvCostWater, String(card.cost.water));
-  setText(el.pvCostFlora, String(card.cost.flora));
-  setText(el.pvCostFauna, String(card.cost.fauna));
-
-  setText(el.pvCategory, card.category || "");
-  setText(el.pvHabitat, card.habitat || "");
-
-  setText(el.pvAbility, card.text.ability || "");
-  setText(el.pvFact, card.text.fact || "");
-  setText(el.pvFlavor, card.text.flavor || "");
-
-  setText(el.pvExpansion, card.expansion || "");
-  setText(el.pvCardNumber, card.cardNumber || "");
-  setText(el.pvArtist, `Artist: ${card.artist || ""}`);
-
-  setText(el.pvAttack, String(card.stats.attack));
-  setText(el.pvHealth, String(card.stats.health));
-  setText(el.pvDefense, String(card.stats.defense));
-
-  const imageSrc = resolvePreviewImage(card);
-  if (imageSrc) {
-    el.pvImage.src = imageSrc;
-    el.pvImage.style.display = "block";
-    el.pvImagePlaceholder.style.display = "none";
-  } else {
-    el.pvImage.removeAttribute("src");
-    el.pvImage.style.display = "none";
-    el.pvImagePlaceholder.style.display = "grid";
-    if (card.illustration.value) {
-      el.pvImagePlaceholder.textContent = `Illustration reference: ${card.illustration.value}`;
-    } else {
-      el.pvImagePlaceholder.textContent = "No image loaded";
-    }
-  }
+  el.cardStage.innerHTML = buildCardSvg(card);
 }
 
 /* =========================
@@ -558,65 +522,72 @@ function loadJsonFiles(fileList) {
    SVG + PNG Export
 ========================= */
 function buildCardSvg(card) {
-  const W = 630;
-  const H = 880;
   const imageSrc = resolvePreviewImage(card);
 
-  return `
-<svg xmlns="http://www.w3.org/2000/svg" width="63mm" height="88mm" viewBox="0 0 ${W} ${H}">
+  // Split fact into up to 3 wrapped lines (~60 chars each at the template's font size)
+  const factLines = wrapText(card.text.fact, 60, 3);
+
+  // Split ability into up to 3 lines (one bullet per line; user can use Enter to separate)
+  const rawAbilityLines = txt(card.text.ability).split(/\n/).filter(l => l.trim());
+  const abilityLines = rawAbilityLines.slice(0, 3);
+  while (abilityLines.length < 3) abilityLines.push("");
+
+  const clipDef = imageSrc
+    ? `<clipPath id="artClip"><rect x="49.098" y="100.04" width="351.81" height="205.38" rx="6" ry="6"/></clipPath>`
+    : "";
+  const imageEl = imageSrc
+    ? `<image href="${imageSrc}" x="49.098" y="100.04" width="351.81" height="205.38" preserveAspectRatio="xMidYMid slice" clip-path="url(#artClip)"/>`
+    : "";
+
+  return `<svg width="2.75in" height="3.75in" version="1.1" viewBox="0 0 450.01 613.65" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="b1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4A5D4E"/>
-      <stop offset="100%" stop-color="#2C3B30"/>
+    <linearGradient id="boxGradient" x1="20.069" x2="221.37" y1="601.82" y2="803.11" gradientTransform="matrix(1.6568 0 0 .60359 0 2.7648e-6)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".9" offset="0"/>
+      <stop stop-color="#F5F5F5" stop-opacity=".9" offset="1"/>
     </linearGradient>
-    <linearGradient id="b2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FDFBF7"/>
-      <stop offset="100%" stop-color="#EAE3D2"/>
-    </linearGradient>
+    ${clipDef}
   </defs>
-
-  <rect x="10" y="10" width="610" height="860" rx="24" fill="url(#b1)"/>
-  <rect x="24" y="24" width="582" height="832" rx="16" fill="url(#b2)"/>
-
-  <rect x="38" y="38" width="554" height="58" rx="10" fill="#fff" stroke="#8C7A6B" />
-  <text x="52" y="73" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#2C3B30">${escapeXml(card.name || "Card Name")}</text>
-
-  <circle cx="500" cy="67" r="16" fill="#4A90E2" stroke="#fff" stroke-width="2"/><text x="500" y="73" text-anchor="middle" font-family="Arial" font-size="14" fill="#fff">${card.cost.water}</text>
-  <circle cx="536" cy="67" r="16" fill="#57B26A" stroke="#fff" stroke-width="2"/><text x="536" y="73" text-anchor="middle" font-family="Arial" font-size="14" fill="#fff">${card.cost.flora}</text>
-  <circle cx="572" cy="67" r="16" fill="#B07A42" stroke="#fff" stroke-width="2"/><text x="572" y="73" text-anchor="middle" font-family="Arial" font-size="14" fill="#fff">${card.cost.fauna}</text>
-
-  <text x="40" y="118" font-family="Arial,sans-serif" font-size="16" font-style="italic" fill="#5C5146">${escapeXml(card.scientificName || "")}</text>
-  <text x="590" y="118" text-anchor="end" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#5C5146">${escapeXml(card.rarity || "")}</text>
-
-  <rect x="38" y="130" width="554" height="330" rx="10" fill="#E2ECE9" stroke="#8C7A6B"/>
-  ${
-    imageSrc
-      ? `<image href="${imageSrc}" x="48" y="140" width="534" height="310" preserveAspectRatio="xMidYMid slice" />`
-      : `<rect x="48" y="140" width="534" height="310" fill="#D3E4DF" stroke="#A3BCB6" stroke-dasharray="6,6" />
-         <text x="315" y="300" text-anchor="middle" font-family="Arial" font-size="18" fill="#6f857d">No image</text>`
-  }
-
-  <rect x="38" y="474" width="554" height="38" rx="8" fill="#fff" stroke="#8C7A6B"/>
-  <text x="52" y="499" font-family="Arial" font-size="16" font-style="italic" font-weight="700" fill="#5C5146">${escapeXml(card.category || "")}</text>
-  <text x="578" y="499" text-anchor="end" font-family="Arial" font-size="16" font-style="italic" font-weight="700" fill="#5C5146">${escapeXml(card.habitat || "")}</text>
-
-  <rect x="38" y="526" width="554" height="230" rx="10" fill="#fff" stroke="#8C7A6B"/>
-  <text x="52" y="554" font-family="Arial" font-size="16" font-weight="700" fill="#2C3B30">Ability</text>
-  <foreignObject x="52" y="560" width="526" height="76"><div xmlns="http://www.w3.org/1999/xhtml" style="font:14px Arial;color:#333;line-height:1.25">${escapeXml(card.text.ability || "")}</div></foreignObject>
-
-  <text x="52" y="654" font-family="Arial" font-size="16" font-weight="700" fill="#2C3B30">Fact</text>
-  <foreignObject x="52" y="660" width="526" height="44"><div xmlns="http://www.w3.org/1999/xhtml" style="font:14px Arial;color:#333;line-height:1.25">${escapeXml(card.text.fact || "")}</div></foreignObject>
-
-  <foreignObject x="52" y="706" width="526" height="40"><div xmlns="http://www.w3.org/1999/xhtml" style="font:italic 13px Arial;color:#6E655F;line-height:1.2">${escapeXml(card.text.flavor || "")}</div></foreignObject>
-
-  <text x="42" y="818" font-family="Arial" font-size="12" font-weight="700" fill="#6b7280">${escapeXml(card.expansion || "")}</text>
-  <text x="42" y="838" font-family="Arial" font-size="12" font-weight="700" fill="#6b7280">${escapeXml(card.cardNumber || "")}</text>
-  <text x="220" y="828" font-family="Arial" font-size="12" fill="#6b7280">Artist: ${escapeXml(card.artist || "")}</text>
-
-  <rect x="470" y="796" width="122" height="48" rx="10" fill="#4A5D4E" stroke="#fff"/>
-  <text x="500" y="825" text-anchor="middle" font-family="Arial" font-size="14" fill="#fff">A ${card.stats.attack}</text>
-  <text x="531" y="825" text-anchor="middle" font-family="Arial" font-size="14" fill="#fff">H ${card.stats.health}</text>
-  <text x="562" y="825" text-anchor="middle" font-family="Arial" font-size="14" fill="#fff">D ${card.stats.defense}</text>
+  <rect x="24.489" y="24.421" width="401.03" height="564.81" rx="22" ry="22" fill="#2d3a2e" stroke="#1b241c" stroke-width="8"/>
+  <rect x="38.161" y="38.424" width="373.69" height="536.8" rx="14" ry="14" fill="#f4f1ea" stroke="#8c7a6b" stroke-width="3"/>
+  <rect x="49.098" y="348.37" width="351.81" height="185.57" rx="8" ry="8" fill="url(#boxGradient)" stroke="#8c7a6b" stroke-width="1.5"/>
+  <g id="resources" transform="matrix(.91143 0 0 .93356 19.932 19.753)" stroke-width="1.0841">
+    <rect transform="matrix(1.0972 0 0 1.0712 -21.869 -21.159)" x="49.098" y="49.627" width="351.81" height="39.21" rx="6" ry="6" fill="#1b241c"/>
+    <text transform="matrix(1.0841 0 0 1.0841 -21.869 -21.159)" x="62.604591" y="73.018456" fill="#f4f1ea" font-family="monospace" font-size="16.604px" font-weight="bold">${escapeXml(card.name || "Card Name")}</text>
+    <circle cx="330" cy="53" r="11" fill="#228b22"/>
+    <text x="330" y="57" text-anchor="middle" font-family="Arial" font-size="10px" fill="#fff">${card.cost.flora}</text>
+    <circle cx="362" cy="53" r="11" fill="#4169e1"/>
+    <text x="362" y="57" text-anchor="middle" font-family="Arial" font-size="10px" fill="#fff">${card.cost.water}</text>
+    <circle cx="394" cy="53" r="11" fill="#8b0000"/>
+    <text x="394" y="57" text-anchor="middle" font-family="Arial" font-size="10px" fill="#fff">${card.cost.fauna}</text>
+  </g>
+  <rect id="card-art" x="49.098" y="100.04" width="351.81" height="205.38" rx="6" ry="6" fill="#d0c9bc" stroke="#1b241c" stroke-width="2"/>
+  ${imageEl}
+  <g fill="#fff">
+    <rect x="49.098" y="316.63" width="351.81" height="22.406" rx="4" ry="4" fill="#8c7a6b"/>
+    <text id="card-type" transform="scale(.98807 1.0121)" x="58.914871" y="327.60928" font-size="11.069px">Type: ${escapeXml(card.category || "")}</text>
+    <text id="card-habitat" transform="scale(.98807 1.0121)" x="232.33182" y="327.60928" font-size="11.069px">Habitat: ${escapeXml(card.habitat || "")}</text>
+  </g>
+  <text id="scientific-name" transform="scale(.98807 1.0121)" x="58.914871" y="361.73923" font-size="11.069px" font-style="italic" fill="#333">${escapeXml(card.scientificName || "")}</text>
+  <g>
+    <text transform="scale(.98807 1.0121)" x="58.914871" y="385.72241" font-size="10.147px" font-weight="bold" fill="#333">Factual Note</text>
+    <text id="fact" transform="scale(.98807 1.0121)" x="58.914871" y="402.32617" font-size="9.2243px" fill="#333"><tspan x="58.914871" y="402.32617">${escapeXml(factLines[0])}</tspan><tspan x="58.914871" y="413.85654">${escapeXml(factLines[1])}</tspan><tspan x="58.914871" y="425.38693">${escapeXml(factLines[2])}</tspan></text>
+    <line x1="49.098" x2="400.91" y1="374.51" y2="374.51" stroke="#c0c0c0"/>
+  </g>
+  <g font-size="9.2243px" fill="#333">
+    <line x1="49.098" x2="400.91" y1="439.86" y2="439.86" stroke="#c0c0c0"/>
+    <text transform="scale(.98807 1.0121)" x="58.914871" y="451.21497" font-size="10.147px" font-weight="bold">Abilities</text>
+    <text transform="scale(.98807 1.0121)" x="64.449455" y="467.81873">• ${escapeXml(abilityLines[0])}</text>
+    <text transform="scale(.98807 1.0121)" x="64.449455" y="482.57761">• ${escapeXml(abilityLines[1])}</text>
+    <text transform="scale(.98807 1.0121)" x="64.449455" y="497.33652">• ${escapeXml(abilityLines[2])}</text>
+  </g>
+  <text id="footer" transform="scale(.98806 1.0121)" x="58.915627" y="547.34991" font-size="8.302px" fill="#555">${escapeXml(card.expansion || "")} • ${escapeXml(card.cardNumber || "")} • ${escapeXml(card.artist || "")}</text>
+  <!-- Combat Stats Bubble -->
+  <g transform="translate(324.33 536.81)">
+    <rect width="76" height="32" rx="8" ry="8" fill="#4a5d4e" stroke="#fff" stroke-width="1.5"/>
+    <text x="20" y="21" fill="#ffffff" font-family="Arial" font-size="15px" font-weight="bold" text-anchor="middle">${card.stats.attack}</text>
+    <line x1="38" x2="38" y1="6" y2="26" stroke="#fff" stroke-opacity=".5"/>
+    <text x="56" y="21" fill="#ffd3b6" font-family="Arial" font-size="15px" font-weight="bold" text-anchor="middle">${card.stats.health}</text>
+  </g>
 </svg>`.trim();
 }
 
@@ -638,8 +609,8 @@ function exportPng() {
   const img = new Image();
   img.onload = () => {
     const canvas = document.createElement("canvas");
-    canvas.width = 630;
-    canvas.height = 880;
+    canvas.width = 450;
+    canvas.height = 614;
     const ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0);
 

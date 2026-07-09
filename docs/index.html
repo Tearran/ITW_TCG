@@ -102,10 +102,10 @@
         <fieldset>
           <legend>Text</legend>
 
-          <label for="ability">Ability</label>
+          <label for="ability">Ability (one per line, up to 3)</label>
           <textarea id="ability" rows="3"></textarea>
 
-          
+          <label for="fact">Fact (auto-wraps to 3 lines)</label>
           <textarea id="fact" rows="2"></textarea>
 
           <label for="flavor">Flavor Text</label>
@@ -153,58 +153,7 @@
     <section class="panel preview-panel" aria-label="Card preview panel">
       <h2>Live Preview</h2>
 
-      <div id="cardStage">
-        <article id="card" class="card">
-          <div class="card-inner">
-            <header class="card-top">
-              <h3 id="pvName">Card Name</h3>
-              <div class="header-right">
-                <div class="cost-dot water"><span id="pvCostWater">0</span></div>
-                <div class="cost-dot flora"><span id="pvCostFlora">0</span></div>
-                <div class="cost-dot fauna"><span id="pvCostFauna">0</span></div>
-              </div>
-            </header>
-
-            <section class="scientific-line">
-              <span id="pvScientificName"></span>
-              <span id="pvRarity">Common</span>
-            </section>
-
-            <section class="art-frame">
-              <img id="pvImage" alt="Illustration preview" />
-              <div id="pvImagePlaceholder">No image loaded</div>
-            </section>
-
-            <section class="type-line">
-              <span id="pvCategory">Category</span>
-              <span id="pvHabitat">Habitat</span>
-            </section>
-
-            <section class="rules-box">
-              <h4>Ability</h4>
-              <p id="pvAbility"></p>
-              <h4>Fact</h4>
-              <p id="pvFact"></p>
-              <p id="pvFlavor" class="flavor"></p>
-            </section>
-
-            <footer class="card-footer">
-              <div class="footer-left">
-                <div id="pvExpansion">ITW-Base</div>
-                <div id="pvCardNumber">001/180</div>
-                <div id="pvArtist">Artist:</div>
-              </div>
-              <div class="stats-pill">
-                <div class="stat-item"><span class="label">ATK</span><span id="pvAttack">0</span></div>
-                <div class="divider"></div>
-                <div class="stat-item"><span class="label">HP</span><span id="pvHealth">0</span></div>
-                <div class="divider"></div>
-                <div class="stat-item"><span class="label">DEF</span><span id="pvDefense">0</span></div>
-              </div>
-            </footer>
-          </div>
-        </article>
-      </div>
+      <div id="cardStage"></div>
     </section>
 
     <!-- RIGHT: LIBRARY -->

@@ -98,6 +98,12 @@ button:hover, .button-like:hover { background: #384355; }
   overflow: auto;
 }
 
+#cardStage svg {
+  width: min(100%, 330px);
+  height: auto;
+  drop-shadow: 0 6px 18px rgba(0,0,0,.5);
+}
+
 /* Card style (print ratio 63:88) */
 .card {
   width: min(100%, 410px);
