@@ -1,0 +1,50 @@
+<svg width="2.75in" height="3.75in" version="1.1" viewBox="0 0 450.01 613.65" xmlns="http://www.w3.org/2000/svg">
+		<defs>
+				<linearGradient id="boxGradient" x1="20.069" x2="221.37" y1="601.82" y2="803.11" gradientTransform="matrix(1.6568 0 0 .60359 0 2.7648e-6)" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#fff" stop-opacity=".9" offset="0"/>
+						<stop stop-color="#F5F5F5" stop-opacity=".9" offset="1"/>
+				</linearGradient>
+		</defs>
+		<rect x="49.098" y="348.37" width="351.81" height="177.38" rx="6" ry="6" stroke="#1b241c"/>
+		<rect x="24.489" y="24.421" width="401.03" height="564.81" rx="22" ry="22" fill="#2d3a2e" stroke="#1b241c" stroke-width="8"/>
+		<rect x="38.161" y="38.424" width="373.69" height="536.8" rx="14" ry="14" fill="#f4f1ea" stroke="#8c7a6b" stroke-width="3"/>
+		<rect x="49.098" y="348.37" width="351.81" height="185.57" rx="8" ry="8" fill="url(#boxGradient)" stroke="#8c7a6b" stroke-width="1.5"/>
+		<g id="resources" transform="matrix(.91143 0 0 .93356 19.932 19.753)" stroke-width="1.0841">
+				<rect transform="matrix(1.0972 0 0 1.0712 -21.869 -21.159)" x="49.098" y="49.627" width="351.81" height="39.21" rx="6" ry="6" fill="#1b241c"/>
+				<text id="card-name" transform="matrix(1.0841 0 0 1.0841 -21.869 -21.159)" x="62.604591" y="73.018456" fill="#f4f1ea" font-family="monospace" font-size="16.604px" font-weight="bold">{CARD_NAME}</text>
+				<circle id="resource-flora" cx="330" cy="53" r="11" fill="#228b22"/>
+				<circle id="resource-water" cx="362" cy="53" r="11" fill="#4169e1"/>
+				<circle id="resource-fauna" cx="394" cy="53" r="11" fill="#8b0000"/>
+		</g>
+		<rect id="card-art" x="49.098" y="100.04" width="351.81" height="205.38" rx="6" ry="6" fill="#d0c9bc" stroke="#1b241c" stroke-width="2"/>
+		<g fill="#fff">
+				<rect x="49.098" y="316.63" width="351.81" height="22.406" rx="4" ry="4" fill="#8c7a6b"/>
+				<text id="card-type" transform="scale(.98807 1.0121)" x="58.914871" y="327.60928" font-size="11.069px">Type: {TYPE}</text>
+				<text id="card-habitat" transform="scale(.98807 1.0121)" x="232.33182" y="327.60928" font-size="11.069px">Habitat: {HABITAT}</text>
+		</g>
+		<text id="scientific-name" transform="scale(.98807 1.0121)" x="58.914871" y="361.73923" font-size="11.069px" font-style="italic">{SCIENTIFIC_NAME}</text>
+		<g>
+				<text transform="scale(.98807 1.0121)" x="58.914871" y="385.72241" font-size="10.147px" font-weight="bold">Factual Note</text>
+				<text id="fact" transform="scale(.98807 1.0121)" x="58.914871" y="402.32617" font-size="9.2243px"><tspan x="58.914871" y="402.32617">{FACT_TEXT}</tspan><tspan x="58.914871" y="413.85654">{FACT_TEXT}</tspan><tspan x="58.914871" y="425.38693">{FACT_TEXT}</tspan></text>
+				<line x1="49.098" x2="400.91" y1="374.51" y2="374.51" stroke="#c0c0c0"/>
+		</g>
+		<g font-size="9.2243px">
+				<line x1="49.098" x2="400.91" y1="439.86" y2="439.86" stroke="#c0c0c0"/>
+				<text transform="scale(.98807 1.0121)" x="58.914871" y="451.21497" font-size="10.147px" font-weight="bold">Abilities</text>
+				<text transform="scale(.98807 1.0121)" x="64.449455" y="467.81873">• {ABILITY_1}</text>
+				<text transform="scale(.98807 1.0121)" x="64.449455" y="482.57761">• {ABILITY_2}</text>
+				<text transform="scale(.98807 1.0121)" x="64.449455" y="497.33652">• {ABILITY_3}</text>
+		</g>
+		<text id="footer" transform="scale(.98806 1.0121)" x="58.915627" y="547.34991" font-size="8.302px">{EXPANSION} • {CARD_NO} • {ARTIST}</text>
+		
+    <!-- Combat Stats Bubble -->
+		<g transform="translate(324.33 536.81)">
+				<rect width="76" height="32" rx="8" ry="8" fill="#4a5d4e" stroke="#fff" stroke-width="1.5"/>
+				<!-- Attack Power -->
+				<text x="20" y="21" fill="#ffffff" font-family="Arial" font-size="15px" font-weight="bold" text-anchor="middle">3</text>
+				<!-- Divider -->
+				<line x1="38" x2="38" y1="6" y2="26" stroke="#fff" stroke-opacity=".5"/>
+				<!-- Health / Toughness -->
+				<text x="56" y="21" fill="#ffd3b6" font-family="Arial" font-size="15px" font-weight="bold" text-anchor="middle">3</text>
+		</g>
+</svg>
