@@ -200,8 +200,8 @@ function normalizeCard(raw) {
 function currentCard() {
   return state.cards[state.currentIndex];
 }
-function wrapText(text, maxChars, maxLines) {
-  const words = txt(text).split(/\s+/);
+function wrapText(str, maxChars, maxLines) {
+  const words = txt(str).split(/\s+/);
   const lines = [];
   let current = "";
   for (const word of words) {
@@ -581,7 +581,7 @@ function buildCardSvg(card) {
     <text transform="scale(.98807 1.0121)" x="64.449455" y="497.33652">• ${escapeXml(abilityLines[2])}</text>
   </g>
   <text id="footer" transform="scale(.98806 1.0121)" x="58.915627" y="547.34991" font-size="8.302px" fill="#555">${escapeXml(card.expansion || "")} • ${escapeXml(card.cardNumber || "")} • ${escapeXml(card.artist || "")}</text>
-  <!-- Combat Stats Bubble -->
+  <!-- Combat Stats Bubble (ATK | HP — defense is stored in JSON but the template has two slots) -->
   <g transform="translate(324.33 536.81)">
     <rect width="76" height="32" rx="8" ry="8" fill="#4a5d4e" stroke="#fff" stroke-width="1.5"/>
     <text x="20" y="21" fill="#ffffff" font-family="Arial" font-size="15px" font-weight="bold" text-anchor="middle">${card.stats.attack}</text>
