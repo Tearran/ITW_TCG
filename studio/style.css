@@ -95,9 +95,12 @@ textarea {
 
 .actions {
   margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-#save-svg-button {
+.actions button {
   border: 1px solid var(--accent);
   background: var(--accent);
   color: #fff;
@@ -107,7 +110,7 @@ textarea {
   font-weight: 600;
 }
 
-#save-svg-button:hover {
+.actions button:hover {
   background: var(--accent-2);
 }
 

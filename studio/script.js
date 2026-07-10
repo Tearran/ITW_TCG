@@ -1,6 +1,25 @@
+const CardJsonDatabase = {
+  storageKey: 'itw-tcg-card-editor-record-v1',
+
+  load() {
+    const raw = localStorage.getItem(this.storageKey);
+    if (!raw) return null;
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return null;
+    }
+  },
+
+  save(record) {
+    localStorage.setItem(this.storageKey, JSON.stringify(record));
+  }
+};
+
 const CardEditor = {
   svgDocument: null,
   svgRoot: null,
+  currentArtworkDataUri: '',
 
   textFieldMap: {
     'card-name': 'card-name',
@@ -23,6 +42,7 @@ const CardEditor = {
   init() {
     this.loadEmbeddedSVG();
     this.bindEvents();
+    this.restoreSavedRecord();
   },
 
   loadEmbeddedSVG() {
@@ -54,6 +74,7 @@ const CardEditor = {
       }
 
       this.renderPreview();
+      this.persistRecord();
     });
 
     $('#artwork-input').on('change', (event) => {
@@ -62,6 +83,9 @@ const CardEditor = {
       this.updateArtwork(file);
     });
 
+    $('#export-json-button').on('click', () => this.exportJSON());
+    $('#import-json-button').on('click', () => $('#import-json-input').trigger('click'));
+    $('#import-json-input').on('change', (event) => this.importJSON(event));
     $('#save-svg-button').on('click', () => this.saveSVG());
   },
 
@@ -152,6 +176,7 @@ const CardEditor = {
     const reader = new FileReader();
     reader.onload = () => {
       const dataUri = reader.result;
+      this.currentArtworkDataUri = dataUri;
       const artwork = this.svgRoot.getElementById('artwork');
       if (!artwork) return;
 
@@ -159,8 +184,94 @@ const CardEditor = {
       artwork.setAttributeNS('http://www.w3.org/1999/xlink', 'href', dataUri);
 
       this.renderPreview();
+      this.persistRecord();
     };
     reader.readAsDataURL(file);
+  },
+
+  applyArtworkDataUri(dataUri) {
+    const artwork = this.svgRoot.getElementById('artwork');
+    if (!artwork) return;
+    artwork.setAttribute('href', dataUri || '');
+    artwork.setAttributeNS('http://www.w3.org/1999/xlink', 'href', dataUri || '');
+  },
+
+  getCurrentRecord() {
+    const record = {};
+    $('#card-editor-form').serializeArray().forEach(({ name, value }) => {
+      record[name] = value;
+    });
+    record.artworkDataUri = this.currentArtworkDataUri || '';
+    return record;
+  },
+
+  applyRecord(record) {
+    if (!record) return;
+
+    Object.keys(this.textFieldMap).forEach((fieldName) => {
+      const value = record[fieldName] ?? '';
+      const $input = $(`#card-editor-form [name="${fieldName}"]`);
+      if ($input.length) $input.val(value);
+    });
+
+    ['card-type', 'card-habitat', 'fact', 'abilities'].forEach((fieldName) => {
+      const value = record[fieldName] ?? '';
+      const $input = $(`#card-editor-form [name="${fieldName}"]`);
+      if ($input.length) $input.val(value);
+    });
+
+    Object.keys(this.textFieldMap).forEach((fieldName) => {
+      this.updateField(fieldName, record[fieldName] ?? '');
+    });
+    this.updatePrefixedField('card-type', 'Type: ', record['card-type'] ?? '');
+    this.updatePrefixedField('card-habitat', 'Habitat: ', record['card-habitat'] ?? '');
+    this.updateMultilineField('fact', record.fact ?? '');
+    this.updateMultilineField('abilities', record.abilities ?? '');
+
+    this.currentArtworkDataUri = record.artworkDataUri || '';
+    this.applyArtworkDataUri(this.currentArtworkDataUri);
+    this.renderPreview();
+  },
+
+  persistRecord() {
+    CardJsonDatabase.save(this.getCurrentRecord());
+  },
+
+  restoreSavedRecord() {
+    const record = CardJsonDatabase.load();
+    if (record) this.applyRecord(record);
+  },
+
+  exportJSON() {
+    const blob = new Blob([JSON.stringify(this.getCurrentRecord(), null, 2)], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'card-data.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
+  },
+
+  importJSON(event) {
+    const file = event.target.files && event.target.files[0];
+    event.target.value = '';
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const record = JSON.parse(String(reader.result || '{}'));
+        this.applyRecord(record);
+        this.persistRecord();
+      } catch {
+        alert('Invalid JSON file.');
+      }
+    };
+    reader.readAsText(file);
   },
 
   renderPreview() {
