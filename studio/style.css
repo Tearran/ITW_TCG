@@ -64,12 +64,14 @@ label span {
 
 input,
 textarea,
+select,
 button {
   font: inherit;
 }
 
 input,
-textarea {
+textarea,
+select {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 10px 11px;
@@ -79,7 +81,8 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 2px rgba(79, 140, 255, 0.2);
 }
@@ -112,6 +115,10 @@ textarea {
 
 .actions button:hover {
   background: var(--accent-2);
+}
+
+.card-library {
+  margin-top: 12px;
 }
 
 .svg-preview {

@@ -1,18 +1,43 @@
 const CardJsonDatabase = {
-  storageKey: 'itw-tcg-card-editor-record-v1',
+  storageKey: 'itw-tcg-card-editor-db-v2',
+  legacyStorageKey: 'itw-tcg-card-editor-record-v1',
 
-  load() {
+  loadState() {
     const raw = localStorage.getItem(this.storageKey);
-    if (!raw) return null;
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+        if (parsed && Array.isArray(parsed.cards) && typeof parsed.activeCardId === 'string') {
+          return parsed;
+        }
+      } catch {
+        return null;
+      }
+    }
+
+    const legacyRaw = localStorage.getItem(this.legacyStorageKey);
+    if (!legacyRaw) return null;
+
     try {
-      return JSON.parse(raw);
+      const record = JSON.parse(legacyRaw);
+      if (!record || typeof record !== 'object' || Array.isArray(record)) return null;
+      const id = `card-${Date.now()}`;
+      return {
+        activeCardId: id,
+        cards: [{ id, name: this.getCardName(record, 0), record }]
+      };
     } catch {
       return null;
     }
   },
 
-  save(record) {
-    localStorage.setItem(this.storageKey, JSON.stringify(record));
+  saveState(state) {
+    localStorage.setItem(this.storageKey, JSON.stringify(state));
+  },
+
+  getCardName(record, index) {
+    const raw = String(record?.['card-name'] || '').trim();
+    return raw || `Card ${index + 1}`;
   }
 };
 
@@ -38,6 +63,7 @@ const CardEditor = {
   svgDocument: null,
   svgRoot: null,
   currentArtworkDataUri: '',
+  dbState: null,
 
   textFieldMap: {
     'card-name': 'card-name',
@@ -60,6 +86,7 @@ const CardEditor = {
   init() {
     this.loadEmbeddedSVG();
     this.bindEvents();
+    this.initializeDatabase();
     this.restoreSavedRecord();
   },
 
@@ -105,6 +132,12 @@ const CardEditor = {
     $('#import-json-button').on('click', () => $('#import-json-input').trigger('click'));
     $('#import-json-input').on('change', (event) => this.importJSON(event));
     $('#save-svg-button').on('click', () => this.saveSVG());
+    $('#save-card-button').on('click', () => this.saveCurrentCard());
+    $('#save-as-card-button').on('click', () => this.saveAsNewCard());
+    $('#load-card-button').on('click', () => this.loadSelectedCard());
+    $('#download-card-json-button').on('click', () => this.downloadSelectedCardJSON());
+    $('#delete-card-button').on('click', () => this.deleteSelectedCard());
+    $('#saved-cards-select').on('change', () => this.loadSelectedCard());
   },
 
   updateField(fieldName, value) {
@@ -249,13 +282,133 @@ const CardEditor = {
     this.renderPreview();
   },
 
+  initializeDatabase() {
+    this.dbState = CardJsonDatabase.loadState();
+    if (!this.dbState || !Array.isArray(this.dbState.cards) || !this.dbState.cards.length) {
+      const id = this.generateCardId();
+      this.dbState = {
+        activeCardId: id,
+        cards: [{ id, name: 'Card 1', record: this.getCurrentRecord() }]
+      };
+      CardJsonDatabase.saveState(this.dbState);
+    }
+    if (!this.dbState.cards.some((card) => card.id === this.dbState.activeCardId)) {
+      this.dbState.activeCardId = this.dbState.cards[0].id;
+    }
+    this.renderSavedCardList();
+  },
+
+  generateCardId() {
+    return `card-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  },
+
+  getActiveCard() {
+    if (!this.dbState) return null;
+    return this.dbState.cards.find((card) => card.id === this.dbState.activeCardId) || null;
+  },
+
+  getCardDisplayName(record, fallbackIndex) {
+    const raw = String(record?.['card-name'] || '').trim();
+    return raw || `Card ${fallbackIndex + 1}`;
+  },
+
+  renderSavedCardList() {
+    if (!this.dbState) return;
+    const $select = $('#saved-cards-select');
+    $select.empty();
+
+    this.dbState.cards.forEach((card, index) => {
+      const option = document.createElement('option');
+      option.value = card.id;
+      option.textContent = card.name || this.getCardDisplayName(card.record, index);
+      if (card.id === this.dbState.activeCardId) option.selected = true;
+      $select.append(option);
+    });
+  },
+
+  saveDatabase() {
+    if (!this.dbState) return;
+    CardJsonDatabase.saveState(this.dbState);
+    this.renderSavedCardList();
+  },
+
   persistRecord() {
-    CardJsonDatabase.save(this.getCurrentRecord());
+    if (!this.dbState) return;
+    const activeCard = this.getActiveCard();
+    if (!activeCard) return;
+    const record = this.getCurrentRecord();
+    activeCard.record = record;
+    activeCard.name = this.getCardDisplayName(record, this.dbState.cards.findIndex((card) => card.id === activeCard.id));
+    this.saveDatabase();
   },
 
   restoreSavedRecord() {
-    const record = CardJsonDatabase.load();
-    if (record) this.applyRecord(record);
+    const activeCard = this.getActiveCard();
+    if (activeCard?.record) this.applyRecord(activeCard.record);
+  },
+
+  saveCurrentCard() {
+    this.persistRecord();
+  },
+
+  saveAsNewCard() {
+    if (!this.dbState) return;
+    const record = this.getCurrentRecord();
+    const id = this.generateCardId();
+    this.dbState.cards.push({
+      id,
+      name: this.getCardDisplayName(record, this.dbState.cards.length),
+      record
+    });
+    this.dbState.activeCardId = id;
+    this.saveDatabase();
+  },
+
+  loadSelectedCard() {
+    if (!this.dbState) return;
+    const selectedId = String($('#saved-cards-select').val() || '');
+    if (!selectedId) return;
+    const selectedCard = this.dbState.cards.find((card) => card.id === selectedId);
+    if (!selectedCard) return;
+    this.dbState.activeCardId = selectedId;
+    this.saveDatabase();
+    this.applyRecord(selectedCard.record || {});
+  },
+
+  downloadSelectedCardJSON() {
+    if (!this.dbState) return;
+    const selectedId = String($('#saved-cards-select').val() || this.dbState.activeCardId || '');
+    const selectedCard = this.dbState.cards.find((card) => card.id === selectedId);
+    if (!selectedCard) return;
+
+    const blob = new Blob([JSON.stringify(selectedCard.record || {}, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${(selectedCard.name || 'card').replace(/[^a-z0-9-_]+/gi, '_').toLowerCase()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
+  },
+
+  deleteSelectedCard() {
+    if (!this.dbState) return;
+    if (this.dbState.cards.length <= 1) {
+      alert('Error: At least one saved card is required.');
+      return;
+    }
+
+    const selectedId = String($('#saved-cards-select').val() || this.dbState.activeCardId || '');
+    const index = this.dbState.cards.findIndex((card) => card.id === selectedId);
+    if (index < 0) return;
+
+    this.dbState.cards.splice(index, 1);
+    this.dbState.activeCardId = this.dbState.cards[Math.max(0, index - 1)].id;
+    this.saveDatabase();
+    this.restoreSavedRecord();
   },
 
   exportJSON() {
