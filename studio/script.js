@@ -180,8 +180,7 @@ const CardEditor = {
       const artwork = this.svgRoot.getElementById('artwork');
       if (!artwork) return;
 
-      artwork.setAttribute('href', dataUri);
-      artwork.setAttributeNS('http://www.w3.org/1999/xlink', 'href', dataUri);
+      this.setSvgImageHref(artwork, dataUri);
 
       this.renderPreview();
       this.persistRecord();
@@ -192,8 +191,13 @@ const CardEditor = {
   applyArtworkDataUri(dataUri) {
     const artwork = this.svgRoot.getElementById('artwork');
     if (!artwork) return;
-    artwork.setAttribute('href', dataUri || '');
-    artwork.setAttributeNS('http://www.w3.org/1999/xlink', 'href', dataUri || '');
+    this.setSvgImageHref(artwork, dataUri || '');
+  },
+
+  setSvgImageHref(node, href) {
+    node.setAttribute('href', href);
+    // Keep xlink:href for SVG viewers that still rely on legacy namespace resolution.
+    node.setAttributeNS('http://www.w3.org/1999/xlink', 'href', href);
   },
 
   getCurrentRecord() {
@@ -208,13 +212,7 @@ const CardEditor = {
   applyRecord(record) {
     if (!record) return;
 
-    Object.keys(this.textFieldMap).forEach((fieldName) => {
-      const value = record[fieldName] ?? '';
-      const $input = $(`#card-editor-form [name="${fieldName}"]`);
-      if ($input.length) $input.val(value);
-    });
-
-    ['card-type', 'card-habitat', 'fact', 'abilities'].forEach((fieldName) => {
+    [...Object.keys(this.textFieldMap), 'card-type', 'card-habitat', 'fact', 'abilities'].forEach((fieldName) => {
       const value = record[fieldName] ?? '';
       const $input = $(`#card-editor-form [name="${fieldName}"]`);
       if ($input.length) $input.val(value);
@@ -268,7 +266,7 @@ const CardEditor = {
         this.applyRecord(record);
         this.persistRecord();
       } catch {
-        alert('Invalid JSON file.');
+        alert('Failed to parse JSON file. Please ensure it contains valid card data.');
       }
     };
     reader.readAsText(file);
