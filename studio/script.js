@@ -256,20 +256,37 @@ const CardEditor = {
 
   importJSON(event) {
     const file = event.target.files && event.target.files[0];
+    // Reset so selecting the same file again still triggers change.
     event.target.value = '';
     if (!file) return;
 
     const reader = new FileReader();
     reader.onload = () => {
+      const raw = String(reader.result || '').trim();
+      if (!raw) {
+        alert('JSON file is empty. Please provide valid card data.');
+        return;
+      }
+
       try {
-        const record = JSON.parse(String(reader.result || '{}'));
+        const record = JSON.parse(raw);
+        if (!this.isValidRecord(record)) {
+          alert('JSON file does not contain valid card data.');
+          return;
+        }
         this.applyRecord(record);
         this.persistRecord();
-      } catch {
-        alert('Failed to parse JSON file. Please ensure it contains valid card data.');
+      } catch (error) {
+        alert(`Failed to parse JSON file: ${error instanceof Error ? error.message : 'unknown parse error'}`);
       }
     };
     reader.readAsText(file);
+  },
+
+  isValidRecord(record) {
+    if (!record || typeof record !== 'object' || Array.isArray(record)) return false;
+    const knownKeys = new Set([...Object.keys(this.textFieldMap), 'card-type', 'card-habitat', 'fact', 'abilities', 'artworkDataUri']);
+    return Object.keys(record).some((key) => knownKeys.has(key));
   },
 
   renderPreview() {
