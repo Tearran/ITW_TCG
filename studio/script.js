@@ -21,7 +21,7 @@ const CardJsonDatabase = {
     try {
       const record = JSON.parse(legacyRaw);
       if (!record || typeof record !== 'object' || Array.isArray(record)) return null;
-      const id = `card-${Date.now()}`;
+      const id = this.generateId();
       return {
         activeCardId: id,
         cards: [{ id, name: this.getCardName(record, 0), record }]
@@ -38,6 +38,10 @@ const CardJsonDatabase = {
   getCardName(record, index) {
     const raw = String(record?.['card-name'] || '').trim();
     return raw || `Card ${index + 1}`;
+  },
+
+  generateId() {
+    return `card-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   }
 };
 
@@ -404,7 +408,7 @@ const CardEditor = {
   deleteSelectedCard() {
     if (!this.dbState) return;
     if (this.dbState.cards.length <= 1) {
-      alert('At least one saved card is required.');
+      alert('Cannot delete the last remaining card. At least one card must be kept in the library.');
       return;
     }
 
@@ -413,7 +417,9 @@ const CardEditor = {
     if (index < 0) return;
 
     this.dbState.cards.splice(index, 1);
-    this.dbState.activeCardId = this.dbState.cards[Math.max(0, index - 1)].id;
+    const nextCard = this.dbState.cards[Math.max(0, index - 1)] || this.dbState.cards[0];
+    if (!nextCard) return;
+    this.dbState.activeCardId = nextCard.id;
     this.saveDatabase();
     this.restoreSavedRecord();
   },
