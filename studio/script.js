@@ -16,6 +16,24 @@ const CardJsonDatabase = {
   }
 };
 
+const CARD_RECORD_KEYS = new Set([
+  'card-name',
+  'scientific-name',
+  'flora',
+  'water',
+  'fauna',
+  'attack',
+  'health',
+  'expansion',
+  'card-number',
+  'artist',
+  'card-type',
+  'card-habitat',
+  'fact',
+  'abilities',
+  'artworkDataUri'
+]);
+
 const CardEditor = {
   svgDocument: null,
   svgRoot: null,
@@ -241,7 +259,7 @@ const CardEditor = {
   },
 
   exportJSON() {
-    const blob = new Blob([JSON.stringify(this.getCurrentRecord(), null, 2)], { type: 'application/json;charset=utf-8' });
+    const blob = new Blob([JSON.stringify(this.getCurrentRecord(), null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement('a');
@@ -285,8 +303,7 @@ const CardEditor = {
 
   isValidRecord(record) {
     if (!record || typeof record !== 'object' || Array.isArray(record)) return false;
-    const knownKeys = new Set([...Object.keys(this.textFieldMap), 'card-type', 'card-habitat', 'fact', 'abilities', 'artworkDataUri']);
-    return Object.keys(record).some((key) => knownKeys.has(key));
+    return Object.keys(record).some((key) => CARD_RECORD_KEYS.has(key));
   },
 
   renderPreview() {
