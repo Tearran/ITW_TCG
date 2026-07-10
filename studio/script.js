@@ -7,7 +7,7 @@ const CardJsonDatabase = {
     if (raw) {
       try {
         const parsed = JSON.parse(raw);
-        if (parsed && Array.isArray(parsed.cards) && typeof parsed.activeCardId === 'string') {
+        if (this.isValidDbState(parsed)) {
           return parsed;
         }
       } catch {
@@ -35,13 +35,20 @@ const CardJsonDatabase = {
     localStorage.setItem(this.storageKey, JSON.stringify(state));
   },
 
+  isValidDbState(state) {
+    return Boolean(state && Array.isArray(state.cards) && state.cards.length && typeof state.activeCardId === 'string');
+  },
+
   getCardName(record, index) {
     const raw = String(record?.['card-name'] || '').trim();
     return raw || `Card ${index + 1}`;
   },
 
   generateId() {
-    return `card-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      return crypto.randomUUID();
+    }
+    return `card-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
   }
 };
 
@@ -287,7 +294,7 @@ const CardEditor = {
 
   initializeDatabase() {
     this.dbState = CardJsonDatabase.loadState();
-    if (!this.dbState || !Array.isArray(this.dbState.cards) || !this.dbState.cards.length) {
+    if (!CardJsonDatabase.isValidDbState(this.dbState)) {
       const record = this.getCurrentRecord();
       const id = CardJsonDatabase.generateId();
       this.dbState = {
@@ -335,7 +342,12 @@ const CardEditor = {
   },
 
   sanitizeFilename(name) {
-    return String(name || 'card').replace(/[^a-z0-9-_]+/gi, '_').toLowerCase();
+    const sanitized = String(name || 'card')
+      .replace(/[^a-z0-9-_]+/gi, '_')
+      .replace(/_+/g, '_')
+      .replace(/^_+|_+$/g, '')
+      .toLowerCase();
+    return sanitized || 'card';
   },
 
   persistRecord() {
@@ -404,7 +416,7 @@ const CardEditor = {
   deleteSelectedCard() {
     if (!this.dbState) return;
     if (this.dbState.cards.length <= 1) {
-      alert('Cannot delete the last remaining card. At least one card must be kept in the library.');
+      alert('Cannot delete the last card in the library.');
       return;
     }
 
