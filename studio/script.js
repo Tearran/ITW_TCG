@@ -144,9 +144,11 @@ const CardEditor = {
     $('#import-json-input').on('change', (event) => this.importJSON(event));
     $('#save-svg-button').on('click', () => this.saveSVG());
     $('#save-card-button').on('click', () => this.saveCurrentCard());
-    $('#save-as-card-button').on('click', () => this.saveAsNewCard());
+    $('#new-card-button').on('click', () => this.newCard());
+    $('#duplicate-card-button').on('click', () => this.duplicateCard());
     $('#download-card-json-button').on('click', () => this.downloadSelectedCardJSON());
-    $('#delete-card-button').on('click', () => this.deleteSelectedCard());
+    $('#export-deck-button').on('click', () => this.exportDeck());
+    $('#remove-card-button').on('click', () => this.removeCard());
     $('#saved-cards-select').on('change', () => this.loadSelectedCard());
   },
 
@@ -334,6 +336,8 @@ const CardEditor = {
       if (card.id === this.dbState.activeCardId) option.selected = true;
       $select.append(option);
     });
+
+    $('#card-count').text(this.dbState.cards.length);
   },
 
   saveDatabase() {
@@ -370,7 +374,18 @@ const CardEditor = {
     this.persistRecord();
   },
 
-  saveAsNewCard() {
+  newCard() {
+    if (!this.dbState) return;
+    const record = {};
+    const id = CardJsonDatabase.generateId();
+    const index = this.dbState.cards.length;
+    this.dbState.cards.push({ id, name: `Card ${index + 1}`, record });
+    this.dbState.activeCardId = id;
+    this.saveDatabase();
+    this.applyRecord(record);
+  },
+
+  duplicateCard() {
     if (!this.dbState) return;
     const record = this.getCurrentRecord();
     const id = CardJsonDatabase.generateId();
@@ -394,6 +409,17 @@ const CardEditor = {
     this.applyRecord(selectedCard.record || {});
   },
 
+  _triggerDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  },
+
   downloadSelectedCardJSON() {
     if (!this.dbState) return;
     const selectedId = String($('#saved-cards-select').val() || this.dbState.activeCardId || '');
@@ -402,22 +428,13 @@ const CardEditor = {
     const selectedCard = this.dbState.cards[selectedIndex];
 
     const blob = new Blob([JSON.stringify(selectedCard.record || {}, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${this.sanitizeFilename(selectedCard.name || `card_${selectedIndex + 1}`)}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
+    this._triggerDownload(blob, `${this.sanitizeFilename(selectedCard.name || `card_${selectedIndex + 1}`)}.json`);
   },
 
-  deleteSelectedCard() {
+  removeCard() {
     if (!this.dbState) return;
     if (this.dbState.cards.length <= 1) {
-      alert('Cannot delete the last card in the library.');
+      alert('Cannot remove the last card in the library.');
       return;
     }
 
@@ -433,18 +450,16 @@ const CardEditor = {
     this.restoreSavedRecord();
   },
 
+  exportDeck() {
+    if (!this.dbState) return;
+    const deck = this.dbState.cards.map((card) => card.record || {});
+    const blob = new Blob([JSON.stringify(deck, null, 2)], { type: 'application/json' });
+    this._triggerDownload(blob, 'deck.json');
+  },
+
   exportJSON() {
     const blob = new Blob([JSON.stringify(this.getCurrentRecord(), null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'card-data.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
+    this._triggerDownload(blob, 'card-data.json');
   },
 
   importJSON(event) {
@@ -498,16 +513,9 @@ const CardEditor = {
     if (!this.svgRoot) return;
     const output = new XMLSerializer().serializeToString(this.svgRoot);
     const blob = new Blob([output], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'card.svg';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
+    const activeCard = this.getActiveCard();
+    const filename = `${this.sanitizeFilename(activeCard?.name || 'card')}.svg`;
+    this._triggerDownload(blob, filename);
   }
 };
 

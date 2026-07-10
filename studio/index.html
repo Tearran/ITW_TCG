@@ -100,14 +100,18 @@
 
       <div class="card-library">
         <label>
-          <span>Saved Cards (JSON Database)</span>
+          <span>Card Library (<span id="card-count">0</span> cards)</span>
           <select id="saved-cards-select"></select>
         </label>
         <div class="actions">
-          <button type="button" id="save-card-button">Save Card</button>
-          <button type="button" id="save-as-card-button">Save As New Card</button>
-          <button type="button" id="download-card-json-button">Download Selected JSON</button>
-          <button type="button" id="delete-card-button">Delete Selected Card</button>
+          <button type="button" id="new-card-button">New Card</button>
+          <button type="button" id="save-card-button">Save</button>
+          <button type="button" id="duplicate-card-button">Duplicate</button>
+          <button type="button" id="remove-card-button">Remove</button>
+        </div>
+        <div class="actions">
+          <button type="button" id="download-card-json-button">Download JSON</button>
+          <button type="button" id="export-deck-button">Export Deck</button>
         </div>
       </div>
     </form>
