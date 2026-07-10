@@ -64,7 +64,6 @@ const CARD_RECORD_KEYS = new Set([
   'card-number',
   'artist',
   'card-type',
-  'card-habitat',
   'fact',
   'abilities',
   'artworkDataUri'
@@ -123,8 +122,6 @@ const CardEditor = {
         this.updateMultilineField(fieldName, value);
       } else if (fieldName === 'card-type') {
         this.updatePrefixedField('card-type', 'Type: ', value);
-      } else if (fieldName === 'card-habitat') {
-        this.updatePrefixedField('card-habitat', 'Habitat: ', value);
       } else {
         this.updateField(fieldName, value);
       }
@@ -275,7 +272,7 @@ const CardEditor = {
   applyRecord(record) {
     if (!record) return;
 
-    [...Object.keys(this.textFieldMap), 'card-type', 'card-habitat', 'fact', 'abilities'].forEach((fieldName) => {
+    [...Object.keys(this.textFieldMap), 'card-type', 'fact', 'abilities'].forEach((fieldName) => {
       const value = record[fieldName] ?? '';
       const $input = $(`#card-editor-form [name="${fieldName}"]`);
       if ($input.length) $input.val(value);
@@ -285,7 +282,6 @@ const CardEditor = {
       this.updateField(fieldName, record[fieldName] ?? '');
     });
     this.updatePrefixedField('card-type', 'Type: ', record['card-type'] ?? '');
-    this.updatePrefixedField('card-habitat', 'Habitat: ', record['card-habitat'] ?? '');
     this.updateMultilineField('fact', record.fact ?? '');
     this.updateMultilineField('abilities', record.abilities ?? '');
 
