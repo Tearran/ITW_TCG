@@ -288,10 +288,11 @@ const CardEditor = {
   initializeDatabase() {
     this.dbState = CardJsonDatabase.loadState();
     if (!this.dbState || !Array.isArray(this.dbState.cards) || !this.dbState.cards.length) {
-      const id = this.generateCardId();
+      const record = this.getCurrentRecord();
+      const id = CardJsonDatabase.generateId();
       this.dbState = {
         activeCardId: id,
-        cards: [{ id, name: 'Card 1', record: this.getCurrentRecord() }]
+        cards: [{ id, name: CardJsonDatabase.getCardName(record, 0), record }]
       };
       CardJsonDatabase.saveState(this.dbState);
     }
@@ -299,10 +300,6 @@ const CardEditor = {
       this.dbState.activeCardId = this.dbState.cards[0].id;
     }
     this.renderSavedCardList();
-  },
-
-  generateCardId() {
-    return `card-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   },
 
   getActiveCard() {
@@ -317,11 +314,6 @@ const CardEditor = {
     return { card: this.dbState.cards[index], index };
   },
 
-  getCardDisplayName(record, fallbackIndex) {
-    const raw = String(record?.['card-name'] || '').trim();
-    return raw || `Card ${fallbackIndex + 1}`;
-  },
-
   renderSavedCardList() {
     if (!this.dbState) return;
     const $select = $('#saved-cards-select');
@@ -330,7 +322,7 @@ const CardEditor = {
     this.dbState.cards.forEach((card, index) => {
       const option = document.createElement('option');
       option.value = card.id;
-      option.textContent = card.name || this.getCardDisplayName(card.record, index);
+      option.textContent = card.name || CardJsonDatabase.getCardName(card.record, index);
       if (card.id === this.dbState.activeCardId) option.selected = true;
       $select.append(option);
     });
@@ -348,7 +340,7 @@ const CardEditor = {
     if (!activeEntry) return;
     const record = this.getCurrentRecord();
     activeEntry.card.record = record;
-    activeEntry.card.name = this.getCardDisplayName(record, activeEntry.index);
+    activeEntry.card.name = CardJsonDatabase.getCardName(record, activeEntry.index);
     this.saveDatabase();
   },
 
@@ -364,10 +356,10 @@ const CardEditor = {
   saveAsNewCard() {
     if (!this.dbState) return;
     const record = this.getCurrentRecord();
-    const id = this.generateCardId();
+    const id = CardJsonDatabase.generateId();
     this.dbState.cards.push({
       id,
-      name: this.getCardDisplayName(record, this.dbState.cards.length),
+      name: CardJsonDatabase.getCardName(record, this.dbState.cards.length),
       record
     });
     this.dbState.activeCardId = id;
