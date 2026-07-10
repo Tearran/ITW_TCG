@@ -334,6 +334,10 @@ const CardEditor = {
     this.renderSavedCardList();
   },
 
+  sanitizeFilename(name) {
+    return String(name || 'card').replace(/[^a-z0-9-_]+/gi, '_').toLowerCase();
+  },
+
   persistRecord() {
     if (!this.dbState) return;
     const activeEntry = this.getActiveCardEntry();
@@ -389,7 +393,7 @@ const CardEditor = {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${(selectedCard.name || `card_${selectedIndex + 1}`).replace(/[^a-z0-9-_]+/gi, '_').toLowerCase()}.json`;
+    a.download = `${this.sanitizeFilename(selectedCard.name || `card_${selectedIndex + 1}`)}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -409,7 +413,7 @@ const CardEditor = {
     if (index < 0) return;
 
     this.dbState.cards.splice(index, 1);
-    const nextCard = this.dbState.cards[Math.max(0, index - 1)] || this.dbState.cards[0];
+    const nextCard = this.dbState.cards[Math.max(0, index - 1)];
     if (!nextCard) return;
     this.dbState.activeCardId = nextCard.id;
     this.saveDatabase();
