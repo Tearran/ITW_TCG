@@ -134,7 +134,6 @@ const CardEditor = {
     $('#save-svg-button').on('click', () => this.saveSVG());
     $('#save-card-button').on('click', () => this.saveCurrentCard());
     $('#save-as-card-button').on('click', () => this.saveAsNewCard());
-    $('#load-card-button').on('click', () => this.loadSelectedCard());
     $('#download-card-json-button').on('click', () => this.downloadSelectedCardJSON());
     $('#delete-card-button').on('click', () => this.deleteSelectedCard());
     $('#saved-cards-select').on('change', () => this.loadSelectedCard());
@@ -307,6 +306,13 @@ const CardEditor = {
     return this.dbState.cards.find((card) => card.id === this.dbState.activeCardId) || null;
   },
 
+  getActiveCardEntry() {
+    if (!this.dbState) return null;
+    const index = this.dbState.cards.findIndex((card) => card.id === this.dbState.activeCardId);
+    if (index < 0) return null;
+    return { card: this.dbState.cards[index], index };
+  },
+
   getCardDisplayName(record, fallbackIndex) {
     const raw = String(record?.['card-name'] || '').trim();
     return raw || `Card ${fallbackIndex + 1}`;
@@ -334,11 +340,11 @@ const CardEditor = {
 
   persistRecord() {
     if (!this.dbState) return;
-    const activeCard = this.getActiveCard();
-    if (!activeCard) return;
+    const activeEntry = this.getActiveCardEntry();
+    if (!activeEntry) return;
     const record = this.getCurrentRecord();
-    activeCard.record = record;
-    activeCard.name = this.getCardDisplayName(record, this.dbState.cards.findIndex((card) => card.id === activeCard.id));
+    activeEntry.card.record = record;
+    activeEntry.card.name = this.getCardDisplayName(record, activeEntry.index);
     this.saveDatabase();
   },
 
@@ -378,15 +384,16 @@ const CardEditor = {
   downloadSelectedCardJSON() {
     if (!this.dbState) return;
     const selectedId = String($('#saved-cards-select').val() || this.dbState.activeCardId || '');
-    const selectedCard = this.dbState.cards.find((card) => card.id === selectedId);
-    if (!selectedCard) return;
+    const selectedIndex = this.dbState.cards.findIndex((card) => card.id === selectedId);
+    if (selectedIndex < 0) return;
+    const selectedCard = this.dbState.cards[selectedIndex];
 
     const blob = new Blob([JSON.stringify(selectedCard.record || {}, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${(selectedCard.name || 'card').replace(/[^a-z0-9-_]+/gi, '_').toLowerCase()}.json`;
+    a.download = `${(selectedCard.name || `card_${selectedIndex + 1}`).replace(/[^a-z0-9-_]+/gi, '_').toLowerCase()}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -397,7 +404,7 @@ const CardEditor = {
   deleteSelectedCard() {
     if (!this.dbState) return;
     if (this.dbState.cards.length <= 1) {
-      alert('Error: At least one saved card is required.');
+      alert('At least one saved card is required.');
       return;
     }
 
