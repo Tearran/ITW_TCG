@@ -282,20 +282,20 @@ const CardEditor = {
     reader.onload = () => {
       const raw = String(reader.result || '').trim();
       if (!raw) {
-        alert('JSON file is empty. Please provide valid card data.');
+        alert('Error: JSON file is empty. Please provide valid card data.');
         return;
       }
 
       try {
         const record = JSON.parse(raw);
         if (!this.isValidRecord(record)) {
-          alert('JSON file does not contain valid card data.');
+          alert('Error: JSON data must include at least one card field (for example "card-name", "fact", or "attack") and only known card data keys.');
           return;
         }
         this.applyRecord(record);
         this.persistRecord();
       } catch (error) {
-        alert(`Failed to parse JSON file: ${error instanceof Error ? error.message : 'unknown parse error'}`);
+        alert(`Error: failed to parse JSON file: ${error instanceof Error ? error.message : 'unknown parse error'}`);
       }
     };
     reader.readAsText(file);
@@ -303,7 +303,10 @@ const CardEditor = {
 
   isValidRecord(record) {
     if (!record || typeof record !== 'object' || Array.isArray(record)) return false;
-    return Object.keys(record).some((key) => CARD_RECORD_KEYS.has(key));
+    const keys = Object.keys(record);
+    if (!keys.length) return false;
+    if (keys.some((key) => !CARD_RECORD_KEYS.has(key))) return false;
+    return ['card-name', 'scientific-name', 'fact', 'abilities', 'attack', 'health', 'flora', 'water', 'fauna'].some((key) => key in record);
   },
 
   renderPreview() {
