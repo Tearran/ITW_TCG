@@ -378,8 +378,9 @@ const CardEditor = {
     if (!this.dbState) return;
     const record = {};
     const id = CardJsonDatabase.generateId();
-    const index = this.dbState.cards.length;
-    this.dbState.cards.push({ id, name: `Card ${index + 1}`, record });
+    let n = this.dbState.cards.length + 1;
+    while (this.dbState.cards.some((c) => c.name === `Card ${n}`)) n++;
+    this.dbState.cards.push({ id, name: `Card ${n}`, record });
     this.dbState.activeCardId = id;
     this.saveDatabase();
     this.applyRecord(record);
