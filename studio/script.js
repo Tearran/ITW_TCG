@@ -146,7 +146,6 @@ const CardEditor = {
     $('#save-card-button').on('click', () => this.saveCurrentCard());
     $('#new-card-button').on('click', () => this.newCard());
     $('#duplicate-card-button').on('click', () => this.duplicateCard());
-    $('#download-card-json-button').on('click', () => this.downloadSelectedCardJSON());
     $('#export-deck-button').on('click', () => this.exportDeck());
     $('#remove-card-button').on('click', () => this.removeCard());
     $('#saved-cards-select').on('change', () => this.loadSelectedCard());
@@ -419,17 +418,6 @@ const CardEditor = {
     a.click();
     document.body.removeChild(a);
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-  },
-
-  downloadSelectedCardJSON() {
-    if (!this.dbState) return;
-    const selectedId = String($('#saved-cards-select').val() || this.dbState.activeCardId || '');
-    const selectedIndex = this.dbState.cards.findIndex((card) => card.id === selectedId);
-    if (selectedIndex < 0) return;
-    const selectedCard = this.dbState.cards[selectedIndex];
-
-    const blob = new Blob([JSON.stringify(selectedCard.record || {}, null, 2)], { type: 'application/json' });
-    this._triggerDownload(blob, `${this.sanitizeFilename(selectedCard.name || `card_${selectedIndex + 1}`)}.json`);
   },
 
   removeCard() {
