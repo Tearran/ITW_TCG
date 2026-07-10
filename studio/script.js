@@ -11,7 +11,7 @@ const CardJsonDatabase = {
           return parsed;
         }
       } catch {
-        return null;
+        // Fall through to legacy key migration on parse error.
       }
     }
 
@@ -252,7 +252,8 @@ const CardEditor = {
   applyArtworkDataUri(dataUri) {
     const artwork = this.svgRoot.getElementById('artwork');
     if (!artwork) return;
-    this.setSvgImageHref(artwork, dataUri || '');
+    const safe = /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/]+=*$/.test(dataUri) ? dataUri : '';
+    this.setSvgImageHref(artwork, safe);
   },
 
   setSvgImageHref(node, href) {
@@ -480,6 +481,10 @@ const CardEditor = {
     const keys = Object.keys(record);
     if (!keys.length) return false;
     if (keys.some((key) => !CARD_RECORD_KEYS.has(key))) return false;
+    if ('artworkDataUri' in record) {
+      const uri = record.artworkDataUri;
+      if (uri !== '' && !/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/]+=*$/.test(uri)) return false;
+    }
     return ['card-name', 'scientific-name', 'fact', 'abilities', 'attack', 'health', 'flora', 'water', 'fauna'].some((key) => key in record);
   },
 
