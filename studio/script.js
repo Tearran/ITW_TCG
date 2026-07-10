@@ -289,13 +289,13 @@ const CardEditor = {
       try {
         const record = JSON.parse(raw);
         if (!this.isValidRecord(record)) {
-          alert('Error: JSON data must include at least one card field (for example "card-name", "fact", or "attack") and only known card data keys.');
+          alert('Error: JSON data must include at least one of these fields: "card-name", "scientific-name", "fact", "abilities", "attack", "health", "flora", "water", or "fauna", and only known card data keys.');
           return;
         }
         this.applyRecord(record);
         this.persistRecord();
       } catch (error) {
-        alert(`Error: failed to parse JSON file: ${error instanceof Error ? error.message : 'unknown parse error'}`);
+        alert(`Error: Failed to parse JSON file: ${error instanceof Error ? error.message : 'unknown parse error'}`);
       }
     };
     reader.readAsText(file);
