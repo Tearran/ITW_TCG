@@ -61,7 +61,6 @@ const CARD_RECORD_KEYS = new Set([
   'attack',
   'health',
   'expansion',
-  'card-number',
   'artist',
   'card-type',
   'fact',
@@ -84,7 +83,6 @@ const CardEditor = {
     'attack': 'attack',
     'health': 'health',
     'expansion': 'expansion',
-    'card-number': 'card-number',
     'artist': 'artist'
   },
 
@@ -136,7 +134,6 @@ const CardEditor = {
       this.updateArtwork(file);
     });
 
-    $('#export-json-button').on('click', () => this.exportJSON());
     $('#import-json-button').on('click', () => $('#import-json-input').trigger('click'));
     $('#import-json-input').on('change', (event) => this.importJSON(event));
     $('#save-svg-button').on('click', () => this.saveSVG());
@@ -226,9 +223,9 @@ const CardEditor = {
   },
 
   updateArtwork(file) {
-    const valid = ['image/jpeg', 'image/png', 'image/webp'];
+    const valid = ['image/svg+xml'];
     if (!valid.includes(file.type)) {
-      alert('Invalid file type. Please select JPG, PNG, or WebP.');
+      alert('Invalid file type. Please select an SVG file.');
       return;
     }
 
@@ -250,7 +247,7 @@ const CardEditor = {
   applyArtworkDataUri(dataUri) {
     const artwork = this.svgRoot.getElementById('artwork');
     if (!artwork) return;
-    const safe = /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/]+=*$/.test(dataUri) ? dataUri : '';
+    const safe = /^data:image\/(svg\+xml);base64,[A-Za-z0-9+/]+=*$/.test(dataUri) ? dataUri : '';
     this.setSvgImageHref(artwork, safe);
   },
 
@@ -437,14 +434,12 @@ const CardEditor = {
 
   exportDeck() {
     if (!this.dbState) return;
-    const deck = this.dbState.cards.map((card) => card.record || {});
+    const deck = this.dbState.cards.map((card, index) => ({
+      'card-number': String(index + 1),
+      ...(card.record || {})
+    }));
     const blob = new Blob([JSON.stringify(deck, null, 2)], { type: 'application/json' });
     this._triggerDownload(blob, 'deck.json');
-  },
-
-  exportJSON() {
-    const blob = new Blob([JSON.stringify(this.getCurrentRecord(), null, 2)], { type: 'application/json' });
-    this._triggerDownload(blob, 'card-data.json');
   },
 
   importJSON(event) {
@@ -462,12 +457,40 @@ const CardEditor = {
       }
 
       try {
-        const record = JSON.parse(raw);
-        if (!this.isValidRecord(record)) {
+        const parsed = JSON.parse(raw);
+
+        // Deck array import
+        if (Array.isArray(parsed)) {
+          if (!parsed.length) {
+            alert('Error: Deck JSON array is empty.');
+            return;
+          }
+          const invalidIndex = parsed.findIndex((item) => !item || typeof item !== 'object' || Array.isArray(item));
+          if (invalidIndex !== -1) {
+            alert(`Error: Item at index ${invalidIndex} in the deck array is not a valid card object.`);
+            return;
+          }
+          if (!confirm(`Import ${parsed.length} card(s)? This will replace your current card library.`)) return;
+
+          const cards = parsed.map((record, index) => {
+            // Strip auto-generated card-number so it stays computed on export
+            const { 'card-number': _n, ...rest } = record;
+            const id = CardJsonDatabase.generateId();
+            return { id, name: CardJsonDatabase.getCardName(rest, index), record: rest };
+          });
+          this.dbState.cards = cards;
+          this.dbState.activeCardId = cards[0].id;
+          this.saveDatabase();
+          this.applyRecord(cards[0].record);
+          return;
+        }
+
+        // Single card object import
+        if (!this.isValidRecord(parsed)) {
           alert('Error: JSON data must include at least one of these fields: "card-name", "scientific-name", "fact", "abilities", "attack", "health", "flora", "water", or "fauna", and only known card data keys.');
           return;
         }
-        this.applyRecord(record);
+        this.applyRecord(parsed);
         this.persistRecord();
       } catch (error) {
         alert(`Error: Failed to parse JSON file: ${error instanceof Error ? error.message : 'unknown parse error'}`);
@@ -483,7 +506,7 @@ const CardEditor = {
     if (keys.some((key) => !CARD_RECORD_KEYS.has(key))) return false;
     if ('artworkDataUri' in record) {
       const uri = record.artworkDataUri;
-      if (uri !== '' && !/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/]+=*$/.test(uri)) return false;
+      if (uri !== '' && !/^data:image\/(svg\+xml);base64,[A-Za-z0-9+/]+=*$/.test(uri)) return false;
     }
     return ['card-name', 'scientific-name', 'fact', 'abilities', 'attack', 'health', 'flora', 'water', 'fauna'].some((key) => key in record);
   },

@@ -71,23 +71,17 @@
         </label>
 
         <label>
-          <span>Card Number</span>
-          <input type="text" name="card-number" />
-        </label>
-
-        <label>
           <span>Artist</span>
           <input type="text" name="artist" />
         </label>
 
         <label class="full-width">
-          <span>Artwork Upload (JPG / PNG / WebP)</span>
-          <input type="file" id="artwork-input" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" />
+          <span>Artwork Upload (SVG)</span>
+          <input type="file" id="artwork-input" accept=".svg,image/svg+xml" />
         </label>
       </div>
 
       <div class="actions">
-        <button type="button" id="export-json-button">Export JSON</button>
         <button type="button" id="import-json-button">Import JSON</button>
         <input type="file" id="import-json-input" accept=".json,application/json" hidden />
         <button type="button" id="save-svg-button">Save SVG</button>
@@ -169,7 +163,6 @@
   </g>
 
   <text id="expansion" transform="scale(.98805 1.0121)" x="58.916084" y="543.9856" font-size="8.3021px"></text>
-  <text id="card-number" transform="scale(.98805 1.0121)" x="58.91608" y="549.75085" font-size="8.3021px"></text>
   <text id="artist" transform="scale(.98805 1.0121)" x="58.91608" y="555.25085" font-size="8.3021px"></text>
 
   <g id="combat" transform="translate(324.33 536.81)">
