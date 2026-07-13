@@ -231,30 +231,103 @@ const CardEditor = {
 
     const reader = new FileReader();
     reader.onload = () => {
-      const dataUri = reader.result;
-      this.currentArtworkDataUri = dataUri;
-      const artwork = this.svgRoot.getElementById('artwork');
-      if (!artwork) return;
-
-      this.setSvgImageHref(artwork, dataUri);
-
+      const svgText = reader.result;
+      this.currentArtworkDataUri = svgText;
+      this.inlineArtworkSvg(svgText);
       this.renderPreview();
       this.persistRecord();
     };
-    reader.readAsDataURL(file);
+    reader.readAsText(file);
   },
 
-  applyArtworkDataUri(dataUri) {
-    const artwork = this.svgRoot.getElementById('artwork');
-    if (!artwork) return;
-    const safe = /^data:image\/(svg\+xml);base64,[A-Za-z0-9+/]+=*$/.test(dataUri) ? dataUri : '';
-    this.setSvgImageHref(artwork, safe);
+  applyArtworkDataUri(svgText) {
+    // Support legacy base64 data URIs from older saved records.
+    if (/^data:image\/svg\+xml;base64,[A-Za-z0-9+/]+=*$/.test(svgText)) {
+      try {
+        const base64Part = svgText.split(',')[1];
+        if (base64Part) {
+          this.inlineArtworkSvg(atob(base64Part));
+          return;
+        }
+      } catch {
+        // Fall through to clear artwork on decode failure.
+      }
+    }
+    this.inlineArtworkSvg(svgText);
   },
 
-  setSvgImageHref(node, href) {
-    node.setAttribute('href', href);
-    // Keep xlink:href for SVG viewers that still rely on legacy namespace resolution.
-    node.setAttributeNS('http://www.w3.org/1999/xlink', 'href', href);
+  inlineArtworkSvg(svgText) {
+    if (!this.svgRoot) return;
+    const existing = this.svgRoot.getElementById('artwork');
+    if (!existing) return;
+
+    const x = existing.getAttribute('x') || '49.098';
+    const y = existing.getAttribute('y') || '100.04';
+    const width = existing.getAttribute('width') || '351.81';
+    const height = existing.getAttribute('height') || '205.38';
+
+    if (!svgText) {
+      // Restore empty image placeholder when artwork is cleared.
+      if (existing.tagName !== 'image') {
+        const img = this.svgDocument.createElementNS('http://www.w3.org/2000/svg', 'image');
+        img.setAttribute('id', 'artwork');
+        img.setAttribute('x', x);
+        img.setAttribute('y', y);
+        img.setAttribute('width', width);
+        img.setAttribute('height', height);
+        img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+        existing.parentNode.replaceChild(img, existing);
+      }
+      return;
+    }
+
+    const parser = new DOMParser();
+    const artDoc = parser.parseFromString(svgText, 'image/svg+xml');
+    const artSvg = artDoc.documentElement;
+    if (!artSvg || artSvg.tagName.toLowerCase() === 'parsererror' || artDoc.querySelector('parsererror')) {
+      alert('The selected file contains invalid SVG syntax. Please verify the file is a properly formatted SVG document.');
+      return;
+    }
+
+    this.sanitizeSvgDoc(artDoc);
+
+    const nestedSvg = this.svgDocument.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    nestedSvg.setAttribute('id', 'artwork');
+    nestedSvg.setAttribute('x', x);
+    nestedSvg.setAttribute('y', y);
+    nestedSvg.setAttribute('width', width);
+    nestedSvg.setAttribute('height', height);
+    nestedSvg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    const viewBox = artSvg.getAttribute('viewBox');
+    if (viewBox) nestedSvg.setAttribute('viewBox', viewBox);
+
+    Array.from(artSvg.childNodes).forEach((child) => {
+      nestedSvg.appendChild(this.svgDocument.importNode(child, true));
+    });
+
+    existing.parentNode.replaceChild(nestedSvg, existing);
+  },
+
+  sanitizeSvgDoc(doc) {
+    const BLOCKED_TAGS = ['script', 'foreignObject', 'embed', 'object', 'iframe'];
+    const EVENT_ATTR = /^on/i;
+    // Block non-image data URIs and javascript: URIs; allow data:image/ for embedded rasters.
+    const UNSAFE_URI = /^\s*(?:javascript:|data:(?!image\/))/i;
+    const HREF_ATTRS = ['href', 'xlink:href', 'src', 'action'];
+
+    BLOCKED_TAGS.forEach((tag) => {
+      doc.querySelectorAll(tag).forEach((el) => el.remove());
+    });
+
+    doc.querySelectorAll('*').forEach((el) => {
+      Array.from(el.attributes).forEach((attr) => {
+        if (EVENT_ATTR.test(attr.name)) {
+          el.removeAttribute(attr.name);
+        } else if (HREF_ATTRS.includes(attr.name) && UNSAFE_URI.test(attr.value)) {
+          el.removeAttribute(attr.name);
+        }
+      });
+    });
   },
 
   getCurrentRecord() {
@@ -506,7 +579,12 @@ const CardEditor = {
     if (keys.some((key) => !CARD_RECORD_KEYS.has(key))) return false;
     if ('artworkDataUri' in record) {
       const uri = record.artworkDataUri;
-      if (uri !== '' && !/^data:image\/(svg\+xml);base64,[A-Za-z0-9+/]+=*$/.test(uri)) return false;
+      // Accept empty string, raw SVG/XML markup, or legacy base64 data URIs.
+      if (
+        uri !== '' &&
+        !/^\s*</.test(uri) &&
+        !/^data:image\/svg\+xml;base64,[A-Za-z0-9+/]+=*$/.test(uri)
+      ) return false;
     }
     return ['card-name', 'scientific-name', 'fact', 'abilities', 'attack', 'health', 'flora', 'water', 'fauna'].some((key) => key in record);
   },
