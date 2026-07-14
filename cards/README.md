@@ -1,3 +1,5 @@
+![prickly_pear.svg](prickly_pear.svg)
+
 ![javelinas.svg](javelinas.svg)
 ![greater_roadrunner.svg](greater_roadrunner.svg)
 ![coyote.svg](coyote.svg)
