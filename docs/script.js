@@ -73,6 +73,9 @@ const CardEditor = {
   svgRoot: null,
   currentArtworkPath: '',
   dbState: null,
+  artworkLoadTimer: null,
+  artworkRequestId: 0,
+  artworkLoadDebounceMs: 400,
 
   textFieldMap: {
     'card-name': 'card-name',
@@ -130,8 +133,8 @@ const CardEditor = {
 
     $('#artwork-path-input').on('input change', (event) => {
       this.currentArtworkPath = event.target.value.trim();
-      this.loadArtworkFromPath(this.currentArtworkPath);
       this.persistRecord();
+      this.scheduleArtworkLoad(this.currentArtworkPath);
     });
 
     $('#import-json-button').on('click', () => $('#import-json-input').trigger('click'));
@@ -222,7 +225,20 @@ const CardEditor = {
     return width;
   },
 
+  scheduleArtworkLoad(path) {
+    if (this.artworkLoadTimer) clearTimeout(this.artworkLoadTimer);
+    this.artworkLoadTimer = setTimeout(() => {
+      this.artworkLoadTimer = null;
+      this.loadArtworkFromPath(path);
+    }, this.artworkLoadDebounceMs);
+  },
+
   loadArtworkFromPath(path) {
+    // Each call gets its own id; only the most recently issued request is
+    // allowed to update the preview or surface an error, so a slow/stale
+    // request can't overwrite a result from a request started afterward.
+    const requestId = ++this.artworkRequestId;
+
     if (!path) {
       this.inlineArtworkSvg('');
       this.renderPreview();
@@ -235,10 +251,12 @@ const CardEditor = {
         return response.text();
       })
       .then((svgText) => {
+        if (requestId !== this.artworkRequestId) return;
         this.inlineArtworkSvg(svgText);
         this.renderPreview();
       })
       .catch(() => {
+        if (requestId !== this.artworkRequestId) return;
         alert('Unable to load artwork from the specified path.');
       });
   },
@@ -344,6 +362,10 @@ const CardEditor = {
 
     this.currentArtworkPath = record.artwork || '';
     $('#artwork-path-input').val(this.currentArtworkPath);
+    if (this.artworkLoadTimer) {
+      clearTimeout(this.artworkLoadTimer);
+      this.artworkLoadTimer = null;
+    }
     this.loadArtworkFromPath(this.currentArtworkPath);
     this.renderPreview();
   },
