@@ -72,6 +72,7 @@ const CardEditor = {
   svgDocument: null,
   svgRoot: null,
   currentArtworkPath: '',
+  artworkRequestId: 0,
   dbState: null,
 
   textFieldMap: {
@@ -128,7 +129,15 @@ const CardEditor = {
       this.persistRecord();
     });
 
-    $('#artwork-path-input').on('input change', (event) => {
+    // Only track the path as the user types; avoid fetching/validating on
+    // every keystroke (which caused repeated alert popups). The artwork is
+    // actually loaded once the field loses focus (`change`) or on save.
+    $('#artwork-path-input').on('input', (event) => {
+      this.currentArtworkPath = event.target.value.trim();
+      this.persistRecord();
+    });
+
+    $('#artwork-path-input').on('change', (event) => {
       this.currentArtworkPath = event.target.value.trim();
       this.loadArtworkFromPath(this.currentArtworkPath);
       this.persistRecord();
@@ -223,6 +232,8 @@ const CardEditor = {
   },
 
   loadArtworkFromPath(path) {
+    const requestId = ++this.artworkRequestId;
+
     if (!path) {
       this.inlineArtworkSvg('');
       this.renderPreview();
@@ -235,11 +246,17 @@ const CardEditor = {
         return response.text();
       })
       .then((svgText) => {
+        if (requestId !== this.artworkRequestId) return;
         this.inlineArtworkSvg(svgText);
         this.renderPreview();
       })
       .catch(() => {
-        alert('Unable to load artwork from the specified path.');
+        if (requestId !== this.artworkRequestId) return;
+        // Silently clear the preview instead of alerting; the path may
+        // simply be incomplete while the user is still typing/editing.
+        console.warn(`Unable to load artwork from path: ${path}`);
+        this.inlineArtworkSvg('');
+        this.renderPreview();
       });
   },
 
@@ -272,7 +289,10 @@ const CardEditor = {
     const artDoc = parser.parseFromString(svgText, 'image/svg+xml');
     const artSvg = artDoc.documentElement;
     if (!artSvg || artSvg.tagName.toLowerCase() === 'parsererror' || artDoc.querySelector('parsererror')) {
-      alert('The selected file contains invalid SVG syntax. Please verify the file is a properly formatted SVG document.');
+      // Silently clear the preview instead of alerting; this avoids popup
+      // spam while the artwork path is still being edited.
+      console.warn('The artwork file contains invalid SVG syntax.');
+      this.inlineArtworkSvg('');
       return;
     }
 
@@ -424,6 +444,7 @@ const CardEditor = {
   },
 
   saveCurrentCard() {
+    this.loadArtworkFromPath(this.currentArtworkPath);
     this.persistRecord();
   },
 
