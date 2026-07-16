@@ -65,13 +65,15 @@ const CARD_RECORD_KEYS = new Set([
   'card-type',
   'fact',
   'abilities',
-  'artworkDataUri'
+  'artworkDataUri',
+  'artwork'
 ]);
 
 const CardEditor = {
   svgDocument: null,
   svgRoot: null,
   currentArtworkDataUri: '',
+  currentArtworkPath: '',
   dbState: null,
 
   textFieldMap: {
@@ -232,12 +234,29 @@ const CardEditor = {
     const reader = new FileReader();
     reader.onload = () => {
       const svgText = reader.result;
+      this.currentArtworkPath = '';
       this.currentArtworkDataUri = svgText;
       this.inlineArtworkSvg(svgText);
       this.renderPreview();
       this.persistRecord();
     };
     reader.readAsText(file);
+  },
+
+  loadArtworkFromPath(path) {
+    fetch(path)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Failed to load artwork: ${response.status}`);
+        return response.text();
+      })
+      .then((svgText) => {
+        this.inlineArtworkSvg(svgText);
+        this.renderPreview();
+      })
+      .catch(() => {
+        this.inlineArtworkSvg('');
+        this.renderPreview();
+      });
   },
 
   applyArtworkDataUri(svgText) {
@@ -335,7 +354,11 @@ const CardEditor = {
     $('#card-editor-form').serializeArray().forEach(({ name, value }) => {
       record[name] = value;
     });
-    record.artworkDataUri = this.currentArtworkDataUri || '';
+    if (this.currentArtworkPath) {
+      record.artwork = this.currentArtworkPath;
+    } else {
+      record.artworkDataUri = this.currentArtworkDataUri || '';
+    }
     return record;
   },
 
@@ -355,8 +378,14 @@ const CardEditor = {
     this.updateMultilineField('fact', record.fact ?? '');
     this.updateMultilineField('abilities', record.abilities ?? '');
 
-    this.currentArtworkDataUri = record.artworkDataUri || '';
-    this.applyArtworkDataUri(this.currentArtworkDataUri);
+    this.currentArtworkPath = typeof record.artwork === 'string' ? record.artwork : '';
+    if (this.currentArtworkPath) {
+      this.currentArtworkDataUri = '';
+      this.loadArtworkFromPath(this.currentArtworkPath);
+    } else {
+      this.currentArtworkDataUri = record.artworkDataUri || '';
+      this.applyArtworkDataUri(this.currentArtworkDataUri);
+    }
     this.renderPreview();
   },
 
@@ -586,6 +615,7 @@ const CardEditor = {
         !/^data:image\/svg\+xml;base64,[A-Za-z0-9+/]+=*$/.test(uri)
       ) return false;
     }
+    if ('artwork' in record && typeof record.artwork !== 'string') return false;
     return ['card-name', 'scientific-name', 'fact', 'abilities', 'attack', 'health', 'flora', 'water', 'fauna'].some((key) => key in record);
   },
 
