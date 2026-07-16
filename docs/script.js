@@ -65,13 +65,13 @@ const CARD_RECORD_KEYS = new Set([
   'card-type',
   'fact',
   'abilities',
-  'artworkDataUri'
+  'artwork'
 ]);
 
 const CardEditor = {
   svgDocument: null,
   svgRoot: null,
-  currentArtworkDataUri: '',
+  currentArtworkPath: '',
   dbState: null,
 
   textFieldMap: {
@@ -128,10 +128,10 @@ const CardEditor = {
       this.persistRecord();
     });
 
-    $('#artwork-input').on('change', (event) => {
-      const file = event.target.files && event.target.files[0];
-      if (!file) return;
-      this.updateArtwork(file);
+    $('#artwork-path-input').on('input change', (event) => {
+      this.currentArtworkPath = event.target.value.trim();
+      this.loadArtworkFromPath(this.currentArtworkPath);
+      this.persistRecord();
     });
 
     $('#import-json-button').on('click', () => $('#import-json-input').trigger('click'));
@@ -222,38 +222,25 @@ const CardEditor = {
     return width;
   },
 
-  updateArtwork(file) {
-    const valid = ['image/svg+xml'];
-    if (!valid.includes(file.type)) {
-      alert('Invalid file type. Please select an SVG file.');
+  loadArtworkFromPath(path) {
+    if (!path) {
+      this.inlineArtworkSvg('');
+      this.renderPreview();
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      const svgText = reader.result;
-      this.currentArtworkDataUri = svgText;
-      this.inlineArtworkSvg(svgText);
-      this.renderPreview();
-      this.persistRecord();
-    };
-    reader.readAsText(file);
-  },
-
-  applyArtworkDataUri(svgText) {
-    // Support legacy base64 data URIs from older saved records.
-    if (/^data:image\/svg\+xml;base64,[A-Za-z0-9+/]+=*$/.test(svgText)) {
-      try {
-        const base64Part = svgText.split(',')[1];
-        if (base64Part) {
-          this.inlineArtworkSvg(atob(base64Part));
-          return;
-        }
-      } catch {
-        // Fall through to clear artwork on decode failure.
-      }
-    }
-    this.inlineArtworkSvg(svgText);
+    fetch(path)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+        return response.text();
+      })
+      .then((svgText) => {
+        this.inlineArtworkSvg(svgText);
+        this.renderPreview();
+      })
+      .catch(() => {
+        alert('Unable to load artwork from the specified path.');
+      });
   },
 
   inlineArtworkSvg(svgText) {
@@ -335,7 +322,7 @@ const CardEditor = {
     $('#card-editor-form').serializeArray().forEach(({ name, value }) => {
       record[name] = value;
     });
-    record.artworkDataUri = this.currentArtworkDataUri || '';
+    record.artwork = this.currentArtworkPath || '';
     return record;
   },
 
@@ -355,8 +342,9 @@ const CardEditor = {
     this.updateMultilineField('fact', record.fact ?? '');
     this.updateMultilineField('abilities', record.abilities ?? '');
 
-    this.currentArtworkDataUri = record.artworkDataUri || '';
-    this.applyArtworkDataUri(this.currentArtworkDataUri);
+    this.currentArtworkPath = record.artwork || '';
+    $('#artwork-path-input').val(this.currentArtworkPath);
+    this.loadArtworkFromPath(this.currentArtworkPath);
     this.renderPreview();
   },
 
@@ -577,15 +565,7 @@ const CardEditor = {
     const keys = Object.keys(record);
     if (!keys.length) return false;
     if (keys.some((key) => !CARD_RECORD_KEYS.has(key))) return false;
-    if ('artworkDataUri' in record) {
-      const uri = record.artworkDataUri;
-      // Accept empty string, raw SVG/XML markup, or legacy base64 data URIs.
-      if (
-        uri !== '' &&
-        !/^\s*</.test(uri) &&
-        !/^data:image\/svg\+xml;base64,[A-Za-z0-9+/]+=*$/.test(uri)
-      ) return false;
-    }
+    if ('artwork' in record && typeof record.artwork !== 'string') return false;
     return ['card-name', 'scientific-name', 'fact', 'abilities', 'attack', 'health', 'flora', 'water', 'fauna'].some((key) => key in record);
   },
 
