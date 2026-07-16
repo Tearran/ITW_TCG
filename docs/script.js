@@ -226,18 +226,19 @@ const CardEditor = {
   },
 
   scheduleArtworkLoad(path) {
+    const requestId = ++this.artworkRequestId;
     if (this.artworkLoadTimer) clearTimeout(this.artworkLoadTimer);
     this.artworkLoadTimer = setTimeout(() => {
       this.artworkLoadTimer = null;
-      this.loadArtworkFromPath(path);
+      this.loadArtworkFromPath(path, requestId);
     }, this.artworkLoadDebounceMs);
   },
 
-  loadArtworkFromPath(path) {
-    // Each call gets its own id; only the most recently issued request is
-    // allowed to update the preview or surface an error, so a slow/stale
-    // request can't overwrite a result from a request started afterward.
-    const requestId = ++this.artworkRequestId;
+  loadArtworkFromPath(path, requestId) {
+    // requestId was already assigned by scheduleArtworkLoad when this load
+    // was scheduled; only the most recently issued request is allowed to
+    // update the preview or surface an error, so a slow/stale request can't
+    // overwrite a result from a request started afterward.
 
     if (!path) {
       this.inlineArtworkSvg('');
@@ -366,7 +367,8 @@ const CardEditor = {
       clearTimeout(this.artworkLoadTimer);
       this.artworkLoadTimer = null;
     }
-    this.loadArtworkFromPath(this.currentArtworkPath);
+    const requestId = ++this.artworkRequestId;
+    this.loadArtworkFromPath(this.currentArtworkPath, requestId);
     this.renderPreview();
   },
 
