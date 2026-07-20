@@ -25,9 +25,9 @@ for svg in img/*.svg; do
     ((n++)) # Increments n by 1
     # Add a heading for the image and the image itself
     echo "$n. $svg" >> "$OUTPUT_FILE"
-##    echo "" >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
     echo "![$svg]($svg)" >> "$OUTPUT_FILE"
-##    echo "" >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
 ##    echo "<br>" >> "$OUTPUT_FILE"
 ##    echo "" >> "$OUTPUT_FILE"
 done
