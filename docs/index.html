@@ -1,117 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <title>ITW TCG Card Studio</title>
-    <link rel="stylesheet" href="./style.css">
+<head>
+  <meta charset="UTF-8">
+  <title>ITW TCG Card Studio</title>
+  <link rel="stylesheet" href="./style.css">
 
-  </head>
-    
-  <body>
+</head>
+
+<body>
   <main class="app">
-  <section class="editor-panel">
-    <h1>ITW TCG Card Editor</h1>
+    <section class="editor-panel">
+      <h1>ITW TCG Card Editor</h1>
 
-    <form id="card-editor-form" novalidate>
-      <div class="form-grid">
-        <label>
-          <span>Card Name</span>
-          <input type="text" name="card-name" />
-        </label>
-
-        <label>
-          <span>Scientific Name</span>
-          <input type="text" name="scientific-name" />
-        </label>
-
-        <label>
-          <span>Type</span>
-          <input type="text" name="card-type" />
-        </label>
-
-        <label>
-          <span>Flora</span>
-          <input type="number" name="flora" min="0" step="1" value="0" />
-        </label>
-
-        <label>
-          <span>Water</span>
-          <input type="number" name="water" min="0" step="1" value="0" />
-        </label>
-
-        <label>
-          <span>Fauna</span>
-          <input type="number" name="fauna" min="0" step="1" value="0" />
-        </label>
-
-        <label>
-          <span>Attack</span>
-          <input type="number" name="attack" min="0" step="1" value="0" />
-        </label>
-
-        <label>
-          <span>Health</span>
-          <input type="number" name="health" min="0" step="1" value="0" />
-        </label>
-
-        <label class="full-width">
-          <span>Fact</span>
-          <textarea name="fact" rows="4"></textarea>
-        </label>
-
-        <label class="full-width">
-          <span>Abilities</span>
-          <textarea name="abilities" rows="4"></textarea>
-        </label>
-
-        <label>
-          <span>Expansion</span>
-          <input type="text" name="expansion" />
-        </label>
-
-        <label>
-          <span>Artist</span>
-          <input type="text" name="artist" />
-        </label>
-
-        <label class="full-width">
-          <span>Artwork Path (SVG)</span>
-          <input type="text" id="artwork-path-input" placeholder="img/example.svg" />
-        </label>
-      </div>
-
-      <div class="actions">
-        <button type="button" id="import-json-button">Import JSON</button>
-        <input type="file" id="import-json-input" accept=".json,application/json" hidden />
-        <button type="button" id="save-svg-button">Save SVG</button>
-      </div>
-
-      <div class="card-library">
+      <form id="card-editor-form" novalidate>
         <label>
           <span>Card Library (<span id="card-count">0</span> cards)</span>
           <select id="saved-cards-select"></select>
         </label>
-        <div class="actions">
-          <button type="button" id="new-card-button">New Card</button>
-          <button type="button" id="save-card-button">Save</button>
-          <button type="button" id="duplicate-card-button">Duplicate</button>
-          <button type="button" id="remove-card-button">Remove</button>
-        </div>
-        <div class="actions">
-          <button type="button" id="export-deck-button">Export Deck</button>
-        </div>
-      </div>
-    </form>
-  </section>
+        <div class="form-grid">
 
-  <section class="preview-panel">
-    <h2>Live Preview</h2>
-    <div id="svg-preview" class="svg-preview"></div>
-  </section>
-</main>
+          <label>
+            <span>Card Name</span>
+            <input type="text" name="card-name" />
+          </label>
 
-<script id="svg-template" type="text/plain">
+          <label>
+            <span>Scientific Name</span>
+            <input type="text" name="scientific-name" />
+          </label>
+
+          <label>
+            <span>Type</span>
+            <input type="text" name="card-type" />
+          </label>
+
+          <label>
+            <span>Flora</span>
+            <input type="number" name="flora" min="0" step="1" value="0" />
+          </label>
+
+          <label>
+            <span>Water</span>
+            <input type="number" name="water" min="0" step="1" value="0" />
+          </label>
+
+          <label>
+            <span>Fauna</span>
+            <input type="number" name="fauna" min="0" step="1" value="0" />
+          </label>
+
+          <label>
+            <span>Attack</span>
+            <input type="number" name="attack" min="0" step="1" value="0" />
+          </label>
+
+          <label>
+            <span>Health</span>
+            <input type="number" name="health" min="0" step="1" value="0" />
+          </label>
+
+          <label class="full-width">
+            <span>Fact</span>
+            <textarea name="fact" rows="4"></textarea>
+          </label>
+
+          <label class="full-width">
+            <span>Abilities</span>
+            <textarea name="abilities" rows="4"></textarea>
+          </label>
+
+          <label>
+            <span>Expansion</span>
+            <input type="text" name="expansion" />
+          </label>
+
+          <label>
+            <span>Artist</span>
+            <input type="text" name="artist" />
+          </label>
+
+          <label class="full-width">
+            <span>Artwork Path (SVG)</span>
+            <input type="text" id="artwork-path-input" placeholder="img/example.svg" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="import-json-button">Import JSON</button>
+          <input type="file" id="import-json-input" accept=".json,application/json" hidden />
+          <button type="button" id="save-svg-button">Save SVG</button>
+        </div>
+
+        <div class="card-library">
+          <div class="actions">
+            <button type="button" id="new-card-button">New Card</button>
+            <button type="button" id="save-card-button">Save</button>
+            <button type="button" id="duplicate-card-button">Duplicate</button>
+            <button type="button" id="remove-card-button">Remove</button>
+          </div>
+          <div class="actions">
+            <button type="button" id="export-deck-button">Export Deck</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="preview-panel">
+      <h2>Live Preview</h2>
+      <div id="svg-preview" class="svg-preview"></div>
+    </section>
+  </main>
+
+  <script id="svg-template" type="text/plain">
 <svg width="2.75in" height="3.75in" version="1.1" viewBox="0 0 450.01 613.65" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="boxGradient" x1="20.069" x2="221.37" y1="601.82" y2="803.11" gradientTransform="matrix(1.6568 0 0 .60359 0 2.7648e-6)" gradientUnits="userSpaceOnUse">
@@ -173,8 +174,11 @@
   </g>
 </svg>
 </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script><script  src="./script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+    integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+    crossorigin='anonymous'></script>
+  <script src="./script.js"></script>
 
-  </body>
-  
+</body>
+
 </html>
