@@ -15,8 +15,8 @@
 ![img/desert_cottontail.svg](img/desert_cottontail.svg)
 7. img/desert_iguana.svg
 ![img/desert_iguana.svg](img/desert_iguana.svg)
-8. img/desrt-nesting_bald_eagle.svg
-![img/desrt-nesting_bald_eagle.svg](img/desrt-nesting_bald_eagle.svg)
+8. img/desert-nesting_bald_eagle.svg
+![img/desert-nesting_bald_eagle.svg](img/desert-nesting_bald_eagle.svg)
 9. img/gambels_quail.svg
 ![img/gambels_quail.svg](img/gambels_quail.svg)
 10. img/gila_monster.svg
