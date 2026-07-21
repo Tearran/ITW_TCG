@@ -34,6 +34,12 @@ Future expansions may explore additional ranger districts, national forests, nat
 
 ---
 
+## Card Editor
+
+`card-editor.html` is a self-contained, browser-based editor for `template.json`. Open it directly in a browser (Chrome/Edge recommended for direct file saving) to search, add, duplicate, delete, and edit cards, then save or export the updated JSON.
+
+---
+
 ## License
 
 **TBD**
