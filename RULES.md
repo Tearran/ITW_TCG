@@ -1,106 +1,223 @@
 # Into the Wild TCG — Alpha Rules v0.1
 
-## 1) Objective
-Build a stable ecosystem before your opponent.
-
-- Each player starts at **0 Biome Stability**.
-- A player wins when their **Biome Stability reaches 10**.
+# Into the Wild (Working Title) TCG
+*A trading card game based on the ecosystems of U.S. National Forests.*
 
 ---
 
-## 2) Deck and Start
-- Recommended deck size for alpha: **40 cards**.
-- Shuffle your deck.
-- Each player draws **5 cards**.
-- Determine first player randomly.
-- The first player takes a normal first turn.
+# Core Philosophy
+
+Into the Wild,
+
+The objective is to maintain a healthy ecosystem while disrupting your opponent's ecosystem until it becomes unstable.
+
 
 ---
 
-## 3) Turn Structure
-Each turn has five phases:
+# Game Zones
 
-1. **Restore Phase**
-2. **Draw Phase**
-3. **Play Phase**
-4. **Combat Phase**
-5. **End Phase** (score Biome Stability, clear Organism damage)
+## Habitat
+The play area where Flora, Fauna, Water Sources, and Environmental cards exist.
 
----
+## Canopy
+The player's hand.
 
-## 4) Restore and Draw
-### Restore Phase
-- Ready all exhausted cards you control.
-- Restore spent Bio-Resources so they are available again this turn.
+## Compost Pile
+Discard pile for destroyed or completed cards.
 
-### Draw Phase
-- Draw 1 card.
+## Deck
+Player's draw pile.
 
 ---
 
-## 5) Bio-Resources
-Bio-Resource types are:
+# Resource System
+
+Resources are permanent cards placed into the Habitat.
+
+Each resource provides **1 Bio-Energy** each turn.
+
+Resources become exhausted when used.
+
+All exhausted resources refresh at the start of their controller's turn.
+
+Resources are **not consumed** when paying costs.
+
+Example:
+
+River
+Produces 1 Water each turn.
+
+Mesquite Tree
+Produces 1 Flora each turn.
+
+Pocket Mouse Colony
+Produces 1 Prey each turn.
+
+---
+
+# Resource Types
 
 - Water
 - Flora
-- Fauna
+- Prey
 
-Rules:
-- Card costs are paid using available Bio-Resources.
-- Spent Bio-Resources are unavailable for the rest of the turn.
-- All spent Bio-Resources restore at the start of your next turn.
+These resources represent established populations or natural features within a biome.
 
 ---
 
-## 6) Play Phase Limits
-During your Play Phase, you may play up to:
+# Playing Resources
 
-- **1 Bio-Resource card**
-- **1 Organism card**
-- **1 Instance card**
+Players may normally play one Resource card each turn.
 
-Cards resolve immediately unless a card states otherwise.
+Resources remain in the Habitat until affected by card effects.
 
 ---
 
-## 7) Organism Stats and Combat
-Organisms use two stats:
+# Resource Disruption
 
-- **Attack / Health**
+Most effects do not destroy resources.
 
-### Combat rules
-- Each ready Organism may attack once during Combat Phase, then becomes exhausted.
-- Combat is between Organisms.
-- Damage dealt equals the attacker’s **Attack**.
-- If an Organism’s accumulated damage is equal to or greater than its **Health**, discard it.
-- Clear Organism damage at End Phase.
+Instead they temporarily destabilize the opponent's ecosystem.
 
----
+Common effects include:
 
-## 8) Biome Stability Scoring
-At the end of your turn, score Biome Stability:
+- Return target Resource to its owner's hand.
+- Exhaust target Resource.
+- Prevent target Resource from refreshing.
+- Destroy (Compost) target Resource.
 
-### Resource Condition
-Gain **+1 Biome Stability** if you control at least one of each:
+Returning a resource to its owner's hand represents migration, retreat, relocation, or temporary habitat loss.
 
-- Water Resource
-- Flora Resource
-- Fauna Resource
-
-### Biodiversity Condition
-Gain **+1 Biome Stability** if you control at least one of each:
-
-- Apex Predator
-- Predator
-- Herbivore
-- Plant
-
-Each condition can be scored once per turn.
+The owner may replay it on a later turn.
 
 ---
 
-## 9) Empty Deck
-If you must draw a card and cannot, you lose.
+# Animals
+
+Animals have:
+
+- Attack
+- Health
+- Abilities
+
+Animals may attack other Animals.
+
+Some Animals may directly affect Resources.
+
+Example:
+
+Coyote Pack
+
+Pack Hunting
+
+If you control two or more Coyotes,
+return target Prey Resource to its owner's hand.
+
+---
+
+# Environmental Cards
+
+Environmental cards affect entire ecosystems.
+
+Examples include:
+
+- Heat Wave
+- Monsoon
+- Flash Flood
+- High Desert Winds
+- Forest Fire
+- Dust Storm
+- Drought
+
+Environmental cards often affect multiple card types simultaneously.
+
+Example:
+
+## Forest Fire
+
+Compost all Flora.
+
+Return all Animals to their owners' hands.
+
+---
+
+## Dust Storm
+
+Exhaust all Flying Animals
+
+AND
+
+Return one Flying Animal to its owner's hand.
+
+---
+
+## Drought
+
+Choose one Water Resource.
+
+It does not refresh during its controller's next turn.
+
+AND
+
+Return one Flora Resource to its owner's hand.
+
+---
+
+# Biome Stability
+
+Players do not have Hit Points.
+
+Instead each player maintains a stable ecosystem.
+
+A player's ecosystem becomes unstable when key resources and organisms are removed or become unbalanced.
+
+Biome Stability determines victory.
+
+(Final stability system to be determined.)
+
+---
+
+# Ecological Interactions
+
+Instead of traditional combat mechanics, cards represent ecological interactions.
+
+Examples:
+
+Return to Hand
+- Retreat
+- Migration
+- Relocation
+- Animals fleeing disasters
+
+Exhaust
+- Fear
+- Stress
+- Lack of Water
+- Temporary shelter
+
+Compost
+- Death
+- Decay
+- Fire
+- Predation
+
+Refresh
+- Recovery
+- Regrowth
+- Rainfall
+- Reproduction
+
+---
+
+# Design Goals
+
+- Minimize luck-based resource starvation.
+- Encourage ecosystem management.
+- Reward long-term planning.
+- Model real ecological relationships.
+- Keep gameplay accessible while reflecting natural systems.
+
+The game should feel like managing a living ecosystem.
 
 ---
 
