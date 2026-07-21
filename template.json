@@ -12,7 +12,7 @@
                 "ability": "Provides 1 Water Bio-Energy each turn.",
                 "fact": "Water is essential for all known life.",
                 "artist": "",
-                "illustration": "img/water.svg"
+                "illustration": "artwork/water.svg"
         },
         {
                 "id": 2,
@@ -27,7 +27,7 @@
                 "ability": "Provides 1 Flora Bio-Energy each turn.",
                 "fact": "Plants convert sunlight into energy through photosynthesis.",
                 "artist": "",
-                "illustration": "img/flora.svg"
+                "illustration": "artwork/flora.svg"
         },
         {
                 "id": 3,
@@ -42,7 +42,7 @@
                 "ability": "Provides 1 Fauna Bio-Energy each turn.",
                 "fact": "Animals obtain energy by consuming other organisms.",
                 "artist": "",
-                "illustration": "img/fauna.svg"
+                "illustration": "artwork/fauna.svg"
         },
         {
                 "id": 4,
@@ -57,7 +57,7 @@
                 "ability": "",
                 "fact": "Habitat flora provide food, cover, and nesting sites.",
                 "artist": "",
-                "illustration": "img/habitat_flora.svg"
+                "illustration": "artwork/habitat_flora.svg"
         },
         {
                 "id": 5,
@@ -72,7 +72,7 @@
                 "ability": "",
                 "fact": "Fauna interact with habitats in many ecological roles.",
                 "artist": "",
-                "illustration": "img/habitat_fauna.svg"
+                "illustration": "artwork/habitat_fauna.svg"
         },
         {
                 "id": 6,
@@ -87,7 +87,7 @@
                 "ability": "",
                 "fact": "Landmarks shape ecosystems by influencing water, shelter, and movement.",
                 "artist": "",
-                "illustration": "img/habitat_landmark.svg"
+                "illustration": "artwork/habitat_landmark.svg"
         },
         {
                 "id": 7,
@@ -102,7 +102,7 @@
                 "ability": "",
                 "fact": "Shelters protect organisms from predators and weather.",
                 "artist": "",
-                "illustration": "img/habitat_shelter.svg"
+                "illustration": "artwork/habitat_shelter.svg"
         },
         {
                 "id": 8,
@@ -117,7 +117,7 @@
                 "ability": "",
                 "fact": "Herbivores consume plants for energy.",
                 "artist": "",
-                "illustration": "img/herbivore.svg"
+                "illustration": "artwork/herbivore.svg"
         },
         {
                 "id": 9,
@@ -132,7 +132,7 @@
                 "ability": "",
                 "fact": "Omnivores eat both plants and animals.",
                 "artist": "",
-                "illustration": "img/omnivore.svg"
+                "illustration": "artwork/omnivore.svg"
         },
         {
                 "id": 10,
@@ -147,7 +147,7 @@
                 "ability": "",
                 "fact": "Predators help regulate prey populations.",
                 "artist": "",
-                "illustration": "img/predator.svg"
+                "illustration": "artwork/predator.svg"
         },
         {
                 "id": 11,
@@ -162,7 +162,7 @@
                 "ability": "",
                 "fact": "Apex predators have few or no natural predators within their ecosystem.",
                 "artist": "",
-                "illustration": "img/apex_predator.svg"
+                "illustration": "artwork/apex_predator.svg"
         },
         {
                 "id": 12,
@@ -177,7 +177,7 @@
                 "ability": "",
                 "fact": "Weather influences every ecosystem.",
                 "artist": "",
-                "illustration": "img/weather.svg"
+                "illustration": "artwork/weather.svg"
         },
         {
                 "id": 13,
@@ -192,6 +192,6 @@
                 "ability": "",
                 "fact": "Cataclysms can rapidly transform ecosystems.",
                 "artist": "",
-                "illustration": "img/cataclysm.svg"
+                "illustration": "artwork/cataclysm.svg"
         }
 ]
