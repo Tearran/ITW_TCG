@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Into the Wild TCG - Card Editor</title>
+<style>
+	:root {
+		color-scheme: light dark;
+		--border: #888;
+		--bg-panel: rgba(128, 128, 128, 0.08);
+		--bg-selected: rgba(64, 140, 90, 0.25);
+	}
+	* { box-sizing: border-box; }
+	body {
+		margin: 0;
+		font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+	}
+	header#toolbar {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.5rem 1rem;
+		border-bottom: 1px solid var(--border);
+		flex-wrap: wrap;
+	}
+	header#toolbar h1 {
+		font-size: 1.1rem;
+		margin: 0;
+		margin-right: auto;
+	}
+	.toolbar-actions button {
+		margin-left: 0.5rem;
+	}
+	#main {
+		display: flex;
+		flex: 1;
+		min-height: 0;
+	}
+	#list-panel {
+		width: 320px;
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		border-right: 1px solid var(--border);
+		padding: 0.5rem;
+		min-height: 0;
+	}
+	.list-controls {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		margin-bottom: 0.5rem;
+	}
+	.list-controls input,
+	.list-controls select {
+		width: 100%;
+		padding: 0.3rem;
+	}
+	#card-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		overflow-y: auto;
+		flex: 1;
+		border: 1px solid var(--border);
+		border-radius: 4px;
+	}
+	#card-list li {
+		display: flex;
+		gap: 0.5rem;
+		padding: 0.4rem 0.5rem;
+		border-bottom: 1px solid var(--border);
+		cursor: pointer;
+	}
+	#card-list li:last-child { border-bottom: none; }
+	#card-list li:hover { background: var(--bg-panel); }
+	#card-list li.selected { background: var(--bg-selected); }
+	#card-list .card-id { opacity: 0.6; min-width: 2.5em; }
+	#card-list .card-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	#card-list .card-type { opacity: 0.7; font-size: 0.85em; }
+	.list-actions {
+		display: flex;
+		gap: 0.4rem;
+		margin-top: 0.5rem;
+	}
+	.list-actions button { flex: 1; }
+	#form-panel {
+		flex: 1;
+		overflow-y: auto;
+		padding: 1rem 1.5rem;
+	}
+	#empty-state {
+		opacity: 0.6;
+		font-style: italic;
+	}
+	#card-form {
+		max-width: 640px;
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+	}
+	.field label {
+		display: block;
+		font-weight: 600;
+		margin-bottom: 0.2rem;
+	}
+	.field input[type="text"],
+	.field input[type="number"],
+	.field textarea {
+		width: 100%;
+		padding: 0.4rem;
+		font-family: inherit;
+		font-size: inherit;
+	}
+	.field textarea { resize: vertical; min-height: 3.5em; }
+	.cost-row {
+		display: flex;
+		gap: 1rem;
+	}
+	.cost-row .field { flex: 1; }
+	.illustration-row {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+	.illustration-row input[type="text"] { flex: 1; }
+	#validation-messages {
+		border-radius: 4px;
+		padding: 0.5rem 0.75rem;
+	}
+	#validation-messages.has-errors {
+		background: rgba(200, 60, 60, 0.15);
+		border: 1px solid rgba(200, 60, 60, 0.5);
+	}
+	#validation-messages.has-warnings-only {
+		background: rgba(200, 160, 30, 0.15);
+		border: 1px solid rgba(200, 160, 30, 0.5);
+	}
+	#validation-messages ul { margin: 0.2rem 0 0.2rem 1.2rem; padding: 0; }
+	footer#status-bar {
+		border-top: 1px solid var(--border);
+		padding: 0.3rem 1rem;
+		font-size: 0.85em;
+		opacity: 0.75;
+	}
+</style>
+</head>
+<body>
+	<header id="toolbar">
+		<h1>Into the Wild TCG &mdash; Card Editor</h1>
+		<div class="toolbar-actions">
+			<input type="file" id="file-input" accept="application/json,.json" hidden>
+			<button id="btn-open" type="button">Open JSON&hellip;</button>
+			<button id="btn-save" type="button">Save</button>
+			<button id="btn-export" type="button">Export JSON</button>
+		</div>
+	</header>
+	<div id="main">
+		<aside id="list-panel">
+			<div class="list-controls">
+				<input type="search" id="search-input" placeholder="Search by name&hellip;">
+				<select id="filter-type"><option value="">All Types</option></select>
+				<select id="sort-select">
+					<option value="id">Sort by ID</option>
+					<option value="name">Sort by Name</option>
+					<option value="type">Sort by Type</option>
+				</select>
+			</div>
+			<ul id="card-list"></ul>
+			<div class="list-actions">
+				<button id="btn-add" type="button">Add Card</button>
+				<button id="btn-duplicate" type="button">Duplicate</button>
+				<button id="btn-delete" type="button">Delete</button>
+			</div>
+		</aside>
+		<section id="form-panel">
+			<div id="empty-state">Select a card from the list, or click &ldquo;Add Card&rdquo; to create one.</div>
+			<form id="card-form" hidden>
+				<div class="field">
+					<label for="f-id">ID</label>
+					<input type="number" id="f-id" step="1">
+				</div>
+				<div class="field">
+					<label for="f-name">Name</label>
+					<input type="text" id="f-name">
+				</div>
+				<div class="field">
+					<label for="f-scientific-name">Scientific Name</label>
+					<input type="text" id="f-scientific-name">
+				</div>
+				<div class="field">
+					<label for="f-type">Type</label>
+					<input type="text" id="f-type" list="type-options">
+					<datalist id="type-options"></datalist>
+				</div>
+				<div class="cost-row">
+					<div class="field">
+						<label for="f-cost-water">Cost: Water</label>
+						<input type="number" id="f-cost-water" step="1" min="0">
+					</div>
+					<div class="field">
+						<label for="f-cost-flora">Cost: Flora</label>
+						<input type="number" id="f-cost-flora" step="1" min="0">
+					</div>
+					<div class="field">
+						<label for="f-cost-fauna">Cost: Fauna</label>
+						<input type="number" id="f-cost-fauna" step="1" min="0">
+					</div>
+				</div>
+				<div class="field">
+					<label for="f-ability">Ability</label>
+					<textarea id="f-ability"></textarea>
+				</div>
+				<div class="field">
+					<label for="f-fact">Fact</label>
+					<textarea id="f-fact"></textarea>
+				</div>
+				<div class="field">
+					<label for="f-artist">Artist</label>
+					<input type="text" id="f-artist">
+				</div>
+				<div class="field">
+					<label for="f-illustration">Illustration Path</label>
+					<div class="illustration-row">
+						<input type="text" id="f-illustration" placeholder="artwork/example.svg">
+						<button id="btn-pick-illustration" type="button">Choose File&hellip;</button>
+					</div>
+					<input type="file" id="illustration-file-input" accept="image/svg+xml,.svg,image/*" hidden>
+				</div>
+				<div id="validation-messages"></div>
+			</form>
+		</section>
+	</div>
+	<footer id="status-bar"><span id="status-text">Loading&hellip;</span></footer>
+
+<script>
+(function () {
+	"use strict";
+
+	/** @type {Array<Object>} */
+	let cards = [];
+	let selectedCard = null;
+	let fileHandle = null; // File System Access API handle, when available
+
+	const el = (id) => document.getElementById(id);
+
+	const searchInput = el("search-input");
+	const filterTypeEl = el("filter-type");
+	const sortSelect = el("sort-select");
+	const cardListEl = el("card-list");
+	const formEl = el("card-form");
+	const emptyStateEl = el("empty-state");
+	const statusTextEl = el("status-text");
+	const typeOptionsEl = el("type-options");
+	const validationEl = el("validation-messages");
+	const fileInput = el("file-input");
+	const illustrationFileInput = el("illustration-file-input");
+
+	const fIdEl = el("f-id");
+	const fNameEl = el("f-name");
+	const fScientificNameEl = el("f-scientific-name");
+	const fTypeEl = el("f-type");
+	const fCostWaterEl = el("f-cost-water");
+	const fCostFloraEl = el("f-cost-flora");
+	const fCostFaunaEl = el("f-cost-fauna");
+	const fAbilityEl = el("f-ability");
+	const fFactEl = el("f-fact");
+	const fArtistEl = el("f-artist");
+	const fIllustrationEl = el("f-illustration");
+
+	function escapeHtml(value) {
+		return String(value == null ? "" : value).replace(/[&<>"']/g, (ch) => ({
+			"&": "&amp;",
+			"<": "&lt;",
+			">": "&gt;",
+			'"': "&quot;",
+			"'": "&#39;",
+		}[ch]));
+	}
+
+	function setStatus(message) {
+		statusTextEl.textContent = message;
+	}
+
+	function blankCard(id) {
+		return {
+			id: id,
+			name: "",
+			scientific_name: "",
+			type: "",
+			cost: { water: 0, flora: 0, fauna: 0 },
+			ability: "",
+			fact: "",
+			artist: "",
+			illustration: "",
+		};
+	}
+
+	function nextId() {
+		const max = cards.reduce((acc, c) => {
+			const n = Number(c.id);
+			return Number.isFinite(n) && n > acc ? n : acc;
+		}, 0);
+		return max + 1;
+	}
+
+	function uniqueTypes() {
+		return Array.from(new Set(cards.map((c) => c.type).filter((t) => t && String(t).trim()))).sort();
+	}
+
+	function updateTypeControls() {
+		const types = uniqueTypes();
+
+		const currentFilter = filterTypeEl.value;
+		filterTypeEl.innerHTML = '<option value="">All Types</option>' +
+			types.map((t) => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join("");
+		if (types.includes(currentFilter)) filterTypeEl.value = currentFilter;
+
+		typeOptionsEl.innerHTML = types.map((t) => `<option value="${escapeHtml(t)}">`).join("");
+	}
+
+	function getFilteredSortedCards() {
+		const term = searchInput.value.trim().toLowerCase();
+		const typeFilter = filterTypeEl.value;
+
+		let list = cards.filter((c) => {
+			const matchesSearch = !term || String(c.name || "").toLowerCase().includes(term);
+			const matchesType = !typeFilter || c.type === typeFilter;
+			return matchesSearch && matchesType;
+		});
+
+		const sortBy = sortSelect.value;
+		list = list.slice().sort((a, b) => {
+			if (sortBy === "id") return Number(a.id) - Number(b.id);
+			if (sortBy === "name") return String(a.name || "").localeCompare(String(b.name || ""));
+			if (sortBy === "type") return String(a.type || "").localeCompare(String(b.type || ""));
+			return 0;
+		});
+
+		return list;
+	}
+
+	function renderList() {
+		updateTypeControls();
+		const list = getFilteredSortedCards();
+		cardListEl.innerHTML = "";
+		list.forEach((card) => {
+			const li = document.createElement("li");
+			li.className = card === selectedCard ? "selected" : "";
+			li.innerHTML =
+				`<span class="card-id">#${escapeHtml(card.id)}</span>` +
+				`<span class="card-name">${escapeHtml(card.name) || "(untitled)"}</span>` +
+				`<span class="card-type">${escapeHtml(card.type)}</span>`;
+			li.addEventListener("click", () => selectCard(card));
+			cardListEl.appendChild(li);
+		});
+	}
+
+	function selectCard(card) {
+		selectedCard = card;
+		renderForm();
+		renderList();
+	}
+
+	function renderForm() {
+		if (!selectedCard) {
+			formEl.hidden = true;
+			emptyStateEl.hidden = false;
+			return;
+		}
+		emptyStateEl.hidden = true;
+		formEl.hidden = false;
+
+		if (!selectedCard.cost || typeof selectedCard.cost !== "object") {
+			selectedCard.cost = { water: 0, flora: 0, fauna: 0 };
+		}
+
+		fIdEl.value = selectedCard.id ?? "";
+		fNameEl.value = selectedCard.name ?? "";
+		fScientificNameEl.value = selectedCard.scientific_name ?? "";
+		fTypeEl.value = selectedCard.type ?? "";
+		fCostWaterEl.value = selectedCard.cost.water ?? 0;
+		fCostFloraEl.value = selectedCard.cost.flora ?? 0;
+		fCostFaunaEl.value = selectedCard.cost.fauna ?? 0;
+		fAbilityEl.value = selectedCard.ability ?? "";
+		fFactEl.value = selectedCard.fact ?? "";
+		fArtistEl.value = selectedCard.artist ?? "";
+		fIllustrationEl.value = selectedCard.illustration ?? "";
+
+		renderValidation();
+	}
+
+	function validateCard(card, allCards) {
+		const errors = [];
+		const warnings = [];
+
+		const idNum = Number(card.id);
+		if (card.id === "" || card.id === null || card.id === undefined || Number.isNaN(idNum)) {
+			errors.push("ID is required and must be a number.");
+		} else if (allCards.some((c) => c !== card && Number(c.id) === idNum)) {
+			errors.push(`ID ${card.id} is not unique.`);
+		}
+
+		if (!card.name || !String(card.name).trim()) errors.push("Name is required.");
+		if (!card.type || !String(card.type).trim()) errors.push("Type is required.");
+
+		["water", "flora", "fauna"].forEach((key) => {
+			const value = card.cost ? card.cost[key] : undefined;
+			if (value === undefined || value === null || Number.isNaN(Number(value))) {
+				errors.push(`cost.${key} must be a number.`);
+			}
+		});
+
+		if (card.illustration !== undefined && card.illustration !== "" && typeof card.illustration !== "string") {
+			errors.push("Illustration must be a valid string path.");
+		}
+
+		if (!card.ability || !String(card.ability).trim()) warnings.push("Ability is empty.");
+		if (!card.fact || !String(card.fact).trim()) warnings.push("Fact is empty.");
+		if (!card.scientific_name || !String(card.scientific_name).trim()) warnings.push("Scientific name is empty.");
+
+		const trimmedName = String(card.name || "").trim().toLowerCase();
+		if (trimmedName && allCards.some((c) => c !== card && String(c.name || "").trim().toLowerCase() === trimmedName)) {
+			warnings.push("Name duplicates another card.");
+		}
+
+		return { errors, warnings };
+	}
+
+	function renderValidation() {
+		if (!selectedCard) {
+			validationEl.className = "";
+			validationEl.innerHTML = "";
+			return;
+		}
+		const { errors, warnings } = validateCard(selectedCard, cards);
+		validationEl.className = errors.length ? "has-errors" : (warnings.length ? "has-warnings-only" : "");
+		let html = "";
+		if (errors.length) {
+			html += "<strong>Errors:</strong><ul>" + errors.map((e) => `<li>${escapeHtml(e)}</li>`).join("") + "</ul>";
+		}
+		if (warnings.length) {
+			html += "<strong>Warnings:</strong><ul>" + warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join("") + "</ul>";
+		}
+		validationEl.innerHTML = html;
+	}
+
+	function validateAllForSave() {
+		const errors = [];
+		const warnings = [];
+		cards.forEach((card) => {
+			const result = validateCard(card, cards);
+			const label = `#${card.id ?? "?"} "${card.name || "untitled"}"`;
+			result.errors.forEach((e) => errors.push(`${label}: ${e}`));
+			result.warnings.forEach((w) => warnings.push(`${label}: ${w}`));
+		});
+		return { errors, warnings };
+	}
+
+	function bindField(inputEl, set) {
+		inputEl.addEventListener("input", () => {
+			if (!selectedCard) return;
+			set(selectedCard, inputEl.value);
+			renderList();
+			renderValidation();
+		});
+	}
+
+	bindField(fIdEl, (card, value) => { card.id = value === "" ? "" : Number(value); });
+	bindField(fNameEl, (card, value) => { card.name = value; });
+	bindField(fScientificNameEl, (card, value) => { card.scientific_name = value; });
+	bindField(fTypeEl, (card, value) => { card.type = value; });
+	bindField(fCostWaterEl, (card, value) => { card.cost.water = value === "" ? "" : Number(value); });
+	bindField(fCostFloraEl, (card, value) => { card.cost.flora = value === "" ? "" : Number(value); });
+	bindField(fCostFaunaEl, (card, value) => { card.cost.fauna = value === "" ? "" : Number(value); });
+	bindField(fAbilityEl, (card, value) => { card.ability = value; });
+	bindField(fFactEl, (card, value) => { card.fact = value; });
+	bindField(fArtistEl, (card, value) => { card.artist = value; });
+	bindField(fIllustrationEl, (card, value) => { card.illustration = value; });
+
+	el("btn-pick-illustration").addEventListener("click", () => illustrationFileInput.click());
+	illustrationFileInput.addEventListener("change", () => {
+		const file = illustrationFileInput.files[0];
+		if (!file || !selectedCard) return;
+		fIllustrationEl.value = `artwork/${file.name}`;
+		selectedCard.illustration = fIllustrationEl.value;
+		renderList();
+		renderValidation();
+		setStatus(`Illustration set to artwork/${file.name}. Place the actual file in the artwork folder if it is not already there.`);
+	});
+
+	el("btn-add").addEventListener("click", () => {
+		const card = blankCard(nextId());
+		cards.push(card);
+		selectCard(card);
+		fNameEl.focus();
+		setStatus("New blank card added. Fill in the details and Save/Export when ready.");
+	});
+
+	el("btn-duplicate").addEventListener("click", () => {
+		if (!selectedCard) {
+			alert("Select a card to duplicate first.");
+			return;
+		}
+		const copy = JSON.parse(JSON.stringify(selectedCard));
+		copy.id = nextId();
+		copy.name = `${selectedCard.name || "Untitled"} Copy`;
+		cards.push(copy);
+		selectCard(copy);
+		fNameEl.focus();
+		fNameEl.select();
+		setStatus("Card duplicated. Update the ID and name before saving.");
+	});
+
+	el("btn-delete").addEventListener("click", () => {
+		if (!selectedCard) {
+			alert("Select a card to delete first.");
+			return;
+		}
+		const label = selectedCard.name || `card #${selectedCard.id}`;
+		if (!confirm(`Delete "${label}"? This cannot be undone.`)) return;
+		cards = cards.filter((c) => c !== selectedCard);
+		selectedCard = null;
+		renderList();
+		renderForm();
+		setStatus(`Deleted "${label}".`);
+	});
+
+	searchInput.addEventListener("input", renderList);
+	filterTypeEl.addEventListener("change", renderList);
+	sortSelect.addEventListener("change", renderList);
+
+	function serializeCards() {
+		return JSON.stringify(cards, null, "\t") + "\n";
+	}
+
+	function downloadJson(text, filename) {
+		const blob = new Blob([text], { type: "application/json" });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = filename;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	}
+
+	function showBlockingErrors(errors) {
+		alert("Cannot save. Please fix the following errors first:\n\n" + errors.join("\n"));
+	}
+
+	async function saveJson() {
+		const { errors, warnings } = validateAllForSave();
+		if (errors.length) {
+			showBlockingErrors(errors);
+			return;
+		}
+		if (warnings.length) {
+			const proceed = confirm(`There are ${warnings.length} warning(s):\n\n${warnings.join("\n")}\n\nSave anyway?`);
+			if (!proceed) return;
+		}
+
+		const text = serializeCards();
+
+		if (fileHandle) {
+			try {
+				const writable = await fileHandle.createWritable();
+				await writable.write(text);
+				await writable.close();
+				setStatus(`Saved to ${fileHandle.name}.`);
+				return;
+			} catch (err) {
+				console.error(err);
+				setStatus("Direct save failed; downloading instead.");
+			}
+		}
+
+		downloadJson(text, fileHandle ? fileHandle.name : "template.json");
+		setStatus("Downloaded updated JSON (this browser cannot write directly to disk).");
+	}
+
+	function exportJson() {
+		const text = serializeCards();
+		downloadJson(text, "template.json");
+		setStatus("Exported template.json.");
+	}
+
+	function loadCardsFromText(text, sourceLabel) {
+		let data;
+		try {
+			data = JSON.parse(text);
+		} catch (err) {
+			alert("Failed to parse JSON: " + err.message);
+			return false;
+		}
+		if (!Array.isArray(data)) {
+			alert("Expected the JSON file to contain an array of cards.");
+			return false;
+		}
+		cards = data;
+		selectedCard = null;
+		renderList();
+		renderForm();
+		if (sourceLabel) setStatus(sourceLabel);
+		return true;
+	}
+
+	async function openFile() {
+		if (window.showOpenFilePicker) {
+			try {
+				const [handle] = await window.showOpenFilePicker({
+					types: [{ description: "JSON", accept: { "application/json": [".json"] } }],
+				});
+				const file = await handle.getFile();
+				const text = await file.text();
+				if (loadCardsFromText(text, `Opened ${handle.name}.`)) {
+					fileHandle = handle;
+				}
+				return;
+			} catch (err) {
+				if (err && err.name === "AbortError") return;
+				console.error(err);
+			}
+		}
+		fileInput.click();
+	}
+
+	fileInput.addEventListener("change", async () => {
+		const file = fileInput.files[0];
+		if (!file) return;
+		fileHandle = null;
+		const text = await file.text();
+		loadCardsFromText(text, `Opened ${file.name}. This browser can't write back automatically; use Save/Export to download changes.`);
+		fileInput.value = "";
+	});
+
+	el("btn-open").addEventListener("click", openFile);
+	el("btn-save").addEventListener("click", saveJson);
+	el("btn-export").addEventListener("click", exportJson);
+
+	async function init() {
+		try {
+			const res = await fetch("template.json");
+			if (res.ok) {
+				const text = await res.text();
+				loadCardsFromText(text, "Loaded template.json.");
+				return;
+			}
+		} catch (err) {
+			// Ignore; likely opened via file:// where fetch is blocked. Fall through to manual open.
+		}
+		renderList();
+		renderForm();
+		setStatus('Use "Open JSON…" to load a card file.');
+	}
+
+	init();
+})();
+</script>
+</body>
+</html>
