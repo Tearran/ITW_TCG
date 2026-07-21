@@ -1,0 +1,197 @@
+[
+        {
+                "id": 1,
+                "name": "Water",
+                "scientific_name": "",
+                "type": "Water",
+                "cost": {
+                        "water": 0,
+                        "flora": 0,
+                        "fauna": 0
+                },
+                "ability": "Provides 1 Water Bio-Energy each turn.",
+                "fact": "Water is essential for all known life.",
+                "artist": "",
+                "illustration": "img/water.svg"
+        },
+        {
+                "id": 2,
+                "name": "Flora",
+                "scientific_name": "",
+                "type": "Flora",
+                "cost": {
+                        "water": 0,
+                        "flora": 0,
+                        "fauna": 0
+                },
+                "ability": "Provides 1 Flora Bio-Energy each turn.",
+                "fact": "Plants convert sunlight into energy through photosynthesis.",
+                "artist": "",
+                "illustration": "img/flora.svg"
+        },
+        {
+                "id": 3,
+                "name": "Fauna",
+                "scientific_name": "",
+                "type": "Fauna",
+                "cost": {
+                        "water": 0,
+                        "flora": 0,
+                        "fauna": 0
+                },
+                "ability": "Provides 1 Fauna Bio-Energy each turn.",
+                "fact": "Animals obtain energy by consuming other organisms.",
+                "artist": "",
+                "illustration": "img/fauna.svg"
+        },
+        {
+                "id": 4,
+                "name": "Habitat Flora",
+                "scientific_name": "",
+                "type": "Habitat Flora",
+                "cost": {
+                        "water": 0,
+                        "flora": 1,
+                        "fauna": 0
+                },
+                "ability": "",
+                "fact": "Habitat flora provide food, cover, and nesting sites.",
+                "artist": "",
+                "illustration": "img/habitat_flora.svg"
+        },
+        {
+                "id": 5,
+                "name": "Habitat Fauna",
+                "scientific_name": "",
+                "type": "Habitat Fauna",
+                "cost": {
+                        "water": 0,
+                        "flora": 0,
+                        "fauna": 1
+                },
+                "ability": "",
+                "fact": "Fauna interact with habitats in many ecological roles.",
+                "artist": "",
+                "illustration": "img/habitat_fauna.svg"
+        },
+        {
+                "id": 6,
+                "name": "Habitat Landmark",
+                "scientific_name": "",
+                "type": "Habitat Landmark",
+                "cost": {
+                        "water": 1,
+                        "flora": 0,
+                        "fauna": 0
+                },
+                "ability": "",
+                "fact": "Landmarks shape ecosystems by influencing water, shelter, and movement.",
+                "artist": "",
+                "illustration": "img/habitat_landmark.svg"
+        },
+        {
+                "id": 7,
+                "name": "Habitat Shelter",
+                "scientific_name": "",
+                "type": "Habitat Shelter",
+                "cost": {
+                        "water": 0,
+                        "flora": 1,
+                        "fauna": 0
+                },
+                "ability": "",
+                "fact": "Shelters protect organisms from predators and weather.",
+                "artist": "",
+                "illustration": "img/habitat_shelter.svg"
+        },
+        {
+                "id": 8,
+                "name": "Herbivore",
+                "scientific_name": "",
+                "type": "Herbivore",
+                "cost": {
+                        "water": 1,
+                        "flora": 1,
+                        "fauna": 0
+                },
+                "ability": "",
+                "fact": "Herbivores consume plants for energy.",
+                "artist": "",
+                "illustration": "img/herbivore.svg"
+        },
+        {
+                "id": 9,
+                "name": "Omnivore",
+                "scientific_name": "",
+                "type": "Omnivore",
+                "cost": {
+                        "water": 1,
+                        "flora": 1,
+                        "fauna": 1
+                },
+                "ability": "",
+                "fact": "Omnivores eat both plants and animals.",
+                "artist": "",
+                "illustration": "img/omnivore.svg"
+        },
+        {
+                "id": 10,
+                "name": "Predator",
+                "scientific_name": "",
+                "type": "Predator",
+                "cost": {
+                        "water": 1,
+                        "flora": 0,
+                        "fauna": 2
+                },
+                "ability": "",
+                "fact": "Predators help regulate prey populations.",
+                "artist": "",
+                "illustration": "img/predator.svg"
+        },
+        {
+                "id": 11,
+                "name": "Apex Predator",
+                "scientific_name": "",
+                "type": "Apex Predator",
+                "cost": {
+                        "water": 2,
+                        "flora": 0,
+                        "fauna": 2
+                },
+                "ability": "",
+                "fact": "Apex predators have few or no natural predators within their ecosystem.",
+                "artist": "",
+                "illustration": "img/apex_predator.svg"
+        },
+        {
+                "id": 12,
+                "name": "Weather",
+                "scientific_name": "",
+                "type": "Weather",
+                "cost": {
+                        "water": 1,
+                        "flora": 0,
+                        "fauna": 0
+                },
+                "ability": "",
+                "fact": "Weather influences every ecosystem.",
+                "artist": "",
+                "illustration": "img/weather.svg"
+        },
+        {
+                "id": 13,
+                "name": "Cataclysm",
+                "scientific_name": "",
+                "type": "Cataclysm",
+                "cost": {
+                        "water": 2,
+                        "flora": 2,
+                        "fauna": 2
+                },
+                "ability": "",
+                "fact": "Cataclysms can rapidly transform ecosystems.",
+                "artist": "",
+                "illustration": "img/cataclysm.svg"
+        }
+]
