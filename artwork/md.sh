@@ -20,7 +20,7 @@ echo "" >> "$OUTPUT_FILE"
 #done
 
 # 2. Display each image
-for svg in img/*.svg; do
+for svg in *.svg; do
     [ -e "$svg" ] || continue
     ((n++)) # Increments n by 1
     # Add a heading for the image and the image itself
