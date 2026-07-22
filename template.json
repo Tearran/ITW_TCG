@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"weight":1,
+		"weight": 1,
 		"name": "Energy Water",
 		"scientific_name": "H2O",
 		"type": "Energy",
@@ -11,7 +11,7 @@
 			"flora": 0,
 			"fauna": 0
 		},
-		"abilities": [
+		"ability": [
 			"Provides 1 Water Energy.",
 			"Exhaust to pay Water costs.",
 			"Refresh at the start of your turn."
@@ -23,14 +23,13 @@
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"ability": "Exhaust to gain 1 water",
 		"artist": "Tearran Studio",
 		"illustration": "artwork/water.svg",
 		"fact": "TBD"
 	},
 	{
 		"id": 2,
-		"weight":2,
+		"weight": 2,
 		"name": "Energy Flora",
 		"scientific_name": "Flora",
 		"type": "Energy",
@@ -40,7 +39,7 @@
 			"flora": 0,
 			"fauna": 0
 		},
-		"abilities": [
+		"ability": [
 			"Provides 1 Flora Energy.",
 			"Exhaust to pay Flora costs.",
 			"Refresh at the start of your turn."
@@ -52,7 +51,6 @@
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"ability": "exhaust to gain one flora energy",
 		"fact": "TBD",
 		"artist": "Tearran Studio",
 		"illustration": "artwork/leaf.svg"
@@ -69,7 +67,7 @@
 			"flora": 0,
 			"fauna": 0
 		},
-		"abilities": [
+		"ability": [
 			"Provides 1 Fauna Energy.",
 			"Exhaust to pay Fauna costs.",
 			"Refresh at the start of your turn."
@@ -81,7 +79,6 @@
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"ability": "exhaust To gain one fauna energy",
 		"fact": "TBD",
 		"artist": "Tearran Studio",
 		"illustration": "artwork/meat.svg"
@@ -98,7 +95,7 @@
 			"flora": 1,
 			"fauna": 0
 		},
-		"abilities": [
+		"ability": [
 			"Supports your Habitat."
 		],
 		"facts": [],
@@ -110,7 +107,6 @@
 		},
 		"artist": "Tearran Studios",
 		"illustration": "artwork/prickly_pear.svg",
-		"ability": "TBD",
 		"fact": "TBD"
 	},
 	{
@@ -125,7 +121,7 @@
 			"flora": 0,
 			"fauna": 1
 		},
-		"abilities": [
+		"ability": [
 			"Supports your Habitat."
 		],
 		"facts": [],
@@ -137,7 +133,6 @@
 		},
 		"artist": "Tearran Studios",
 		"illustration": "artwork/javelina.svg",
-		"ability": "TBD",
 		"fact": "TBD"
 	},
 	{
@@ -152,7 +147,7 @@
 			"flora": 1,
 			"fauna": 1
 		},
-		"abilities": [
+		"ability": [
 			"Provides Habitat support."
 		],
 		"facts": [],
@@ -164,7 +159,6 @@
 		},
 		"artist": "Tearran Studios",
 		"illustration": "artwork/template_art.svg",
-		"ability": "TBD",
 		"fact": "TBD"
 	},
 	{
@@ -179,7 +173,7 @@
 			"flora": 1,
 			"fauna": 1
 		},
-		"abilities": [
+		"ability": [
 			"Protects Organisms in your Habitat."
 		],
 		"facts": [],
@@ -191,7 +185,6 @@
 		},
 		"artist": "Tearran Studios",
 		"fact": "TBD",
-		"ability": "TBD",
 		"illustration": "artwork/template_art.svg"
 	},
 	{
@@ -206,7 +199,7 @@
 			"flora": 1,
 			"fauna": 0
 		},
-		"abilities": [
+		"ability": [
 			"Challenge Habitat Flora."
 		],
 		"facts": [],
@@ -218,7 +211,6 @@
 		},
 		"artist": "Tearran Studios",
 		"fact": "TBD",
-		"ability": "TBD",
 		"illustration": "artwork/template_art.svg"
 	},
 	{
@@ -233,7 +225,7 @@
 			"flora": 1,
 			"fauna": 1
 		},
-		"abilities": [
+		"ability": [
 			"Challenge Habitat Flora or Organisms."
 		],
 		"facts": [],
@@ -245,7 +237,6 @@
 		},
 		"artist": "Tearran Studios",
 		"fact": "TBD",
-		"ability": "TBD",
 		"illustration": "artwork/template_art.svg"
 	},
 	{
@@ -260,7 +251,7 @@
 			"flora": 0,
 			"fauna": 2
 		},
-		"abilities": [
+		"ability": [
 			"Challenge Organisms."
 		],
 		"facts": [],
@@ -272,7 +263,6 @@
 		},
 		"artist": "Tearran Studios",
 		"fact": "TBD",
-		"ability": "TBD",
 		"illustration": "artwork/template_art.svg"
 	},
 	{
@@ -281,13 +271,13 @@
 		"name": "Event Weather",
 		"scientific_name": "TBD",
 		"type": "Event",
-		"subtype": "Defence",
+		"subtype": "Weather",
 		"cost": {
 			"water": 2,
 			"flora": 0,
 			"fauna": 2
 		},
-		"abilities": [
+		"ability": [
 			"Challenge any Organism."
 		],
 		"facts": [],
@@ -299,12 +289,11 @@
 		},
 		"artist": "Tearran Studios",
 		"fact": "TBD",
-		"ability": "TBD",
 		"illustration": "artwork/template_art.svg"
 	},
 	{
 		"id": 12,
-		"weight": 12,
+		"weight": 11,
 		"name": "Event Cataclysm",
 		"scientific_name": "TBD",
 		"type": "Event",
@@ -314,7 +303,7 @@
 			"flora": 0,
 			"fauna": 0
 		},
-		"abilities": [
+		"ability": [
 			"Apply a temporary environmental effect."
 		],
 		"facts": [],
@@ -325,7 +314,6 @@
 			"rarity": "Common"
 		},
 		"fact": "TBD",
-		"ability": "TBD",
 		"artist": "Tearran Studios",
 		"illustration": "artwork/template_art.svg"
 	}
