@@ -216,6 +216,11 @@
 					<input type="text" id="f-type" list="type-options">
 					<datalist id="type-options"></datalist>
 				</div>
+				<div class="field">
+					<label for="f-subtype">Subtype</label>
+					<input type="text" id="f-subtype" list="subtype-options">
+					<datalist id="subtype-options"></datalist>
+				</div>
 				<div class="cost-row">
 					<div class="field">
 						<label for="f-cost-water">Cost: Water</label>
@@ -279,6 +284,7 @@
 	const emptyStateEl = el("empty-state");
 	const statusTextEl = el("status-text");
 	const typeOptionsEl = el("type-options");
+	const subtypeOptionsEl = el("subtype-options");
 	const validationEl = el("validation-messages");
 	const fileInput = el("file-input");
 	const illustrationFileInput = el("illustration-file-input");
@@ -287,6 +293,7 @@
 	const fNameEl = el("f-name");
 	const fScientificNameEl = el("f-scientific-name");
 	const fTypeEl = el("f-type");
+	const fSubtypeEl = el("f-subtype");
 	const fCostWaterEl = el("f-cost-water");
 	const fCostFloraEl = el("f-cost-flora");
 	const fCostFaunaEl = el("f-cost-fauna");
@@ -317,6 +324,7 @@
 			name: "",
 			scientific_name: "",
 			type: "",
+			subtype: "",
 			cost: { water: 0, flora: 0, fauna: 0 },
 			ability: "",
 			fact: "",
@@ -337,6 +345,10 @@
 		return Array.from(new Set(cards.map((c) => c.type).filter((t) => t && String(t).trim()))).sort();
 	}
 
+	function uniqueSubtypes() {
+		return Array.from(new Set(cards.map((c) => c.subtype).filter((t) => t && String(t).trim()))).sort();
+	}
+
 	function updateTypeControls() {
 		const types = uniqueTypes();
 
@@ -346,6 +358,7 @@
 		if (types.includes(currentFilter)) filterTypeEl.value = currentFilter;
 
 		typeOptionsEl.innerHTML = types.map((t) => `<option value="${escapeHtml(t)}">`).join("");
+		subtypeOptionsEl.innerHTML = uniqueSubtypes().map((t) => `<option value="${escapeHtml(t)}">`).join("");
 	}
 
 	function getFilteredSortedCards() {
@@ -376,10 +389,11 @@
 		list.forEach((card) => {
 			const li = document.createElement("li");
 			li.className = card === selectedCard ? "selected" : "";
+			const typeLabel = card.subtype ? `${card.type} / ${card.subtype}` : card.type;
 			li.innerHTML =
 				`<span class="card-id">#${escapeHtml(card.id)}</span>` +
 				`<span class="card-name">${escapeHtml(card.name) || "(untitled)"}</span>` +
-				`<span class="card-type">${escapeHtml(card.type)}</span>`;
+				`<span class="card-type">${escapeHtml(typeLabel)}</span>`;
 			li.addEventListener("click", () => selectCard(card));
 			cardListEl.appendChild(li);
 		});
@@ -408,6 +422,7 @@
 		fNameEl.value = selectedCard.name ?? "";
 		fScientificNameEl.value = selectedCard.scientific_name ?? "";
 		fTypeEl.value = selectedCard.type ?? "";
+		fSubtypeEl.value = selectedCard.subtype ?? "";
 		fCostWaterEl.value = selectedCard.cost.water ?? 0;
 		fCostFloraEl.value = selectedCard.cost.flora ?? 0;
 		fCostFaunaEl.value = selectedCard.cost.fauna ?? 0;
@@ -464,6 +479,7 @@
 			errors.push("Illustration must be a valid string path.");
 		}
 
+		if (!card.subtype || !String(card.subtype).trim()) warnings.push("Subtype is empty.");
 		if (!card.ability || !String(card.ability).trim()) warnings.push("Ability is empty.");
 		if (!card.fact || !String(card.fact).trim()) warnings.push("Fact is empty.");
 		if (!card.scientific_name || !String(card.scientific_name).trim()) warnings.push("Scientific name is empty.");
@@ -519,6 +535,7 @@
 	bindField(fNameEl, (card, value) => { card.name = value; });
 	bindField(fScientificNameEl, (card, value) => { card.scientific_name = value; });
 	bindField(fTypeEl, (card, value) => { card.type = value; });
+	bindField(fSubtypeEl, (card, value) => { card.subtype = value; });
 	bindField(fCostWaterEl, (card, value) => { card.cost.water = value === "" ? "" : Number(value); });
 	bindField(fCostFloraEl, (card, value) => { card.cost.flora = value === "" ? "" : Number(value); });
 	bindField(fCostFaunaEl, (card, value) => { card.cost.fauna = value === "" ? "" : Number(value); });
