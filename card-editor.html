@@ -333,6 +333,31 @@
 		};
 	}
 
+	// Legacy card files store the specific category (e.g. "Habitat Flora") in the
+	// "type" field with no subtype. Map those flat values onto the 3 main types
+	// from RULES.md ("Bio-Energy", "Habitat", "Organism") plus their subtype.
+	const LEGACY_TYPE_MAP = {
+		"Water": { type: "Bio-Energy", subtype: "Water" },
+		"Flora": { type: "Bio-Energy", subtype: "Flora" },
+		"Fauna": { type: "Bio-Energy", subtype: "Fauna" },
+		"Habitat Flora": { type: "Habitat", subtype: "Flora" },
+		"Habitat Fauna": { type: "Habitat", subtype: "Fauna" },
+		"Habitat Landmark": { type: "Habitat", subtype: "Landmark" },
+		"Habitat Shelter": { type: "Habitat", subtype: "Shelter" },
+		"Herbivore": { type: "Organism", subtype: "Herbivore" },
+		"Omnivore": { type: "Organism", subtype: "Omnivore" },
+		"Predator": { type: "Organism", subtype: "Predator" },
+		"Apex Predator": { type: "Organism", subtype: "Apex Predator" },
+	};
+
+	function normalizeCardType(card) {
+		if (card.subtype && String(card.subtype).trim()) return;
+		const mapped = LEGACY_TYPE_MAP[card.type];
+		if (!mapped) return;
+		card.type = mapped.type;
+		card.subtype = mapped.subtype;
+	}
+
 	function nextId() {
 		const max = cards.reduce((acc, c) => {
 			const n = Number(c.id);
@@ -666,6 +691,7 @@
 			alert("Expected the JSON file to contain an array of cards.");
 			return false;
 		}
+		data.forEach(normalizeCardType);
 		cards = data;
 		selectedCard = null;
 		renderList();
