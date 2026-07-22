@@ -141,7 +141,7 @@
 		"name": "Habitat Omnivore",
 		"scientific_name": "TBD",
 		"type": "Habitat",
-		"subtype": "Landmark",
+		"subtype": "Herbivore",
 		"cost": {
 			"water": 1,
 			"flora": 1,
@@ -167,7 +167,7 @@
 		"name": "Habitat Predator",
 		"scientific_name": "TBD",
 		"type": "Habitat",
-		"subtype": "Shelter",
+		"subtype": "Predator",
 		"cost": {
 			"water": 0,
 			"flora": 1,
@@ -193,7 +193,7 @@
 		"name": "Habitat Apex",
 		"scientific_name": "TBD",
 		"type": "Habitat",
-		"subtype": "Herbivore",
+		"subtype": "Apex Predator",
 		"cost": {
 			"water": 1,
 			"flora": 1,
