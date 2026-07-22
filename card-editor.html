@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Into the Wild TCG - Card Editor</title>
-	
 <style>
 	:root {
 		color-scheme: light dark;
@@ -129,6 +128,25 @@
 		align-items: center;
 	}
 	.illustration-row input[type="text"] { flex: 1; }
+	.illustration-preview {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.4rem;
+	}
+	.illustration-preview img {
+		width: 64px;
+		height: 64px;
+		object-fit: contain;
+		border: 1px solid var(--border);
+		border-radius: 4px;
+		background: var(--bg-panel);
+	}
+	.illustration-preview img[hidden] { display: none; }
+	.illustration-preview .illustration-preview-message {
+		font-size: 0.85em;
+		opacity: 0.75;
+	}
 	#validation-messages {
 		border-radius: 4px;
 		padding: 0.5rem 0.75rem;
@@ -231,6 +249,10 @@
 						<button id="btn-pick-illustration" type="button">Choose File&hellip;</button>
 					</div>
 					<input type="file" id="illustration-file-input" accept="image/svg+xml,.svg,image/*" hidden>
+					<div class="illustration-preview">
+						<img id="illustration-preview-img" alt="Illustration preview" hidden>
+						<span id="illustration-preview-message" class="illustration-preview-message"></span>
+					</div>
 				</div>
 				<div id="validation-messages"></div>
 			</form>
@@ -272,6 +294,8 @@
 	const fFactEl = el("f-fact");
 	const fArtistEl = el("f-artist");
 	const fIllustrationEl = el("f-illustration");
+	const illustrationPreviewImgEl = el("illustration-preview-img");
+	const illustrationPreviewMessageEl = el("illustration-preview-message");
 
 	function escapeHtml(value) {
 		return String(value == null ? "" : value).replace(/[&<>"']/g, (ch) => ({
@@ -391,9 +415,29 @@
 		fFactEl.value = selectedCard.fact ?? "";
 		fArtistEl.value = selectedCard.artist ?? "";
 		fIllustrationEl.value = selectedCard.illustration ?? "";
+		updateIllustrationPreview();
 
 		renderValidation();
 	}
+
+	function updateIllustrationPreview() {
+		const path = fIllustrationEl.value.trim();
+		if (!path) {
+			illustrationPreviewImgEl.hidden = true;
+			illustrationPreviewImgEl.removeAttribute("src");
+			illustrationPreviewMessageEl.textContent = "";
+			return;
+		}
+		illustrationPreviewMessageEl.textContent = "";
+		illustrationPreviewImgEl.hidden = false;
+		illustrationPreviewImgEl.src = path;
+	}
+
+	illustrationPreviewImgEl.addEventListener("error", () => {
+		if (illustrationPreviewImgEl.hidden) return;
+		illustrationPreviewImgEl.hidden = true;
+		illustrationPreviewMessageEl.textContent = `Not found: ${fIllustrationEl.value.trim()}`;
+	});
 
 	function validateCard(card, allCards) {
 		const errors = [];
@@ -482,6 +526,7 @@
 	bindField(fFactEl, (card, value) => { card.fact = value; });
 	bindField(fArtistEl, (card, value) => { card.artist = value; });
 	bindField(fIllustrationEl, (card, value) => { card.illustration = value; });
+	fIllustrationEl.addEventListener("input", updateIllustrationPreview);
 
 	el("btn-pick-illustration").addEventListener("click", () => illustrationFileInput.click());
 	illustrationFileInput.addEventListener("change", () => {
@@ -489,6 +534,7 @@
 		if (!file || !selectedCard) return;
 		fIllustrationEl.value = `artwork/${file.name}`;
 		selectedCard.illustration = fIllustrationEl.value;
+		updateIllustrationPreview();
 		renderList();
 		renderValidation();
 		setStatus(`Illustration set to artwork/${file.name}. Place the actual file in the artwork folder if it is not already there.`);
