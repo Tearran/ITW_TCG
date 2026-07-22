@@ -115,7 +115,7 @@
 		"name": "Habitat Herbivore",
 		"scientific_name": "TBD",
 		"type": "Habitat",
-		"subtype": "Fauna",
+		"subtype": "Herbivore",
 		"cost": {
 			"water": 1,
 			"flora": 0,
@@ -141,7 +141,7 @@
 		"name": "Habitat Omnivore",
 		"scientific_name": "TBD",
 		"type": "Habitat",
-		"subtype": "Herbivore",
+		"subtype": "Omnivore",
 		"cost": {
 			"water": 1,
 			"flora": 1,
