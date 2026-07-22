@@ -1,6 +1,7 @@
 [
 	{
 		"id": 1,
+		"weight":1,
 		"name": "Energy Water",
 		"scientific_name": "H2O",
 		"type": "Energy",
@@ -11,7 +12,7 @@
 			"fauna": 0
 		},
 		"abilities": [
-			"Provides 1 Water Bio-Energy.",
+			"Provides 1 Water Energy.",
 			"Exhaust to pay Water costs.",
 			"Refresh at the start of your turn."
 		],
@@ -29,6 +30,7 @@
 	},
 	{
 		"id": 2,
+		"weight":2,
 		"name": "Energy Flora",
 		"scientific_name": "Flora",
 		"type": "Energy",
@@ -39,7 +41,7 @@
 			"fauna": 0
 		},
 		"abilities": [
-			"Provides 1 Flora Bio-Energy.",
+			"Provides 1 Flora Energy.",
 			"Exhaust to pay Flora costs.",
 			"Refresh at the start of your turn."
 		],
@@ -57,6 +59,7 @@
 	},
 	{
 		"id": 3,
+		"weight": 3,
 		"name": "Energy Fauna",
 		"scientific_name": "Fauna",
 		"type": "Energy",
@@ -67,7 +70,7 @@
 			"fauna": 0
 		},
 		"abilities": [
-			"Provides 1 Fauna Bio-Energy.",
+			"Provides 1 Fauna Energy.",
 			"Exhaust to pay Fauna costs.",
 			"Refresh at the start of your turn."
 		],
@@ -85,6 +88,7 @@
 	},
 	{
 		"id": 4,
+		"weight": 4,
 		"name": "Habitat Flora",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -111,6 +115,7 @@
 	},
 	{
 		"id": 5,
+		"weight": 5,
 		"name": "Habitat Herbivore",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -137,6 +142,7 @@
 	},
 	{
 		"id": 6,
+		"weight": 6,
 		"name": "Habitat Omnivore",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -163,6 +169,7 @@
 	},
 	{
 		"id": 7,
+		"weight": 7,
 		"name": "Habitat Predator",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -189,6 +196,7 @@
 	},
 	{
 		"id": 8,
+		"weight": 8,
 		"name": "Habitat Apex",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -215,6 +223,7 @@
 	},
 	{
 		"id": 9,
+		"weight": 9,
 		"name": "Habitat Landmark",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -241,6 +250,7 @@
 	},
 	{
 		"id": 10,
+		"weight": 10,
 		"name": "Event Defence",
 		"scientific_name": "TBD",
 		"type": "Event",
@@ -267,6 +277,7 @@
 	},
 	{
 		"id": 11,
+		"weight": 11,
 		"name": "Event Weather",
 		"scientific_name": "TBD",
 		"type": "Event",
@@ -293,6 +304,7 @@
 	},
 	{
 		"id": 12,
+		"weight": 12,
 		"name": "Event Cataclysm",
 		"scientific_name": "TBD",
 		"type": "Event",
