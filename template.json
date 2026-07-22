@@ -1,197 +1,320 @@
 [
-        {
-                "id": 1,
-                "name": "Water",
-                "scientific_name": "",
-                "type": "Water",
-                "cost": {
-                        "water": 0,
-                        "flora": 0,
-                        "fauna": 0
-                },
-                "ability": "Provides 1 Water Bio-Energy each turn.",
-                "fact": "Water is essential for all known life.",
-                "artist": "",
-                "illustration": "artwork/water.svg"
-        },
-        {
-                "id": 2,
-                "name": "Flora",
-                "scientific_name": "",
-                "type": "Flora",
-                "cost": {
-                        "water": 0,
-                        "flora": 0,
-                        "fauna": 0
-                },
-                "ability": "Provides 1 Flora Bio-Energy each turn.",
-                "fact": "Plants convert sunlight into energy through photosynthesis.",
-                "artist": "",
-                "illustration": "artwork/flora.svg"
-        },
-        {
-                "id": 3,
-                "name": "Fauna",
-                "scientific_name": "",
-                "type": "Fauna",
-                "cost": {
-                        "water": 0,
-                        "flora": 0,
-                        "fauna": 0
-                },
-                "ability": "Provides 1 Fauna Bio-Energy each turn.",
-                "fact": "Animals obtain energy by consuming other organisms.",
-                "artist": "",
-                "illustration": "artwork/fauna.svg"
-        },
-        {
-                "id": 4,
-                "name": "Habitat Flora",
-                "scientific_name": "",
-                "type": "Habitat Flora",
-                "cost": {
-                        "water": 0,
-                        "flora": 1,
-                        "fauna": 0
-                },
-                "ability": "",
-                "fact": "Habitat flora provide food, cover, and nesting sites.",
-                "artist": "",
-                "illustration": "artwork/habitat_flora.svg"
-        },
-        {
-                "id": 5,
-                "name": "Habitat Fauna",
-                "scientific_name": "",
-                "type": "Habitat Fauna",
-                "cost": {
-                        "water": 0,
-                        "flora": 0,
-                        "fauna": 1
-                },
-                "ability": "",
-                "fact": "Fauna interact with habitats in many ecological roles.",
-                "artist": "",
-                "illustration": "artwork/habitat_fauna.svg"
-        },
-        {
-                "id": 6,
-                "name": "Habitat Landmark",
-                "scientific_name": "",
-                "type": "Habitat Landmark",
-                "cost": {
-                        "water": 1,
-                        "flora": 0,
-                        "fauna": 0
-                },
-                "ability": "",
-                "fact": "Landmarks shape ecosystems by influencing water, shelter, and movement.",
-                "artist": "",
-                "illustration": "artwork/habitat_landmark.svg"
-        },
-        {
-                "id": 7,
-                "name": "Habitat Shelter",
-                "scientific_name": "",
-                "type": "Habitat Shelter",
-                "cost": {
-                        "water": 0,
-                        "flora": 1,
-                        "fauna": 0
-                },
-                "ability": "",
-                "fact": "Shelters protect organisms from predators and weather.",
-                "artist": "",
-                "illustration": "artwork/habitat_shelter.svg"
-        },
-        {
-                "id": 8,
-                "name": "Herbivore",
-                "scientific_name": "",
-                "type": "Herbivore",
-                "cost": {
-                        "water": 1,
-                        "flora": 1,
-                        "fauna": 0
-                },
-                "ability": "",
-                "fact": "Herbivores consume plants for energy.",
-                "artist": "",
-                "illustration": "artwork/herbivore.svg"
-        },
-        {
-                "id": 9,
-                "name": "Omnivore",
-                "scientific_name": "",
-                "type": "Omnivore",
-                "cost": {
-                        "water": 1,
-                        "flora": 1,
-                        "fauna": 1
-                },
-                "ability": "",
-                "fact": "Omnivores eat both plants and animals.",
-                "artist": "",
-                "illustration": "artwork/omnivore.svg"
-        },
-        {
-                "id": 10,
-                "name": "Predator",
-                "scientific_name": "",
-                "type": "Predator",
-                "cost": {
-                        "water": 1,
-                        "flora": 0,
-                        "fauna": 2
-                },
-                "ability": "",
-                "fact": "Predators help regulate prey populations.",
-                "artist": "",
-                "illustration": "artwork/predator.svg"
-        },
-        {
-                "id": 11,
-                "name": "Apex Predator",
-                "scientific_name": "",
-                "type": "Apex Predator",
-                "cost": {
-                        "water": 2,
-                        "flora": 0,
-                        "fauna": 2
-                },
-                "ability": "",
-                "fact": "Apex predators have few or no natural predators within their ecosystem.",
-                "artist": "",
-                "illustration": "artwork/apex_predator.svg"
-        },
-        {
-                "id": 12,
-                "name": "Weather",
-                "scientific_name": "",
-                "type": "Weather",
-                "cost": {
-                        "water": 1,
-                        "flora": 0,
-                        "fauna": 0
-                },
-                "ability": "",
-                "fact": "Weather influences every ecosystem.",
-                "artist": "",
-                "illustration": "artwork/weather.svg"
-        },
-        {
-                "id": 13,
-                "name": "Cataclysm",
-                "scientific_name": "",
-                "type": "Cataclysm",
-                "cost": {
-                        "water": 2,
-                        "flora": 2,
-                        "fauna": 2
-                },
-                "ability": "",
-                "fact": "Cataclysms can rapidly transform ecosystems.",
-                "artist": "",
-                "illustration": "artwork/cataclysm.svg"
-        }
+	{
+		"id": 1,
+		"name": "Energy Water",
+		"scientific_name": "H2O",
+		"type": "Energy",
+		"subtype": "Water",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"abilities": [
+			"Provides 1 Water Bio-Energy.",
+			"Exhaust to pay Water costs.",
+			"Refresh at the start of your turn."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"ability": "Exhaust to gain 1 water",
+		"artist": "Tearran Studio",
+		"illustration": "artwork/water.svg",
+		"fact": "TBD"
+	},
+	{
+		"id": 2,
+		"name": "Energy Flora",
+		"scientific_name": "Flora",
+		"type": "Energy",
+		"subtype": "Flora",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"abilities": [
+			"Provides 1 Flora Bio-Energy.",
+			"Exhaust to pay Flora costs.",
+			"Refresh at the start of your turn."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"ability": "exhaust to gain one flora energy",
+		"fact": "TBD",
+		"artist": "Tearran Studio",
+		"illustration": "artwork/leaf.svg"
+	},
+	{
+		"id": 3,
+		"name": "Energy Fauna",
+		"scientific_name": "Fauna",
+		"type": "Energy",
+		"subtype": "Fauna",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"abilities": [
+			"Provides 1 Fauna Bio-Energy.",
+			"Exhaust to pay Fauna costs.",
+			"Refresh at the start of your turn."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"ability": "exhaust To gain one fauna energy",
+		"fact": "TBD",
+		"artist": "Tearran Studio",
+		"illustration": "artwork/meat.svg"
+	},
+	{
+		"id": 4,
+		"name": "Habitat Flora",
+		"scientific_name": "TBD",
+		"type": "Habitat",
+		"subtype": "Flora",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 0
+		},
+		"abilities": [
+			"Supports your Habitat."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"artist": "Tearran Studios",
+		"illustration": "artwork/prickly_pear.svg",
+		"ability": "TBD",
+		"fact": "TBD"
+	},
+	{
+		"id": 5,
+		"name": "Habitat Herbivore",
+		"scientific_name": "TBD",
+		"type": "Habitat",
+		"subtype": "Fauna",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 1
+		},
+		"abilities": [
+			"Supports your Habitat."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"artist": "Tearran Studios",
+		"illustration": "artwork/javelina.svg",
+		"ability": "TBD",
+		"fact": "TBD"
+	},
+	{
+		"id": 6,
+		"name": "Habitat Omnivore",
+		"scientific_name": "TBD",
+		"type": "Habitat",
+		"subtype": "Landmark",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 1
+		},
+		"abilities": [
+			"Provides Habitat support."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"artist": "Tearran Studios",
+		"illustration": "artwork/template_art.svg",
+		"ability": "TBD",
+		"fact": "TBD"
+	},
+	{
+		"id": 7,
+		"name": "Habitat Predator",
+		"scientific_name": "TBD",
+		"type": "Habitat",
+		"subtype": "Shelter",
+		"cost": {
+			"water": 0,
+			"flora": 1,
+			"fauna": 1
+		},
+		"abilities": [
+			"Protects Organisms in your Habitat."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"artist": "Tearran Studios",
+		"fact": "TBD",
+		"ability": "TBD",
+		"illustration": "artwork/template_art.svg"
+	},
+	{
+		"id": 8,
+		"name": "Habitat Apex",
+		"scientific_name": "TBD",
+		"type": "Habitat",
+		"subtype": "Herbivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 0
+		},
+		"abilities": [
+			"Challenge Habitat Flora."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"artist": "Tearran Studios",
+		"fact": "TBD",
+		"ability": "TBD",
+		"illustration": "artwork/template_art.svg"
+	},
+	{
+		"id": 9,
+		"name": "Habitat Landmark",
+		"scientific_name": "TBD",
+		"type": "Habitat",
+		"subtype": "Landmark",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 1
+		},
+		"abilities": [
+			"Challenge Habitat Flora or Organisms."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"artist": "Tearran Studios",
+		"fact": "TBD",
+		"ability": "TBD",
+		"illustration": "artwork/template_art.svg"
+	},
+	{
+		"id": 10,
+		"name": "Event Defence",
+		"scientific_name": "TBD",
+		"type": "Event",
+		"subtype": "Defence",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 2
+		},
+		"abilities": [
+			"Challenge Organisms."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"artist": "Tearran Studios",
+		"fact": "TBD",
+		"ability": "TBD",
+		"illustration": "artwork/template_art.svg"
+	},
+	{
+		"id": 11,
+		"name": "Event Weather",
+		"scientific_name": "TBD",
+		"type": "Event",
+		"subtype": "Defence",
+		"cost": {
+			"water": 2,
+			"flora": 0,
+			"fauna": 2
+		},
+		"abilities": [
+			"Challenge any Organism."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Rare"
+		},
+		"artist": "Tearran Studios",
+		"fact": "TBD",
+		"ability": "TBD",
+		"illustration": "artwork/template_art.svg"
+	},
+	{
+		"id": 12,
+		"name": "Event Cataclysm",
+		"scientific_name": "TBD",
+		"type": "Event",
+		"subtype": "Cataclysm",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 0
+		},
+		"abilities": [
+			"Apply a temporary environmental effect."
+		],
+		"facts": [],
+		"metadata": {
+			"artist": "",
+			"artwork": "",
+			"expansion": "Alpha",
+			"rarity": "Common"
+		},
+		"fact": "TBD",
+		"ability": "TBD",
+		"artist": "Tearran Studios",
+		"illustration": "artwork/template_art.svg"
+	}
 ]
