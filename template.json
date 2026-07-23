@@ -260,18 +260,26 @@
 		"artist": "Tearran Studios"
 	},
 	{
-		"id": 12,
+		"id": 11,
 		"challenge_rank": 11,
 		"name": "Event Buff",
 		"scientific_name": "TBD",
 		"type": "Event",
-		"subtype": "Buff",
-		"water": 0,
-		"flora": 0,
-		"fauna": 0,
-		"ability": "TBD",
-		"fact": "TBD",
-		"artist": "Tearran Studios",
-		"illustration": "artwork/template_art.svg"
+		"subtype": "Adaptation",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Apply a temporary environmental effect."
+		],
+		"fact": [
+			"TBD"
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
 	}
 ]
