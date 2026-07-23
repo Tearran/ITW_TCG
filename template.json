@@ -19,10 +19,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/water.svg",
 		"artist": "Tearran Studios"
 	},
@@ -46,10 +44,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -73,10 +69,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -98,10 +92,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -123,10 +115,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"artist": "Tearran Studios",
 		"illustration": "artwork/template_art.svg"
 	},
@@ -148,11 +138,9 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"artwork": "",
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"artwork": "",
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -174,10 +162,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -199,10 +185,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -224,10 +208,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -249,10 +231,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Rare"
-		},
+		"expansion": "Alpha",
+		"rarity": "Rare",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -274,10 +254,8 @@
 		"fact": [
 			"TBD"
 		],
-		"metadata": {
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
+		"expansion": "Alpha",
+		"rarity": "Common",
 		"illustration": "artwork/template_art.svg",
 		"artist": "Tearran Studios"
 	},
@@ -288,11 +266,9 @@
 		"scientific_name": "TBD",
 		"type": "Event",
 		"subtype": "Buff",
-		"cost": {
-			"water": 0,
-			"flora": 0,
-			"fauna": 0
-		},
+		"water": 0,
+		"flora": 0,
+		"fauna": 0,
 		"ability": "TBD",
 		"fact": "TBD",
 		"artist": "Tearran Studios",
