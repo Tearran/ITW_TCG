@@ -1,284 +1,820 @@
-[
-	{
-		"id": 1,
-		"challenge_rank": 1,
-		"name": "Energy Water",
-		"scientific_name": "H2O",
-		"type": "Energy",
-		"subtype": "Water",
-		"cost": {
-			"water": 0,
-			"flora": 0,
-			"fauna": 0
-		},
-		"ability": [
-			"Provides 1 Water Energy.",
-			"Exhaust to pay Water costs.",
-			"Refresh at the start of your turn."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/water.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 2,
-		"challenge_rank": 2,
-		"name": "Energy Flora",
-		"scientific_name": "Flora",
-		"type": "Energy",
-		"subtype": "Flora",
-		"cost": {
-			"water": 0,
-			"flora": 0,
-			"fauna": 0
-		},
-		"ability": [
-			"Provides 1 Flora Energy.",
-			"Exhaust to pay Flora costs.",
-			"Refresh at the start of your turn."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 3,
-		"challenge_rank": 3,
-		"name": "Energy Fauna",
-		"scientific_name": "Fauna",
-		"type": "Energy",
-		"subtype": "Fauna",
-		"cost": {
-			"water": 0,
-			"flora": 0,
-			"fauna": 0
-		},
-		"ability": [
-			"Provides 1 Fauna Energy.",
-			"Exhaust to pay Fauna costs.",
-			"Refresh at the start of your turn."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 4,
-		"challenge_rank": 4,
-		"name": "Habitat Flora",
-		"scientific_name": "TBD",
-		"type": "Habitat",
-		"subtype": "Flora",
-		"cost": {
-			"water": 1,
-			"flora": 1,
-			"fauna": 0
-		},
-		"ability": [
-			"Supports your Habitat."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 5,
-		"challenge_rank": 5,
-		"name": "Habitat Herbivore",
-		"scientific_name": "TBD",
-		"type": "Habitat",
-		"subtype": "Herbivore",
-		"cost": {
-			"water": 1,
-			"flora": 0,
-			"fauna": 1
-		},
-		"ability": [
-			"Supports your Habitat."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"artist": "Tearran Studios",
-		"illustration": "artwork/template_art.svg"
-	},
-	{
-		"id": 6,
-		"challenge_rank": 6,
-		"name": "Habitat Omnivore",
-		"scientific_name": "TBD",
-		"type": "Habitat",
-		"subtype": "Omnivore",
-		"cost": {
-			"water": 1,
-			"flora": 1,
-			"fauna": 1
-		},
-		"ability": [
-			"Provides Habitat support."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 7,
-		"challenge_rank": 7,
-		"name": "Habitat Predator",
-		"scientific_name": "TBD",
-		"type": "Habitat",
-		"subtype": "Predator",
-		"cost": {
-			"water": 0,
-			"flora": 1,
-			"fauna": 1
-		},
-		"ability": [
-			"Protects Organisms in your Habitat."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 8,
-		"challenge_rank": 8,
-		"name": "Habitat Apex",
-		"scientific_name": "TBD",
-		"type": "Habitat",
-		"subtype": "Apex Predator",
-		"cost": {
-			"water": 1,
-			"flora": 1,
-			"fauna": 0
-		},
-		"ability": [
-			"Challenge Habitat Flora."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 9,
-		"challenge_rank": 10,
-		"name": "Event Defence",
-		"scientific_name": "TBD",
-		"type": "Event",
-		"subtype": "Defence",
-		"cost": {
-			"water": 1,
-			"flora": 0,
-			"fauna": 2
-		},
-		"ability": [
-			"Challenge Organisms."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 10,
-		"challenge_rank": 11,
-		"name": "Event Weather",
-		"scientific_name": "TBD",
-		"type": "Event",
-		"subtype": "Weather",
-		"cost": {
-			"water": 2,
-			"flora": 0,
-			"fauna": 2
-		},
-		"ability": [
-			"Challenge any Organism."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Rare",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 11,
-		"challenge_rank": 11,
-		"name": "Event Cataclysm",
-		"scientific_name": "TBD",
-		"type": "Event",
-		"subtype": "Cataclysm",
-		"cost": {
-			"water": 1,
-			"flora": 0,
-			"fauna": 0
-		},
-		"ability": [
-			"Apply a temporary environmental effect."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
-		"id": 12,
-		"challenge_rank": 11,
-		"name": "Event Buff",
-		"scientific_name": "TBD",
-		"type": "Event",
-		"subtype": "Adaptation",
-		"cost": {
-			"water": 1,
-			"flora": 0,
-			"fauna": 0
-		},
-		"ability": [
-			"Apply a temporary environmental effect."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Into the Wild TCG - Card Editor</title>
+	
+<style>
+	:root {
+		color-scheme: light dark;
+		--border: #888;
+		--bg-panel: rgba(128, 128, 128, 0.08);
+		--bg-selected: rgba(64, 140, 90, 0.25);
 	}
-]
+	* { box-sizing: border-box; }
+	body {
+		margin: 0;
+		font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+	}
+	header#toolbar {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.5rem 1rem;
+		border-bottom: 1px solid var(--border);
+		flex-wrap: wrap;
+	}
+	header#toolbar h1 {
+		font-size: 1.1rem;
+		margin: 0;
+		margin-right: auto;
+	}
+	.toolbar-actions button {
+		margin-left: 0.5rem;
+	}
+	#main {
+		display: flex;
+		flex: 1;
+		min-height: 0;
+	}
+	#list-panel {
+		width: 320px;
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		border-right: 1px solid var(--border);
+		padding: 0.5rem;
+		min-height: 0;
+	}
+	.list-controls {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		margin-bottom: 0.5rem;
+	}
+	.list-controls input,
+	.list-controls select {
+		width: 100%;
+		padding: 0.3rem;
+	}
+	#card-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		overflow-y: auto;
+		flex: 1;
+		border: 1px solid var(--border);
+		border-radius: 4px;
+	}
+	#card-list li {
+		display: flex;
+		gap: 0.5rem;
+		padding: 0.4rem 0.5rem;
+		border-bottom: 1px solid var(--border);
+		cursor: pointer;
+	}
+	#card-list li:last-child { border-bottom: none; }
+	#card-list li:hover { background: var(--bg-panel); }
+	#card-list li.selected { background: var(--bg-selected); }
+	#card-list .card-id { opacity: 0.6; min-width: 2.5em; }
+	#card-list .card-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	#card-list .card-type { opacity: 0.7; font-size: 0.85em; }
+	.list-actions {
+		display: flex;
+		gap: 0.4rem;
+		margin-top: 0.5rem;
+	}
+	.list-actions button { flex: 1; }
+	#form-panel {
+		flex: 1;
+		overflow-y: auto;
+		padding: 1rem 1.5rem;
+	}
+	#empty-state {
+		opacity: 0.6;
+		font-style: italic;
+	}
+	#card-form {
+		max-width: 640px;
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+	}
+	.field label {
+		display: block;
+		font-weight: 600;
+		margin-bottom: 0.2rem;
+	}
+	.field input[type="text"],
+	.field input[type="number"],
+	.field textarea {
+		width: 100%;
+		padding: 0.4rem;
+		font-family: inherit;
+		font-size: inherit;
+	}
+	.field textarea { resize: vertical; min-height: 3.5em; }
+	.cost-row {
+		display: flex;
+		gap: 1rem;
+	}
+	.cost-row .field { flex: 1; }
+	.illustration-row {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+	.illustration-row input[type="text"] { flex: 1; }
+	.illustration-preview {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.4rem;
+	}
+	.illustration-preview img {
+		width: 64px;
+		height: 64px;
+		object-fit: contain;
+		border: 1px solid var(--border);
+		border-radius: 4px;
+		background: var(--bg-panel);
+	}
+	.illustration-preview img[hidden] { display: none; }
+	.illustration-preview .illustration-preview-message {
+		font-size: 0.85em;
+		opacity: 0.75;
+	}
+	#validation-messages {
+		border-radius: 4px;
+		padding: 0.5rem 0.75rem;
+	}
+	#validation-messages.has-errors {
+		background: rgba(200, 60, 60, 0.15);
+		border: 1px solid rgba(200, 60, 60, 0.5);
+	}
+	#validation-messages.has-warnings-only {
+		background: rgba(200, 160, 30, 0.15);
+		border: 1px solid rgba(200, 160, 30, 0.5);
+	}
+	#validation-messages ul { margin: 0.2rem 0 0.2rem 1.2rem; padding: 0; }
+	footer#status-bar {
+		border-top: 1px solid var(--border);
+		padding: 0.3rem 1rem;
+		font-size: 0.85em;
+		opacity: 0.75;
+	}
+</style>
+</head>
+<body>
+	<header id="toolbar">
+		<h1>Into the Wild TCG &mdash; Card Editor</h1>
+		<div class="toolbar-actions">
+			<input type="file" id="file-input" accept="application/json,.json" hidden>
+			<button id="btn-open" type="button">Open JSON&hellip;</button>
+			<button id="btn-save" type="button">Save</button>
+			<button id="btn-export" type="button">Export JSON</button>
+		</div>
+	</header>
+	<div id="main">
+		<aside id="list-panel">
+			<div class="list-controls">
+				<input type="search" id="search-input" placeholder="Search by name&hellip;">
+				<select id="filter-type"><option value="">All Types</option></select>
+				<select id="sort-select">
+					<option value="id">Sort by ID</option>
+					<option value="name">Sort by Name</option>
+					<option value="type">Sort by Type</option>
+				</select>
+			</div>
+			<ul id="card-list"></ul>
+			<div class="list-actions">
+				<button id="btn-add" type="button">Add Card</button>
+				<button id="btn-duplicate" type="button">Duplicate</button>
+				<button id="btn-delete" type="button">Delete</button>
+			</div>
+		</aside>
+		<section id="form-panel">
+			<div id="empty-state">Select a card from the list, or click &ldquo;Add Card&rdquo; to create one.</div>
+			<form id="card-form" hidden>
+				<div class="field">
+					<label for="f-id">ID</label>
+					<input type="number" id="f-id" step="1">
+				</div>
+				<div class="field">
+					<label for="f-challenge-rank">Challenge Rank</label>
+					<input type="number" id="f-challenge-rank" step="1">
+				</div>
+				<div class="field">
+					<label for="f-name">Name</label>
+					<input type="text" id="f-name">
+				</div>
+				<div class="field">
+					<label for="f-scientific-name">Scientific Name</label>
+					<input type="text" id="f-scientific-name">
+				</div>
+				<div class="field">
+					<label for="f-type">Type</label>
+					<input type="text" id="f-type" list="type-options">
+					<datalist id="type-options"></datalist>
+				</div>
+				<div class="field">
+					<label for="f-subtype">Subtype</label>
+					<input type="text" id="f-subtype" list="subtype-options">
+					<datalist id="subtype-options"></datalist>
+				</div>
+				<div class="cost-row">
+					<div class="field">
+						<label for="f-cost-water">Cost: Water</label>
+						<input type="number" id="f-cost-water" step="1" min="0">
+					</div>
+					<div class="field">
+						<label for="f-cost-flora">Cost: Flora</label>
+						<input type="number" id="f-cost-flora" step="1" min="0">
+					</div>
+					<div class="field">
+						<label for="f-cost-fauna">Cost: Fauna</label>
+						<input type="number" id="f-cost-fauna" step="1" min="0">
+					</div>
+				</div>
+				<div class="field">
+					<label for="f-ability">Ability</label>
+					<textarea id="f-ability"></textarea>
+				</div>
+				<div class="field">
+					<label for="f-fact">Fact</label>
+					<textarea id="f-fact"></textarea>
+				</div>
+				<div class="field">
+					<label for="f-expansion">Expansion</label>
+					<input type="text" id="f-expansion" list="expansion-options">
+					<datalist id="expansion-options"></datalist>
+				</div>
+				<div class="field">
+					<label for="f-rarity">Rarity</label>
+					<input type="text" id="f-rarity" list="rarity-options">
+					<datalist id="rarity-options"></datalist>
+				</div>
+				<div class="field">
+					<label for="f-artist">Artist</label>
+					<input type="text" id="f-artist">
+				</div>
+				<div class="field">
+					<label for="f-illustration">Illustration Path</label>
+					<div class="illustration-row">
+						<input type="text" id="f-illustration" placeholder="artwork/example.svg">
+						<button id="btn-pick-illustration" type="button">Choose File&hellip;</button>
+					</div>
+					<input type="file" id="illustration-file-input" accept="image/svg+xml,.svg,image/*" hidden>
+					<div class="illustration-preview">
+						<img id="illustration-preview-img" alt="Illustration preview" hidden>
+						<span id="illustration-preview-message" class="illustration-preview-message"></span>
+					</div>
+				</div>
+				<div id="validation-messages"></div>
+			</form>
+		</section>
+	</div>
+	<footer id="status-bar"><span id="status-text">Loading&hellip;</span></footer>
+
+<script>
+(function () {
+	"use strict";
+
+	/** @type {Array<Object>} */
+	let cards = [];
+	let selectedCard = null;
+	let fileHandle = null; // File System Access API handle, when available
+
+	const el = (id) => document.getElementById(id);
+
+	const searchInput = el("search-input");
+	const filterTypeEl = el("filter-type");
+	const sortSelect = el("sort-select");
+	const cardListEl = el("card-list");
+	const formEl = el("card-form");
+	const emptyStateEl = el("empty-state");
+	const statusTextEl = el("status-text");
+	const typeOptionsEl = el("type-options");
+	const subtypeOptionsEl = el("subtype-options");
+	const expansionOptionsEl = el("expansion-options");
+	const rarityOptionsEl = el("rarity-options");
+	const validationEl = el("validation-messages");
+	const fileInput = el("file-input");
+	const illustrationFileInput = el("illustration-file-input");
+
+	const fIdEl = el("f-id");
+	const fChallengeRankEl = el("f-challenge-rank");
+	const fNameEl = el("f-name");
+	const fScientificNameEl = el("f-scientific-name");
+	const fTypeEl = el("f-type");
+	const fSubtypeEl = el("f-subtype");
+	const fCostWaterEl = el("f-cost-water");
+	const fCostFloraEl = el("f-cost-flora");
+	const fCostFaunaEl = el("f-cost-fauna");
+	const fAbilityEl = el("f-ability");
+	const fFactEl = el("f-fact");
+	const fExpansionEl = el("f-expansion");
+	const fRarityEl = el("f-rarity");
+	const fArtistEl = el("f-artist");
+	const fIllustrationEl = el("f-illustration");
+	const illustrationPreviewImgEl = el("illustration-preview-img");
+	const illustrationPreviewMessageEl = el("illustration-preview-message");
+
+	function escapeHtml(value) {
+		return String(value == null ? "" : value).replace(/[&<>"']/g, (ch) => ({
+			"&": "&amp;",
+			"<": "&lt;",
+			">": "&gt;",
+			'"': "&quot;",
+			"'": "&#39;",
+		}[ch]));
+	}
+
+	function setStatus(message) {
+		statusTextEl.textContent = message;
+	}
+
+	function blankCard(id) {
+		return {
+			id: id,
+			challenge_rank: "",
+			name: "",
+			scientific_name: "",
+			type: "",
+			subtype: "",
+			cost: { water: 0, flora: 0, fauna: 0 },
+			ability: [],
+			fact: [],
+			expansion: "",
+			rarity: "",
+			illustration: "",
+			artist: "",
+		};
+	}
+
+	function textToList(text) {
+		return String(text || "").split("\n").map((line) => line.trim()).filter((line) => line.length > 0);
+	}
+
+	function listToText(list) {
+		return Array.isArray(list) ? list.join("\n") : String(list || "");
+	}
+
+	// Suggested Challenge Rank per Type/Subtype combination, as provided by
+	// the game designer. Used only to pre-fill a blank Challenge Rank field
+	// when a card's Type/Subtype is set; never overwrites an existing value.
+	const CHALLENGE_RANK_MAP = {
+		"event|buff": 12,
+		"event|cataclysm": 11,
+		"event|weather": 10,
+		"event|defence": 9,
+		"habitat|apex predator": 8,
+		"habitat|predator": 7,
+		"habitat|omnivore": 6,
+		"habitat|herbivore": 5,
+		"habitat|flora": 4,
+		"energy|fauna": 3,
+		"energy|flora": 2,
+		"energy|water": 1,
+		"habitat|territorial": 7, // tentative
+	};
+
+	function challengeRankKey(type, subtype) {
+		return `${String(type || "").trim().toLowerCase()}|${String(subtype || "").trim().toLowerCase()}`;
+	}
+
+	function applySuggestedChallengeRank(card) {
+		if (card.challenge_rank !== "" && card.challenge_rank !== null && card.challenge_rank !== undefined) return;
+		const suggested = CHALLENGE_RANK_MAP[challengeRankKey(card.type, card.subtype)];
+		if (suggested === undefined) return;
+		card.challenge_rank = suggested;
+		fChallengeRankEl.value = suggested;
+	}
+
+	function nextId() {
+		const max = cards.reduce((acc, c) => {
+			const n = Number(c.id);
+			return Number.isFinite(n) && n > acc ? n : acc;
+		}, 0);
+		return max + 1;
+	}
+
+	function uniqueTypes() {
+		return Array.from(new Set(cards.map((c) => c.type).filter((t) => t && String(t).trim()))).sort();
+	}
+
+	function uniqueSubtypes() {
+		return Array.from(new Set(cards.map((c) => c.subtype).filter((t) => t && String(t).trim()))).sort();
+	}
+
+	function uniqueExpansions() {
+		return Array.from(new Set(cards.map((c) => c.expansion).filter((t) => t && String(t).trim()))).sort();
+	}
+
+	function uniqueRarities() {
+		return Array.from(new Set(cards.map((c) => c.rarity).filter((t) => t && String(t).trim()))).sort();
+	}
+
+	function updateTypeControls() {
+		const types = uniqueTypes();
+
+		const currentFilter = filterTypeEl.value;
+		filterTypeEl.innerHTML = '<option value="">All Types</option>' +
+			types.map((t) => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join("");
+		if (types.includes(currentFilter)) filterTypeEl.value = currentFilter;
+
+		typeOptionsEl.innerHTML = types.map((t) => `<option value="${escapeHtml(t)}">`).join("");
+		subtypeOptionsEl.innerHTML = uniqueSubtypes().map((t) => `<option value="${escapeHtml(t)}">`).join("");
+		expansionOptionsEl.innerHTML = uniqueExpansions().map((t) => `<option value="${escapeHtml(t)}">`).join("");
+		rarityOptionsEl.innerHTML = uniqueRarities().map((t) => `<option value="${escapeHtml(t)}">`).join("");
+	}
+
+	function getFilteredSortedCards() {
+		const term = searchInput.value.trim().toLowerCase();
+		const typeFilter = filterTypeEl.value;
+
+		let list = cards.filter((c) => {
+			const matchesSearch = !term || String(c.name || "").toLowerCase().includes(term);
+			const matchesType = !typeFilter || c.type === typeFilter;
+			return matchesSearch && matchesType;
+		});
+
+		const sortBy = sortSelect.value;
+		list = list.slice().sort((a, b) => {
+			if (sortBy === "id") return Number(a.id) - Number(b.id);
+			if (sortBy === "name") return String(a.name || "").localeCompare(String(b.name || ""));
+			if (sortBy === "type") return String(a.type || "").localeCompare(String(b.type || ""));
+			return 0;
+		});
+
+		return list;
+	}
+
+	function renderList() {
+		updateTypeControls();
+		const list = getFilteredSortedCards();
+		cardListEl.innerHTML = "";
+		list.forEach((card) => {
+			const li = document.createElement("li");
+			li.className = card === selectedCard ? "selected" : "";
+			const typeLabel = card.subtype ? `${card.type} / ${card.subtype}` : card.type;
+			li.innerHTML =
+				`<span class="card-id">#${escapeHtml(card.id)}</span>` +
+				`<span class="card-name">${escapeHtml(card.name) || "(untitled)"}</span>` +
+				`<span class="card-type">${escapeHtml(typeLabel)}</span>`;
+			li.addEventListener("click", () => selectCard(card));
+			cardListEl.appendChild(li);
+		});
+	}
+
+	function selectCard(card) {
+		selectedCard = card;
+		renderForm();
+		renderList();
+	}
+
+	function renderForm() {
+		if (!selectedCard) {
+			formEl.hidden = true;
+			emptyStateEl.hidden = false;
+			return;
+		}
+		emptyStateEl.hidden = true;
+		formEl.hidden = false;
+
+		if (!selectedCard.cost || typeof selectedCard.cost !== "object") {
+			selectedCard.cost = { water: 0, flora: 0, fauna: 0 };
+		}
+
+		fIdEl.value = selectedCard.id ?? "";
+		fChallengeRankEl.value = selectedCard.challenge_rank ?? "";
+		fNameEl.value = selectedCard.name ?? "";
+		fScientificNameEl.value = selectedCard.scientific_name ?? "";
+		fTypeEl.value = selectedCard.type ?? "";
+		fSubtypeEl.value = selectedCard.subtype ?? "";
+		fCostWaterEl.value = selectedCard.cost.water ?? 0;
+		fCostFloraEl.value = selectedCard.cost.flora ?? 0;
+		fCostFaunaEl.value = selectedCard.cost.fauna ?? 0;
+		fAbilityEl.value = listToText(selectedCard.ability);
+		fFactEl.value = listToText(selectedCard.fact);
+		fExpansionEl.value = selectedCard.expansion ?? "";
+		fRarityEl.value = selectedCard.rarity ?? "";
+		fArtistEl.value = selectedCard.artist ?? "";
+		fIllustrationEl.value = selectedCard.illustration ?? "";
+		updateIllustrationPreview();
+
+		renderValidation();
+	}
+
+	function updateIllustrationPreview() {
+		const path = fIllustrationEl.value.trim();
+		if (!path) {
+			illustrationPreviewImgEl.hidden = true;
+			illustrationPreviewImgEl.removeAttribute("src");
+			illustrationPreviewMessageEl.textContent = "";
+			return;
+		}
+		illustrationPreviewMessageEl.textContent = "";
+		illustrationPreviewImgEl.hidden = false;
+		illustrationPreviewImgEl.src = path;
+	}
+
+	illustrationPreviewImgEl.addEventListener("error", () => {
+		if (illustrationPreviewImgEl.hidden) return;
+		illustrationPreviewImgEl.hidden = true;
+		illustrationPreviewMessageEl.textContent = `Not found: ${fIllustrationEl.value.trim()}`;
+	});
+
+	function validateCard(card, allCards) {
+		const errors = [];
+		const warnings = [];
+
+		const idNum = Number(card.id);
+		if (card.id === "" || card.id === null || card.id === undefined || Number.isNaN(idNum)) {
+			errors.push("ID is required and must be a number.");
+		} else if (allCards.some((c) => c !== card && Number(c.id) === idNum)) {
+			errors.push(`ID ${card.id} is not unique.`);
+		}
+
+		if (!card.name || !String(card.name).trim()) errors.push("Name is required.");
+		if (!card.type || !String(card.type).trim()) errors.push("Type is required.");
+
+		["water", "flora", "fauna"].forEach((key) => {
+			const value = card.cost ? card.cost[key] : undefined;
+			if (value === undefined || value === null || Number.isNaN(Number(value))) {
+				errors.push(`cost.${key} must be a number.`);
+			}
+		});
+
+		if (card.illustration !== undefined && card.illustration !== "" && typeof card.illustration !== "string") {
+			errors.push("Illustration must be a valid string path.");
+		}
+
+		if (!card.subtype || !String(card.subtype).trim()) warnings.push("Subtype is empty.");
+		if (!Array.isArray(card.ability) || !card.ability.length) warnings.push("Ability is empty.");
+		if (!Array.isArray(card.fact) || !card.fact.length) warnings.push("Fact is empty.");
+		if (!card.scientific_name || !String(card.scientific_name).trim()) warnings.push("Scientific name is empty.");
+		if (card.challenge_rank === "" || card.challenge_rank === null || card.challenge_rank === undefined || Number.isNaN(Number(card.challenge_rank))) {
+			warnings.push("Challenge rank is empty or invalid.");
+		}
+		if (!card.expansion || !String(card.expansion).trim()) warnings.push("Expansion is empty.");
+		if (!card.rarity || !String(card.rarity).trim()) warnings.push("Rarity is empty.");
+
+		const trimmedName = String(card.name || "").trim().toLowerCase();
+		if (trimmedName && allCards.some((c) => c !== card && String(c.name || "").trim().toLowerCase() === trimmedName)) {
+			warnings.push("Name duplicates another card.");
+		}
+
+		return { errors, warnings };
+	}
+
+	function renderValidation() {
+		if (!selectedCard) {
+			validationEl.className = "";
+			validationEl.innerHTML = "";
+			return;
+		}
+		const { errors, warnings } = validateCard(selectedCard, cards);
+		validationEl.className = errors.length ? "has-errors" : (warnings.length ? "has-warnings-only" : "");
+		let html = "";
+		if (errors.length) {
+			html += "<strong>Errors:</strong><ul>" + errors.map((e) => `<li>${escapeHtml(e)}</li>`).join("") + "</ul>";
+		}
+		if (warnings.length) {
+			html += "<strong>Warnings:</strong><ul>" + warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join("") + "</ul>";
+		}
+		validationEl.innerHTML = html;
+	}
+
+	function validateAllForSave() {
+		const errors = [];
+		const warnings = [];
+		cards.forEach((card) => {
+			const result = validateCard(card, cards);
+			const label = `#${card.id ?? "?"} "${card.name || "untitled"}"`;
+			result.errors.forEach((e) => errors.push(`${label}: ${e}`));
+			result.warnings.forEach((w) => warnings.push(`${label}: ${w}`));
+		});
+		return { errors, warnings };
+	}
+
+	function bindField(inputEl, set) {
+		inputEl.addEventListener("input", () => {
+			if (!selectedCard) return;
+			set(selectedCard, inputEl.value);
+			renderList();
+			renderValidation();
+		});
+	}
+
+	bindField(fIdEl, (card, value) => { card.id = value === "" ? "" : Number(value); });
+	bindField(fChallengeRankEl, (card, value) => { card.challenge_rank = value === "" ? "" : Number(value); });
+	bindField(fNameEl, (card, value) => { card.name = value; });
+	bindField(fScientificNameEl, (card, value) => { card.scientific_name = value; });
+	bindField(fTypeEl, (card, value) => { card.type = value; });
+	bindField(fSubtypeEl, (card, value) => { card.subtype = value; });
+	[fTypeEl, fSubtypeEl].forEach((inputEl) => {
+		inputEl.addEventListener("input", () => {
+			if (!selectedCard) return;
+			applySuggestedChallengeRank(selectedCard);
+			renderValidation();
+		});
+	});
+	bindField(fCostWaterEl, (card, value) => { card.cost.water = value === "" ? "" : Number(value); });
+	bindField(fCostFloraEl, (card, value) => { card.cost.flora = value === "" ? "" : Number(value); });
+	bindField(fCostFaunaEl, (card, value) => { card.cost.fauna = value === "" ? "" : Number(value); });
+	bindField(fAbilityEl, (card, value) => { card.ability = textToList(value); });
+	bindField(fFactEl, (card, value) => { card.fact = textToList(value); });
+	bindField(fExpansionEl, (card, value) => { card.expansion = value; });
+	bindField(fRarityEl, (card, value) => { card.rarity = value; });
+	bindField(fArtistEl, (card, value) => { card.artist = value; });
+	bindField(fIllustrationEl, (card, value) => { card.illustration = value; });
+	fIllustrationEl.addEventListener("input", updateIllustrationPreview);
+
+	el("btn-pick-illustration").addEventListener("click", () => illustrationFileInput.click());
+	illustrationFileInput.addEventListener("change", () => {
+		const file = illustrationFileInput.files[0];
+		if (!file || !selectedCard) return;
+		fIllustrationEl.value = `artwork/${file.name}`;
+		selectedCard.illustration = fIllustrationEl.value;
+		updateIllustrationPreview();
+		renderList();
+		renderValidation();
+		setStatus(`Illustration set to artwork/${file.name}. Place the actual file in the artwork folder if it is not already there.`);
+	});
+
+	el("btn-add").addEventListener("click", () => {
+		const card = blankCard(nextId());
+		cards.push(card);
+		selectCard(card);
+		fNameEl.focus();
+		setStatus("New blank card added. Fill in the details and Save/Export when ready.");
+	});
+
+	el("btn-duplicate").addEventListener("click", () => {
+		if (!selectedCard) {
+			alert("Select a card to duplicate first.");
+			return;
+		}
+		const copy = JSON.parse(JSON.stringify(selectedCard));
+		copy.id = nextId();
+		copy.name = `${selectedCard.name || "Untitled"} Copy`;
+		cards.push(copy);
+		selectCard(copy);
+		fNameEl.focus();
+		fNameEl.select();
+		setStatus("Card duplicated. Update the ID and name before saving.");
+	});
+
+	el("btn-delete").addEventListener("click", () => {
+		if (!selectedCard) {
+			alert("Select a card to delete first.");
+			return;
+		}
+		const label = selectedCard.name || `card #${selectedCard.id}`;
+		if (!confirm(`Delete "${label}"? This cannot be undone.`)) return;
+		cards = cards.filter((c) => c !== selectedCard);
+		selectedCard = null;
+		renderList();
+		renderForm();
+		setStatus(`Deleted "${label}".`);
+	});
+
+	searchInput.addEventListener("input", renderList);
+	filterTypeEl.addEventListener("change", renderList);
+	sortSelect.addEventListener("change", renderList);
+
+	function serializeCards() {
+		return JSON.stringify(cards, null, "\t") + "\n";
+	}
+
+	function downloadJson(text, filename) {
+		const blob = new Blob([text], { type: "application/json" });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = filename;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	}
+
+	function showBlockingErrors(errors) {
+		alert("Cannot save. Please fix the following errors first:\n\n" + errors.join("\n"));
+	}
+
+	async function saveJson() {
+		const { errors, warnings } = validateAllForSave();
+		if (errors.length) {
+			showBlockingErrors(errors);
+			return;
+		}
+		if (warnings.length) {
+			const proceed = confirm(`There are ${warnings.length} warning(s):\n\n${warnings.join("\n")}\n\nSave anyway?`);
+			if (!proceed) return;
+		}
+
+		const text = serializeCards();
+
+		if (fileHandle) {
+			try {
+				const writable = await fileHandle.createWritable();
+				await writable.write(text);
+				await writable.close();
+				setStatus(`Saved to ${fileHandle.name}.`);
+				return;
+			} catch (err) {
+				console.error(err);
+				setStatus("Direct save failed; downloading instead.");
+			}
+		}
+
+		downloadJson(text, fileHandle ? fileHandle.name : "template.json");
+		setStatus("Downloaded updated JSON (this browser cannot write directly to disk).");
+	}
+
+	function exportJson() {
+		const text = serializeCards();
+		downloadJson(text, "template.json");
+		setStatus("Exported template.json.");
+	}
+
+	function loadCardsFromText(text, sourceLabel) {
+		let data;
+		try {
+			data = JSON.parse(text);
+		} catch (err) {
+			alert("Failed to parse JSON: " + err.message);
+			return false;
+		}
+		if (!Array.isArray(data)) {
+			alert("Expected the JSON file to contain an array of cards.");
+			return false;
+		}
+		cards = data;
+		selectedCard = null;
+		renderList();
+		renderForm();
+		if (sourceLabel) setStatus(sourceLabel);
+		return true;
+	}
+
+	async function openFile() {
+		if (window.showOpenFilePicker) {
+			try {
+				const [handle] = await window.showOpenFilePicker({
+					types: [{ description: "JSON", accept: { "application/json": [".json"] } }],
+				});
+				const file = await handle.getFile();
+				const text = await file.text();
+				if (loadCardsFromText(text, `Opened ${handle.name}.`)) {
+					fileHandle = handle;
+				}
+				return;
+			} catch (err) {
+				if (err && err.name === "AbortError") return;
+				console.error(err);
+			}
+		}
+		fileInput.click();
+	}
+
+	fileInput.addEventListener("change", async () => {
+		const file = fileInput.files[0];
+		if (!file) return;
+		fileHandle = null;
+		const text = await file.text();
+		loadCardsFromText(text, `Opened ${file.name}. This browser can't write back automatically; use Save/Export to download changes.`);
+		fileInput.value = "";
+	});
+
+	el("btn-open").addEventListener("click", openFile);
+	el("btn-save").addEventListener("click", saveJson);
+	el("btn-export").addEventListener("click", exportJson);
+
+	async function init() {
+		try {
+			const res = await fetch("template.json");
+			if (res.ok) {
+				const text = await res.text();
+				loadCardsFromText(text, "Loaded template.json.");
+				return;
+			}
+		} catch (err) {
+			// Ignore; likely opened via file:// where fetch is blocked. Fall through to manual open.
+		}
+		renderList();
+		renderForm();
+		setStatus('Use "Open JSON…" to load a card file.');
+	}
+
+	init();
+})();
+</script>
+</body>
+</html>
