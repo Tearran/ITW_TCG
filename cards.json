@@ -664,8 +664,8 @@
 	{
 		"id": 130,
 		"challenge_rank": 1,
-		"name": "Parker Creek ",
-		"scientific_name": "Parker Creek ",
+		"name": "Parker Creek",
+		"scientific_name": "Parker Creek",
 		"type": "Energy",
 		"subtype": "Water",
 		"cost": {
@@ -679,7 +679,7 @@
 			"Refresh at the start of your turn."
 		],
 		"fact": [
-			"Parker Creek  A seasonal stream flowing out of the Sierra Ancha Wilderness that feeds into the northeastern side of the reservoir."
+			"Parker Creek A seasonal stream flowing out of the Sierra Ancha Wilderness that feeds into the northeastern side of the reservoir."
 		],
 		"expansion": "Alpha",
 		"rarity": "Common",
