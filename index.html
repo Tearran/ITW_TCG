@@ -205,6 +205,10 @@
 					<input type="number" id="f-id" step="1">
 				</div>
 				<div class="field">
+					<label for="f-challenge-rank">Challenge Rank</label>
+					<input type="number" id="f-challenge-rank" step="1">
+				</div>
+				<div class="field">
 					<label for="f-name">Name</label>
 					<input type="text" id="f-name">
 				</div>
@@ -243,6 +247,16 @@
 				<div class="field">
 					<label for="f-fact">Fact</label>
 					<textarea id="f-fact"></textarea>
+				</div>
+				<div class="field">
+					<label for="f-expansion">Expansion</label>
+					<input type="text" id="f-expansion" list="expansion-options">
+					<datalist id="expansion-options"></datalist>
+				</div>
+				<div class="field">
+					<label for="f-rarity">Rarity</label>
+					<input type="text" id="f-rarity" list="rarity-options">
+					<datalist id="rarity-options"></datalist>
 				</div>
 				<div class="field">
 					<label for="f-artist">Artist</label>
@@ -286,11 +300,14 @@
 	const statusTextEl = el("status-text");
 	const typeOptionsEl = el("type-options");
 	const subtypeOptionsEl = el("subtype-options");
+	const expansionOptionsEl = el("expansion-options");
+	const rarityOptionsEl = el("rarity-options");
 	const validationEl = el("validation-messages");
 	const fileInput = el("file-input");
 	const illustrationFileInput = el("illustration-file-input");
 
 	const fIdEl = el("f-id");
+	const fChallengeRankEl = el("f-challenge-rank");
 	const fNameEl = el("f-name");
 	const fScientificNameEl = el("f-scientific-name");
 	const fTypeEl = el("f-type");
@@ -300,6 +317,8 @@
 	const fCostFaunaEl = el("f-cost-fauna");
 	const fAbilityEl = el("f-ability");
 	const fFactEl = el("f-fact");
+	const fExpansionEl = el("f-expansion");
+	const fRarityEl = el("f-rarity");
 	const fArtistEl = el("f-artist");
 	const fIllustrationEl = el("f-illustration");
 	const illustrationPreviewImgEl = el("illustration-preview-img");
@@ -322,41 +341,27 @@
 	function blankCard(id) {
 		return {
 			id: id,
+			challenge_rank: "",
 			name: "",
 			scientific_name: "",
 			type: "",
 			subtype: "",
 			cost: { water: 0, flora: 0, fauna: 0 },
-			ability: "",
-			fact: "",
-			artist: "",
+			ability: [],
+			fact: [],
+			expansion: "",
+			rarity: "",
 			illustration: "",
+			artist: "",
 		};
 	}
 
-	// Legacy card files store the specific category (e.g. "Habitat Flora") in the
-	// "type" field with no subtype. Map those flat values onto the 3 main types
-	// from RULES.md ("Bio-Energy", "Habitat", "Organism") plus their subtype.
-	const LEGACY_TYPE_MAP = {
-		"Water": { type: "Bio-Energy", subtype: "Water" },
-		"Flora": { type: "Bio-Energy", subtype: "Flora" },
-		"Fauna": { type: "Bio-Energy", subtype: "Fauna" },
-		"Habitat Flora": { type: "Habitat", subtype: "Flora" },
-		"Habitat Fauna": { type: "Habitat", subtype: "Fauna" },
-		"Habitat Landmark": { type: "Habitat", subtype: "Landmark" },
-		"Habitat Shelter": { type: "Habitat", subtype: "Shelter" },
-		"Herbivore": { type: "Organism", subtype: "Herbivore" },
-		"Omnivore": { type: "Organism", subtype: "Omnivore" },
-		"Predator": { type: "Organism", subtype: "Predator" },
-		"Apex Predator": { type: "Organism", subtype: "Apex Predator" },
-	};
+	function textToList(text) {
+		return String(text || "").split("\n").map((line) => line.trim()).filter((line) => line.length > 0);
+	}
 
-	function normalizeCardType(card) {
-		if (card.subtype && String(card.subtype).trim()) return;
-		const mapped = LEGACY_TYPE_MAP[card.type];
-		if (!mapped) return;
-		card.type = mapped.type;
-		card.subtype = mapped.subtype;
+	function listToText(list) {
+		return Array.isArray(list) ? list.join("\n") : String(list || "");
 	}
 
 	function nextId() {
@@ -375,6 +380,14 @@
 		return Array.from(new Set(cards.map((c) => c.subtype).filter((t) => t && String(t).trim()))).sort();
 	}
 
+	function uniqueExpansions() {
+		return Array.from(new Set(cards.map((c) => c.expansion).filter((t) => t && String(t).trim()))).sort();
+	}
+
+	function uniqueRarities() {
+		return Array.from(new Set(cards.map((c) => c.rarity).filter((t) => t && String(t).trim()))).sort();
+	}
+
 	function updateTypeControls() {
 		const types = uniqueTypes();
 
@@ -385,6 +398,8 @@
 
 		typeOptionsEl.innerHTML = types.map((t) => `<option value="${escapeHtml(t)}">`).join("");
 		subtypeOptionsEl.innerHTML = uniqueSubtypes().map((t) => `<option value="${escapeHtml(t)}">`).join("");
+		expansionOptionsEl.innerHTML = uniqueExpansions().map((t) => `<option value="${escapeHtml(t)}">`).join("");
+		rarityOptionsEl.innerHTML = uniqueRarities().map((t) => `<option value="${escapeHtml(t)}">`).join("");
 	}
 
 	function getFilteredSortedCards() {
@@ -445,6 +460,7 @@
 		}
 
 		fIdEl.value = selectedCard.id ?? "";
+		fChallengeRankEl.value = selectedCard.challenge_rank ?? "";
 		fNameEl.value = selectedCard.name ?? "";
 		fScientificNameEl.value = selectedCard.scientific_name ?? "";
 		fTypeEl.value = selectedCard.type ?? "";
@@ -452,8 +468,10 @@
 		fCostWaterEl.value = selectedCard.cost.water ?? 0;
 		fCostFloraEl.value = selectedCard.cost.flora ?? 0;
 		fCostFaunaEl.value = selectedCard.cost.fauna ?? 0;
-		fAbilityEl.value = selectedCard.ability ?? "";
-		fFactEl.value = selectedCard.fact ?? "";
+		fAbilityEl.value = listToText(selectedCard.ability);
+		fFactEl.value = listToText(selectedCard.fact);
+		fExpansionEl.value = selectedCard.expansion ?? "";
+		fRarityEl.value = selectedCard.rarity ?? "";
 		fArtistEl.value = selectedCard.artist ?? "";
 		fIllustrationEl.value = selectedCard.illustration ?? "";
 		updateIllustrationPreview();
@@ -506,9 +524,14 @@
 		}
 
 		if (!card.subtype || !String(card.subtype).trim()) warnings.push("Subtype is empty.");
-		if (!card.ability || !String(card.ability).trim()) warnings.push("Ability is empty.");
-		if (!card.fact || !String(card.fact).trim()) warnings.push("Fact is empty.");
+		if (!Array.isArray(card.ability) || !card.ability.length) warnings.push("Ability is empty.");
+		if (!Array.isArray(card.fact) || !card.fact.length) warnings.push("Fact is empty.");
 		if (!card.scientific_name || !String(card.scientific_name).trim()) warnings.push("Scientific name is empty.");
+		if (card.challenge_rank === "" || card.challenge_rank === null || card.challenge_rank === undefined || Number.isNaN(Number(card.challenge_rank))) {
+			warnings.push("Challenge rank is empty or invalid.");
+		}
+		if (!card.expansion || !String(card.expansion).trim()) warnings.push("Expansion is empty.");
+		if (!card.rarity || !String(card.rarity).trim()) warnings.push("Rarity is empty.");
 
 		const trimmedName = String(card.name || "").trim().toLowerCase();
 		if (trimmedName && allCards.some((c) => c !== card && String(c.name || "").trim().toLowerCase() === trimmedName)) {
@@ -558,6 +581,7 @@
 	}
 
 	bindField(fIdEl, (card, value) => { card.id = value === "" ? "" : Number(value); });
+	bindField(fChallengeRankEl, (card, value) => { card.challenge_rank = value === "" ? "" : Number(value); });
 	bindField(fNameEl, (card, value) => { card.name = value; });
 	bindField(fScientificNameEl, (card, value) => { card.scientific_name = value; });
 	bindField(fTypeEl, (card, value) => { card.type = value; });
@@ -565,8 +589,10 @@
 	bindField(fCostWaterEl, (card, value) => { card.cost.water = value === "" ? "" : Number(value); });
 	bindField(fCostFloraEl, (card, value) => { card.cost.flora = value === "" ? "" : Number(value); });
 	bindField(fCostFaunaEl, (card, value) => { card.cost.fauna = value === "" ? "" : Number(value); });
-	bindField(fAbilityEl, (card, value) => { card.ability = value; });
-	bindField(fFactEl, (card, value) => { card.fact = value; });
+	bindField(fAbilityEl, (card, value) => { card.ability = textToList(value); });
+	bindField(fFactEl, (card, value) => { card.fact = textToList(value); });
+	bindField(fExpansionEl, (card, value) => { card.expansion = value; });
+	bindField(fRarityEl, (card, value) => { card.rarity = value; });
 	bindField(fArtistEl, (card, value) => { card.artist = value; });
 	bindField(fIllustrationEl, (card, value) => { card.illustration = value; });
 	fIllustrationEl.addEventListener("input", updateIllustrationPreview);
@@ -692,7 +718,6 @@
 			alert("Expected the JSON file to contain an array of cards.");
 			return false;
 		}
-		data.forEach(normalizeCardType);
 		cards = data;
 		selectedCard = null;
 		renderList();
