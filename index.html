@@ -364,6 +364,37 @@
 		return Array.isArray(list) ? list.join("\n") : String(list || "");
 	}
 
+	// Suggested Challenge Rank per Type/Subtype combination, as provided by
+	// the game designer. Used only to pre-fill a blank Challenge Rank field
+	// when a card's Type/Subtype is set; never overwrites an existing value.
+	const CHALLENGE_RANK_MAP = {
+		"event|buff": 12,
+		"event|cataclysm": 11,
+		"event|weather": 10,
+		"event|defence": 9,
+		"habitat|apex predator": 8,
+		"habitat|predator": 7,
+		"habitat|omnivore": 6,
+		"habitat|herbivore": 5,
+		"habitat|flora": 4,
+		"energy|fauna": 3,
+		"energy|flora": 2,
+		"energy|water": 1,
+		"habitat|territorial": 7, // tentative
+	};
+
+	function challengeRankKey(type, subtype) {
+		return `${String(type || "").trim().toLowerCase()}|${String(subtype || "").trim().toLowerCase()}`;
+	}
+
+	function applySuggestedChallengeRank(card) {
+		if (card.challenge_rank !== "" && card.challenge_rank !== null && card.challenge_rank !== undefined) return;
+		const suggested = CHALLENGE_RANK_MAP[challengeRankKey(card.type, card.subtype)];
+		if (suggested === undefined) return;
+		card.challenge_rank = suggested;
+		fChallengeRankEl.value = suggested;
+	}
+
 	function nextId() {
 		const max = cards.reduce((acc, c) => {
 			const n = Number(c.id);
@@ -586,6 +617,13 @@
 	bindField(fScientificNameEl, (card, value) => { card.scientific_name = value; });
 	bindField(fTypeEl, (card, value) => { card.type = value; });
 	bindField(fSubtypeEl, (card, value) => { card.subtype = value; });
+	[fTypeEl, fSubtypeEl].forEach((inputEl) => {
+		inputEl.addEventListener("input", () => {
+			if (!selectedCard) return;
+			applySuggestedChallengeRank(selectedCard);
+			renderValidation();
+		});
+	});
 	bindField(fCostWaterEl, (card, value) => { card.cost.water = value === "" ? "" : Number(value); });
 	bindField(fCostFloraEl, (card, value) => { card.cost.flora = value === "" ? "" : Number(value); });
 	bindField(fCostFaunaEl, (card, value) => { card.cost.fauna = value === "" ? "" : Number(value); });
