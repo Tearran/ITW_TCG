@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"weight": 1,
+		"challenge_rank": 1,
 		"name": "Energy Water",
 		"scientific_name": "H2O",
 		"type": "Energy",
@@ -16,20 +16,19 @@
 			"Exhaust to pay Water costs.",
 			"Refresh at the start of your turn."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"artist": "Tearran Studio",
 		"illustration": "artwork/water.svg",
-		"fact": "TBD"
+		"artist": "Tearran Studios"
 	},
 	{
 		"id": 2,
-		"weight": 2,
+		"challenge_rank": 2,
 		"name": "Energy Flora",
 		"scientific_name": "Flora",
 		"type": "Energy",
@@ -44,20 +43,19 @@
 			"Exhaust to pay Flora costs.",
 			"Refresh at the start of your turn."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"fact": "TBD",
-		"artist": "Tearran Studio",
-		"illustration": "artwork/leaf.svg"
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
 	},
 	{
 		"id": 3,
-		"weight": 3,
+		"challenge_rank": 3,
 		"name": "Energy Fauna",
 		"scientific_name": "Fauna",
 		"type": "Energy",
@@ -72,20 +70,19 @@
 			"Exhaust to pay Fauna costs.",
 			"Refresh at the start of your turn."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"fact": "TBD",
-		"artist": "Tearran Studio",
-		"illustration": "artwork/meat.svg"
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
 	},
 	{
 		"id": 4,
-		"weight": 4,
+		"challenge_rank": 4,
 		"name": "Habitat Flora",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -98,20 +95,19 @@
 		"ability": [
 			"Supports your Habitat."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"artist": "Tearran Studios",
-		"illustration": "artwork/prickly_pear.svg",
-		"fact": "TBD"
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
 	},
 	{
 		"id": 5,
-		"weight": 5,
+		"challenge_rank": 5,
 		"name": "Habitat Herbivore",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -124,20 +120,19 @@
 		"ability": [
 			"Supports your Habitat."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
 		"artist": "Tearran Studios",
-		"illustration": "artwork/javelina.svg",
-		"fact": "TBD"
+		"illustration": "artwork/template_art.svg"
 	},
 	{
 		"id": 6,
-		"weight": 6,
+		"challenge_rank": 6,
 		"name": "Habitat Omnivore",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -150,20 +145,20 @@
 		"ability": [
 			"Provides Habitat support."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
 			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"artist": "Tearran Studios",
 		"illustration": "artwork/template_art.svg",
-		"fact": "TBD"
+		"artist": "Tearran Studios"
 	},
 	{
 		"id": 7,
-		"weight": 7,
+		"challenge_rank": 7,
 		"name": "Habitat Predator",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -176,20 +171,19 @@
 		"ability": [
 			"Protects Organisms in your Habitat."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"artist": "Tearran Studios",
-		"fact": "TBD",
-		"illustration": "artwork/template_art.svg"
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
 	},
 	{
 		"id": 8,
-		"weight": 8,
+		"challenge_rank": 8,
 		"name": "Habitat Apex",
 		"scientific_name": "TBD",
 		"type": "Habitat",
@@ -202,46 +196,19 @@
 		"ability": [
 			"Challenge Habitat Flora."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"artist": "Tearran Studios",
-		"fact": "TBD",
-		"illustration": "artwork/template_art.svg"
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
 	},
 	{
 		"id": 9,
-		"weight": 9,
-		"name": "Habitat Landmark",
-		"scientific_name": "TBD",
-		"type": "Habitat",
-		"subtype": "Landmark",
-		"cost": {
-			"water": 1,
-			"flora": 1,
-			"fauna": 1
-		},
-		"ability": [
-			"Challenge Habitat Flora or Organisms."
-		],
-		"facts": [],
-		"metadata": {
-			"artist": "",
-			"artwork": "",
-			"expansion": "Alpha",
-			"rarity": "Common"
-		},
-		"artist": "Tearran Studios",
-		"fact": "TBD",
-		"illustration": "artwork/template_art.svg"
-	},
-	{
-		"id": 10,
-		"weight": 10,
+		"challenge_rank": 10,
 		"name": "Event Defence",
 		"scientific_name": "TBD",
 		"type": "Event",
@@ -254,20 +221,19 @@
 		"ability": [
 			"Challenge Organisms."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
-		"artist": "Tearran Studios",
-		"fact": "TBD",
-		"illustration": "artwork/template_art.svg"
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
 	},
 	{
-		"id": 11,
-		"weight": 11,
+		"id": 10,
+		"challenge_rank": 11,
 		"name": "Event Weather",
 		"scientific_name": "TBD",
 		"type": "Event",
@@ -280,20 +246,19 @@
 		"ability": [
 			"Challenge any Organism."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Rare"
 		},
-		"artist": "Tearran Studios",
-		"fact": "TBD",
-		"illustration": "artwork/template_art.svg"
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
 	},
 	{
-		"id": 12,
-		"weight": 11,
+		"id": 11,
+		"challenge_rank": 11,
 		"name": "Event Cataclysm",
 		"scientific_name": "TBD",
 		"type": "Event",
@@ -306,13 +271,29 @@
 		"ability": [
 			"Apply a temporary environmental effect."
 		],
-		"facts": [],
+		"fact": [
+			"TBD"
+		],
 		"metadata": {
-			"artist": "",
-			"artwork": "",
 			"expansion": "Alpha",
 			"rarity": "Common"
 		},
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 12,
+		"challenge_rank": 11,
+		"name": "Event Buff",
+		"scientific_name": "TBD",
+		"type": "Event",
+		"subtype": "Buff",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": "TBD",
 		"fact": "TBD",
 		"artist": "Tearran Studios",
 		"illustration": "artwork/template_art.svg"
