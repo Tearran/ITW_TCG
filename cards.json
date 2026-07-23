@@ -1,0 +1,767 @@
+[
+	{
+		"id": 100,
+		"challenge_rank": 1,
+		"name": "Salt River",
+		"scientific_name": "Salt River",
+		"type": "Energy",
+		"subtype": "Water",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Water Energy.",
+			"Exhaust to pay Water costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"The Salt River flows through central Arizona.",
+			"It is formed by the Black and White Rivers.",
+			"The river supplies water to the Phoenix metropolitan area."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/river.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 110,
+		"challenge_rank": 1,
+		"name": "Tonto Creek",
+		"scientific_name": "Tonto Creek",
+		"type": "Energy",
+		"subtype": "Water",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Water Energy.",
+			"Exhaust to pay Water costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"The Salt River occupies about 10 miles of the original riverbed, and Tonto Creek is a major tributary that stretches into the lake basin for about 8 miles."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/river.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 210,
+		"challenge_rank": 2,
+		"name": "Prickly Pear",
+		"scientific_name": "Opuntia engelmannii",
+		"type": "Energy",
+		"subtype": "Flora",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Flora Energy.",
+			"Exhaust to pay Flora costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"Prickly pear pads store water during drought.",
+			"Its fruit is eaten by many desert animals.",
+			"The cactus provides shelter as well as food."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/prickly_pear.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 200,
+		"challenge_rank": 2,
+		"name": "Velvet Mesquite",
+		"scientific_name": "Prosopis velutina",
+		"type": "Energy",
+		"subtype": "Flora",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Flora Energy.",
+			"Exhaust to pay Flora costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"Velvet mesquite is native to the Sonoran Desert.",
+			"Its seed pods are an important wildlife food.",
+			"Deep roots allow the tree to survive long droughts."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/mesquite.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 400,
+		"challenge_rank": 4,
+		"name": "Saguaro",
+		"scientific_name": "Carnegiea gigantea",
+		"type": "Habitat",
+		"subtype": "Flora",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 0
+		},
+		"ability": [
+			"Shelter: Exhaust this card when a friendly Prey is challenged. That challenge immediately ends.",
+			"Thorns: The challenger loses 1 Challenge Rank until the end of the current challenge."
+		],
+		"fact": [
+			"Saguaros provide nesting sites for birds.",
+			"The cactus stores large amounts of water.",
+			"Only grows naturally in the Sonoran Desert."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/saguaro.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 410,
+		"challenge_rank": 4,
+		"name": "Ocotillo",
+		"scientific_name": "Fouquieria splendens",
+		"type": "Habitat",
+		"subtype": "Flora",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 0
+		},
+		"ability": [
+			"Shelter: Exhaust this card when a friendly Prey is challenged. That challenge immediately ends.",
+			"Thorns: The challenger loses 1 Challenge Rank until the end of the current challenge."
+		],
+		"fact": [
+			"Ocotillo quickly grows leaves after rainfall.",
+			"Its flowers provide nectar for hummingbirds.",
+			"Dense thorny stems provide cover for wildlife."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/ocotillo.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 700,
+		"challenge_rank": 6,
+		"name": "Habitat Omnivore",
+		"scientific_name": "TBD",
+		"type": "Habitat",
+		"subtype": "Omnivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 1
+		},
+		"ability": [
+			"Provides Habitat support."
+		],
+		"fact": [
+			"TBD"
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/template_art.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 510,
+		"challenge_rank": 7,
+		"name": "Desert Kangaroo Rat",
+		"scientific_name": "Dipodomys deserti",
+		"type": "Habitat",
+		"subtype": "Herbivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 0
+		},
+		"ability": [
+			"Burrow: When challenged, you may exhaust this card to escape the challenge."
+		],
+		"fact": [
+			"Stores seeds in underground burrows.",
+			"Can survive without drinking free water.",
+			"Powerful hind legs allow rapid escape."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/kangaroo_rat.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 520,
+		"challenge_rank": 7,
+		"name": "Javelina",
+		"scientific_name": "Pecari tajacu",
+		"type": "Habitat",
+		"subtype": "Herbivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 1
+		},
+		"ability": [
+			"Herd Defense: This card gains +1 Challenge Rank while another Territorial card is in your Habitat.",
+			"Charge: When challenged, the attacker loses 1 Challenge Rank during this challenge."
+		],
+		"fact": [
+			"Lives in family groups called squadrons.",
+			"Defends territory aggressively.",
+			"Feeds mainly on cactus, roots, and fruit."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/javelina.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 310,
+		"challenge_rank": 5,
+		"name": "Desert Cottontail",
+		"scientific_name": "Sylvilagus audubonii",
+		"type": "Energy",
+		"subtype": "Fauna",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Fauna Energy.",
+			"Exhaust to pay Fauna costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"Feeds on grasses, cactus pads and shrubs.",
+			"Most active during dawn and dusk.",
+			"A common prey species of the Sonoran Desert."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/desert_cottontail.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 300,
+		"challenge_rank": 5,
+		"name": "Gambel's Quail",
+		"scientific_name": "Callipepla gambelii",
+		"type": "Energy",
+		"subtype": "Fauna",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Fauna Energy.",
+			"Exhaust to pay Fauna costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"Lives in family groups called coveys.",
+			"Feeds mainly on seeds and desert plants.",
+			"Arizona's state bird."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/gambels_quail.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 500,
+		"challenge_rank": 5,
+		"name": "Cactus Wren",
+		"scientific_name": "Campylorhynchus brunneicapillus",
+		"type": "Habitat",
+		"subtype": "Herbivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 0
+		},
+		"ability": [
+			"Nest: If this card occupies a Saguaro or Ocotillo, it gains +1 Challenge Rank.",
+			"Flight: This card may escape one challenge each turn."
+		],
+		"fact": [
+			"Builds nests in thorny desert plants.",
+			"Arizona's state bird.",
+			"Uses cactus spines for protection."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/cactus_wren.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 710,
+		"challenge_rank": 6,
+		"name": "Ringtail",
+		"scientific_name": "Bassariscus astutus",
+		"type": "Habitat",
+		"subtype": "Omnivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 1
+		},
+		"ability": [
+			"Scavenge: Once per turn, reduce the Fauna cost of the next card you play by 1."
+		],
+		"fact": [
+			"Arizona's state mammal.",
+			"Eats fruit, insects, rodents and birds.",
+			"Excellent climber with a long striped tail."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/ringtail.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 720,
+		"challenge_rank": 6,
+		"name": "Gray Fox",
+		"scientific_name": "Urocyon cinereoargenteus",
+		"type": "Habitat",
+		"subtype": "Omnivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 1
+		},
+		"ability": [
+			"Adaptable: This card may use either Flora or Fauna to pay 1 cost when played."
+		],
+		"fact": [
+			"One of the few canines that regularly climbs trees.",
+			"Eats fruit, insects and small animals.",
+			"Common throughout the Sonoran Desert."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/gray_fox.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 730,
+		"challenge_rank": 6,
+		"name": "Common Raven",
+		"scientific_name": "Corvus corax",
+		"type": "Habitat",
+		"subtype": "Omnivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 1
+		},
+		"ability": [
+			"Scout: Look at the top card of your deck. You may leave it or place it on the bottom."
+		],
+		"fact": [
+			"Highly intelligent and capable of solving problems.",
+			"Feeds on carrion, insects, seeds and fruit.",
+			"Often follows predators to find food."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/common_raven.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 740,
+		"challenge_rank": 6,
+		"name": "Skunk",
+		"scientific_name": "Mephitis mephitis",
+		"type": "Habitat",
+		"subtype": "Omnivore",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 1
+		},
+		"ability": [
+			"Spray: The first Predator to challenge this card loses 1 Challenge Rank until end of turn."
+		],
+		"fact": [
+			"Uses a strong defensive spray to deter predators.",
+			"Eats insects, fruit, eggs and small animals.",
+			"Mostly active at night."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/skunk.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 840,
+		"challenge_rank": 8,
+		"name": "Western Diamondback",
+		"scientific_name": "Crotalus atrox",
+		"type": "Habitat",
+		"subtype": "Predator",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 2
+		},
+		"ability": [
+			"Challenge a Prey or Territorial Organism.",
+			"If this challenge succeeds, gain 1 Fauna Energy."
+		],
+		"fact": [
+			"The western diamondback is the largest rattlesnake in the Sonoran Desert.",
+			"It uses heat-sensing pits to detect warm-blooded prey."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/western_diamondback.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 830,
+		"challenge_rank": 8,
+		"name": "Coachwhip",
+		"scientific_name": "Masticophis flagellum",
+		"type": "Habitat",
+		"subtype": "Predator",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 2
+		},
+		"ability": [
+			"Challenge a Prey Organism.",
+			"May immediately challenge again if the first challenge succeeds."
+		],
+		"fact": [
+			"Coachwhips are among the fastest snakes in North America.",
+			"They actively chase prey instead of waiting in ambush."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/coachwhip.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 820,
+		"challenge_rank": 8,
+		"name": "Gila Monster",
+		"scientific_name": "Heloderma suspectum",
+		"type": "Habitat",
+		"subtype": "Predator",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 2
+		},
+		"ability": [
+			"Challenge a Prey Organism.",
+			"Defending abilities cannot prevent this challenge."
+		],
+		"fact": [
+			"The Gila monster is one of the few venomous lizards in the world.",
+			"It stores fat in its tail, allowing it to survive long periods without food."
+		],
+		"expansion": "Alpha",
+		"rarity": "Uncommon",
+		"illustration": "artwork/gila_monster.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 920,
+		"challenge_rank": 8,
+		"name": "Great Horned Owl",
+		"scientific_name": "Bubo virginianus",
+		"type": "Habitat",
+		"subtype": "Apex Predator",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 2
+		},
+		"ability": [
+			"Challenge a Prey Organism.",
+			"May ignore Shelter abilities during a challenge."
+		],
+		"fact": [
+			"Great horned owls hunt primarily at night.",
+			"Their powerful talons can exert hundreds of pounds of force."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/great_horned_owl.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 810,
+		"challenge_rank": 8,
+		"name": "Osprey",
+		"scientific_name": "Pandion haliaetus",
+		"type": "Habitat",
+		"subtype": "Predator",
+		"cost": {
+			"water": 2,
+			"flora": 0,
+			"fauna": 2
+		},
+		"ability": [
+			"Challenge an Organism near Water.",
+			"Costs 1 less Water to play if a Water Energy is in play."
+		],
+		"fact": [
+			"Ospreys dive feet-first into water to catch fish.",
+			"Their reversible outer toe helps grip slippery prey."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/osprey.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 811,
+		"challenge_rank": 8,
+		"name": "Turkey Vulture",
+		"scientific_name": "Cathartes aura",
+		"type": "Habitat",
+		"subtype": "Predator",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 1
+		},
+		"ability": [
+			"May Compost one defeated Organism to gain 1 Fauna Energy.",
+			"Cannot initiate a challenge."
+		],
+		"fact": [
+			"Turkey vultures locate carrion using an exceptional sense of smell.",
+			"They help keep ecosystems healthy by removing dead animals."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/turkey_vulture.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 900,
+		"challenge_rank": 9,
+		"name": "Mountain Lion",
+		"scientific_name": "Puma concolor",
+		"type": "Habitat",
+		"subtype": "Apex Predator",
+		"cost": {
+			"water": 2,
+			"flora": 0,
+			"fauna": 2
+		},
+		"ability": [
+			"Challenge any Organism.",
+			"If this wins a Challenge, the defeated Organism is moved to the Compost."
+		],
+		"fact": [
+			"Also called cougar, puma, or panther.",
+			"Can leap over 40 feet in a single bound."
+		],
+		"expansion": "Alpha",
+		"rarity": "Rare",
+		"illustration": "artwork/mountain_lion.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 910,
+		"challenge_rank": 9,
+		"name": "Bobcat",
+		"scientific_name": "Lynx rufus",
+		"type": "Habitat",
+		"subtype": "Apex Predator",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 2
+		},
+		"ability": [
+			"Challenge any Organism.",
+			"If this wins a Challenge, refresh this Organism."
+		],
+		"fact": [
+			"The bobbed tail gives the bobcat its name.",
+			"An adaptable predator found throughout Arizona."
+		],
+		"expansion": "Alpha",
+		"rarity": "Uncommon",
+		"illustration": "artwork/bobcat.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 930,
+		"challenge_rank": 9,
+		"name": "Great Horned Owl",
+		"scientific_name": "Bubo virginianus",
+		"type": "Habitat",
+		"subtype": "Apex Predator",
+		"cost": {
+			"water": 1,
+			"flora": 0,
+			"fauna": 2
+		},
+		"ability": [
+			"Challenge any Organism.",
+			"May Challenge immediately after entering play."
+		],
+		"fact": [
+			"A powerful nocturnal hunter.",
+			"Can prey on animals larger than itself."
+		],
+		"expansion": "Alpha",
+		"rarity": "Uncommon",
+		"illustration": "artwork/great_horned_owl.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 120,
+		"challenge_rank": 1,
+		"name": "Pinto Creek",
+		"scientific_name": "Pinto Creek",
+		"type": "Energy",
+		"subtype": "Water",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Water Energy.",
+			"Exhaust to pay Water costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"Pinto Creek A 28-mile tributary that winds northward from the Pinal Mountains through the Sonoran Desert, emptying directly into the eastern \"tail\" of Roosevelt Lake."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/river.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 130,
+		"challenge_rank": 1,
+		"name": "Parker Creek ",
+		"scientific_name": "Parker Creek ",
+		"type": "Energy",
+		"subtype": "Water",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Water Energy.",
+			"Exhaust to pay Water costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"Parker Creek  A seasonal stream flowing out of the Sierra Ancha Wilderness that feeds into the northeastern side of the reservoir."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/river.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 320,
+		"challenge_rank": 1,
+		"name": "Bird Eggs",
+		"scientific_name": "Aves spp.",
+		"type": "Energy",
+		"subtype": "Fauna",
+		"cost": {
+			"water": 0,
+			"flora": 0,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Fauna Energy.",
+			"Exhaust to pay Fauna costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"Many Sonoran Desert animals eat bird eggs when the opportunity arises."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/bird_eggs.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 330,
+		"challenge_rank": 5,
+		"name": "Round-tailed Ground Squirrel",
+		"scientific_name": "Xerospermophilus tereticaudus",
+		"type": "Energy",
+		"subtype": "Fauna",
+		"cost": {
+			"water": 1,
+			"flora": 1,
+			"fauna": 0
+		},
+		"ability": [
+			"Provides 1 Fauna Energy.",
+			"Exhaust to pay Fauna costs.",
+			"Refresh at the start of your turn."
+		],
+		"fact": [
+			"Common throughout the Sonoran Desert.",
+			"Eats seeds, grasses, leaves, and occasional insects.",
+			"Provides an important food source for hawks, owls, snakes, foxes, bobcats, and coyotes."
+		],
+		"expansion": "Alpha",
+		"rarity": "Common",
+		"illustration": "artwork/ground_squirrel.svg",
+		"artist": "Tearran Studios"
+	},
+	{
+		"id": 1000,
+		"challenge_rank": 11,
+		"name": "Monsoon Storm",
+		"scientific_name": "North American Monsoon",
+		"type": "Event",
+		"subtype": "Weather",
+		"cost": {
+			"water": 2,
+			"flora": 0,
+			"fauna": 2
+		},
+		"ability": [
+			"Restore 1 Water Energy to all Habitat cards.",
+			"All Habitat Flora gain +1 Challenge Rank until the start of your next turn."
+		],
+		"fact": [
+			"The North American Monsoon brings much of Arizona's annual rainfall during the summer.",
+			"Monsoon storms can produce intense rain, lightning, strong winds, and flash floods.",
+			"Many Sonoran Desert plants and animals rely on seasonal monsoon rains."
+		],
+		"expansion": "Alpha",
+		"rarity": "Rare",
+		"illustration": "artwork/monsoon_storm.svg",
+		"artist": "Tearran Studios"
+	}
+]
