@@ -158,29 +158,6 @@
 		"artist": "Tearran Studios"
 	},
 	{
-		"id": 700,
-		"challenge_rank": 6,
-		"name": "Habitat Omnivore",
-		"scientific_name": "TBD",
-		"type": "Habitat",
-		"subtype": "Omnivore",
-		"cost": {
-			"water": 1,
-			"flora": 1,
-			"fauna": 1
-		},
-		"ability": [
-			"Provides Habitat support."
-		],
-		"fact": [
-			"TBD"
-		],
-		"expansion": "Alpha",
-		"rarity": "Common",
-		"illustration": "artwork/template_art.svg",
-		"artist": "Tearran Studios"
-	},
-	{
 		"id": 510,
 		"challenge_rank": 7,
 		"name": "Desert Kangaroo Rat",
