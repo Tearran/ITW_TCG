@@ -202,7 +202,7 @@ A Ready card is not Exhausted.
 
 ---
 
-# Refresh
+# Restore
 
 To remove the Exhausted state from a card.
 
@@ -264,7 +264,7 @@ A condition that causes an ability to resolve automatically.
 
 Example:
 
-```
+```text
 When this card enters play...
 ```
 

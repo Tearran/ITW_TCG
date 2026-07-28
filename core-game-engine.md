@@ -70,7 +70,7 @@ Some game effects modify a card's Effective Rank.
 
 Example
 
-```
+```text
 Printed Rank: 8
 
 Exhausted
@@ -86,13 +86,13 @@ Effective Rank is used whenever cards are compared during gameplay.
 
 Unless modified by another card effect:
 
-```
+```text
 Effective Rank = Printed Rank
 ```
 
 An Exhausted card has:
 
-```
+```text
 Effective Rank = Printed Rank − 2
 ```
 
@@ -110,7 +110,7 @@ An Exhausted card:
 
 ---
 
-# Refresh
+# Restore
 
 During the Refresh Phase:
 
@@ -293,7 +293,7 @@ Ready Energy Cards score their Printed Rank.
 
 Exhausted Energy Cards score:
 
-```
+```text
 Printed Rank −1
 ```
 
@@ -305,7 +305,7 @@ Ready Habitat Cards score their Printed Rank.
 
 Exhausted Habitat Cards score:
 
-```
+```text
 Printed Rank −1
 ```
 
