@@ -194,19 +194,6 @@ Fauna Energy
 
 # Rank References
 
-Always refer to:
-
-```text
-Printed Rank
-```
-
-or
-
-```text
-Effective Rank
-```
-
-Never simply say
 
 ```text
 Rank
