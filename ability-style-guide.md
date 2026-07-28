@@ -42,7 +42,7 @@ Exhaust this card.
 ```
 
 ```text
-Restore 1 Water Energy.
+Refresh1 Water Energy.
 ```
 
 Avoid conversational wording.
@@ -267,7 +267,7 @@ Draw 1 card.
 ```text
 When this card enters play:
 
-Restore 1 Water Energy.
+Refresh1 Water Energy.
 ```
 
 ---

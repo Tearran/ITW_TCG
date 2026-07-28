@@ -114,16 +114,17 @@ An Exhausted card:
 
 During the Refresh Phase:
 
-* All Exhausted Energy Cards become Ready.
-* All Exhausted Habitat Cards become Ready.
-
-Refreshing removes the Exhausted state.
+* Refresh means to remove the Exhausted state from a card.
 
 ---
 
 # Energy Costs
 
 Cards with an Energy Cost require matching Energy Cards to be exhausted before they may be played.
+
+Paying a cost exhausts the required Energy Cards.
+Exhausted Energy Cards remain in play unless removed by a card effect.
+An Energy Card may be used to pay only one cost per Refresh cycle.
 
 Example
 
@@ -224,7 +225,13 @@ Each player takes one turn during every round.
 
 ---
 
-## Phase 1 — Draw
+## Phase 1 — Refresh
+
+Refresh all Exhausted cards you control unless a card effect says otherwise.
+
+---
+
+## Phase 2 — Draw
 
 Draw one card from your deck.
 
@@ -232,7 +239,7 @@ If a player is required to draw a card and their deck is empty, that player imme
 
 ---
 
-## Phase 2 — Main Phase
+## Phase 3 — Main Phase
 
 During your Main Phase, you may perform game actions in any order.
 
@@ -248,7 +255,7 @@ A player may perform any number of actions during their Main Phase, provided all
 
 ---
 
-## Phase 3 — Challenge Phase
+## Phase 4 — Challenge Phase
 
 Declare Challenges using eligible Ready Habitat Cards.
 
@@ -263,7 +270,7 @@ The number of Challenges is limited only by:
 
 ---
 
-## Phase 4 — End Phase
+## Phase 5 — End Phase
 
 Resolve all end-of-turn effects.
 

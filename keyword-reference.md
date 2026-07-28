@@ -168,6 +168,8 @@ Any player other than yourself.
 
 To exhaust the required Energy Cards needed to satisfy a card's Energy Cost.
 
+Paid Energy Cards remain in play unless a card effect says otherwise.
+
 ---
 
 # Permanent
