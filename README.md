@@ -6,40 +6,31 @@
 
 Each expansion explores a real landscape, beginning with the **Tonto Basin Ranger District** of **Tonto National Forest** in Arizona, USA. Every card represents a real species, habitat, or natural feature.
 
-The project is designed to entertain while fostering curiosity, exploration, appreciation, and responsible stewardship of the natural world.
+# Into the Wild Documentation
 
----
+## Core Rules
 
-## Project Focus
+* [Core Game Engine](core-game-engine.md)
 
-Into the Wild is built around a simple goal: create a card game that is easy to learn, visually engaging, and rooted in ecological relationships.
+## Card System
 
----
+* [Card Specification](card-specification.md)
+* [Card Design Guide](card-design-guide.md)
+* [Ability Style Guide](ability-style-guide.md)
+* [Deck Construction.md](deck-construction.md)
 
-## Current Release
+## Reference
 
-The first release, **Alpha: Tonto Basin**, focuses on the Sonoran Desert and riparian habitats of the **Tonto Basin Ranger District** within **Tonto National Forest**.
+* [Keyword Reference](keyword-reference.md)
+* [Glossary](glossary.md)
 
-Future expansions may explore additional ranger districts, national forests, national parks, wildlife refuges, and wildlands around the world.
 
----
+## Artwork
 
-## Design Principles
+* [Artwork Specification](artwork-specification.md)
 
-- represent real species, habitats, and natural features as accurately as practical
-- build expansions around authentic wildlands and protected landscapes
-- encourage discovery through gameplay
-- make scientific concepts approachable and engaging
-- balance educational value with compelling gameplay
+## Development
 
----
+* [JSON Schema](json-schema.md)
+* [Project Conventions](project-conventions.md)
 
-## Card Editor
-
-`card-editor.html` is a self-contained, browser-based editor for `template.json`. Open it directly in a browser (Chrome/Edge recommended for direct file saving) to search, add, duplicate, delete, and edit cards, then save or export the updated JSON.
-
----
-
-## License
-
-**TBD**
