@@ -33,15 +33,15 @@ Write abilities using imperative language.
 
 Good examples:
 
-```
+```text
 Draw 1 card.
 ```
 
-```
+```text
 Exhaust this card.
 ```
 
-```
+```text
 Restore 1 Water Energy.
 ```
 
@@ -59,14 +59,14 @@ Each bullet should describe one effect.
 
 Good
 
-```
+```text
 - Draw 1 card.
 - Exhaust this card.
 ```
 
 Avoid
 
-```
+```text
 Draw 1 card and Exhaust this card.
 ```
 
@@ -80,25 +80,25 @@ Always identify the target.
 
 Examples
 
-```
+```text
 One Habitat you control
 ```
 
-```
+```text
 One opposing Habitat
 ```
 
-```
+```text
 All Energy cards
 ```
 
-```
+```text
 Each player
 ```
 
 Avoid vague wording like
 
-```
+```text
 a card
 ```
 
@@ -110,23 +110,23 @@ When an ability has timing, state it first.
 
 Examples
 
-```
+```text
 When played:
 ```
 
-```
+```text
 When this card enters play:
 ```
 
-```
+```text
 When challenged:
 ```
 
-```
+```text
 At the start of your turn:
 ```
 
-```
+```text
 At the end of the round:
 ```
 
@@ -138,13 +138,13 @@ Always use numerals.
 
 Good
 
-```
+```text
 Draw 2 cards.
 ```
 
 Not
 
-```
+```text
 Draw two cards.
 ```
 
@@ -156,15 +156,15 @@ Refer to cards by their type.
 
 Examples
 
-```
+```text
 Habitat Card
 ```
 
-```
+```text
 Energy Card
 ```
 
-```
+```text
 Event Card
 ```
 
@@ -178,15 +178,15 @@ Always capitalize Energy types.
 
 Examples
 
-```
+```text
 Water Energy
 ```
 
-```
+```text
 Flora Energy
 ```
 
-```
+```text
 Fauna Energy
 ```
 
@@ -196,19 +196,19 @@ Fauna Energy
 
 Always refer to:
 
-```
+```text
 Printed Rank
 ```
 
 or
 
-```
+```text
 Effective Rank
 ```
 
 Never simply say
 
-```
+```text
 Rank
 ```
 
@@ -220,43 +220,43 @@ when the distinction matters.
 
 Examples include:
 
-```
+```text
 Play
 ```
 
-```
+```text
 Exhaust
 ```
 
-```
+```text
 Refresh
 ```
 
-```
+```text
 Challenge
 ```
 
-```
+```text
 Discard
 ```
 
-```
+```text
 Compost
 ```
 
-```
+```text
 Draw
 ```
 
-```
+```text
 Restore
 ```
 
-```
+```text
 Remove
 ```
 
-```
+```text
 Pay
 ```
 
@@ -268,7 +268,7 @@ Use these terms consistently throughout the game.
 
 ## Activated
 
-```
+```text
 Exhaust this card:
 Draw 1 card.
 ```
@@ -277,7 +277,7 @@ Draw 1 card.
 
 ## Triggered
 
-```
+```text
 When this card enters play:
 
 Restore 1 Water Energy.
@@ -287,7 +287,7 @@ Restore 1 Water Energy.
 
 ## Passive
 
-```
+```text
 Adjacent Herbivores have +1 Effective Rank.
 ```
 
@@ -295,6 +295,6 @@ Adjacent Herbivores have +1 Effective Rank.
 
 ## Event
 
-```
+```text
 Remove 1 opposing Habitat Card with Printed Rank 3 or less.
 ```

@@ -116,9 +116,8 @@ Examples include:
 
 ### Habitat
 
-* Herbivore
-* Omnivore
-* Carnivore
+* Flora
+* Fauna
 
 ### Event
 
@@ -129,7 +128,7 @@ Examples include:
 Example
 
 ```json
-"subtype": "Carnivore"
+"subtype": "fauna"
 ```
 
 ---
@@ -289,7 +288,7 @@ Example
         "id": 0,
         "rank": 7,
         "type": "Habitat",
-        "subtype": "Carnivore",
+        "subtype": "fauna",
         "cost": {
             "water": 1,
             "flora": 0,
