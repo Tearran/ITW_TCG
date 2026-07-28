@@ -42,8 +42,8 @@ Each category contains exactly one card of every Printed Rank.
 A legal Standard deck contains:
 
 - One Energy card of each Printed Rank.
-- One Flora card of each Printed Rank.
-- One Fauna card of each Printed Rank.
+- One Flora Habitat card of each Printed Rank.
+- One Fauna Habitat card of each Printed Rank.
 - One Event card of each Printed Rank.
 
 No duplicate cards are permitted.
