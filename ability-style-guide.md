@@ -298,15 +298,3 @@ Adjacent Herbivores have +1 Effective Rank.
 ```
 Remove 1 opposing Habitat Card with Printed Rank 3 or less.
 ```
-
----
-
-# Design Principles
-
-When creating abilities:
-
-- Keep wording as short as possible.
-- Use existing keywords whenever possible.
-- Do not redefine existing terms.
-- One keyword should have one meaning throughout the game.
-- Prefer consistent wording over creative wording.
