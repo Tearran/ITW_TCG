@@ -9,7 +9,7 @@
 * [Card Specification](card-specification.md)
 * [Card Design Guide](card-design-guide.md)
 * [Ability Style Guide](ability-style-guide.md)
-* [Deck Construction.md](deck-construction.md)
+* [Deck Construction](deck-construction.md)
 
 ## Reference
 

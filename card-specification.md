@@ -122,7 +122,7 @@ Examples include:
 ### Event
 
 * Weather
-* Cataclysm
+* Catastrophic
 * Invasive Species
 
 Example

@@ -38,7 +38,7 @@ Energy types are:
 * Flora
 * Fauna
 
-Energy cards represent resources, not individual organisms.
+Energy cards represent resources.
 
 Examples include:
 
@@ -111,12 +111,11 @@ Examples include:
 
 # Rank Guidelines
 
-Rank represents an organism's ecological significance within the game.
+Rank represents an events, organism's, and enery ecological significance within the game.
 
 Higher Rank generally indicates greater ecological impact, increased resource requirements, and stronger gameplay effects.
 
 Ranks should increase gradually throughout an expansion.
-
 
 
 ---
