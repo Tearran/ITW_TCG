@@ -24,7 +24,12 @@ Gameplay should emerge from ecological interactions rather than abstract fantasy
 
 # Card Categories
 
-Every card belongs to one of three card types.
+Every card belongs to one of 4 card types.
+
+Energy → Pays costs.
+Habitats Flora → Supports the ecosystem.
+Habitats Fauna → Acts within the ecosystem.
+Event → Changes the ecosystem temporarily.
 
 ## Energy
 
@@ -96,7 +101,11 @@ Examples:
 
 ### Habitat flora
 
+Represents plants and habitat features that provide protection, shelter, ecological support, and passive effects
+
 These may include trees, cacti, vines, and other non-food plants 
+
+
 ---
 
 ## Event
