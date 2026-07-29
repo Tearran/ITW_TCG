@@ -6,7 +6,7 @@
 
 Each expansion explores a real landscape, beginning with the **Tonto Basin Ranger District** of **Tonto National Forest** in Arizona, USA. Every card represents a real species, habitat, or natural feature.
 
-# Into the Wild — Living Design Document
+## Into the Wild — Living Design Document
 
 > **Status:** Alpha Design Draft
 >
@@ -16,7 +16,7 @@ Each expansion explores a real landscape, beginning with the **Tonto Basin Range
 
 ---
 
-# Game Objective
+### Game Objective
 
 Into the Wild is a strategy card game where players build and maintain ecosystems by managing ecological resources and introducing organisms into play.
 
@@ -33,7 +33,7 @@ The player with the highest score wins.
 
 ---
 
-# Standard Deck
+### Standard Deck
 
 A standard deck contains **52 cards**.
 
@@ -48,7 +48,7 @@ The deck is divided into **four suits** containing **13 cards each**.
 
 ---
 
-# Energy
+### Energy
 
 Energy Cards represent the ecological resources available within an ecosystem.
 
@@ -76,7 +76,7 @@ Energy Cards are Restored during the Refresh Phase.
 
 ---
 
-# Flora
+### Flora
 
 Flora Cards represent plants and habitat features that become permanent parts of a player's ecosystem.
 
@@ -101,7 +101,7 @@ Flora Cards may provide passive abilities, protection, ecological support, or ot
 
 ---
 
-# Fauna
+### Fauna
 
 Fauna Cards represent living organisms that become permanent members of a player's ecosystem.
 
@@ -126,7 +126,7 @@ Fauna Cards remain in play until:
 
 ---
 
-# Event
+### Event
 
 Event Cards represent temporary ecological processes.
 
@@ -147,7 +147,7 @@ Event Cards never remain in play unless another card explicitly states otherwise
 
 ---
 
-# Rank
+### Rank
 
 Every card has a Printed Rank.
 
@@ -165,7 +165,7 @@ Effective Rank: 6
 
 ---
 
-# Effective Rank
+### Effective Rank
 
 Effective Rank is used whenever cards are compared during gameplay.
 
@@ -183,7 +183,7 @@ Effective Rank = Printed Rank − 2
 
 ---
 
-# Exhaustion
+### Exhaustion
 
 Exhaustion represents a card that has already acted during the current round.
 
@@ -196,7 +196,7 @@ An Exhausted card:
 
 ---
 
-# Restore
+### Restore
 
 During the Refresh Phase:
 
@@ -208,7 +208,7 @@ It simply returns the card to its Ready state.
 
 ---
 
-# Energy Costs
+### Energy Costs
 
 Cards require Energy to enter play.
 
@@ -232,7 +232,7 @@ An Exhausted Energy Card cannot be used to pay another Energy Cost until it has 
 
 ---
 
-# Challenges
+### Challenges
 
 Challenges are interactions between permanent ecosystem cards.
 
@@ -244,7 +244,7 @@ Energy Cards cannot initiate Challenges.
 
 ---
 
-## Declaring a Challenge
+#### Declaring a Challenge
 
 1. Choose one Ready Flora or Fauna Card you control as the challenger.
 2. Choose one eligible opposing Flora or Fauna Card as the defender.
@@ -255,7 +255,7 @@ Energy Cards cannot initiate Challenges.
 
 ---
 
-## Challenge Resolution
+#### Challenge Resolution
 
 - The card with the higher Effective Rank wins.
 - The card with the lower Effective Rank is placed into the Compost pile unless another card effect states otherwise.
@@ -265,7 +265,7 @@ Resolve all triggered abilities before continuing play.
 
 ---
 
-# Compost Pile
+### Compost Pile
 
 The Compost pile is the discard pile.
 
@@ -282,7 +282,7 @@ Cards are never shuffled back into the deck during a standard game.
 
 ---
 
-# Game Setup
+### Game Setup
 
 1. Each player presents a legal deck.
 2. Shuffle your deck.
@@ -293,7 +293,7 @@ Cards are never shuffled back into the deck during a standard game.
 
 ---
 
-# Mulligan
+### Mulligan
 
 If a player's opening hand contains **no Energy Cards**, they may take one mulligan.
 
@@ -307,7 +307,7 @@ Only one mulligan may be taken.
 
 ---
 
-# Turn Structure
+### Turn Structure
 
 A standard game consists of **26 rounds**.
 
@@ -317,7 +317,7 @@ Every turn consists of five phases.
 
 ---
 
-## Phase 1 — Refresh
+#### Phase 1 — Refresh
 
 Restore every Exhausted card you control unless a card effect states otherwise.
 
@@ -325,7 +325,7 @@ Refreshing a card removes its Exhausted state.
 
 ---
 
-## Phase 2 — Draw
+#### Phase 2 — Draw
 
 Draw one card from your deck.
 
@@ -333,7 +333,7 @@ If a player is required to draw a card and their deck is empty, that player imme
 
 ---
 
-## Phase 3 — Main Phase
+#### Phase 3 — Main Phase
 
 During your Main Phase you may perform game actions in any order.
 
@@ -350,7 +350,7 @@ A player may perform any number of legal actions during their Main Phase provide
 
 ---
 
-## Phase 4 — Challenge Phase
+#### Phase 4 — Challenge Phase
 
 Declare Challenges using eligible Ready Flora or Fauna Cards.
 
@@ -364,7 +364,7 @@ The number of Challenges is limited only by:
 
 ---
 
-## Phase 5 — End Phase
+#### Phase 5 — End Phase
 
 Resolve all end-of-turn effects.
 
@@ -372,7 +372,7 @@ Play passes to the next player.
 
 ---
 
-# End of Round
+### End of Round
 
 After every player has completed their turn, the round ends.
 
@@ -382,7 +382,7 @@ After Round 26 has been completed, calculate each player's final score.
 
 ---
 
-# Scoring
+### Scoring
 
 Only cards remaining in play score points.
 
@@ -390,7 +390,7 @@ Cards in the Compost pile score **0** points.
 
 ---
 
-## Energy
+#### Energy
 
 Ready Energy Cards score their Printed Rank.
 
@@ -402,7 +402,7 @@ Printed Rank −1
 
 ---
 
-## Flora
+#### Flora
 
 Ready Flora Cards score their Printed Rank.
 
@@ -414,7 +414,7 @@ Printed Rank −1
 
 ---
 
-## Fauna
+#### Fauna
 
 Ready Fauna Cards score their Printed Rank.
 
@@ -426,7 +426,7 @@ Printed Rank −1
 
 ---
 
-## Events
+#### Events
 
 Event Cards never score points.
 
@@ -434,7 +434,7 @@ After resolving, they are placed into the Compost pile.
 
 ---
 
-# Victory
+### Victory
 
 After scoring every card remaining in play:
 
@@ -446,7 +446,7 @@ After scoring every card remaining in play:
 
 ---
 
-# Card Structure
+### Card Structure
 
 Every card consists of two independent sections:
 
@@ -455,11 +455,11 @@ Every card consists of two independent sections:
 
 ---
 
-# Mechanics
+### Mechanics
 
 The mechanics section contains all gameplay information.
 
-## Required Fields
+#### Required Fields
 
 | Field | Description |
 |------|-------------|
@@ -471,7 +471,7 @@ The mechanics section contains all gameplay information.
 
 ---
 
-## Mechanics Example
+#### Mechanics Example
 
 ```json
 {
@@ -489,13 +489,13 @@ The mechanics section contains all gameplay information.
 
 ---
 
-# Metadata
+### Metadata
 
 Metadata has no effect on gameplay.
 
 Metadata exists for presentation, artwork, educational content, and identification.
 
-## Required Fields
+#### Required Fields
 
 | Field | Description |
 |------|-------------|
@@ -509,7 +509,7 @@ Metadata exists for presentation, artwork, educational content, and identificati
 
 ---
 
-## Metadata Example
+#### Metadata Example
 
 ```json
 {
@@ -530,7 +530,7 @@ Metadata exists for presentation, artwork, educational content, and identificati
 
 ---
 
-## Complete Card Example
+#### Complete Card Example
 
 ```json
 {
@@ -559,7 +559,7 @@ Metadata exists for presentation, artwork, educational content, and identificati
 
 ---
 
-# Design Philosophy
+### Design Philosophy
 
 Every card should represent a real ecological relationship.
 
@@ -569,7 +569,7 @@ Cards are designed around real organisms, habitats, ecological resources, and na
 
 ---
 
-# Card Design Principles
+### Card Design Principles
 
 When designing a new card:
 
@@ -580,7 +580,7 @@ When designing a new card:
 
 ---
 
-# Rank Guidelines
+### Rank Guidelines
 
 Rank represents a card's relative ecological influence within the game.
 
@@ -595,7 +595,7 @@ Ranks should increase gradually throughout an expansion.
 
 ---
 
-## Low Rank
+#### Low Rank
 
 Typical characteristics:
 
@@ -607,7 +607,7 @@ Typical characteristics:
 
 ---
 
-## Medium Rank
+#### Medium Rank
 
 Typical characteristics:
 
@@ -618,7 +618,7 @@ Typical characteristics:
 
 ---
 
-## High Rank
+#### High Rank
 
 Typical characteristics:
 
@@ -630,7 +630,7 @@ Typical characteristics:
 
 ---
 
-# Energy Design
+### Energy Design
 
 Energy represents ecological resources available within an ecosystem.
 
@@ -652,7 +652,7 @@ Mechanically, every Energy Card functions the same unless another card ability e
 
 ---
 
-# Flora Design
+### Flora Design
 
 Flora Cards represent plants and habitat features that remain within the ecosystem.
 
@@ -676,7 +676,7 @@ Flora cards generally provide:
 
 ---
 
-# Fauna Design
+### Fauna Design
 
 Fauna Cards represent living organisms.
 
@@ -699,7 +699,7 @@ Fauna cards generally:
 
 ---
 
-# Event Design
+### Event Design
 
 Event Cards represent temporary ecological processes.
 
@@ -718,7 +718,7 @@ Event Cards should create temporary changes rather than permanent board states.
 
 ---
 
-# Ability Design
+### Ability Design
 
 Abilities should represent real ecological behavior whenever practical.
 
@@ -739,7 +739,7 @@ Avoid abstract or fantasy abilities unless an expansion intentionally introduces
 
 ---
 
-# Educational Content
+### Educational Content
 
 Educational content exists independently from gameplay.
 
@@ -752,7 +752,7 @@ Facts should:
 
 ---
 
-# Artwork
+### Artwork
 
 Artwork should accurately represent the subject.
 
@@ -768,7 +768,7 @@ Artistic style may vary, but biological accuracy should remain a priority.
 
 ---
 
-# Expansion Design
+### Expansion Design
 
 Each expansion represents a geographic region or ecosystem.
 
@@ -787,7 +787,7 @@ Cards within an expansion should naturally occur within the represented region w
 
 ---
 
-# Balance Principles
+### Balance Principles
 
 When designing cards:
 
@@ -798,7 +798,7 @@ When designing cards:
 
 ---
 
-# Consistency
+### Consistency
 
 When multiple cards represent the same organism:
 
@@ -814,7 +814,7 @@ When multiple cards represent the same organism:
 
 ---
 
-# Design Goals
+### Design Goals
 
 Every new card should strive to:
 
@@ -827,7 +827,7 @@ Every new card should strive to:
 
 ---
 
-# Standard Deck Composition
+### Standard Deck Composition
 
 A standard deck contains **52 cards**.
 
@@ -842,7 +842,7 @@ Each suit contains **13 cards**.
 
 ---
 
-# Future Development
+### Future Development
 
 The following areas remain open for future refinement:
 
@@ -857,7 +857,7 @@ The following areas remain open for future refinement:
 
 ---
 
-# Revision History
+### Revision History
 
 **Alpha Draft**
 
@@ -874,9 +874,9 @@ As the game mechanics stabilize, this document may later be separated into:
 - Tournament Rules
 - Player Rulebook
 
-# Into the Wild — Keyword Reference
+## Into the Wild — Keyword Reference
 
-## Purpose
+### Purpose
 
 This document defines the official gameplay terminology used throughout *Into the Wild*.
 
@@ -884,7 +884,7 @@ All cards, rules, and future expansions should use these keywords consistently.
 
 ---
 
-# Ability
+### Ability
 
 The gameplay text printed on a card.
 
@@ -892,7 +892,7 @@ Abilities define what a card does and how it interacts with the game.
 
 ---
 
-# Challenge
+### Challenge
 
 An interaction initiated by a Ready Flora/Fauna Card against an eligible opposing Flora/Fauna Card.
 
@@ -900,7 +900,7 @@ Challenges are resolved using Effective Rank unless modified by another card eff
 
 ---
 
-# Compost
+### Compost
 
 The discard pile.
 
@@ -910,31 +910,31 @@ Cards remain in the Compost pile unless another card effect specifically states 
 
 ---
 
-# Cost
+### Cost
 
 The required Energy that must be paid before a card may be played.
 
 ---
 
-# Defeat
+### Defeat
 
 When a Flora/Fauna Card loses a Challenge and is placed into the Compost pile.
 
 ---
 
-# Discard
+### Discard
 
 To move a card from a player's hand to the Compost pile.
 
 ---
 
-# Draw
+### Draw
 
 To take the top card of your deck and place it into your hand.
 
 ---
 
-# Effective Rank
+### Effective Rank
 
 The value used whenever a card's Rank is compared during gameplay.
 
@@ -942,25 +942,25 @@ Effective Rank may differ from Printed Rank due to gameplay effects.
 
 ---
 
-# Energy
+### Energy
 
 A gameplay resource used to pay the Energy Cost of cards.
 
 ---
 
-# Energy Cost
+### Energy Cost
 
 The amount of Energy required to play a card.
 
 ---
 
-# Event
+### Event
 
 A temporary card that resolves its abilities before being placed into the Compost pile.
 
 ---
 
-# Exhaust
+### Exhaust
 
 To rotate or otherwise mark a Ready card as having been used.
 
@@ -972,14 +972,14 @@ An Exhausted card:
 
 ---
 
-# Expansion
+### Expansion
 
 A published collection of cards representing a geographic region or ecosystem.
 
 
 ---
 
-# Metadata
+### Metadata
 
 Information that identifies or describes a card but has no direct effect on gameplay.
 
@@ -995,7 +995,7 @@ Examples include:
 
 ---
 
-# Mechanics
+### Mechanics
 
 The gameplay information that determines how a card functions.
 
@@ -1009,19 +1009,19 @@ Examples include:
 
 ---
 
-# Mulligan
+### Mulligan
 
 A one-time replacement of an opening hand that contains no Energy Cards.
 
 ---
 
-# Opponent
+### Opponent
 
 Any player other than yourself.
 
 ---
 
-# Pay
+### Pay
 
 To exhaust the required Energy Cards needed to satisfy a card's Energy Cost.
 
@@ -1029,7 +1029,7 @@ Paid Energy Cards remain in play unless a card effect says otherwise.
 
 ---
 
-# Permanent
+### Permanent
 
 A card that remains in play after being played.
 
@@ -1037,7 +1037,7 @@ Energy Cards and Habitat Cards are permanent cards unless removed.
 
 ---
 
-# Play
+### Play
 
 To place a card from your hand into play after paying its Energy Cost.
 
@@ -1045,13 +1045,13 @@ Event Cards resolve immediately after being played.
 
 ---
 
-# Rank
+### Rank
 
 The Rank printed on a card.
 
 ---
 
-# Ready
+### Ready
 
 The normal state of a card.
 
@@ -1059,7 +1059,7 @@ A Ready card is not Exhausted.
 
 ---
 
-# Restore
+### Restore
 
 To remove the Exhausted state from a card.
 
@@ -1067,7 +1067,7 @@ Refreshing does not otherwise change a card.
 
 ---
 
-# Remove
+### Remove
 
 To move a card from play to another game zone as directed by a card effect.
 
@@ -1075,13 +1075,13 @@ Unless otherwise stated, removed cards are placed into the Compost pile.
 
 ---
 
-# Resolve
+### Resolve
 
 To carry out a card's abilities completely before continuing gameplay.
 
 ---
 
-# Round
+### Round
 
 A complete cycle in which every player takes one turn.
 
@@ -1089,7 +1089,7 @@ A standard game lasts 26 rounds.
 
 ---
 
-# Score
+### Score
 
 The total value of a player's cards remaining in play at the end of the game.
 
@@ -1097,7 +1097,7 @@ Scoring is determined by the Core Game Engine.
 
 ---
 
-# Trigger
+### Trigger
 
 A condition that causes an ability to resolve automatically.
 
@@ -1109,7 +1109,7 @@ When this card enters play...
 
 ---
 
-# Turn
+### Turn
 
 A single player's opportunity to perform game actions.
 
@@ -1117,7 +1117,7 @@ Each turn consists of the phases defined in the Core Game Engine.
 
 ---
 
-# Type
+### Type
 
 The primary gameplay classification of a card.
 
@@ -1129,21 +1129,21 @@ Types are:
 
 ---
 
-#  Energy
+### Energy
 
 Energy representing available biomass.
 
 ---
 
-# Win
+### Win
 
 A player wins by satisfying the victory conditions defined by the Core Game Engine or the selected game format.
 
 ---
 
-# Into the Wild — Ability Style Guide
+## Into the Wild — Ability Style Guide
 
-## Purpose
+### Purpose
 
 This document defines the writing style and formatting conventions used for card abilities.
 
@@ -1155,7 +1155,7 @@ This guide ensures that all abilities are written consistently and interpreted t
 
 ---
 
-# Design Principles
+### Design Principles
 
 Abilities should be:
 
@@ -1170,7 +1170,7 @@ Flavor belongs in the card's facts, not its mechanics.
 
 ---
 
-# Writing Style
+### Writing Style
 
 Write abilities using imperative language.
 
@@ -1196,7 +1196,7 @@ Describe only what happens.
 
 ---
 
-# One Effect Per Line
+### One Effect Per Line
 
 Each bullet should describe one effect.
 
@@ -1217,7 +1217,7 @@ unless both actions always happen together.
 
 ---
 
-# Targeting
+### Targeting
 
 Always identify the target.
 
@@ -1247,7 +1247,7 @@ a card
 
 ---
 
-# Timing
+### Timing
 
 When an ability has timing, state it first.
 
@@ -1275,7 +1275,7 @@ At the end of the round:
 
 ---
 
-# Numbers
+### Numbers
 
 Always use numerals.
 
@@ -1293,7 +1293,7 @@ Draw two cards.
 
 ---
 
-# Card References
+### Card References
 
 Refer to cards by their type.
 
@@ -1319,7 +1319,7 @@ Do not reference artwork or flavor text.
 
 ---
 
-# Rank References
+### Rank References
 
 
 ```text
@@ -1330,7 +1330,7 @@ when the distinction matters.
 
 ---
 
-# Common Keywords
+### Common Keywords
 
 Examples include:
 
@@ -1378,9 +1378,9 @@ Use these terms consistently throughout the game.
 
 ---
 
-## Ability Examples
+### Ability Examples
 
-### Activated
+#### Activated
 
 ```text
 Exhaust this card:
@@ -1389,7 +1389,7 @@ Draw 1 card.
 
 ---
 
-### Triggered
+#### Triggered
 
 ```text
 When this card enters play:
@@ -1398,7 +1398,7 @@ Refresh 1 Energy.
 
 ---
 
-## Passive
+#### Passive
 
 ```text
 Adjacent Herbivores have +1 Effective Rank.
@@ -1406,7 +1406,7 @@ Adjacent Herbivores have +1 Effective Rank.
 
 ---
 
-## Event
+#### Event
 
 ```text
 Remove 1 opposing Habitat Card with Printed Rank 3 or less.
@@ -1453,7 +1453,7 @@ Each category contains exactly one card of every Printed Rank.
 
 ---
 
-# Standard Format
+### Standard Format
 
 A legal Standard deck contains:
 
