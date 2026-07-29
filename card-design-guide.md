@@ -56,7 +56,7 @@ Examples include:
 
 Habitat Cards represent organisms that become permanent members of a player's ecosystem.
 
-Habitat Cards are divided into 2 kingdoms Habitat flora and Habitat fauna.  
+Habitat Cards are divided into 2 kingdoms Habitat flora and Habitat fauna.
 
 ### Habitat Fauna 
 
@@ -96,8 +96,7 @@ Examples:
 
 ### Habitat flora
 
-these may be trees, cacti, vines and other non food type plants.
-
+These may include trees, cacti, vines, and other non-food plants 
 ---
 
 ## Event
