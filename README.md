@@ -1415,7 +1415,7 @@ Remove 1 opposing Habitat Card with Printed Rank 3 or less.
 
 ---
 
-# Standard Deck Composition
+### Standard Deck Composition
 
 A standard deck contains exactly **52 cards**.
 
@@ -1432,7 +1432,7 @@ Total: **52 cards**
 
 ---
 
-# Rank Distribution
+### Rank Distribution
 
 Each category contains exactly one card of every Printed Rank.
 
