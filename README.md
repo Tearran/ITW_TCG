@@ -26,7 +26,7 @@ At the end of the final round, players calculate their scores.
 
 The player with the highest score wins.
 
-If both players have the same score, the game ends in a tie.
+If both players have the same score, each play draw one card from there dech highest rang wins.
 
 ---
 
@@ -356,7 +356,6 @@ Resolve each Challenge completely before declaring another.
 The number of Challenges is limited only by:
 
 - Available Ready cards.
-- Available Energy.
 - Card abilities.
 - Other game effects.
 
@@ -437,7 +436,7 @@ After resolving, they are placed into the Compost pile.
 After scoring every card remaining in play:
 
 - The player with the highest total score wins.
-- Equal scores result in a tie breaker. Draw from deck, hight card wins.
+- Equal scores result in a tie breaker. Draw from deck, high card wins.
 
 ---
 
@@ -877,10 +876,6 @@ This document defines the official gameplay terminology used throughout *Into th
 
 All cards, rules, and future expansions should use these keywords consistently.
 
-Gameplay rules are defined in **core-game-engine.md**.
-
-Ability formatting is defined in **ability-style-guide.md**.
-
 ---
 
 # Ability
@@ -893,7 +888,7 @@ Abilities define what a card does and how it interacts with the game.
 
 # Challenge
 
-An interaction initiated by a Ready Habitat Card against an eligible opposing Habitat Card.
+An interaction initiated by a Ready Flora/Fauna Card against an eligible opposing Flora/Fauna Card.
 
 Challenges are resolved using Effective Rank unless modified by another card effect.
 
