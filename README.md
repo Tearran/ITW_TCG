@@ -1185,7 +1185,7 @@ Exhaust this card.
 ```
 
 ```text
-Refresh 1 Water Energy.
+Refresh 1 Energy.
 ```
 
 Avoid conversational wording.
