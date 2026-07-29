@@ -912,15 +912,13 @@ The required Energy that must be paid before a card may be played.
 
 # Defeat
 
-When a Habitat Card loses a Challenge and is placed into the Compost pile.
+When a Flora/Fauna Card loses a Challenge and is placed into the Compost pile.
 
 ---
 
 # Discard
 
 To move a card from a player's hand to the Compost pile.
-
-Discarding is different from defeating a Habitat Card.
 
 ---
 
