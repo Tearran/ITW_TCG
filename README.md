@@ -869,4 +869,560 @@ As the game mechanics stabilize, this document may later be separated into:
 - Tournament Rules
 - Player Rulebook
 
+# Into the Wild — Keyword Reference
 
+## Purpose
+
+This document defines the official gameplay terminology used throughout *Into the Wild*.
+
+All cards, rules, and future expansions should use these keywords consistently.
+
+Gameplay rules are defined in **core-game-engine.md**.
+
+Ability formatting is defined in **ability-style-guide.md**.
+
+---
+
+# Ability
+
+The gameplay text printed on a card.
+
+Abilities define what a card does and how it interacts with the game.
+
+---
+
+# Challenge
+
+An interaction initiated by a Ready Habitat Card against an eligible opposing Habitat Card.
+
+Challenges are resolved using Effective Rank unless modified by another card effect.
+
+---
+
+# Compost
+
+The discard pile.
+
+Cards placed into the Compost pile are removed from play.
+
+Cards remain in the Compost pile unless another card effect specifically states otherwise.
+
+---
+
+# Cost
+
+The required Water Energy, Flora Energy, and Fauna Energy that must be paid before a card may be played.
+
+---
+
+# Defeat
+
+When a Habitat Card loses a Challenge and is placed into the Compost pile.
+
+---
+
+# Discard
+
+To move a card from a player's hand to the Compost pile.
+
+Discarding is different from defeating a Habitat Card.
+
+---
+
+# Draw
+
+To take the top card of your deck and place it into your hand.
+
+---
+
+# Effective Rank
+
+The value used whenever a card's Rank is compared during gameplay.
+
+Effective Rank may differ from Printed Rank due to gameplay effects.
+
+---
+
+# Energy
+
+A gameplay resource used to pay the Energy Cost of cards.
+
+There are three Energy types:
+
+* Water Energy
+* Flora Energy
+* Fauna Energy
+
+---
+
+# Energy Cost
+
+The amount and type of Energy required to play a card.
+
+---
+
+# Event
+
+A temporary card that resolves its abilities before being placed into the Compost pile.
+
+---
+
+# Exhaust
+
+To rotate or otherwise mark a Ready card as having been used.
+
+An Exhausted card:
+
+* Cannot declare another Challenge.
+* Has an Effective Rank reduced by 2.
+* Remains Exhausted until refreshed.
+
+---
+
+# Expansion
+
+A published collection of cards representing a geographic region or ecosystem.
+
+---
+
+# Habitat
+
+A permanent card representing an organism or habitat feature.
+
+Habitat Cards remain in play until removed.
+
+---
+
+# Metadata
+
+Information that identifies or describes a card but has no direct effect on gameplay.
+
+Examples include:
+
+* Name
+* Scientific Name
+* Facts
+* Artwork
+* Artist
+* Expansion
+* Rarity
+
+---
+
+# Mechanics
+
+The gameplay information that determines how a card functions.
+
+Examples include:
+
+* Rank
+* Type
+* Subtype
+* Energy Cost
+* Abilities
+
+---
+
+# Mulligan
+
+A one-time replacement of an opening hand that contains no Energy Cards.
+
+---
+
+# Opponent
+
+Any player other than yourself.
+
+---
+
+# Pay
+
+To exhaust the required Energy Cards needed to satisfy a card's Energy Cost.
+
+Paid Energy Cards remain in play unless a card effect says otherwise.
+
+---
+
+# Permanent
+
+A card that remains in play after being played.
+
+Energy Cards and Habitat Cards are permanent cards unless removed.
+
+---
+
+# Play
+
+To place a card from your hand into play after paying its Energy Cost.
+
+Event Cards resolve immediately after being played.
+
+---
+
+# Rank
+
+The Rank printed on a card.
+
+---
+
+# Ready
+
+The normal state of a card.
+
+A Ready card is not Exhausted.
+
+---
+
+# Restore
+
+To remove the Exhausted state from a card.
+
+Refreshing does not otherwise change a card.
+
+---
+
+# Remove
+
+To move a card from play to another game zone as directed by a card effect.
+
+Unless otherwise stated, removed cards are placed into the Compost pile.
+
+---
+
+# Resolve
+
+To carry out a card's abilities completely before continuing gameplay.
+
+---
+
+# Round
+
+A complete cycle in which every player takes one turn.
+
+A standard game lasts 26 rounds.
+
+---
+
+# Score
+
+The total value of a player's cards remaining in play at the end of the game.
+
+Scoring is determined by the Core Game Engine.
+
+---
+
+# Trigger
+
+A condition that causes an ability to resolve automatically.
+
+Example:
+
+```text
+When this card enters play...
+```
+
+---
+
+# Turn
+
+A single player's opportunity to perform game actions.
+
+Each turn consists of the phases defined in the Core Game Engine.
+
+---
+
+# Type
+
+The primary gameplay classification of a card.
+
+Types are:
+
+* Energy
+* Habitat
+* Event
+
+---
+
+#  Energy
+
+Energy representing available biomass.
+
+---
+
+# Win
+
+A player wins by satisfying the victory conditions defined by the Core Game Engine or the selected game format.
+
+---
+
+# Into the Wild — Ability Style Guide
+
+## Purpose
+
+This document defines the writing style and formatting conventions used for card abilities.
+
+Gameplay rules are defined in **core-game-engine.md**.
+
+Card structure is defined in **card-specification.md**.
+
+This guide ensures that all abilities are written consistently and interpreted the same way by players.
+
+---
+
+# Design Principles
+
+Abilities should be:
+
+- Clear
+- Concise
+- Unambiguous
+- Self-contained
+
+Avoid unnecessary flavor text inside abilities.
+
+Flavor belongs in the card's facts, not its mechanics.
+
+---
+
+# Writing Style
+
+Write abilities using imperative language.
+
+Good examples:
+
+```text
+Draw 1 card.
+```
+
+```text
+Exhaust this card.
+```
+
+```text
+Refresh 1 Water Energy.
+```
+
+Avoid conversational wording.
+
+Avoid describing why something happens.
+
+Describe only what happens.
+
+---
+
+# One Effect Per Line
+
+Each bullet should describe one effect.
+
+Good
+
+```text
+- Draw 1 card.
+- Exhaust this card.
+```
+
+Avoid
+
+```text
+Draw 1 card and Exhaust this card.
+```
+
+unless both actions always happen together.
+
+---
+
+# Targeting
+
+Always identify the target.
+
+Examples
+
+```text
+One fauna you control
+```
+
+```text
+One opposing flora
+```
+
+```text
+All Energy cards
+```
+
+```text
+Each player
+```
+
+Avoid vague wording like
+
+```text
+a card
+```
+
+---
+
+# Timing
+
+When an ability has timing, state it first.
+
+Examples
+
+```text
+When played:
+```
+
+```text
+When this card enters play:
+```
+
+```text
+When challenged:
+```
+
+```text
+At the start of your turn:
+```
+
+```text
+At the end of the round:
+```
+
+---
+
+# Numbers
+
+Always use numerals.
+
+Good
+
+```text
+Draw 2 cards.
+```
+
+Not
+
+```text
+Draw two cards.
+```
+
+---
+
+# Card References
+
+Refer to cards by their type.
+
+Examples
+
+```text
+Energy Card
+```
+
+```text
+Flora Card
+```
+
+```text
+Fauna Card
+```
+
+```text
+Event Card
+```
+
+Do not reference artwork or flavor text.
+
+---
+
+# Rank References
+
+
+```text
+Rank
+```
+
+when the distinction matters.
+
+---
+
+# Common Keywords
+
+Examples include:
+
+```text
+Play
+```
+
+```text
+Exhaust
+```
+
+```text
+Refresh
+```
+
+```text
+Challenge
+```
+
+```text
+Discard
+```
+
+```text
+Compost
+```
+
+```text
+Draw
+```
+
+```text
+Restore
+```
+
+```text
+Remove
+```
+
+```text
+Pay
+```
+
+Use these terms consistently throughout the game.
+
+---
+
+# Ability Examples
+
+## Activated
+
+```text
+Exhaust this card:
+Draw 1 card.
+```
+
+---
+
+## Triggered
+
+```text
+When this card enters play:
+
+Refresh 1 Energy.
+```
+
+---
+
+## Passive
+
+```text
+Adjacent Herbivores have +1 Effective Rank.
+```
+
+---
+
+## Event
+
+```text
+Remove 1 opposing Habitat Card with Printed Rank 3 or less.
+```
