@@ -56,9 +56,11 @@ Examples include:
 
 Habitat Cards represent organisms that become permanent members of a player's ecosystem.
 
-Habitat Cards are divided into three ecological groups.
+Habitat Cards are divided into 2 kingdoms Habitat flora and Habitat fauna.  
 
-### Herbivore
+### Habitat Fauna 
+
+- Herbivore
 
 Herbivore Habitat Cards represent organisms whose primary food source is plant biomass.
 
@@ -70,7 +72,7 @@ Examples:
 
 ---
 
-### Omnivore
+- Omnivore
 
 Omnivore Habitat Cards represent organisms that consume both plant and animal biomass.
 
@@ -82,7 +84,7 @@ Examples:
 
 ---
 
-### Carnivore
+- Carnivore
 
 Carnivore Habitat Cards represent organisms whose primary food source is animal biomass.
 
@@ -91,6 +93,10 @@ Examples:
 - Bobcat
 - Mountain Lion
 - Coyote
+
+### Habitat flora
+
+these may be trees, cacti, vines and other non food type plants.
 
 ---
 
