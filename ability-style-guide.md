@@ -81,11 +81,11 @@ Always identify the target.
 Examples
 
 ```text
-One Habitat you control
+One fauna you control
 ```
 
 ```text
-One opposing Habitat
+One opposing flora
 ```
 
 ```text
@@ -157,11 +157,15 @@ Refer to cards by their type.
 Examples
 
 ```text
-Habitat Card
+Energy Card
 ```
 
 ```text
-Energy Card
+Flora Card
+```
+
+```text
+Fauna Card
 ```
 
 ```text
@@ -169,26 +173,6 @@ Event Card
 ```
 
 Do not reference artwork or flavor text.
-
----
-
-# Energy References
-
-Always capitalize Energy types.
-
-Examples
-
-```text
-Water Energy
-```
-
-```text
-Flora Energy
-```
-
-```text
-Fauna Energy
-```
 
 ---
 
@@ -267,7 +251,7 @@ Draw 1 card.
 ```text
 When this card enters play:
 
-Refresh1 Water Energy.
+Refresh 1 Energy.
 ```
 
 ---
