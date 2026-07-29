@@ -1464,3 +1464,4 @@ A legal Standard deck contains:
 - One Event card of each Printed Rank.
 
 No duplicate cards are permitted.
+
