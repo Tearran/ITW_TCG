@@ -911,7 +911,7 @@ Cards remain in the Compost pile unless another card effect specifically states 
 
 # Cost
 
-The required Water Energy, Flora Energy, and Fauna Energy that must be paid before a card may be played.
+The required Energy that must be paid before a card may be played.
 
 ---
 
@@ -947,12 +947,6 @@ Effective Rank may differ from Printed Rank due to gameplay effects.
 
 A gameplay resource used to pay the Energy Cost of cards.
 
-There are three Energy types:
-
-* Water Energy
-* Flora Energy
-* Fauna Energy
-
 ---
 
 # Energy Cost
@@ -983,13 +977,6 @@ An Exhausted card:
 
 A published collection of cards representing a geographic region or ecosystem.
 
----
-
-# Habitat
-
-A permanent card representing an organism or habitat feature.
-
-Habitat Cards remain in play until removed.
 
 ---
 
