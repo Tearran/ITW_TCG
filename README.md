@@ -1378,9 +1378,9 @@ Use these terms consistently throughout the game.
 
 ---
 
-# Ability Examples
+## Ability Examples
 
-## Activated
+### Activated
 
 ```text
 Exhaust this card:
@@ -1389,11 +1389,10 @@ Draw 1 card.
 
 ---
 
-## Triggered
+### Triggered
 
 ```text
 When this card enters play:
-
 Refresh 1 Energy.
 ```
 
