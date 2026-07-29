@@ -26,7 +26,10 @@ At the end of the final round, players calculate their scores.
 
 The player with the highest score wins.
 
-If both players have the same score, each play draw one card from there dech highest rang wins.
+- If the scores are equal, each tied player draws the top card of their deck.
+- A player who cannot draw a card because their deck is empty loses the game.
+- Otherwise, the player who drew the card with the higher Printed Rank wins.
+- If the drawn cards have the same Printed Rank, repeat this process until one player wins.
 
 ---
 
@@ -436,7 +439,10 @@ After resolving, they are placed into the Compost pile.
 After scoring every card remaining in play:
 
 - The player with the highest total score wins.
-- Equal scores result in a tie breaker. Draw from deck, high card wins.
+- If the scores are equal, each tied player draws the top card of their deck.
+- A player who cannot draw a card because their deck is empty loses the game.
+- Otherwise, the player who drew the card with the higher Printed Rank wins.
+- If the drawn cards have the same Printed Rank, repeat this process until one player wins.
 
 ---
 
