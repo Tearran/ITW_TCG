@@ -950,7 +950,7 @@ A gameplay resource used to pay the Energy Cost of cards.
 
 # Energy Cost
 
-The amount and type of Energy required to play a card.
+The amount of Energy required to play a card.
 
 ---
 
