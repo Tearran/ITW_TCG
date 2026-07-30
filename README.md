@@ -6,7 +6,7 @@
 
 Each expansion explores a real landscape, beginning with the **Tonto Basin Ranger District** of **Tonto National Forest** in Arizona, USA. Every card represents a real species, habitat, or natural feature.
 
-## Into the Wild — Living Design Document
+## Into the Wild - Living Design Document
 
 > **Status:** Alpha Design Draft
 >
@@ -54,7 +54,7 @@ Energy Cards represent the ecological resources available within an ecosystem.
 
 Mechanically, every Energy Card functions identically.
 
-The illustration, common name, and educational facts identify one example of an ecological resource but do not change the card's gameplay unless a card ability explicitly states otherwise.
+The illustration, common name, and educational facts identify one example of an ecological resource but do not change the card's gameplay unless a card effect explicitly states otherwise.
 
 Examples include:
 
@@ -97,7 +97,13 @@ Flora Cards remain in play until:
 - Removed by an Event.
 - Removed by another card effect.
 
-Flora Cards may provide passive abilities, protection, ecological support, or other gameplay effects.
+Flora Cards may provide passive effects, protection, ecological support, or other gameplay effects.
+
+Flora Cards remain in play until:
+
+- Defeated during a Challenge.
+- Removed by an Event.
+- Removed by another card effect.
 
 ---
 
@@ -117,6 +123,8 @@ Examples include:
 - Insects
 - Arachnids
 - Other animals
+
+Fauna Cards may provide gameplay effects.
 
 Fauna Cards remain in play until:
 
@@ -178,7 +186,7 @@ Effective Rank = Printed Rank
 An Exhausted card has:
 
 ```text
-Effective Rank = Printed Rank − 2
+Effective Rank = Printed Rank - 2
 ```
 
 ---
@@ -186,10 +194,11 @@ Effective Rank = Printed Rank − 2
 ### Exhaustion
 
 Exhaustion represents a card that has already acted during the current round.
+Exausted cards are tuned sideways.
 
 An Exhausted card:
 
-- Has an Effective Rank equal to Printed Rank −2.
+- Has an Effective Rank equal to Printed Rank -2.
 - Cannot declare another Challenge.
 - Cannot pay another Energy Cost if it is an Energy Card.
 - Remains Exhausted until Restored.
@@ -238,7 +247,7 @@ Challenges are interactions between permanent ecosystem cards.
 
 Only Ready Flora and Fauna Cards may declare Challenges.
 
-Event Cards may affect any cards described by their abilities.
+Event Cards may affect any cards described by their effects.
 
 Energy Cards cannot initiate Challenges.
 
@@ -248,7 +257,7 @@ Energy Cards cannot initiate Challenges.
 
 1. Choose one Ready Flora or Fauna Card you control as the challenger.
 2. Choose one eligible opposing Flora or Fauna Card as the defender.
-3. Resolve any abilities that trigger when the Challenge is declared.
+3. Resolve any effects that trigger when the Challenge is declared.
 4. Compare the Effective Rank of both cards.
 5. Resolve the Challenge.
 6. If the challenging card remains in play, Exhaust it.
@@ -261,7 +270,7 @@ Energy Cards cannot initiate Challenges.
 - The card with the lower Effective Rank is placed into the Compost pile unless another card effect states otherwise.
 - If both cards have the same Effective Rank, both are placed into the Compost pile.
 
-Resolve all triggered abilities before continuing play.
+Resolve all triggered effects before continuing play.
 
 ---
 
@@ -317,7 +326,7 @@ Every turn consists of five phases.
 
 ---
 
-#### Phase 1 — Refresh
+#### Phase 1 - Refresh
 
 Restore every Exhausted card you control unless a card effect states otherwise.
 
@@ -325,7 +334,7 @@ Refreshing a card removes its Exhausted state.
 
 ---
 
-#### Phase 2 — Draw
+#### Phase 2 - Draw
 
 Draw one card from your deck.
 
@@ -333,7 +342,7 @@ If a player is required to draw a card and their deck is empty, that player imme
 
 ---
 
-#### Phase 3 — Main Phase
+#### Phase 3 - Main Phase
 
 During your Main Phase you may perform game actions in any order.
 
@@ -343,14 +352,14 @@ These actions include:
 - Play Flora Cards by paying their Energy Costs.
 - Play Fauna Cards by paying their Energy Costs.
 - Play Event Cards by paying their Energy Costs.
-- Activate abilities.
+- Activate effects.
 - Resolve card effects.
 
 A player may perform any number of legal actions during their Main Phase provided all costs and requirements can be paid.
 
 ---
 
-#### Phase 4 — Challenge Phase
+#### Phase 4 - Challenge Phase
 
 Declare Challenges using eligible Ready Flora or Fauna Cards.
 
@@ -359,12 +368,12 @@ Resolve each Challenge completely before declaring another.
 The number of Challenges is limited only by:
 
 - Available Ready cards.
-- Card abilities.
+- Card effects.
 - Other game effects.
 
 ---
 
-#### Phase 5 — End Phase
+#### Phase 5 - End Phase
 
 Resolve all end-of-turn effects.
 
@@ -394,35 +403,17 @@ Cards in the Compost pile score **0** points.
 
 Ready Energy Cards score their Printed Rank.
 
-Exhausted Energy Cards score:
-
-```text
-Printed Rank −1
-```
-
 ---
 
 #### Flora
 
 Ready Flora Cards score their Printed Rank.
 
-Exhausted Flora Cards score:
-
-```text
-Printed Rank −1
-```
-
 ---
 
 #### Fauna
 
 Ready Fauna Cards score their Printed Rank.
-
-Exhausted Fauna Cards score:
-
-```text
-Printed Rank −1
-```
 
 ---
 
@@ -450,8 +441,8 @@ After scoring every card remaining in play:
 
 Every card consists of two independent sections:
 
-1. **Mechanics** — Information used by the game engine.
-2. **Metadata** — Information presented to the player.
+1. **Mechanics** - Information used by the game engine.
+2. **Metadata** - Information presented to the player.
 
 ---
 
@@ -467,7 +458,7 @@ The mechanics section contains all gameplay information.
 | rank | Printed Rank used during gameplay. |
 | suit | Energy, Flora, Fauna, or Event. |
 | cost | Energy required to play the card. |
-| abilities | Gameplay effects performed by the card. |
+| effects | Gameplay effects performed by the card. |
 
 ---
 
@@ -480,8 +471,8 @@ The mechanics section contains all gameplay information.
         "rank": 4,
         "suit": "Fauna",
         "cost": 2,
-        "abilities": [
-            "Example ability."
+        "effects": [
+            "Example effect."
         ]
     }
 }
@@ -539,8 +530,8 @@ Metadata exists for presentation, artwork, educational content, and identificati
         "rank": 4,
         "suit": "Fauna",
         "cost": 2,
-        "abilities": [
-            "Example ability."
+        "effects": [
+            "Example effect."
         ]
     },
     "metadata": {
@@ -589,7 +580,7 @@ Higher Rank generally indicates:
 - Greater ecological importance.
 - Greater gameplay impact.
 - Higher Energy Cost.
-- More complex abilities.
+- More complex effects.
 
 Ranks should increase gradually throughout an expansion.
 
@@ -602,7 +593,7 @@ Typical characteristics:
 - Common species.
 - Small organisms.
 - Simple habitat features.
-- Few abilities.
+- Few effects.
 - Low Energy Cost.
 
 ---
@@ -613,7 +604,7 @@ Typical characteristics:
 
 - Larger organisms.
 - Specialized ecological roles.
-- Multiple abilities.
+- Multiple effects.
 - Moderate Energy Cost.
 
 ---
@@ -625,7 +616,7 @@ Typical characteristics:
 - Apex organisms.
 - Keystone species.
 - Major habitat features.
-- Powerful abilities.
+- Powerful effects.
 - High Energy Cost.
 
 ---
@@ -648,7 +639,7 @@ Examples may include:
 - Insects
 - Other natural biomass
 
-Mechanically, every Energy Card functions the same unless another card ability explicitly states otherwise.
+Mechanically, every Energy Card functions the same unless another card effect explicitly states otherwise.
 
 ---
 
@@ -670,7 +661,7 @@ Flora cards generally provide:
 
 - Shelter
 - Protection
-- Passive abilities
+- Passive effects
 - Ecological support
 - Long-term ecosystem benefits
 
@@ -695,7 +686,7 @@ Fauna cards generally:
 - Challenge opposing cards.
 - Interact with Flora.
 - Interact with Events.
-- Possess most active abilities.
+- Possess most active effects.
 
 ---
 
@@ -718,9 +709,9 @@ Event Cards should create temporary changes rather than permanent board states.
 
 ---
 
-### Ability Design
+### Effect Design
 
-Abilities should represent real ecological behavior whenever practical.
+Effects should represent real ecological behavior whenever practical.
 
 Examples include:
 
@@ -735,7 +726,7 @@ Examples include:
 - Hibernation
 - Symbiosis
 
-Avoid abstract or fantasy abilities unless an expansion intentionally introduces them.
+Avoid abstract or fantasy effects unless an expansion intentionally introduces them.
 
 ---
 
@@ -793,7 +784,7 @@ When designing cards:
 
 - Rank should reflect ecological importance.
 - Energy Cost should reflect ecological effort.
-- Abilities should reinforce ecological identity.
+- effects should reinforce ecological identity.
 - No single card should dominate without meaningful cost or counterplay.
 
 ---
@@ -846,7 +837,7 @@ Each suit contains **13 cards**.
 
 The following areas remain open for future refinement:
 
-- Ability keyword library.
+- effect keyword library.
 - Expansion guidelines.
 - AI behavior.
 - Solo play.
@@ -868,13 +859,13 @@ As the game mechanics stabilize, this document may later be separated into:
 - Core Game Engine
 - Card Specification
 - Card Design Guide
-- Ability Style Guide
+- effect Style Guide
 - Keyword Reference
 - Expansion Guide
 - Tournament Rules
 - Player Rulebook
 
-## Into the Wild — Keyword Reference
+## Into the Wild - Keyword Reference
 
 ### Purpose
 
@@ -884,11 +875,11 @@ All cards, rules, and future expansions should use these keywords consistently.
 
 ---
 
-### Ability
+### Effect
 
 The gameplay text printed on a card.
 
-Abilities define what a card does and how it interacts with the game.
+effects define what a card does and how it interacts with the game.
 
 ---
 
@@ -956,7 +947,7 @@ The amount of Energy required to play a card.
 
 ### Event
 
-A temporary card that resolves its abilities before being placed into the Compost pile.
+A temporary card that resolves its effects before being placed into the Compost pile.
 
 ---
 
@@ -1005,7 +996,7 @@ Examples include:
 * Type
 * Subtype
 * Energy Cost
-* Abilities
+* effects
 
 ---
 
@@ -1077,7 +1068,7 @@ Unless otherwise stated, removed cards are placed into the Compost pile.
 
 ### Resolve
 
-To carry out a card's abilities completely before continuing gameplay.
+To carry out a card's effects completely before continuing gameplay.
 
 ---
 
@@ -1099,7 +1090,7 @@ Scoring is determined by the Core Game Engine.
 
 ### Trigger
 
-A condition that causes an ability to resolve automatically.
+A condition that causes an effect to resolve automatically.
 
 Example:
 
@@ -1141,30 +1132,30 @@ A player wins by satisfying the victory conditions defined by the Core Game Engi
 
 ---
 
-## Into the Wild — Ability Style Guide
+## Into the Wild - effect Style Guide
 
 ### Purpose
 
-This document defines the writing style and formatting conventions used for card abilities.
+This document defines the writing style and formatting conventions used for card effects.
 
 Gameplay rules are defined in **core-game-engine.md**.
 
 Card structure is defined in **card-specification.md**.
 
-This guide ensures that all abilities are written consistently and interpreted the same way by players.
+This guide ensures that all effects are written consistently and interpreted the same way by players.
 
 ---
 
 ### Design Principles
 
-Abilities should be:
+effects should be:
 
 - Clear
 - Concise
 - Unambiguous
 - Self-contained
 
-Avoid unnecessary flavor text inside abilities.
+Avoid unnecessary flavor text inside effects.
 
 Flavor belongs in the card's facts, not its mechanics.
 
@@ -1172,7 +1163,7 @@ Flavor belongs in the card's facts, not its mechanics.
 
 ### Writing Style
 
-Write abilities using imperative language.
+Write effects using imperative language.
 
 Good examples:
 
@@ -1224,11 +1215,11 @@ Always identify the target.
 Examples
 
 ```text
-One fauna you control
+1 fauna you control
 ```
 
 ```text
-One opposing flora
+1 opposing flora
 ```
 
 ```text
@@ -1249,7 +1240,7 @@ a card
 
 ### Timing
 
-When an ability has timing, state it first.
+When an effect has timing, state it first.
 
 Examples
 
@@ -1378,7 +1369,7 @@ Use these terms consistently throughout the game.
 
 ---
 
-### Ability Examples
+### Effect Examples
 
 #### Activated
 
@@ -1437,19 +1428,19 @@ Each category contains exactly one card of every Printed Rank.
 
 | Printed Rank | Energy | Flora | Fauna | Event |
 |-------------:|:------:|:-----:|:-----:|:-----:|
-| 1 | ✓ | ✓ | ✓ | ✓ |
-| 2 | ✓ | ✓ | ✓ | ✓ |
-| 3 | ✓ | ✓ | ✓ | ✓ |
-| 4 | ✓ | ✓ | ✓ | ✓ |
-| 5 | ✓ | ✓ | ✓ | ✓ |
-| 6 | ✓ | ✓ | ✓ | ✓ |
-| 7 | ✓ | ✓ | ✓ | ✓ |
-| 8 | ✓ | ✓ | ✓ | ✓ |
-| 9 | ✓ | ✓ | ✓ | ✓ |
-| 10 | ✓ | ✓ | ✓ | ✓ |
-| 11 | ✓ | ✓ | ✓ | ✓ |
-| 12 | ✓ | ✓ | ✓ | ✓ |
-| 13 | ✓ | ✓ | ✓ | ✓ |
+| 1 | x | x | x | x |
+| 2 | x | x | x | x |
+| 3 | x | x | x | x |
+| 4 | x | x | x | x |
+| 5 | x | x | x | x |
+| 6 | x | x | x | x |
+| 7 | x | x | x | x |
+| 8 | x | x | x | x |
+| 9 | x | x | x | x |
+| 10 | x | x | x | x |
+| 11 | x | x | x | x |
+| 12 | x | x | x | x |
+| 13 | x | x | x | x |
 
 ---
 
