@@ -110,6 +110,28 @@
     min-height: 16px;
   }
   #importInput { display: none; }
+  #illustrationPreview {
+    width: 644px;
+    max-width: 100%;
+    height: 375px;
+    margin-top: 8px;
+    border: 1px solid #445236;
+    border-radius: 4px;
+    background: #14170f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  #illustrationPreview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  #illustrationPreview .empty {
+    color: #6a7a5a;
+    font-size: 12px;
+  }
 </style>
 </head>
 <body>
@@ -184,6 +206,8 @@
             <input type="text" id="fArtist" value="Tearran Studios">
           </div>
         </div>
+        <label>Preview (644 x 375)</label>
+        <div id="illustrationPreview"><span class="empty">No illustration selected</span></div>
         <div class="row">
           <div>
             <label for="fExpansion">Expansion</label>
@@ -267,6 +291,23 @@
     });
   }
 
+  function updateIllustrationPreview() {
+    var path = document.getElementById('fIllustration').value;
+    var preview = document.getElementById('illustrationPreview');
+    preview.innerHTML = '';
+    if (path) {
+      var img = document.createElement('img');
+      img.src = path;
+      img.alt = 'Illustration preview';
+      preview.appendChild(img);
+    } else {
+      var span = document.createElement('span');
+      span.className = 'empty';
+      span.textContent = 'No illustration selected';
+      preview.appendChild(span);
+    }
+  }
+
   function renderCardList() {
     var list = document.getElementById('cardList');
     list.innerHTML = '';
@@ -298,6 +339,7 @@
     document.getElementById('fArtist').value = 'Tearran Studios';
     document.getElementById('fExpansion').value = 'Alpha';
     document.getElementById('fRarity').value = '';
+    updateIllustrationPreview();
   }
 
   function nextId() {
@@ -329,6 +371,7 @@
     document.getElementById('fArtist').value = meta.artist || '';
     document.getElementById('fExpansion').value = meta.expansion || '';
     document.getElementById('fRarity').value = meta.rarity || '';
+    updateIllustrationPreview();
     renderCardList();
   }
 
@@ -449,6 +492,7 @@
     renderCardList();
     setStatus('New card form ready.');
   });
+  document.getElementById('fIllustration').addEventListener('change', updateIllustrationPreview);
   document.getElementById('btnDedupe').addEventListener('click', removeDuplicates);
   document.getElementById('btnExport').addEventListener('click', exportList);
   document.getElementById('btnImport').addEventListener('click', function () {
