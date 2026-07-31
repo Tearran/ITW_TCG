@@ -75,22 +75,6 @@
   textarea { resize: vertical; min-height: 60px; }
   .row { display: flex; gap: 12px; }
   .row > div { flex: 1; }
-  #effectsBox {
-    max-height: 160px;
-    overflow-y: auto;
-    border: 1px solid #445236;
-    border-radius: 4px;
-    padding: 6px 8px;
-    background: #14170f;
-  }
-  #effectsBox label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    margin: 4px 0;
-    color: #eee;
-  }
   button {
     background: #3c5a2a;
     border: 1px solid #557a3c;
@@ -143,6 +127,7 @@
   <aside>
     <div class="toolbar">
       <button id="btnNew">+ New Card</button>
+      <button id="btnSortSuit" class="secondary">Sort by Suit</button>
       <button id="btnDedupe" class="secondary">Remove Duplicates</button>
       <button id="btnExport" class="secondary">Export List</button>
       <button id="btnImport" class="secondary">Import List</button>
@@ -178,8 +163,21 @@
             <input type="number" id="fCost" min="0">
           </div>
         </div>
-        <label>Effects</label>
-        <div id="effectsBox"></div>
+        <label>Effects (up to 3)</label>
+        <div class="row">
+          <div>
+            <label for="fEffect1">Effect 1</label>
+            <select id="fEffect1" class="effect-select"></select>
+          </div>
+          <div>
+            <label for="fEffect2">Effect 2</label>
+            <select id="fEffect2" class="effect-select"></select>
+          </div>
+          <div>
+            <label for="fEffect3">Effect 3</label>
+            <select id="fEffect3" class="effect-select"></select>
+          </div>
+        </div>
       </fieldset>
 
       <fieldset>
@@ -235,6 +233,7 @@
 <script>
 (function () {
   var STORAGE_KEY = 'itw_tcg_card_list';
+  var SUIT_ORDER = ['Energy', 'Flora', 'Fauna', 'Event'];
   var cards = [];
   var selectedIndex = -1;
   var effectsList = [];
@@ -265,17 +264,14 @@
   }
 
   function populateEffects() {
-    var box = document.getElementById('effectsBox');
-    box.innerHTML = '';
-    effectsList.forEach(function (effect) {
-      var label = document.createElement('label');
-      var cb = document.createElement('input');
-      cb.type = 'checkbox';
-      cb.value = effect;
-      cb.className = 'effect-cb';
-      label.appendChild(cb);
-      label.appendChild(document.createTextNode(effect));
-      box.appendChild(label);
+    document.querySelectorAll('.effect-select').forEach(function (sel) {
+      sel.innerHTML = '<option value="">(none)</option>';
+      effectsList.forEach(function (effect) {
+        var opt = document.createElement('option');
+        opt.value = effect;
+        opt.textContent = effect;
+        sel.appendChild(opt);
+      });
     });
   }
 
@@ -331,7 +327,7 @@
     document.getElementById('fRank').value = '';
     document.getElementById('fSuit').value = 'Energy';
     document.getElementById('fCost').value = '';
-    document.querySelectorAll('.effect-cb').forEach(function (cb) { cb.checked = false; });
+    document.querySelectorAll('.effect-select').forEach(function (sel) { sel.value = ''; });
     document.getElementById('fName').value = '';
     document.getElementById('fSci').value = '';
     document.getElementById('fFact').value = '';
@@ -361,9 +357,9 @@
     document.getElementById('fSuit').value = mech.suit || 'Energy';
     document.getElementById('fCost').value = mech.cost != null ? mech.cost : '';
     var effects = mech.effects || [];
-    document.querySelectorAll('.effect-cb').forEach(function (cb) {
-      cb.checked = effects.indexOf(cb.value) !== -1;
-    });
+    document.getElementById('fEffect1').value = effects[0] || '';
+    document.getElementById('fEffect2').value = effects[1] || '';
+    document.getElementById('fEffect3').value = effects[2] || '';
     document.getElementById('fName').value = meta.name || '';
     document.getElementById('fSci').value = meta.scientific_name || '';
     document.getElementById('fFact').value = (meta.fact || []).join('\n');
@@ -376,9 +372,11 @@
   }
 
   function readForm() {
-    var selectedEffects = Array.prototype.slice.call(document.querySelectorAll('.effect-cb'))
-      .filter(function (cb) { return cb.checked; })
-      .map(function (cb) { return cb.value; });
+    var selectedEffects = [
+      document.getElementById('fEffect1').value,
+      document.getElementById('fEffect2').value,
+      document.getElementById('fEffect3').value
+    ].filter(Boolean);
     var factLines = document.getElementById('fFact').value
       .split('\n')
       .map(function (l) { return l.trim(); })
@@ -454,6 +452,24 @@
     setStatus(removed + ' duplicate card(s) removed.');
   }
 
+  function sortBySuit() {
+    cards.sort(function (a, b) {
+      var mechA = a.mechanics || {};
+      var mechB = b.mechanics || {};
+      var idxA = SUIT_ORDER.indexOf(mechA.suit);
+      var idxB = SUIT_ORDER.indexOf(mechB.suit);
+      if (idxA === -1) idxA = SUIT_ORDER.length;
+      if (idxB === -1) idxB = SUIT_ORDER.length;
+      if (idxA !== idxB) return idxA - idxB;
+      return (mechA.rank || 0) - (mechB.rank || 0);
+    });
+    selectedIndex = -1;
+    persistCards();
+    clearForm();
+    renderCardList();
+    setStatus('Cards sorted by suit.');
+  }
+
   function exportList() {
     var blob = new Blob([JSON.stringify(cards, null, 2)], { type: 'application/json' });
     var url = URL.createObjectURL(blob);
@@ -493,6 +509,7 @@
     setStatus('New card form ready.');
   });
   document.getElementById('fIllustration').addEventListener('change', updateIllustrationPreview);
+  document.getElementById('btnSortSuit').addEventListener('click', sortBySuit);
   document.getElementById('btnDedupe').addEventListener('click', removeDuplicates);
   document.getElementById('btnExport').addEventListener('click', exportList);
   document.getElementById('btnImport').addEventListener('click', function () {
