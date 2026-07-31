@@ -1121,12 +1121,6 @@ Types are:
 
 ---
 
-### Energy
-
-Energy representing available biomass.
-
----
-
 ### Win
 
 A player wins by satisfying the victory conditions defined by the Core Game Engine or the selected game format.
