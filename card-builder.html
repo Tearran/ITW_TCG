@@ -38,8 +38,15 @@
     border-radius: 4px;
   }
   #cardList .item {
-    padding: 8px 10px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
     border-bottom: 1px solid #33402a;
+    color: inherit;
+    font: inherit;
+    padding: 8px 10px;
     cursor: pointer;
     font-size: 13px;
   }
@@ -143,11 +150,26 @@
         <div class="row">
           <div>
             <label for="fId">ID</label>
-            <input type="number" id="fId" min="1">
+            <input type="number" id="fId" min="1" step="1" required>
           </div>
           <div>
             <label for="fRank">Rank (1-13)</label>
-            <input type="number" id="fRank" min="1" max="13">
+            <select id="fRank" required>
+              <option value="">Select rank...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+            </select>
           </div>
           <div>
             <label for="fSuit">Suit</label>
@@ -213,13 +235,13 @@
           </div>
           <div>
             <label for="fRarity">Rarity</label>
-            <input type="text" id="fRarity" list="rarityOptions">
-            <datalist id="rarityOptions">
-              <option value="Common">
-              <option value="Uncommon">
-              <option value="Rare">
-              <option value="Legendary">
-            </datalist>
+            <select id="fRarity" required>
+              <option value="">Select rarity...</option>
+              <option value="Common">Common</option>
+              <option value="Uncommon">Uncommon</option>
+              <option value="Rare">Rare</option>
+              <option value="Legendary">Legendary</option>
+            </select>
           </div>
         </div>
       </fieldset>
@@ -234,6 +256,7 @@
 (function () {
   var STORAGE_KEY = 'itw_tcg_card_list';
   var SUIT_ORDER = ['Energy', 'Flora', 'Fauna', 'Event'];
+  var RARITY_OPTIONS = ['Common', 'Uncommon', 'Rare', 'Legendary'];
   var cards = [];
   var selectedIndex = -1;
   var effectsList = [];
@@ -295,6 +318,13 @@
       var img = document.createElement('img');
       img.src = path;
       img.alt = 'Illustration preview';
+      img.onerror = function () {
+        preview.innerHTML = '';
+        var failSpan = document.createElement('span');
+        failSpan.className = 'empty';
+        failSpan.textContent = 'Illustration failed to load: ' + path;
+        preview.appendChild(failSpan);
+      };
       preview.appendChild(img);
     } else {
       var span = document.createElement('span');
@@ -310,7 +340,8 @@
     cards.forEach(function (card, i) {
       var mech = card.mechanics || {};
       var meta = card.metadata || {};
-      var item = document.createElement('div');
+      var item = document.createElement('button');
+      item.type = 'button';
       item.className = 'item' + (i === selectedIndex ? ' selected' : '');
       item.innerHTML = '<div>' + (meta.name || '(unnamed)') + '</div>' +
         '<div class="sub">#' + (mech.id != null ? mech.id : '?') +
@@ -372,6 +403,15 @@
   }
 
   function readForm() {
+    var id = parseInt(document.getElementById('fId').value, 10);
+    if (!Number.isInteger(id) || id <= 0) return null;
+
+    var rank = parseInt(document.getElementById('fRank').value, 10);
+    if (!Number.isInteger(rank) || rank < 1 || rank > 13) return null;
+
+    var rarity = document.getElementById('fRarity').value;
+    if (RARITY_OPTIONS.indexOf(rarity) === -1) return null;
+
     var selectedEffects = [
       document.getElementById('fEffect1').value,
       document.getElementById('fEffect2').value,
@@ -383,8 +423,8 @@
       .filter(Boolean);
     return {
       mechanics: {
-        id: parseInt(document.getElementById('fId').value, 10) || 0,
-        rank: parseInt(document.getElementById('fRank').value, 10) || 0,
+        id: id,
+        rank: rank,
         suit: document.getElementById('fSuit').value,
         cost: parseInt(document.getElementById('fCost').value, 10) || 0,
         effects: selectedEffects
@@ -396,7 +436,7 @@
         illustration: document.getElementById('fIllustration').value,
         artist: document.getElementById('fArtist').value.trim(),
         expansion: document.getElementById('fExpansion').value.trim(),
-        rarity: document.getElementById('fRarity').value.trim()
+        rarity: rarity
       }
     };
   }
@@ -404,6 +444,10 @@
   function saveCard(e) {
     e.preventDefault();
     var card = readForm();
+    if (!card) {
+      setStatus('Save failed: ID, Rank, and Rarity must be valid.');
+      return;
+    }
     if (selectedIndex === -1) {
       cards.push(card);
       selectedIndex = cards.length - 1;
@@ -483,13 +527,68 @@
     setStatus('Exported ' + cards.length + ' card(s) to cards.json.');
   }
 
+  function normalizeCard(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var mech = raw.mechanics;
+    var meta = raw.metadata;
+    if (!mech || typeof mech !== 'object') return null;
+    if (!meta || typeof meta !== 'object') return null;
+
+    var id = parseInt(mech.id, 10);
+    if (!Number.isInteger(id) || id <= 0) return null;
+
+    var rank = parseInt(mech.rank, 10);
+    if (!Number.isInteger(rank) || rank < 1 || rank > 13) return null;
+
+    if (SUIT_ORDER.indexOf(mech.suit) === -1) return null;
+
+    var rarity = typeof meta.rarity === 'string' ? meta.rarity.trim() : '';
+    if (RARITY_OPTIONS.indexOf(rarity) === -1) return null;
+
+    var cost = parseInt(mech.cost, 10);
+    if (!Number.isInteger(cost) || cost < 0) cost = 0;
+
+    var effects = Array.isArray(mech.effects)
+      ? mech.effects.filter(function (e) { return typeof e === 'string' && e; }).slice(0, 3)
+      : [];
+
+    var fact = Array.isArray(meta.fact)
+      ? meta.fact.filter(function (f) { return typeof f === 'string'; }).map(function (f) { return f.trim(); }).filter(Boolean)
+      : [];
+
+    return {
+      mechanics: {
+        id: id,
+        rank: rank,
+        suit: mech.suit,
+        cost: cost,
+        effects: effects
+      },
+      metadata: {
+        name: typeof meta.name === 'string' ? meta.name.trim() : '',
+        scientific_name: typeof meta.scientific_name === 'string' ? meta.scientific_name.trim() : '',
+        fact: fact,
+        illustration: typeof meta.illustration === 'string' ? meta.illustration : '',
+        artist: typeof meta.artist === 'string' ? meta.artist.trim() : '',
+        expansion: typeof meta.expansion === 'string' ? meta.expansion.trim() : '',
+        rarity: rarity
+      }
+    };
+  }
+
   function importList(file) {
     var reader = new FileReader();
     reader.onload = function () {
       try {
         var data = JSON.parse(reader.result);
         if (!Array.isArray(data)) throw new Error('Expected a JSON array of cards.');
-        cards = data;
+        var normalized = [];
+        for (var i = 0; i < data.length; i++) {
+          var card = normalizeCard(data[i]);
+          if (!card) throw new Error('Invalid or malformed card at index ' + i + '.');
+          normalized.push(card);
+        }
+        cards = normalized;
         selectedIndex = -1;
         persistCards();
         clearForm();
