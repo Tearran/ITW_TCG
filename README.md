@@ -1115,7 +1115,8 @@ The primary gameplay classification of a card.
 Types are:
 
 * Energy
-* Habitat
+* Flora
+* Fauna
 * Event
 
 ---
@@ -1400,7 +1401,7 @@ Adjacent Herbivores have +1 Effective Rank.
 #### Event
 
 ```text
-Remove 1 opposing Habitat Card with Printed Rank 3 or less.
+Remove 1 opposing Flora Card or Fauna Card with Printed Rank 3 or less.
 ```
 
 ---
