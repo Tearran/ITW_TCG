@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Into the Wild TCG - Card Builder</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, Arial, sans-serif;
+    margin: 0;
+    background: #1c1f1a;
+    color: #eee;
+  }
+  header {
+    padding: 12px 16px;
+    background: #2c3524;
+    border-bottom: 1px solid #445236;
+  }
+  header h1 { margin: 0; font-size: 18px; }
+  header p { margin: 4px 0 0; font-size: 12px; color: #b9c9a9; }
+  main {
+    display: flex;
+    height: calc(100vh - 64px);
+  }
+  aside {
+    width: 320px;
+    border-right: 1px solid #445236;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+  }
+  aside .toolbar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  #cardList {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #445236;
+    border-radius: 4px;
+  }
+  #cardList .item {
+    padding: 8px 10px;
+    border-bottom: 1px solid #33402a;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  #cardList .item:hover { background: #2c3524; }
+  #cardList .item.selected { background: #3c5a2a; }
+  #cardList .item .sub { color: #9db388; font-size: 11px; }
+  section.editor {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  fieldset {
+    border: 1px solid #445236;
+    border-radius: 6px;
+    margin-bottom: 14px;
+  }
+  legend { padding: 0 6px; color: #cfe0bd; }
+  label {
+    display: block;
+    font-size: 12px;
+    margin: 8px 0 3px;
+    color: #cfe0bd;
+  }
+  input[type=text], input[type=number], select, textarea {
+    width: 100%;
+    padding: 6px 8px;
+    background: #14170f;
+    border: 1px solid #445236;
+    color: #eee;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  textarea { resize: vertical; min-height: 60px; }
+  .row { display: flex; gap: 12px; }
+  .row > div { flex: 1; }
+  #effectsBox {
+    max-height: 160px;
+    overflow-y: auto;
+    border: 1px solid #445236;
+    border-radius: 4px;
+    padding: 6px 8px;
+    background: #14170f;
+  }
+  #effectsBox label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    margin: 4px 0;
+    color: #eee;
+  }
+  button {
+    background: #3c5a2a;
+    border: 1px solid #557a3c;
+    color: #eee;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  button:hover { background: #4c703a; }
+  button.secondary { background: #333; border-color: #555; }
+  button.danger { background: #6a2c2c; border-color: #8a3c3c; }
+  #status {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #cfe0bd;
+    min-height: 16px;
+  }
+  #importInput { display: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Into the Wild TCG - Card Builder</h1>
+  <p>Create, edit, and export the compiled card list (mechanics + metadata combined). No separate Mechanics/Metadata JSON import needed.</p>
+</header>
+<main>
+  <aside>
+    <div class="toolbar">
+      <button id="btnNew">+ New Card</button>
+      <button id="btnDedupe" class="secondary">Remove Duplicates</button>
+      <button id="btnExport" class="secondary">Export List</button>
+      <button id="btnImport" class="secondary">Import List</button>
+      <input type="file" id="importInput" accept="application/json">
+    </div>
+    <div id="cardList"></div>
+    <div id="status"></div>
+  </aside>
+  <section class="editor">
+    <form id="cardForm">
+      <fieldset>
+        <legend>Mechanics</legend>
+        <div class="row">
+          <div>
+            <label for="fId">ID</label>
+            <input type="number" id="fId" min="1">
+          </div>
+          <div>
+            <label for="fRank">Rank (1-13)</label>
+            <input type="number" id="fRank" min="1" max="13">
+          </div>
+          <div>
+            <label for="fSuit">Suit</label>
+            <select id="fSuit">
+              <option value="Energy">Energy</option>
+              <option value="Flora">Flora</option>
+              <option value="Fauna">Fauna</option>
+              <option value="Event">Event</option>
+            </select>
+          </div>
+          <div>
+            <label for="fCost">Cost</label>
+            <input type="number" id="fCost" min="0">
+          </div>
+        </div>
+        <label>Effects</label>
+        <div id="effectsBox"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Metadata</legend>
+        <div class="row">
+          <div>
+            <label for="fName">Name</label>
+            <input type="text" id="fName">
+          </div>
+          <div>
+            <label for="fSci">Scientific Name</label>
+            <input type="text" id="fSci">
+          </div>
+        </div>
+        <label for="fFact">Fact (one per line)</label>
+        <textarea id="fFact"></textarea>
+        <div class="row">
+          <div>
+            <label for="fIllustration">Illustration</label>
+            <select id="fIllustration"></select>
+          </div>
+          <div>
+            <label for="fArtist">Artist</label>
+            <input type="text" id="fArtist" value="Tearran Studios">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="fExpansion">Expansion</label>
+            <input type="text" id="fExpansion" value="Alpha">
+          </div>
+          <div>
+            <label for="fRarity">Rarity</label>
+            <input type="text" id="fRarity" list="rarityOptions">
+            <datalist id="rarityOptions">
+              <option value="Common">
+              <option value="Uncommon">
+              <option value="Rare">
+              <option value="Legendary">
+            </datalist>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="btnSave">Save Card</button>
+      <button type="button" id="btnDelete" class="danger">Delete Card</button>
+    </form>
+  </section>
+</main>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'itw_tcg_card_list';
+  var cards = [];
+  var selectedIndex = -1;
+  var effectsList = [];
+  var artworkList = [];
+
+  function loadCards() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      cards = raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      cards = [];
+    }
+  }
+
+  function persistCards() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cards, null, 2));
+  }
+
+  function setStatus(msg) {
+    document.getElementById('status').textContent = msg;
+  }
+
+  function fetchJson(path) {
+    return fetch(path).then(function (r) {
+      if (!r.ok) throw new Error('Failed to load ' + path);
+      return r.json();
+    });
+  }
+
+  function populateEffects() {
+    var box = document.getElementById('effectsBox');
+    box.innerHTML = '';
+    effectsList.forEach(function (effect) {
+      var label = document.createElement('label');
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.value = effect;
+      cb.className = 'effect-cb';
+      label.appendChild(cb);
+      label.appendChild(document.createTextNode(effect));
+      box.appendChild(label);
+    });
+  }
+
+  function populateArtwork() {
+    var sel = document.getElementById('fIllustration');
+    sel.innerHTML = '<option value="">(none)</option>';
+    artworkList.forEach(function (entry) {
+      var meta = entry.metadata || {};
+      var opt = document.createElement('option');
+      opt.value = meta.path || '';
+      opt.textContent = meta.name || meta.path || '';
+      sel.appendChild(opt);
+    });
+  }
+
+  function renderCardList() {
+    var list = document.getElementById('cardList');
+    list.innerHTML = '';
+    cards.forEach(function (card, i) {
+      var mech = card.mechanics || {};
+      var meta = card.metadata || {};
+      var item = document.createElement('div');
+      item.className = 'item' + (i === selectedIndex ? ' selected' : '');
+      item.innerHTML = '<div>' + (meta.name || '(unnamed)') + '</div>' +
+        '<div class="sub">#' + (mech.id != null ? mech.id : '?') +
+        ' - ' + (mech.suit || '?') + ' - Rank ' + (mech.rank != null ? mech.rank : '?') + '</div>';
+      item.addEventListener('click', function () {
+        selectCard(i);
+      });
+      list.appendChild(item);
+    });
+  }
+
+  function clearForm() {
+    document.getElementById('fId').value = nextId();
+    document.getElementById('fRank').value = '';
+    document.getElementById('fSuit').value = 'Energy';
+    document.getElementById('fCost').value = '';
+    document.querySelectorAll('.effect-cb').forEach(function (cb) { cb.checked = false; });
+    document.getElementById('fName').value = '';
+    document.getElementById('fSci').value = '';
+    document.getElementById('fFact').value = '';
+    document.getElementById('fIllustration').value = '';
+    document.getElementById('fArtist').value = 'Tearran Studios';
+    document.getElementById('fExpansion').value = 'Alpha';
+    document.getElementById('fRarity').value = '';
+  }
+
+  function nextId() {
+    var max = 0;
+    cards.forEach(function (c) {
+      var id = c.mechanics && c.mechanics.id;
+      if (typeof id === 'number' && id > max) max = id;
+    });
+    return max + 1;
+  }
+
+  function selectCard(index) {
+    selectedIndex = index;
+    var card = cards[index];
+    var mech = card.mechanics || {};
+    var meta = card.metadata || {};
+    document.getElementById('fId').value = mech.id != null ? mech.id : '';
+    document.getElementById('fRank').value = mech.rank != null ? mech.rank : '';
+    document.getElementById('fSuit').value = mech.suit || 'Energy';
+    document.getElementById('fCost').value = mech.cost != null ? mech.cost : '';
+    var effects = mech.effects || [];
+    document.querySelectorAll('.effect-cb').forEach(function (cb) {
+      cb.checked = effects.indexOf(cb.value) !== -1;
+    });
+    document.getElementById('fName').value = meta.name || '';
+    document.getElementById('fSci').value = meta.scientific_name || '';
+    document.getElementById('fFact').value = (meta.fact || []).join('\n');
+    document.getElementById('fIllustration').value = meta.illustration || '';
+    document.getElementById('fArtist').value = meta.artist || '';
+    document.getElementById('fExpansion').value = meta.expansion || '';
+    document.getElementById('fRarity').value = meta.rarity || '';
+    renderCardList();
+  }
+
+  function readForm() {
+    var selectedEffects = Array.prototype.slice.call(document.querySelectorAll('.effect-cb'))
+      .filter(function (cb) { return cb.checked; })
+      .map(function (cb) { return cb.value; });
+    var factLines = document.getElementById('fFact').value
+      .split('\n')
+      .map(function (l) { return l.trim(); })
+      .filter(Boolean);
+    return {
+      mechanics: {
+        id: parseInt(document.getElementById('fId').value, 10) || 0,
+        rank: parseInt(document.getElementById('fRank').value, 10) || 0,
+        suit: document.getElementById('fSuit').value,
+        cost: parseInt(document.getElementById('fCost').value, 10) || 0,
+        effects: selectedEffects
+      },
+      metadata: {
+        name: document.getElementById('fName').value.trim(),
+        scientific_name: document.getElementById('fSci').value.trim(),
+        fact: factLines,
+        illustration: document.getElementById('fIllustration').value,
+        artist: document.getElementById('fArtist').value.trim(),
+        expansion: document.getElementById('fExpansion').value.trim(),
+        rarity: document.getElementById('fRarity').value.trim()
+      }
+    };
+  }
+
+  function saveCard(e) {
+    e.preventDefault();
+    var card = readForm();
+    if (selectedIndex === -1) {
+      cards.push(card);
+      selectedIndex = cards.length - 1;
+    } else {
+      cards[selectedIndex] = card;
+    }
+    persistCards();
+    renderCardList();
+    setStatus('Saved "' + (card.metadata.name || 'unnamed') + '".');
+  }
+
+  function deleteCard() {
+    if (selectedIndex === -1) {
+      setStatus('No card selected.');
+      return;
+    }
+    cards.splice(selectedIndex, 1);
+    selectedIndex = -1;
+    persistCards();
+    clearForm();
+    renderCardList();
+    setStatus('Card deleted.');
+  }
+
+  function cardKey(card) {
+    var mech = card.mechanics || {};
+    var meta = card.metadata || {};
+    if (mech.id != null) return 'id:' + mech.id;
+    return [meta.name, mech.suit, mech.rank].join('|');
+  }
+
+  function removeDuplicates() {
+    var seen = {};
+    var before = cards.length;
+    cards = cards.filter(function (card) {
+      var key = cardKey(card);
+      if (seen[key]) return false;
+      seen[key] = true;
+      return true;
+    });
+    var removed = before - cards.length;
+    selectedIndex = -1;
+    persistCards();
+    clearForm();
+    renderCardList();
+    setStatus(removed + ' duplicate card(s) removed.');
+  }
+
+  function exportList() {
+    var blob = new Blob([JSON.stringify(cards, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'cards.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    setStatus('Exported ' + cards.length + ' card(s) to cards.json.');
+  }
+
+  function importList(file) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var data = JSON.parse(reader.result);
+        if (!Array.isArray(data)) throw new Error('Expected a JSON array of cards.');
+        cards = data;
+        selectedIndex = -1;
+        persistCards();
+        clearForm();
+        renderCardList();
+        setStatus('Imported ' + cards.length + ' card(s).');
+      } catch (err) {
+        setStatus('Import failed: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  document.getElementById('btnNew').addEventListener('click', function () {
+    selectedIndex = -1;
+    clearForm();
+    renderCardList();
+    setStatus('New card form ready.');
+  });
+  document.getElementById('btnDedupe').addEventListener('click', removeDuplicates);
+  document.getElementById('btnExport').addEventListener('click', exportList);
+  document.getElementById('btnImport').addEventListener('click', function () {
+    document.getElementById('importInput').click();
+  });
+  document.getElementById('importInput').addEventListener('change', function (e) {
+    if (e.target.files && e.target.files[0]) importList(e.target.files[0]);
+    e.target.value = '';
+  });
+  document.getElementById('cardForm').addEventListener('submit', saveCard);
+  document.getElementById('btnDelete').addEventListener('click', deleteCard);
+
+  loadCards();
+
+  Promise.all([
+    fetchJson('effects.json').catch(function () { return { effects: [] }; }),
+    fetchJson('artwork_list.json').catch(function () { return []; })
+  ]).then(function (results) {
+    effectsList = results[0].effects || [];
+    artworkList = results[1] || [];
+    populateEffects();
+    populateArtwork();
+    clearForm();
+    renderCardList();
+    if (!effectsList.length || !artworkList.length) {
+      setStatus('Note: effects.json / artwork_list.json could not be loaded (serve this page over HTTP, not file://).');
+    } else {
+      setStatus('Ready.');
+    }
+  });
+})();
+</script>
+</body>
+</html>
