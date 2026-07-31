@@ -1,18 +1,6 @@
 [
   {
     "metadata": {
-      "name": "agave.svg",
-      "path": "artwork/agave.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "bird_eggs.svg",
-      "path": "artwork/bird_eggs.svg"
-    }
-  },
-  {
-    "metadata": {
       "name": "bobcat.svg",
       "path": "artwork/bobcat.svg"
     }
@@ -21,12 +9,6 @@
     "metadata": {
       "name": "cactus_wren.svg",
       "path": "artwork/cactus_wren.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "cheeseweed_mallow.svg",
-      "path": "artwork/cheeseweed_mallow.svg"
     }
   },
   {
@@ -49,26 +31,8 @@
   },
   {
     "metadata": {
-      "name": "desert coyote.svg",
-      "path": "artwork/desert coyote.svg"
-    }
-  },
-  {
-    "metadata": {
       "name": "desert_cottontail.svg",
       "path": "artwork/desert_cottontail.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "desert_frost.svg",
-      "path": "artwork/desert_frost.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "desert_grass.svg",
-      "path": "artwork/desert_grass.svg"
     }
   },
   {
@@ -81,18 +45,6 @@
     "metadata": {
       "name": "desert-nesting_bald_eagle.svg",
       "path": "artwork/desert-nesting_bald_eagle.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "extreme_heat.svg",
-      "path": "artwork/extreme_heat.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "flash_flood.svg",
-      "path": "artwork/flash_flood.svg"
     }
   },
   {
@@ -127,18 +79,6 @@
   },
   {
     "metadata": {
-      "name": "ground_squirrel.svg",
-      "path": "artwork/ground_squirrel.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "haboob_winds.svg",
-      "path": "artwork/haboob_winds.svg"
-    }
-  },
-  {
-    "metadata": {
       "name": "javelina.svg",
       "path": "artwork/javelina.svg"
     }
@@ -157,20 +97,8 @@
   },
   {
     "metadata": {
-      "name": "meat_icon.svg",
-      "path": "artwork/meat_icon.svg"
-    }
-  },
-  {
-    "metadata": {
       "name": "mesquite.svg",
       "path": "artwork/mesquite.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "mesquite_beans.svg",
-      "path": "artwork/mesquite_beans.svg"
     }
   },
   {
@@ -205,12 +133,6 @@
   },
   {
     "metadata": {
-      "name": "palo_verde_seeds.svg",
-      "path": "artwork/palo_verde_seeds.svg"
-    }
-  },
-  {
-    "metadata": {
       "name": "prickly_pear.svg",
       "path": "artwork/prickly_pear.svg"
     }
@@ -219,12 +141,6 @@
     "metadata": {
       "name": "ringtail.svg",
       "path": "artwork/ringtail.svg"
-    }
-  },
-  {
-    "metadata": {
-      "name": "river.svg",
-      "path": "artwork/river.svg"
     }
   },
   {
