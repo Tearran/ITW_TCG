@@ -194,7 +194,7 @@ Effective Rank = Printed Rank - 2
 ### Exhaustion
 
 Exhaustion represents a card that has already acted during the current round.
-Exausted cards are tuned sideways.
+Exhausted cards are turned sideways.
 
 An Exhausted card:
 
@@ -1024,7 +1024,7 @@ Paid Energy Cards remain in play unless a card effect says otherwise.
 
 A card that remains in play after being played.
 
-Energy Cards and Habitat Cards are permanent cards unless removed.
+Energy Cards, Flora Cards and, Fauna Cards, are permanent cards unless removed.
 
 ---
 
