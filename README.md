@@ -550,6 +550,21 @@ Metadata exists for presentation, artwork, educational content, and identificati
 
 ---
 
+#### Card Builder Tool
+
+`card_builder.html` provides a browser-based form for generating the JSON shown above.
+
+It can:
+
+- Import existing `mechanics` and `metadata` JSON.
+- Select `rank`, `suit`, and `rarity` from dropdown menus.
+- Add `effects` from `effects.json` using a dropdown menu.
+- Generate, copy, and download the Complete Card JSON.
+
+Open `card_builder.html` directly in a browser, or serve the repository with a local web server so it can load `effects.json` automatically.
+
+---
+
 ### Design Philosophy
 
 Every card should represent a real ecological relationship.
