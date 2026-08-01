@@ -259,7 +259,7 @@
   var RARITY_OPTIONS = ['Common', 'Uncommon', 'Rare', 'Legendary'];
   var cards = [];
   var selectedIndex = -1;
-  var effectsList = [];
+  var effectsData = { effects: [], energy: [], flora: [], fauna: [], event: [] };
   var artworkList = [];
 
   function loadCards() {
@@ -286,15 +286,32 @@
     });
   }
 
-  function populateEffects() {
+  function getSuitEffects(suit) {
+    var generic = effectsData.effects || [];
+    var specific = effectsData[(suit || '').toLowerCase()] || [];
+    var seen = {};
+    var combined = [];
+    generic.concat(specific).forEach(function (effect) {
+      if (!seen[effect]) {
+        seen[effect] = true;
+        combined.push(effect);
+      }
+    });
+    return combined;
+  }
+
+  function populateEffects(suit) {
+    var options = getSuitEffects(suit);
     document.querySelectorAll('.effect-select').forEach(function (sel) {
+      var current = sel.value;
       sel.innerHTML = '<option value="">(none)</option>';
-      effectsList.forEach(function (effect) {
+      options.forEach(function (effect) {
         var opt = document.createElement('option');
         opt.value = effect;
         opt.textContent = effect;
         sel.appendChild(opt);
       });
+      sel.value = options.indexOf(current) !== -1 ? current : '';
     });
   }
 
@@ -358,6 +375,7 @@
     document.getElementById('fRank').value = '';
     document.getElementById('fSuit').value = 'Energy';
     document.getElementById('fCost').value = '';
+    populateEffects('Energy');
     document.querySelectorAll('.effect-select').forEach(function (sel) { sel.value = ''; });
     document.getElementById('fName').value = '';
     document.getElementById('fSci').value = '';
@@ -387,6 +405,7 @@
     document.getElementById('fRank').value = mech.rank != null ? mech.rank : '';
     document.getElementById('fSuit').value = mech.suit || 'Energy';
     document.getElementById('fCost').value = mech.cost != null ? mech.cost : '';
+    populateEffects(mech.suit || 'Energy');
     var effects = mech.effects || [];
     document.getElementById('fEffect1').value = effects[0] || '';
     document.getElementById('fEffect2').value = effects[1] || '';
@@ -608,6 +627,9 @@
     setStatus('New card form ready.');
   });
   document.getElementById('fIllustration').addEventListener('change', updateIllustrationPreview);
+  document.getElementById('fSuit').addEventListener('change', function () {
+    populateEffects(this.value);
+  });
   document.getElementById('btnSortSuit').addEventListener('click', sortBySuit);
   document.getElementById('btnDedupe').addEventListener('click', removeDuplicates);
   document.getElementById('btnExport').addEventListener('click', exportList);
@@ -624,16 +646,15 @@
   loadCards();
 
   Promise.all([
-    fetchJson('effects.json').catch(function () { return { effects: [] }; }),
+    fetchJson('effects.json').catch(function () { return { effects: [], energy: [], flora: [], fauna: [], event: [] }; }),
     fetchJson('artwork_list.json').catch(function () { return []; })
   ]).then(function (results) {
-    effectsList = results[0].effects || [];
+    effectsData = results[0] || { effects: [], energy: [], flora: [], fauna: [], event: [] };
     artworkList = results[1] || [];
-    populateEffects();
     populateArtwork();
     clearForm();
     renderCardList();
-    if (!effectsList.length || !artworkList.length) {
+    if (!(effectsData.effects || []).length || !artworkList.length) {
       setStatus('Note: effects.json / artwork_list.json could not be loaded (serve this page over HTTP, not file://).');
     } else {
       setStatus('Ready.');
