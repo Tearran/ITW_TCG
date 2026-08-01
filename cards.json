@@ -418,5 +418,25 @@
       "expansion": "Alpha",
       "rarity": "Rare"
     }
+  },
+  {
+    "mechanics": {
+      "id": 1,
+      "rank": 1,
+      "suit": "Energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Kangaroo Rat",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/kangaroo_rat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
   }
 ]
