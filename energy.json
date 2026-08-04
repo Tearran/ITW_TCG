@@ -3,7 +3,7 @@
     "mechanics": {
       "id": 1,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Generate 1 Energy per turn."
@@ -25,7 +25,7 @@
     "mechanics": {
       "id": 2,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Generate 1 Energy per turn."
@@ -47,7 +47,7 @@
     "mechanics": {
       "id": 3,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Heal 1 damage from a connected Fauna card."
@@ -69,7 +69,7 @@
     "mechanics": {
       "id": 4,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Draw 1 card when played."
@@ -91,7 +91,7 @@
     "mechanics": {
       "id": 5,
       "rank": 1,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Search your deck for a Flora card."
@@ -113,7 +113,7 @@
     "mechanics": {
       "id": 6,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Increases adjacent Fauna defense by 1."
@@ -135,7 +135,7 @@
     "mechanics": {
       "id": 7,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Can escape to the hand if attacked."
@@ -157,7 +157,7 @@
     "mechanics": {
       "id": 8,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Provides 2 Energy if played in a Wetland biome."
@@ -179,7 +179,7 @@
     "mechanics": {
       "id": 9,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Gains +1 defense in Forest biomes."
@@ -201,7 +201,7 @@
     "mechanics": {
       "id": 10,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Attracts Insect suit Fauna."
@@ -223,7 +223,7 @@
     "mechanics": {
       "id": 11,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Produces acorns; double Energy output every 3rd turn."
@@ -245,7 +245,7 @@
     "mechanics": {
       "id": 12,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Can move across water terrain without penalty."
@@ -267,7 +267,7 @@
     "mechanics": {
       "id": 13,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Reduces incoming fire elemental damage to adjacent cards."
@@ -289,7 +289,7 @@
     "mechanics": {
       "id": 14,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 2,
       "effects": [
         "Reduces cost of next Herbivore card by 1."
@@ -311,7 +311,7 @@
     "mechanics": {
       "id": 15,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Provides food for aquatic Fauna."
@@ -333,7 +333,7 @@
     "mechanics": {
       "id": 16,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Gains camouflage in Tall Grass terrain."
@@ -355,7 +355,7 @@
     "mechanics": {
       "id": 17,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Produces wild berries; heals 1 energy to an animal."
@@ -377,7 +377,7 @@
     "mechanics": {
       "id": 18,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Flies over ground hazards."
@@ -399,7 +399,7 @@
     "mechanics": {
       "id": 19,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Grows rapidly; copy this card if left unchecked for 3 turns."
@@ -421,7 +421,7 @@
     "mechanics": {
       "id": 20,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 2,
       "effects": [
         "Generates 1 clean water token when active."
@@ -443,7 +443,7 @@
     "mechanics": {
       "id": 21,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Yields highly nutritious seeds."
@@ -465,7 +465,7 @@
     "mechanics": {
       "id": 22,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Burrows to ignore 1 physical attack per turn."
@@ -487,7 +487,7 @@
     "mechanics": {
       "id": 23,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Thrives in cold environments."
@@ -509,7 +509,7 @@
     "mechanics": {
       "id": 24,
       "rank": 3,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 2,
       "effects": [
         "Herd mechanics: gains +1 defense for each adjacent herd animal."
@@ -531,7 +531,7 @@
     "mechanics": {
       "id": 25,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "energy",
       "cost": 0,
       "effects": [
         "Provides high sugars; attracts birds."
@@ -553,7 +553,7 @@
     "mechanics": {
       "id": 26,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "energy",
       "cost": 1,
       "effects": [
         "Can discard this card to distract a predator and save another fauna card."
