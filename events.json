@@ -1,0 +1,271 @@
+[
+  {
+    "mechanics": {
+      "id": 301,
+      "rank": 1,
+      "suit": "Event",
+      "cost": 1,
+      "effects": [
+        "Prevent all Challenges this turn."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Frost",
+      "scientific_name": "",
+      "fact": [
+        "Cold snaps can damage desert vegetation."
+      ],
+      "illustration": "artwork/events/desert_frost.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 309,
+      "rank": 3,
+      "suit": "Event",
+      "cost": 2,
+      "effects": [
+        "Return 1 Energy to its owner's hand.",
+        "Search your deck for 1 Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Migration",
+      "scientific_name": "",
+      "fact": [
+        "Many species travel seasonally in search of food and breeding grounds."
+      ],
+      "illustration": "",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 304,
+      "rank": 4,
+      "suit": "Event",
+      "cost": 3,
+      "effects": [
+        "Compost 1 Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Monsoon Storm",
+      "scientific_name": "",
+      "fact": [
+        "Summer monsoons bring much of the desert's annual rainfall."
+      ],
+      "illustration": "artwork/events/monsoon_storm.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 305,
+      "rank": 5,
+      "suit": "Event",
+      "cost": 2,
+      "effects": [
+        "Prevent all Challenges this turn."
+      ]
+    },
+    "metadata": {
+      "name": "Haboob Winds",
+      "scientific_name": "",
+      "fact": [
+        "Dust storms reduce visibility and reshape the landscape."
+      ],
+      "illustration": "artwork/events/haboob_winds.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 320,
+      "rank": 13,
+      "suit": "Event",
+      "cost": 6,
+      "effects": [
+        "Exhaust all Energy.",
+        "Opposing Energy cannot Refresh this turn.",
+        "Each player composts 1 Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Mega Drought",
+      "scientific_name": "",
+      "fact": [
+        "The American Southwest experienced a megadrought beginning around 2000, considered the driest multi-decade period in at least 1,200 years."
+      ],
+      "illustration": "artwork/events/mega_drought.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 303,
+      "rank": 7,
+      "suit": "Event",
+      "cost": 3,
+      "effects": [
+        "Cancel the Challenge.",
+        "Exhaust all Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Flash Flood",
+      "scientific_name": "",
+      "fact": [
+        "Flash floods rapidly reshape desert washes."
+      ],
+      "illustration": "artwork/events/flash_flood.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 308,
+      "rank": 8,
+      "suit": "Event",
+      "cost": 3,
+      "effects": [
+        "Draw 3 cards."
+      ]
+    },
+    "metadata": {
+      "name": "Nature Survey",
+      "scientific_name": "",
+      "fact": [
+        "Field surveys help scientists monitor ecosystem health."
+      ],
+      "illustration": "artwork/events/nature_survey.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 314,
+      "rank": 9,
+      "suit": "Event",
+      "cost": 4,
+      "effects": [
+        "Prevent all Challenges this turn.",
+        "Return all Fauna to their owners' hands."
+      ]
+    },
+    "metadata": {
+      "name": "Skunk Spray",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/events/skunk.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 302,
+      "rank": 10,
+      "suit": "Event",
+      "cost": 5,
+      "effects": [
+        "Prevent all Challenges this turn.",
+        "Compost 1 opposing Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Extreme Heat",
+      "scientific_name": "",
+      "fact": [
+        "Extreme heat stresses both plants and animals."
+      ],
+      "illustration": "artwork/events/extreme_heat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 312,
+      "rank": 11,
+      "suit": "Event",
+      "cost": 5,
+      "effects": [
+        "Each player draws 1 card.",
+        "Prevent all Challenges this turn."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Rainfall",
+      "scientific_name": "",
+      "fact": [
+        "Rainfall rapidly restores activity across desert ecosystems."
+      ],
+      "illustration": "artwork/events/desert_rainfall.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 313,
+      "rank": 12,
+      "suit": "Event",
+      "cost": 5,
+      "effects": [
+        "Draw 3 cards.",
+        "Refresh all Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Perfect Season",
+      "scientific_name": "",
+      "fact": [
+        "Exceptional years allow many species to flourish simultaneously."
+      ],
+      "illustration": "artwork/events/Roosevelt_lake_dam.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 315,
+      "rank": 13,
+      "suit": "Event",
+      "cost": 5,
+      "effects": [
+        "Compost 1 opposing Fauna.",
+        "Compost 1 opposing Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Desert-nesting Bald Eagle",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/events/desert-nesting_bald_eagle.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  }
+]

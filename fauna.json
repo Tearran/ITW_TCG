@@ -1,0 +1,357 @@
+[
+  {
+    "mechanics": {
+      "id": 212,
+      "rank": 1,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Gambel Quail",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/gambels_quail.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 206,
+      "rank": 1,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Kangaroo Rat",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/kangaroo_rat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 207,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Cactus Wren",
+      "scientific_name": "Bassariscus astutus",
+      "fact": [
+        "Arizona's state mammal.",
+        "Eats fruit, insects, rodents and birds.",
+        "Excellent climber with a long striped tail."
+      ],
+      "illustration": "artwork/fauna/cactus_wren.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 214,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Gila Woodpecker",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/gila_woodpecker.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 219,
+      "rank": 3,
+      "suit": "Fauna",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Ringtail",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/ringtail.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 211,
+      "rank": 4,
+      "suit": "Fauna",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Iguana",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/desert_iguana.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 203,
+      "rank": 5,
+      "suit": "Fauna",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Roadrunner",
+      "scientific_name": "Geococcyx californianus",
+      "fact": [
+        "Roadrunners prey on reptiles, insects, and small mammals."
+      ],
+      "illustration": "artwork/fauna/roadrunner.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 213,
+      "rank": 5,
+      "suit": "Fauna",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Gila Monster",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/gila_monster.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 208,
+      "rank": 6,
+      "suit": "Fauna",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Raven",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/common_raven.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 217,
+      "rank": 7,
+      "suit": "Fauna",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Fauna.",
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Javelina",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/javelina.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 218,
+      "rank": 8,
+      "suit": "Fauna",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Osprey",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/osprey.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 215,
+      "rank": 9,
+      "suit": "Fauna",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Grey Fox",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/gray_fox.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 209,
+      "rank": 10,
+      "suit": "Fauna",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Coyote",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/desert coyote.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 216,
+      "rank": 11,
+      "suit": "Fauna",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Great Horned Owl",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/great_horned_owl.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 204,
+      "rank": 12,
+      "suit": "Fauna",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Compost 1 Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Bobcat",
+      "scientific_name": "Lynx rufus",
+      "fact": [
+        "Bobcats are adaptable predators found across North America."
+      ],
+      "illustration": "artwork/fauna/bobcat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 205,
+      "rank": 13,
+      "suit": "Fauna",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Compost 1 Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Mountain Lion",
+      "scientific_name": "Puma concolor",
+      "fact": [
+        "The mountain lion is an apex predator."
+      ],
+      "illustration": "artwork/fauna/mountain_lion.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 210,
+      "rank": 13,
+      "suit": "Fauna",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Compost 1 Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Bald Eagle",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/fauna/desert-nesting_bald_eagle.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  }
+]
