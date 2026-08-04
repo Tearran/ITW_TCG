@@ -1,195 +1,195 @@
 # SVG Image Index
 
 
-1. Velvet Mesquite Beans.svg
-
-![Velvet Mesquite Beans.svg](artwork/flora/Velvet Mesquite Beans.svg)
-
-<br>
-
-2. palo_verde.svg
+1. palo_verde.svg
 
 ![palo_verde.svg](artwork/flora/palo_verde.svg)
 
 <br>
 
-3. ocotillo.svg
+2. ocotillo.svg
 
 ![ocotillo.svg](artwork/flora/ocotillo.svg)
 
 <br>
 
-4. mesquite.svg
+3. mesquite.svg
 
 ![mesquite.svg](artwork/flora/mesquite.svg)
 
 <br>
 
-5. cheeseweed_mallow.svg
+4. cheeseweed_mallow.svg
 
 ![cheeseweed_mallow.svg](artwork/flora/cheeseweed_mallow.svg)
 
 <br>
 
-6. creosote_bush.svg
+5. creosote_bush.svg
 
 ![creosote_bush.svg](artwork/flora/creosote_bush.svg)
 
 <br>
 
-7. desert_ironwood_tree.svg
+6. desert_ironwood_tree.svg
 
 ![desert_ironwood_tree.svg](artwork/flora/desert_ironwood_tree.svg)
 
 <br>
 
-8. thistle.svg
+7. thistle.svg
 
 ![thistle.svg](artwork/flora/thistle.svg)
 
 <br>
 
-9. desert_grass.svg
+8. desert_grass.svg
 
 ![desert_grass.svg](artwork/flora/desert_grass.svg)
 
 <br>
 
-10. desert_mistletoe.svg
+9. desert_mistletoe.svg
 
 ![desert_mistletoe.svg](artwork/flora/desert_mistletoe.svg)
 
 <br>
 
-11. arundo_donax_reeds.svg
+10. arundo_donax_reeds.svg
 
 ![arundo_donax_reeds.svg](artwork/flora/arundo_donax_reeds.svg)
 
 <br>
 
-12. saguaro.svg
+11. saguaro.svg
 
 ![saguaro.svg](artwork/flora/saguaro.svg)
 
 <br>
 
-13. teddy_bear_cholla.svg
+12. teddy_bear_cholla.svg
 
 ![teddy_bear_cholla.svg](artwork/flora/teddy_bear_cholla.svg)
 
 <br>
 
-14. barrel_cactus.svg
+13. barrel_cactus.svg
 
 ![barrel_cactus.svg](artwork/flora/barrel_cactus.svg)
 
 <br>
 
-15. Roosevelt_lake_dam.svg
+14. Roosevelt_lake_dam.svg
 
 ![Roosevelt_lake_dam.svg](artwork/event/Roosevelt_lake_dam.svg)
 
 <br>
 
-16. mega_drought.svg
+15. mega_drought.svg
 
 ![mega_drought.svg](artwork/event/mega_drought.svg)
 
 <br>
 
-17. monsoon_storm.svg
+16. monsoon_storm.svg
 
 ![monsoon_storm.svg](artwork/event/monsoon_storm.svg)
 
 <br>
 
-18. nature_survey.svg
+17. nature_survey.svg
 
 ![nature_survey.svg](artwork/event/nature_survey.svg)
 
 <br>
 
-19. desert-nesting_bald_eagle.svg
+18. desert-nesting_bald_eagle.svg
 
 ![desert-nesting_bald_eagle.svg](artwork/event/desert-nesting_bald_eagle.svg)
 
 <br>
 
-20. desert_frost.svg
+19. desert_frost.svg
 
 ![desert_frost.svg](artwork/event/desert_frost.svg)
 
 <br>
 
-21. flash_flood.svg
+20. flash_flood.svg
 
 ![flash_flood.svg](artwork/event/flash_flood.svg)
 
 <br>
 
-22. extreme_heat.svg
+21. extreme_heat.svg
 
 ![extreme_heat.svg](artwork/event/extreme_heat.svg)
 
 <br>
 
-23. migration.svg
+22. migration.svg
 
 ![migration.svg](artwork/event/migration.svg)
 
 <br>
 
-24. desert_rainfall.svg
+23. desert_rainfall.svg
 
 ![desert_rainfall.svg](artwork/event/desert_rainfall.svg)
 
 <br>
 
-25. skunk.svg
+24. skunk.svg
 
 ![skunk.svg](artwork/event/skunk.svg)
 
 <br>
 
-26. haboob_winds.svg
+25. haboob_winds.svg
 
 ![haboob_winds.svg](artwork/event/haboob_winds.svg)
 
 <br>
 
-27. mule_deer_fawn.svg
+26. mule_deer_fawn.svg
 
 ![mule_deer_fawn.svg](artwork/energy/mule_deer_fawn.svg)
 
 <br>
 
-28. round_tailed_ground_squirrel.svg
+27. round_tailed_ground_squirrel.svg
 
 ![round_tailed_ground_squirrel.svg](artwork/energy/round_tailed_ground_squirrel.svg)
 
 <br>
 
-29. cattail_stand.svg
+28. cattail_stand.svg
 
 ![cattail_stand.svg](artwork/energy/cattail_stand.svg)
 
 <br>
 
-30. mesquite_beans.svg
+29. mesquite_beans.svg
 
 ![mesquite_beans.svg](artwork/energy/mesquite_beans.svg)
 
 <br>
 
-31. lowland_leopard_frog.svg
+30. lowland_leopard_frog.svg
 
 ![lowland_leopard_frog.svg](artwork/energy/lowland_leopard_frog.svg)
 
 <br>
 
-32. jojoba_nut.svg
+31. jojoba_nut.svg
 
 ![jojoba_nut.svg](artwork/energy/jojoba_nut.svg)
+
+<br>
+
+32. velvet_mesquite_beans.svg
+
+![velvet_mesquite_beans.svg](artwork/energy/velvet_mesquite_beans.svg)
 
 <br>
 
@@ -355,21 +355,21 @@
 
 <br>
 
-60. javelina.svg
+60. desert_coyote.svg
+
+![desert_coyote.svg](artwork/fauna/desert_coyote.svg)
+
+<br>
+
+61. javelina.svg
 
 ![javelina.svg](artwork/fauna/javelina.svg)
 
 <br>
 
-61. kangaroo_rat.svg
+62. kangaroo_rat.svg
 
 ![kangaroo_rat.svg](artwork/fauna/kangaroo_rat.svg)
-
-<br>
-
-62. desert coyote.svg
-
-![desert coyote.svg](artwork/fauna/desert coyote.svg)
 
 <br>
 
