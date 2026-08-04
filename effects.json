@@ -3,7 +3,7 @@
                 "Gain 1 Energy.",
                 "Gain 2 Energy."
         ],
-        "flora": [
+        "support": [
                 "Restore all Flora.",
                 "Move 1 Fauna to this card.",
                 "Remove 1 Fauna from this card.",
@@ -22,7 +22,7 @@
                 "Shuffle your deck.",
                 "The next Fauna played costs 1 less Energy."
         ],
-        "fauna": [
+        "wildlife": [
                 "Challenge 1 opposing Fauna.",
                 "Challenge 1 opposing Flora.",
                 "Compost 1 Fauna.",
