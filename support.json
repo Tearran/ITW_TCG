@@ -6,7 +6,7 @@
       "suit": "support",
       "cost": 1,
       "effects": [
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -28,7 +28,7 @@
       "suit": "support",
       "cost": 1,
       "effects": [
-        "Challenge 1 opposing Fauna."
+        "Challenge 1 opposing Wildlife."
       ]
     },
     "metadata": {
@@ -50,7 +50,7 @@
       "suit": "support",
       "cost": 2,
       "effects": [
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -72,7 +72,7 @@
       "suit": "support",
       "cost": 2,
       "effects": [
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -94,8 +94,8 @@
       "suit": "support",
       "cost": 2,
       "effects": [
-        "Move 1 Fauna to this card.",
-        "Hosted Fauna gains +2 Rank."
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +2 Rank."
       ]
     },
     "metadata": {
@@ -117,7 +117,7 @@
       "suit": "support",
       "cost": 3,
       "effects": [
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -139,8 +139,8 @@
       "suit": "support",
       "cost": 3,
       "effects": [
-        "Move 1 Fauna to this card.",
-        "Hosted Fauna gains +2 Rank."
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +2 Rank."
       ]
     },
     "metadata": {
@@ -162,7 +162,7 @@
       "suit": "support",
       "cost": 4,
       "effects": [
-        "Adjacent Fauna gains +2 Rank."
+        "Adjacent Wildlife gains +2 Rank."
       ]
     },
     "metadata": {
@@ -184,8 +184,8 @@
       "suit": "support",
       "cost": 4,
       "effects": [
-        "Move 1 Fauna to this card.",
-        "Hosted Fauna cannot be Challenged."
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife cannot be Challenged."
       ]
     },
     "metadata": {
@@ -202,12 +202,35 @@
   },
   {
     "mechanics": {
+      "id": 114,
+      "rank": 10,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Adjacent Wildlife gains +1 Rank.",
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Teddy Bear Cholla",
+      "scientific_name": "Cylindropuntia bigelovii",
+      "fact": [
+        "Its barbed spines easily attach to passing animals, dispersing the cactus across the desert."
+      ],
+      "illustration": "artwork/flora/teddy_bear_cholla.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
       "id": 109,
       "rank": 11,
       "suit": "support",
       "cost": 0,
       "effects": [
-        "Adjacent Fauna gains +1 Rank."
+        "Adjacent Wildlife gains +1 Rank."
       ]
     },
     "metadata": {
@@ -230,7 +253,7 @@
       "cost": 5,
       "effects": [
         "Exhaust 2 Energy.",
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -252,7 +275,7 @@
       "suit": "support",
       "cost": 5,
       "effects": [
-        "Adjacent Fauna gains +2 Rank."
+        "Adjacent Wildlife gains +2 Rank."
       ]
     },
     "metadata": {
