@@ -1466,3 +1466,28 @@ The following choices were made to satisfy the one-card-per-rank invariant for e
 **events.json** — Rank 13 had two entries (Mega Drought id 320, Desert-nesting Bald Eagle id 315) and rank 2 and rank 6 were missing. Mega Drought was reassigned to rank 2. Diversion Dam (id 306) was added as the new Rank 6 Event card using existing artwork (`artwork/event/divertion_dam.svg`).
 
 > **Note:** `mechanics.suit` is the sole authoritative source of a card's suit. Metadata fields, artwork directory paths, common names, and scientific names must never be used to determine gameplay suit.
+
+---
+
+## Repository Validator
+
+A lightweight, dependency-free validation script is included at the repository root.
+
+### What it checks
+
+- All four card JSON files (`energy.json`, `support.json`, `wildlife.json`, `events.json`) are valid JSON arrays of exactly 13 cards with ranks 1–13 each appearing once.
+- Each card has the required `mechanics` and `metadata` objects with correct field types.
+- `mechanics.suit` matches the canonical lowercase value for each file (`energy`, `support`, `wildlife`, `event`).
+- Card IDs are unique across all four suit files.
+- `effects.json` contains the expected suit categories (`energy`, `support`, `wildlife`, `event`, `effects`) and no obsolete `flora`/`fauna` categories.
+- No obsolete `Flora`/`Fauna` mechanics references appear in card effect strings, `effects.json`, or `index.html`.
+- `index.html` uses canonical lowercase suit values and contains no `addeventListener` typo.
+- `README.md` documents the canonical four suits and the `mechanics.suit` authority rule.
+
+### How to run
+
+```bash
+python3 validate.py
+```
+
+The script prints a concise pass/fail summary with every failure identified, and exits `0` only when all checks pass.
