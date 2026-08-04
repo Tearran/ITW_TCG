@@ -684,7 +684,7 @@ Examples include:
 Wildlife cards generally:
 
 - Challenge opposing cards.
-- Interact with Flora.
+- Interact with Support.
 - Interact with Events.
 - Possess most active effects.
 
@@ -1290,11 +1290,11 @@ Energy Card
 ```
 
 ```text
-Flora Card
+Support Card
 ```
 
 ```text
-Fauna Card
+Wildlife Card
 ```
 
 ```text
@@ -1395,7 +1395,7 @@ Adjacent Herbivores have +1 Effective Rank.
 #### Event
 
 ```text
-Remove 1 opposing Support Card or Fauna Card with Printed Rank 3 or less.
+Remove 1 opposing Support Card or Wildlife Card with Printed Rank 3 or less.
 ```
 
 ---
@@ -1445,8 +1445,24 @@ A legal Standard deck contains:
 
 - One Energy card of each Printed Rank.
 - One Support card of each Printed Rank.
-- One Fauna card of each Printed Rank.
+- One Wildlife card of each Printed Rank.
 - One Event card of each Printed Rank.
 
 No duplicate cards are permitted.
 
+
+---
+
+### Data Choices (Alpha Deck Construction Notes)
+
+The following choices were made to satisfy the one-card-per-rank invariant for each suit:
+
+**energy.json** — The original file contained 26 cards, all at ranks 1–3. Cards at rank 1 (Prickly Pear Cactus, id 1), rank 2 (Desert Cottontail, id 4), and rank 3 (White-Tailed Deer, id 24) were kept at their original ranks. The remaining 10 lowest-id energy cards were assigned ranks 4–13 in id order to complete the rank 1–13 set.
+
+**support.json** — Rank 10 was missing. Teddy Bear Cholla (*Cylindropuntia bigelovii*, id 114) was added as the Rank 10 Support card using existing artwork (`artwork/flora/teddy_bear_cholla.svg`).
+
+**wildlife.json** — Ranks 1, 2, and 5 each had two entries. The lower-id card was kept at each duplicate rank (Kangaroo Rat rank 1 id 206, Cactus Wren rank 2 id 207, Roadrunner rank 5 id 203). Dropped: Gambel Quail (id 212), Gila Woodpecker (id 214), and Gila Monster (id 213).
+
+**events.json** — Rank 13 had two entries (Mega Drought id 320, Desert-nesting Bald Eagle id 315) and rank 2 and rank 6 were missing. Mega Drought was reassigned to rank 2. Diversion Dam (id 306) was added as the new Rank 6 Event card using existing artwork (`artwork/event/divertion_dam.svg`).
+
+> **Note:** `mechanics.suit` is the sole authoritative source of a card's suit. Metadata fields, artwork directory paths, common names, and scientific names must never be used to determine gameplay suit.

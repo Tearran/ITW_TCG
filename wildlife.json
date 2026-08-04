@@ -1,34 +1,12 @@
 [
   {
     "mechanics": {
-      "id": 212,
-      "rank": 1,
-      "suit": "wildlife",
-      "cost": 1,
-      "effects": [
-        "Challenge 1 opposing Flora."
-      ]
-    },
-    "metadata": {
-      "name": "Gambel Quail",
-      "scientific_name": "Callipepla gambelii",
-      "fact": [
-        "Arizona's state bird; coveys of Gambel's quail forage together, relying on collective vigilance to detect predators."
-      ],
-      "illustration": "artwork/fauna/gambels_quail.svg",
-      "artist": "Tearran Studios",
-      "expansion": "Alpha",
-      "rarity": "Uncommon"
-    }
-  },
-  {
-    "mechanics": {
       "id": 206,
       "rank": 1,
       "suit": "wildlife",
       "cost": 1,
       "effects": [
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -50,7 +28,7 @@
       "suit": "wildlife",
       "cost": 1,
       "effects": [
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -69,34 +47,12 @@
   },
   {
     "mechanics": {
-      "id": 214,
-      "rank": 2,
-      "suit": "wildlife",
-      "cost": 1,
-      "effects": [
-        "Challenge 1 opposing Flora."
-      ]
-    },
-    "metadata": {
-      "name": "Gila Woodpecker",
-      "scientific_name": "Melanerpes uropygialis",
-      "fact": [
-        "Excavates nest cavities in saguaro cacti that later house elf owls, kestrels, and other cavity-nesting species."
-      ],
-      "illustration": "artwork/fauna/gila_woodpecker.svg",
-      "artist": "Tearran Studios",
-      "expansion": "Alpha",
-      "rarity": "Uncommon"
-    }
-  },
-  {
-    "mechanics": {
       "id": 219,
       "rank": 3,
       "suit": "wildlife",
       "cost": 2,
       "effects": [
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -118,7 +74,7 @@
       "suit": "wildlife",
       "cost": 2,
       "effects": [
-        "Challenge 1 opposing Fauna."
+        "Challenge 1 opposing Wildlife."
       ]
     },
     "metadata": {
@@ -140,7 +96,7 @@
       "suit": "wildlife",
       "cost": 3,
       "effects": [
-        "Challenge 1 opposing Fauna."
+        "Challenge 1 opposing Wildlife."
       ]
     },
     "metadata": {
@@ -157,34 +113,12 @@
   },
   {
     "mechanics": {
-      "id": 213,
-      "rank": 5,
-      "suit": "wildlife",
-      "cost": 3,
-      "effects": [
-        "Challenge 1 opposing Fauna."
-      ]
-    },
-    "metadata": {
-      "name": "Gila Monster",
-      "scientific_name": "Heloderma suspectum",
-      "fact": [
-        "One of only a few venomous lizards in the world; it stores fat in its thick tail to survive months without food."
-      ],
-      "illustration": "artwork/fauna/gila_monster.svg",
-      "artist": "Tearran Studios",
-      "expansion": "Alpha",
-      "rarity": "Uncommon"
-    }
-  },
-  {
-    "mechanics": {
       "id": 208,
       "rank": 6,
       "suit": "wildlife",
       "cost": 3,
       "effects": [
-        "Challenge 1 opposing Fauna."
+        "Challenge 1 opposing Wildlife."
       ]
     },
     "metadata": {
@@ -206,8 +140,8 @@
       "suit": "wildlife",
       "cost": 4,
       "effects": [
-        "Challenge 1 opposing Fauna.",
-        "Challenge 1 opposing Flora."
+        "Challenge 1 opposing Wildlife.",
+        "Challenge 1 opposing Support."
       ]
     },
     "metadata": {
@@ -229,7 +163,7 @@
       "suit": "wildlife",
       "cost": 4,
       "effects": [
-        "Challenge 1 opposing Fauna."
+        "Challenge 1 opposing Wildlife."
       ]
     },
     "metadata": {
@@ -251,7 +185,7 @@
       "suit": "wildlife",
       "cost": 4,
       "effects": [
-        "Challenge 1 opposing Fauna."
+        "Challenge 1 opposing Wildlife."
       ]
     },
     "metadata": {
@@ -271,7 +205,7 @@
       "suit": "wildlife",
       "cost": 4,
       "effects": [
-        "Challenge 1 opposing Fauna."
+        "Challenge 1 opposing Wildlife."
       ]
     },
     "metadata": {
@@ -294,7 +228,7 @@
       "cost": 5,
       "effects": [
         "Exhaust 1 Energy.",
-        "Challenge 1 opposing Fauna."
+        "Challenge 1 opposing Wildlife."
       ]
     },
     "metadata": {
@@ -317,7 +251,7 @@
       "cost": 5,
       "effects": [
         "Exhaust 1 Energy.",
-        "Compost 1 Fauna."
+        "Compost 1 Wildlife."
       ]
     },
     "metadata": {
@@ -340,7 +274,7 @@
       "cost": 5,
       "effects": [
         "Exhaust 1 Energy.",
-        "Compost 1 Fauna."
+        "Compost 1 Wildlife."
       ]
     },
     "metadata": {

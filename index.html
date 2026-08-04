@@ -441,7 +441,7 @@
 					item.innerHTML = '<div>' + (meta.name || '(unnamed)') + '</div>' +
 						'<div class="sub">#' + (mech.id != null ? mech.id : '?') +
 						' - ' + (mech.suit || '?') + ' - Rank ' + (mech.rank != null ? mech.rank : '?') + '</div>';
-					item.addeventListener('click', function () {
+					item.addEventListener('click', function () {
 						selectCard(i);
 					});
 					list.appendChild(item);
@@ -698,28 +698,28 @@
 				reader.readAsText(file);
 			}
 
-			document.getElementById('btnNew').addeventListener('click', function () {
+			document.getElementById('btnNew').addEventListener('click', function () {
 				selectedIndex = -1;
 				clearForm();
 				renderCardList();
 				setStatus('New card form ready.');
 			});
-			document.getElementById('fIllustration').addeventListener('change', updateIllustrationPreview);
-			document.getElementById('fSuit').addeventListener('change', function () {
+			document.getElementById('fIllustration').addEventListener('change', updateIllustrationPreview);
+			document.getElementById('fSuit').addEventListener('change', function () {
 				populateEffects(this.value);
 			});
-			document.getElementById('btnSortSuit').addeventListener('click', sortBySuit);
-			document.getElementById('btnDedupe').addeventListener('click', removeDuplicates);
-			document.getElementById('btnExport').addeventListener('click', exportList);
-			document.getElementById('btnImport').addeventListener('click', function () {
+			document.getElementById('btnSortSuit').addEventListener('click', sortBySuit);
+			document.getElementById('btnDedupe').addEventListener('click', removeDuplicates);
+			document.getElementById('btnExport').addEventListener('click', exportList);
+			document.getElementById('btnImport').addEventListener('click', function () {
 				document.getElementById('importInput').click();
 			});
-			document.getElementById('importInput').addeventListener('change', function (e) {
+			document.getElementById('importInput').addEventListener('change', function (e) {
 				if (e.target.files && e.target.files[0]) importList(e.target.files[0]);
 				e.target.value = '';
 			});
-			document.getElementById('cardForm').addeventListener('submit', saveCard);
-			document.getElementById('btnDelete').addeventListener('click', deleteCard);
+			document.getElementById('cardForm').addEventListener('submit', saveCard);
+			document.getElementById('btnDelete').addEventListener('click', deleteCard);
 
 			loadCards();
 
