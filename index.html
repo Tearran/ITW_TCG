@@ -251,10 +251,10 @@
 						<div>
 							<label for="fSuit">Suit</label>
 							<select id="fSuit">
-								<option value="Energy">Energy</option>
-								<option value="Flora">Flora</option>
-								<option value="Fauna">Fauna</option>
-								<option value="Event">Event</option>
+								<option value="energy">energy</option>
+								<option value="support">support</option>
+								<option value="wildlife">wildlife</option>
+								<option value="event">event</option>
 							</select>
 						</div>
 						<div>
@@ -333,11 +333,11 @@
 	<script>
 		(function () {
 			var STORAGE_KEY = 'itw_tcg_card_list';
-			var SUIT_ORDER = ['Energy', 'Flora', 'Fauna', 'Event'];
+			var SUIT_ORDER = ['energy','support','wildlife','event'];
 			var RARITY_OPTIONS = ['Common', 'Uncommon', 'Rare', 'Legendary'];
 			var cards = [];
 			var selectedIndex = -1;
-			var effectsData = { effects: [], energy: [], flora: [], fauna: [], event: [] };
+			var effectsData = { effects: [], energy: [], support: [], wildlife: [], event: [] };
 			var artworkList = [];
 
 			function loadCards() {
@@ -441,7 +441,7 @@
 					item.innerHTML = '<div>' + (meta.name || '(unnamed)') + '</div>' +
 						'<div class="sub">#' + (mech.id != null ? mech.id : '?') +
 						' - ' + (mech.suit || '?') + ' - Rank ' + (mech.rank != null ? mech.rank : '?') + '</div>';
-					item.addEventListener('click', function () {
+					item.addeventListener('click', function () {
 						selectCard(i);
 					});
 					list.appendChild(item);
@@ -451,9 +451,9 @@
 			function clearForm() {
 				document.getElementById('fId').value = nextId();
 				document.getElementById('fRank').value = '';
-				document.getElementById('fSuit').value = 'Energy';
+				document.getElementById('fSuit').value = 'energy';
 				document.getElementById('fCost').value = '';
-				populateEffects('Energy');
+				populateEffects('energy');
 				document.querySelectorAll('.effect-select').forEach(function (sel) { sel.value = ''; });
 				document.getElementById('fName').value = '';
 				document.getElementById('fSci').value = '';
@@ -481,9 +481,9 @@
 				var meta = card.metadata || {};
 				document.getElementById('fId').value = mech.id != null ? mech.id : '';
 				document.getElementById('fRank').value = mech.rank != null ? mech.rank : '';
-				document.getElementById('fSuit').value = mech.suit || 'Energy';
+				document.getElementById('fSuit').value = mech.suit || 'energy';
 				document.getElementById('fCost').value = mech.cost != null ? mech.cost : '';
-				populateEffects(mech.suit || 'Energy');
+				populateEffects(mech.suit || 'energy');
 				var effects = mech.effects || [];
 				document.getElementById('fEffect1').value = effects[0] || '';
 				document.getElementById('fEffect2').value = effects[1] || '';
@@ -698,36 +698,36 @@
 				reader.readAsText(file);
 			}
 
-			document.getElementById('btnNew').addEventListener('click', function () {
+			document.getElementById('btnNew').addeventListener('click', function () {
 				selectedIndex = -1;
 				clearForm();
 				renderCardList();
 				setStatus('New card form ready.');
 			});
-			document.getElementById('fIllustration').addEventListener('change', updateIllustrationPreview);
-			document.getElementById('fSuit').addEventListener('change', function () {
+			document.getElementById('fIllustration').addeventListener('change', updateIllustrationPreview);
+			document.getElementById('fSuit').addeventListener('change', function () {
 				populateEffects(this.value);
 			});
-			document.getElementById('btnSortSuit').addEventListener('click', sortBySuit);
-			document.getElementById('btnDedupe').addEventListener('click', removeDuplicates);
-			document.getElementById('btnExport').addEventListener('click', exportList);
-			document.getElementById('btnImport').addEventListener('click', function () {
+			document.getElementById('btnSortSuit').addeventListener('click', sortBySuit);
+			document.getElementById('btnDedupe').addeventListener('click', removeDuplicates);
+			document.getElementById('btnExport').addeventListener('click', exportList);
+			document.getElementById('btnImport').addeventListener('click', function () {
 				document.getElementById('importInput').click();
 			});
-			document.getElementById('importInput').addEventListener('change', function (e) {
+			document.getElementById('importInput').addeventListener('change', function (e) {
 				if (e.target.files && e.target.files[0]) importList(e.target.files[0]);
 				e.target.value = '';
 			});
-			document.getElementById('cardForm').addEventListener('submit', saveCard);
-			document.getElementById('btnDelete').addEventListener('click', deleteCard);
+			document.getElementById('cardForm').addeventListener('submit', saveCard);
+			document.getElementById('btnDelete').addeventListener('click', deleteCard);
 
 			loadCards();
 
 			Promise.all([
-				fetchJson('effects.json').catch(function () { return { effects: [], energy: [], flora: [], fauna: [], event: [] }; }),
+				fetchJson('effects.json').catch(function () { return { effects: [], energy: [], support: [], wildlife: [], event: [] }; }),
 				fetchJson('artwork.json').catch(function () { return []; })
 			]).then(function (results) {
-				effectsData = results[0] || { effects: [], energy: [], flora: [], fauna: [], event: [] };
+				effectsData = results[0] || { effects: [], energy: [], support: [], wildlife: [], event: [] };
 				artworkList = results[1] || [];
 				populateArtwork();
 				clearForm();
