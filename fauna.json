@@ -11,8 +11,10 @@
     },
     "metadata": {
       "name": "Gambel Quail",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Callipepla gambelii",
+      "fact": [
+        "Arizona's state bird; coveys of Gambel's quail forage together, relying on collective vigilance to detect predators."
+      ],
       "illustration": "artwork/fauna/gambels_quail.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -31,8 +33,10 @@
     },
     "metadata": {
       "name": "Kangaroo Rat",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Dipodomys spp.",
+      "fact": [
+        "Can survive without drinking water, obtaining all moisture from seeds, and escapes predators with powerful hind-leg leaps."
+      ],
       "illustration": "artwork/fauna/kangaroo_rat.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -53,9 +57,9 @@
       "name": "Cactus Wren",
       "scientific_name": "Campylorhynchus brunneicapillus",
       "fact": [
-        "Arizona's state mammal.",
-        "Eats fruit, insects, rodents and birds.",
-        "Excellent climber with a long striped tail."
+        "Arizona's state bird.",
+        "Builds large, domed nests in cholla cactus for year-round protection from predators.",
+        "Feeds on insects, seeds, and small lizards."
       ],
       "illustration": "artwork/fauna/cactus_wren.svg",
       "artist": "Tearran Studios",
@@ -75,8 +79,10 @@
     },
     "metadata": {
       "name": "Gila Woodpecker",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Melanerpes uropygialis",
+      "fact": [
+        "Excavates nest cavities in saguaro cacti that later house elf owls, kestrels, and other cavity-nesting species."
+      ],
       "illustration": "artwork/fauna/gila_woodpecker.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -95,8 +101,10 @@
     },
     "metadata": {
       "name": "Ringtail",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Bassariscus astutus",
+      "fact": [
+        "Arizona's state mammal; a nocturnal, cat-sized carnivore that navigates rocky terrain with a long, bushy, banded tail."
+      ],
       "illustration": "artwork/fauna/ringtail.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -115,8 +123,10 @@
     },
     "metadata": {
       "name": "Desert Iguana",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Dipsosaurus dorsalis",
+      "fact": [
+        "One of the most heat-tolerant lizards in North America, remaining active at temperatures that drive other reptiles to shade."
+      ],
       "illustration": "artwork/fauna/desert_iguana.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -157,8 +167,10 @@
     },
     "metadata": {
       "name": "Gila Monster",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Heloderma suspectum",
+      "fact": [
+        "One of only a few venomous lizards in the world; it stores fat in its thick tail to survive months without food."
+      ],
       "illustration": "artwork/fauna/gila_monster.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -177,8 +189,10 @@
     },
     "metadata": {
       "name": "Raven",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Corvus corax",
+      "fact": [
+        "Highly intelligent opportunists, common ravens follow predators and human activity to scavenge easy meals across the desert."
+      ],
       "illustration": "artwork/fauna/common_raven.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -198,8 +212,10 @@
     },
     "metadata": {
       "name": "Javelina",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Pecari tajacu",
+      "fact": [
+        "Collared peccaries travel in tight family groups and use musk glands to communicate and mark territory in the Sonoran Desert."
+      ],
       "illustration": "artwork/fauna/javelina.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -218,8 +234,10 @@
     },
     "metadata": {
       "name": "Osprey",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Pandion haliaetus",
+      "fact": [
+        "A specialized fish hawk that plunges feet-first into water, appearing around Arizona's desert lakes and rivers during migration."
+      ],
       "illustration": "artwork/fauna/osprey.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -237,7 +255,7 @@
       ]
     },
     "metadata": {
-      "name": "Grey Fox",
+      "name": "Gray Fox",
       "scientific_name": "",
       "fact": [],
       "illustration": "artwork/fauna/gray_fox.svg",
@@ -258,8 +276,10 @@
     },
     "metadata": {
       "name": "Desert Coyote",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Canis latrans",
+      "fact": [
+        "A highly adaptable predator and scavenger that thrives in desert scrub, preying on rodents, rabbits, and carrion."
+      ],
       "illustration": "artwork/fauna/desert_coyote.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
@@ -279,8 +299,10 @@
     },
     "metadata": {
       "name": "Great Horned Owl",
-      "scientific_name": "",
-      "fact": [],
+      "scientific_name": "Bubo virginianus",
+      "fact": [
+        "The apex nocturnal predator of the desert; its powerful talons can take prey as large as skunks and young herons."
+      ],
       "illustration": "artwork/fauna/great_horned_owl.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
