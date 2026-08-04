@@ -37,7 +37,7 @@
       "fact": [
         "Mesquite beans are rich in protein and serve as a staple food source for many desert animals."
       ],
-      "illustration": "artwork/mesquite_beans.svg",
+      "illustration": "artwork/energy/mesquite_beans.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -59,7 +59,7 @@
       "fact": [
         "Commonly used by humans and animals alike to soothe minor wounds and stings."
       ],
-      "illustration": "artwork/broadleaf_plantain.svg",
+      "illustration": "artwork/energy/broadleaf_plantain.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -81,7 +81,7 @@
       "fact": [
         "A core prey species for hawks, coyotes, and snakes, relying on speed to survive."
       ],
-      "illustration": "artwork/desert_cottontail.svg",
+      "illustration": "artwork/energy/desert_cottontail.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -103,7 +103,7 @@
       "fact": [
         "Crucial pollinators that sustain entire flora populations while serving as food for birds."
       ],
-      "illustration": "artwork/honey_bee.svg",
+      "illustration": "artwork/energy/honey_bee.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -125,7 +125,7 @@
       "fact": [
         "Provides winter forage for large herbivores and vital nesting cover for birds."
       ],
-      "illustration": "artwork/sagebrush.svg",
+      "illustration": "artwork/energy/sagebrush.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -147,7 +147,7 @@
       "fact": [
         "An incredibly abundant rodent that feeds predators across almost every North American biome."
       ],
-      "illustration": "artwork/deer_mouse.svg",
+      "illustration": "artwork/energy/deer_mouse.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -169,7 +169,7 @@
       "fact": [
         "Every part of this plant is edible to various wildlife, from root-eating muskrats to seed-eating birds."
       ],
-      "illustration": "artwork/cattail.svg",
+      "illustration": "artwork/energy/cattail_stand.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -191,7 +191,7 @@
       "fact": [
         "Spreads seeds across the forest floor while being hunted by weasels, foxes, and hawks."
       ],
-      "illustration": "artwork/eastern_chipmunk.svg",
+      "illustration": "artwork/energy/eastern_chipmunk.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -213,7 +213,7 @@
       "fact": [
         "The exclusive food source for monarch butterfly caterpillars, storing toxic sap for defense."
       ],
-      "illustration": "artwork/milkweed.svg",
+      "illustration": "artwork/energy/milkweed.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -235,7 +235,7 @@
       "fact": [
         "A single mature oak can produce thousands of acorns, feeding hundreds of species every autumn."
       ],
-      "illustration": "artwork/white_oak.svg",
+      "illustration": "artwork/energy/white_oak.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Uncommon"
@@ -257,7 +257,7 @@
       "fact": [
         "Eats almost anything it can fit in its mouth, but falls prey to herons, otters, and large fish."
       ],
-      "illustration": "artwork/bullfrog.svg",
+      "illustration": "artwork/energy/bullfrog.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -279,7 +279,7 @@
       "fact": [
         "One of the first plants to colonize burned areas, quickly restoring food and cover for wildlife."
       ],
-      "illustration": "artwork/fireweed.svg",
+      "illustration": "artwork/energy/fireweed.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -301,7 +301,7 @@
       "fact": [
         "Uses huge ears to regulate heat and powerful legs to outrun desert predators at speeds up to 40 mph."
       ],
-      "illustration": "artwork/jackrabbit.svg",
+      "illustration": "artwork/energy/black_tailed_jackrabbit.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Uncommon"
@@ -323,7 +323,7 @@
       "fact": [
         "Forms underwater meadows that feed marine turtles, waterfowl, and protect juvenile fish."
       ],
-      "illustration": "artwork/eelgrass.svg",
+      "illustration": "artwork/energy/eelgrass.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -345,7 +345,7 @@
       "fact": [
         "Constructs intricate runway networks under grass and snow to hide from raptors and owls."
       ],
-      "illustration": "artwork/meadow_vole.svg",
+      "illustration": "artwork/energy/meadow_vole.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -367,7 +367,7 @@
       "fact": [
         "Thorny brambles protect nesting birds while the sugary berries feed bears, birds, and insects."
       ],
-      "illustration": "artwork/wild_blackberry.svg",
+      "illustration": "artwork/energy/wild_blackberry.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -389,7 +389,7 @@
       "fact": [
         "A prolific seed-eater that forms a massive baseline food source for raptors across North America."
       ],
-      "illustration": "artwork/mourning_dove.svg",
+      "illustration": "artwork/energy/mourning_dove.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -411,7 +411,7 @@
       "fact": [
         "An aggressive vine that smothers native plants but provides high-protein forage for grazing herbivores."
       ],
-      "illustration": "artwork/kudzu.svg",
+      "illustration": "artwork/energy/kudzu.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Uncommon"
@@ -433,7 +433,7 @@
       "fact": [
         "An ecosystem engineer whose wetlands provide food and habitat for thousands of prey species."
       ],
-      "illustration": "artwork/beaver.svg",
+      "illustration": "artwork/energy/beaver.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Rare"
@@ -455,7 +455,7 @@
       "fact": [
         "Produces thousands of oil-rich seeds that fuel migratory birds and small mammals for winter."
       ],
-      "illustration": "artwork/sunflower.svg",
+      "illustration": "artwork/energy/sunflower.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -477,7 +477,7 @@
       "fact": [
         "Their massive underground colonies support predators like ferrets, badgers, and eagles."
       ],
-      "illustration": "artwork/prairie_dog.svg",
+      "illustration": "artwork/energy/prairie_dog.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Uncommon"
@@ -499,7 +499,7 @@
       "fact": [
         "A crucial winter survival food for caribou and reindeer in the frozen arctic tundra."
       ],
-      "illustration": "artwork/reindeer_lichen.svg",
+      "illustration": "artwork/energy/reindeer_lichen.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -521,7 +521,7 @@
       "fact": [
         "A major large-prey species that sustains apex predators like cougars, wolves, and bears."
       ],
-      "illustration": "artwork/white_tailed_deer.svg",
+      "illustration": "artwork/energy/white_tailed_deer.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Uncommon"
@@ -543,7 +543,7 @@
       "fact": [
         "Its sweet spring sap feeds insects and birds, while its seeds feed small mammals."
       ],
-      "illustration": "artwork/sugar_maple.svg",
+      "illustration": "artwork/energy/sugar_maple.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -565,7 +565,7 @@
       "fact": [
         "A ground-nesting bird that serves as a common meal for foxes, coyotes, and large raptors."
       ],
-      "illustration": "artwork/pheasant.svg",
+      "illustration": "artwork/energy/pheasant.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
