@@ -20,7 +20,7 @@ Each expansion explores a real landscape, beginning with the **Tonto Basin Range
 
 Into the Wild is a strategy card game where players build and maintain ecosystems by managing ecological resources and introducing organisms into play.
 
-A standard game consists of **26 rounds**.
+A standard game consists of **rounds**.
 
 At the end of the final round, players calculate their scores.
 
@@ -318,7 +318,7 @@ Only one mulligan may be taken.
 
 ### Turn Structure
 
-A standard game consists of **26 rounds**.
+A standard game consists of **rounds**.
 
 Each player takes one turn during every round.
 
@@ -387,7 +387,7 @@ After every player has completed their turn, the round ends.
 
 Begin the next round.
 
-After Round 26 has been completed, calculate each player's final score.
+After Round has no card in hand game is completed, calculate each player's final score.
 
 ---
 
@@ -1076,7 +1076,7 @@ To carry out a card's effects completely before continuing gameplay.
 
 A complete cycle in which every player takes one turn.
 
-A standard game lasts 26 rounds.
+A standard game lasts to one player play all cards in hand.
 
 ---
 
