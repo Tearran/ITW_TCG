@@ -725,7 +725,7 @@
 
 			Promise.all([
 				fetchJson('effects.json').catch(function () { return { effects: [], energy: [], flora: [], fauna: [], event: [] }; }),
-				fetchJson('artwork_list.json').catch(function () { return []; })
+				fetchJson('artwork.json').catch(function () { return []; })
 			]).then(function (results) {
 				effectsData = results[0] || { effects: [], energy: [], flora: [], fauna: [], event: [] };
 				artworkList = results[1] || [];
@@ -733,7 +733,7 @@
 				clearForm();
 				renderCardList();
 				if (!(effectsData.effects || []).length || !artworkList.length) {
-					setStatus('Note: effects.json / artwork_list.json could not be loaded (serve this page over HTTP, not file://).');
+					setStatus('Note: effects.json / artwork.json could not be loaded (serve this page over HTTP, not file://).');
 				} else {
 					setStatus('Ready.');
 				}

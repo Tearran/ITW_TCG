@@ -1,0 +1,505 @@
+[
+  {
+   "metadata":{
+    "name": "agave.svg",
+    "path": "artwork/energy/agave.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "bermuda_grass.svg",
+    "path": "artwork/energy/bermuda_grass.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "bird_eggs.svg",
+    "path": "artwork/energy/bird_eggs.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "black_necked_stilt.svg",
+    "path": "artwork/energy/black_necked_stilt.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "black_tailed_jackrabbit.svg",
+    "path": "artwork/energy/black_tailed_jackrabbit.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "bluegill_sunfish.svg",
+    "path": "artwork/energy/bluegill_sunfish.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "brittlebush_flowers.svg",
+    "path": "artwork/energy/brittlebush_flowers.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "cattail_stand.svg",
+    "path": "artwork/energy/cattail_stand.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "chara.svg",
+    "path": "artwork/energy/chara.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "coachwhip.svg",
+    "path": "artwork/energy/coachwhip.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_cottontail.svg",
+    "path": "artwork/energy/desert_cottontail.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_grass.svg",
+    "path": "artwork/energy/desert_grass.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_ironwood_blossoms.svg",
+    "path": "artwork/energy/desert_ironwood_blossoms.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_senna.svg",
+    "path": "artwork/energy/desert_senna.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "fremont_cottonwood_catkins.svg",
+    "path": "artwork/energy/fremont_cottonwood_catkins.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "gizzard_shad.svg",
+    "path": "artwork/energy/gizzard_shad.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "gooddings_willow_bark.svg",
+    "path": "artwork/energy/gooddings_willow_bark.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "ground_squirrel.svg",
+    "path": "artwork/energy/ground_squirrel.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "jojoba_nut.svg",
+    "path": "artwork/energy/jojoba_nut.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "lowland_leopard_frog.svg",
+    "path": "artwork/energy/lowland_leopard_frog.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "mesquite_beans.svg",
+    "path": "artwork/energy/mesquite_beans.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "mourning_dove.svg",
+    "path": "artwork/energy/mourning_dove.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "mule_deer_fawn.svg",
+    "path": "artwork/energy/mule_deer_fawn.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "palo_verde_seeds.svg",
+    "path": "artwork/energy/palo_verde_seeds.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "pocket_mouse.svg",
+    "path": "artwork/energy/pocket_mouse.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "prickly_pear.svg",
+    "path": "artwork/energy/prickly_pear.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "round_tailed_ground_squirrel.svg",
+    "path": "artwork/energy/round_tailed_ground_squirrel.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "sago_pondweed.svg",
+    "path": "artwork/energy/sago_pondweed.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "saguaro_cactus_bloom.svg",
+    "path": "artwork/energy/saguaro_cactus_bloom.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "spadefoot_toad.svg",
+    "path": "artwork/energy/spadefoot_toad.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "threadfin_shad.svg",
+    "path": "artwork/energy/threadfin_shad.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert-nesting_bald_eagle.svg",
+    "path": "artwork/events/desert-nesting_bald_eagle.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_frost.svg",
+    "path": "artwork/events/desert_frost.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_rainfall.svg",
+    "path": "artwork/events/desert_rainfall.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "extreme_heat.svg",
+    "path": "artwork/events/extreme_heat.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "flash_flood.svg",
+    "path": "artwork/events/flash_flood.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "haboob_winds.svg",
+    "path": "artwork/events/haboob_winds.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "megadrought.svg",
+    "path": "artwork/events/megadrought.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "monsoon_storm.svg",
+    "path": "artwork/events/monsoon_storm.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "nature_survey.svg",
+    "path": "artwork/events/nature_survey.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "Roosevelt_lake_dam.svg",
+    "path": "artwork/events/Roosevelt_lake_dam.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "skunk.svg",
+    "path": "artwork/events/skunk.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "bobcat.svg",
+    "path": "artwork/fauna/bobcat.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "cactus_wren.svg",
+    "path": "artwork/fauna/cactus_wren.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "common_raven.svg",
+    "path": "artwork/fauna/common_raven.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert coyote.svg",
+    "path": "artwork/fauna/desert coyote.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_iguana.svg",
+    "path": "artwork/fauna/desert_iguana.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "gambels_quail.svg",
+    "path": "artwork/fauna/gambels_quail.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "gila_monster.svg",
+    "path": "artwork/fauna/gila_monster.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "gila_woodpecker.svg",
+    "path": "artwork/fauna/gila_woodpecker.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "gray_fox.svg",
+    "path": "artwork/fauna/gray_fox.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "great_horned_owl.svg",
+    "path": "artwork/fauna/great_horned_owl.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "javelina.svg",
+    "path": "artwork/fauna/javelina.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "kangaroo_rat.svg",
+    "path": "artwork/fauna/kangaroo_rat.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "mountain_lion.svg",
+    "path": "artwork/fauna/mountain_lion.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "osprey.svg",
+    "path": "artwork/fauna/osprey.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "ringtail.svg",
+    "path": "artwork/fauna/ringtail.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "roadrunner.svg",
+    "path": "artwork/fauna/roadrunner.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "arundo_donax_reeds.svg",
+    "path": "artwork/flora/arundo_donax_reeds.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "barrel_cactus.svg",
+    "path": "artwork/flora/barrel_cactus.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "cheeseweed_mallow.svg",
+    "path": "artwork/flora/cheeseweed_mallow.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "creosote_bush.svg",
+    "path": "artwork/flora/creosote_bush.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_grass.svg",
+    "path": "artwork/flora/desert_grass.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_ironwood_tree.svg",
+    "path": "artwork/flora/desert_ironwood_tree.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "desert_mistletoe.svg",
+    "path": "artwork/flora/desert_mistletoe.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "mesquite.svg",
+    "path": "artwork/flora/mesquite.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "ocotillo.svg",
+    "path": "artwork/flora/ocotillo.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "palo_verde.svg",
+    "path": "artwork/flora/palo_verde.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "saguaro.svg",
+    "path": "artwork/flora/saguaro.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "teddy_bear_cholla.svg",
+    "path": "artwork/flora/teddy_bear_cholla.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "thistle.svg",
+    "path": "artwork/flora/thistle.svg"
+   }
+  }
+,
+  {
+   "metadata":{
+    "name": "Velvet Mesquite Beans.svg",
+    "path": "artwork/flora/Velvet Mesquite Beans.svg"
+   }
+  }
+]
