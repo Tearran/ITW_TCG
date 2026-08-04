@@ -3,7 +3,7 @@
     "mechanics": {
       "id": 102,
       "rank": 1,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 1,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -25,7 +25,7 @@
     "mechanics": {
       "id": 106,
       "rank": 2,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 1,
       "effects": [
         "Challenge 1 opposing Fauna."
@@ -47,7 +47,7 @@
     "mechanics": {
       "id": 112,
       "rank": 3,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 2,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -69,7 +69,7 @@
     "mechanics": {
       "id": 103,
       "rank": 4,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 2,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -91,7 +91,7 @@
     "mechanics": {
       "id": 107,
       "rank": 5,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 2,
       "effects": [
         "Move 1 Fauna to this card.",
@@ -114,7 +114,7 @@
     "mechanics": {
       "id": 113,
       "rank": 6,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 3,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -136,7 +136,7 @@
     "mechanics": {
       "id": 104,
       "rank": 7,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 3,
       "effects": [
         "Move 1 Fauna to this card.",
@@ -159,7 +159,7 @@
     "mechanics": {
       "id": 111,
       "rank": 8,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 4,
       "effects": [
         "Adjacent Fauna gains +2 Rank."
@@ -181,7 +181,7 @@
     "mechanics": {
       "id": 110,
       "rank": 9,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 4,
       "effects": [
         "Move 1 Fauna to this card.",
@@ -204,7 +204,7 @@
     "mechanics": {
       "id": 109,
       "rank": 11,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 0,
       "effects": [
         "Adjacent Fauna gains +1 Rank."
@@ -226,7 +226,7 @@
     "mechanics": {
       "id": 108,
       "rank": 12,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 5,
       "effects": [
         "Exhaust 2 Energy.",
@@ -249,7 +249,7 @@
     "mechanics": {
       "id": 105,
       "rank": 13,
-      "suit": "Flora",
+      "suit": "support",
       "cost": 5,
       "effects": [
         "Adjacent Fauna gains +2 Rank."
