@@ -1,0 +1,574 @@
+[
+  {
+    "mechanics": {
+      "id": 1,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Generate 1 Energy per turn."
+      ]
+    },
+    "metadata": {
+      "name": "Prickly Pear Cactus",
+      "scientific_name": "Opuntia spp.",
+      "fact": [
+        "Its juicy fruits, called tunas, provide vital hydration and sugar to desert wildlife."
+      ],
+      "illustration": "artwork/prickly_pear.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 2,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Generate 1 Energy per turn."
+      ]
+    },
+    "metadata": {
+      "name": "Mesquite Beans",
+      "scientific_name": "Prosopis spp.",
+      "fact": [
+        "Mesquite beans are rich in protein and serve as a staple food source for many desert animals."
+      ],
+      "illustration": "artwork/mesquite_beans.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 3,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Heal 1 damage from a connected Fauna card."
+      ]
+    },
+    "metadata": {
+      "name": "Broadleaf Plantain",
+      "scientific_name": "Plantago major",
+      "fact": [
+        "Commonly used by humans and animals alike to soothe minor wounds and stings."
+      ],
+      "illustration": "artwork/broadleaf_plantain.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 4,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Draw 1 card when played."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Cottontail",
+      "scientific_name": "Sylvilagus audubonii",
+      "fact": [
+        "A core prey species for hawks, coyotes, and snakes, relying on speed to survive."
+      ],
+      "illustration": "artwork/desert_cottontail.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 5,
+      "rank": 1,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Search your deck for a Flora card."
+      ]
+    },
+    "metadata": {
+      "name": "Honey Bee",
+      "scientific_name": "Apis mellifera",
+      "fact": [
+        "Crucial pollinators that sustain entire flora populations while serving as food for birds."
+      ],
+      "illustration": "artwork/honey_bee.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 6,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Increases adjacent Fauna defense by 1."
+      ]
+    },
+    "metadata": {
+      "name": "Big Sagebrush",
+      "scientific_name": "Artemisia tridentata",
+      "fact": [
+        "Provides winter forage for large herbivores and vital nesting cover for birds."
+      ],
+      "illustration": "artwork/sagebrush.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 7,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Can escape to the hand if attacked."
+      ]
+    },
+    "metadata": {
+      "name": "Deer Mouse",
+      "scientific_name": "Peromyscus maniculatus",
+      "fact": [
+        "An incredibly abundant rodent that feeds predators across almost every North American biome."
+      ],
+      "illustration": "artwork/deer_mouse.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 8,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Provides 2 Energy if played in a Wetland biome."
+      ]
+    },
+    "metadata": {
+      "name": "Broadleaf Cattail",
+      "scientific_name": "Typha latifolia",
+      "fact": [
+        "Every part of this plant is edible to various wildlife, from root-eating muskrats to seed-eating birds."
+      ],
+      "illustration": "artwork/cattail.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 9,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Gains +1 defense in Forest biomes."
+      ]
+    },
+    "metadata": {
+      "name": "Eastern Chipmunk",
+      "scientific_name": "Tamias striatus",
+      "fact": [
+        "Spreads seeds across the forest floor while being hunted by weasels, foxes, and hawks."
+      ],
+      "illustration": "artwork/eastern_chipmunk.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 10,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Attracts Insect suit Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Common Milkweed",
+      "scientific_name": "Asclepias syriaca",
+      "fact": [
+        "The exclusive food source for monarch butterfly caterpillars, storing toxic sap for defense."
+      ],
+      "illustration": "artwork/milkweed.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 11,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Produces acorns; double Energy output every 3rd turn."
+      ]
+    },
+    "metadata": {
+      "name": "White Oak",
+      "scientific_name": "Quercus alba",
+      "fact": [
+        "A single mature oak can produce thousands of acorns, feeding hundreds of species every autumn."
+      ],
+      "illustration": "artwork/white_oak.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 12,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Can move across water terrain without penalty."
+      ]
+    },
+    "metadata": {
+      "name": "American Bullfrog",
+      "scientific_name": "Lithobates catesbeianus",
+      "fact": [
+        "Eats almost anything it can fit in its mouth, but falls prey to herons, otters, and large fish."
+      ],
+      "illustration": "artwork/bullfrog.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 13,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Reduces incoming fire elemental damage to adjacent cards."
+      ]
+    },
+    "metadata": {
+      "name": "Fireweed",
+      "scientific_name": "Chamaenerion angustifolium",
+      "fact": [
+        "One of the first plants to colonize burned areas, quickly restoring food and cover for wildlife."
+      ],
+      "illustration": "artwork/fireweed.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 14,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 2,
+      "effects": [
+        "Reduces cost of next Herbivore card by 1."
+      ]
+    },
+    "metadata": {
+      "name": "Black-Tailed Jackrabbit",
+      "scientific_name": "Lepus californicus",
+      "fact": [
+        "Uses huge ears to regulate heat and powerful legs to outrun desert predators at speeds up to 40 mph."
+      ],
+      "illustration": "artwork/jackrabbit.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 15,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Provides food for aquatic Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Eelgrass",
+      "scientific_name": "Zostera marina",
+      "fact": [
+        "Forms underwater meadows that feed marine turtles, waterfowl, and protect juvenile fish."
+      ],
+      "illustration": "artwork/eelgrass.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 16,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Gains camouflage in Tall Grass terrain."
+      ]
+    },
+    "metadata": {
+      "name": "Meadow Vole",
+      "scientific_name": "Microtus pennsylvanicus",
+      "fact": [
+        "Constructs intricate runway networks under grass and snow to hide from raptors and owls."
+      ],
+      "illustration": "artwork/meadow_vole.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 17,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Produces wild berries; heals 1 energy to an animal."
+      ]
+    },
+    "metadata": {
+      "name": "Wild Blackberry",
+      "scientific_name": "Rubus fruticosus",
+      "fact": [
+        "Thorny brambles protect nesting birds while the sugary berries feed bears, birds, and insects."
+      ],
+      "illustration": "artwork/wild_blackberry.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 18,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Flies over ground hazards."
+      ]
+    },
+    "metadata": {
+      "name": "Mourning Dove",
+      "scientific_name": "Zenaida macroura",
+      "fact": [
+        "A prolific seed-eater that forms a massive baseline food source for raptors across North America."
+      ],
+      "illustration": "artwork/mourning_dove.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 19,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Grows rapidly; copy this card if left unchecked for 3 turns."
+      ]
+    },
+    "metadata": {
+      "name": "Kudzu",
+      "scientific_name": "Pueraria montana",
+      "fact": [
+        "An aggressive vine that smothers native plants but provides high-protein forage for grazing herbivores."
+      ],
+      "illustration": "artwork/kudzu.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 20,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 2,
+      "effects": [
+        "Generates 1 clean water token when active."
+      ]
+    },
+    "metadata": {
+      "name": "North American Beaver",
+      "scientific_name": "Castor canadensis",
+      "fact": [
+        "An ecosystem engineer whose wetlands provide food and habitat for thousands of prey species."
+      ],
+      "illustration": "artwork/beaver.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 21,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Yields highly nutritious seeds."
+      ]
+    },
+    "metadata": {
+      "name": "Common Sunflower",
+      "scientific_name": "Helianthus annuus",
+      "fact": [
+        "Produces thousands of oil-rich seeds that fuel migratory birds and small mammals for winter."
+      ],
+      "illustration": "artwork/sunflower.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 22,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Burrows to ignore 1 physical attack per turn."
+      ]
+    },
+    "metadata": {
+      "name": "Black-Tailed Prairie Dog",
+      "scientific_name": "Cynomys ludovicianus",
+      "fact": [
+        "Their massive underground colonies support predators like ferrets, badgers, and eagles."
+      ],
+      "illustration": "artwork/prairie_dog.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 23,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Thrives in cold environments."
+      ]
+    },
+    "metadata": {
+      "name": "Reindeer Lichen",
+      "scientific_name": "Cladonia rangiferina",
+      "fact": [
+        "A crucial winter survival food for caribou and reindeer in the frozen arctic tundra."
+      ],
+      "illustration": "artwork/reindeer_lichen.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 24,
+      "rank": 3,
+      "suit": "Fauna",
+      "cost": 2,
+      "effects": [
+        "Herd mechanics: gains +1 defense for each adjacent herd animal."
+      ]
+    },
+    "metadata": {
+      "name": "White-Tailed Deer",
+      "scientific_name": "Odocoileus virginianus",
+      "fact": [
+        "A major large-prey species that sustains apex predators like cougars, wolves, and bears."
+      ],
+      "illustration": "artwork/white_tailed_deer.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 25,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Provides high sugars; attracts birds."
+      ]
+    },
+    "metadata": {
+      "name": "Sugar Maple",
+      "scientific_name": "Acer saccharum",
+      "fact": [
+        "Its sweet spring sap feeds insects and birds, while its seeds feed small mammals."
+      ],
+      "illustration": "artwork/sugar_maple.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 26,
+      "rank": 2,
+      "suit": "Fauna",
+      "cost": 1,
+      "effects": [
+        "Can discard this card to distract a predator and save another fauna card."
+      ]
+    },
+    "metadata": {
+      "name": "Ring-Necked Pheasant",
+      "scientific_name": "Phasianus colchicus",
+      "fact": [
+        "A ground-nesting bird that serves as a common meal for foxes, coyotes, and large raptors."
+      ],
+      "illustration": "artwork/pheasant.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  }
+]

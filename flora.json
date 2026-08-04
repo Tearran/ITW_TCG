@@ -1,0 +1,254 @@
+[
+  {
+    "mechanics": {
+      "id": 102,
+      "rank": 1,
+      "suit": "Flora",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Cheesweed Mallow",
+      "scientific_name": "Malva parviflora",
+      "fact": [
+        "A common flowering plant in disturbed habitats."
+      ],
+      "illustration": "artwork/flora/cheeseweed_mallow.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 106,
+      "rank": 2,
+      "suit": "Flora",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Thistle",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/flora/thistle.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 112,
+      "rank": 3,
+      "suit": "Flora",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Cheeseweed Mallow",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/flora/cheeseweed_mallow.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 103,
+      "rank": 4,
+      "suit": "Flora",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Creosote Bush",
+      "scientific_name": "Larrea tridentata",
+      "fact": [
+        "One of the dominant shrubs of the Sonoran Desert."
+      ],
+      "illustration": "artwork/flora/creosote_bush.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 107,
+      "rank": 5,
+      "suit": "Flora",
+      "cost": 2,
+      "effects": [
+        "Move 1 Fauna to this card.",
+        "Hosted Fauna gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Ironwood",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/flora/desert_ironwood_tree.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 113,
+      "rank": 6,
+      "suit": "Flora",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Reeds",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/flora/arundo_donax_reeds.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 104,
+      "rank": 7,
+      "suit": "Flora",
+      "cost": 3,
+      "effects": [
+        "Move 1 Fauna to this card.",
+        "Hosted Fauna gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Mesquite",
+      "scientific_name": "Prosopis spp.",
+      "fact": [
+        "Mesquite provides food and shelter for many species."
+      ],
+      "illustration": "artwork/flora/mesquite.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 111,
+      "rank": 8,
+      "suit": "Flora",
+      "cost": 4,
+      "effects": [
+        "Adjacent Fauna gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Barrel Cactus",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/flora/barrel_cactus.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 110,
+      "rank": 9,
+      "suit": "Flora",
+      "cost": 4,
+      "effects": [
+        "Move 1 Fauna to this card.",
+        "Hosted Fauna cannot be Challenged"
+      ]
+    },
+    "metadata": {
+      "name": "Palo Verde",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/flora/palo_verde.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 109,
+      "rank": 11,
+      "suit": "Flora",
+      "cost": 0,
+      "effects": [
+        "Adjacent Fauna gains +1 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Occotillo",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/flora/ocotillo.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 108,
+      "rank": 12,
+      "suit": "Flora",
+      "cost": 5,
+      "effects": [
+        "Exhaust 2 Energy.",
+        "Challenge 1 opposing Flora."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Mistletoe",
+      "scientific_name": "",
+      "fact": [],
+      "illustration": "artwork/flora/desert_mistletoe.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 105,
+      "rank": 13,
+      "suit": "Flora",
+      "cost": 5,
+      "effects": [
+        "Adjacent Fauna gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Saguaro",
+      "scientific_name": "Carnegiea gigantea",
+      "fact": [
+        "Saguaros provide nesting sites and food for many animals."
+      ],
+      "illustration": "artwork/flora/saguaro.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  }
+]
