@@ -42,9 +42,9 @@ The deck is divided into **four suits** containing **13 cards each**.
 | Suit | Represents |
 |------|------------|
 | Energy | Ecological resources used to sustain life and pay Energy Costs. |
-| Flora | Plants and habitat features that remain in play. |
-| Fauna | Living organisms that remain in play. |
-| Event | Temporary ecological processes that resolve immediately. |
+| Support | Buffs, shields, habitat, and attribute bonuses. |
+| Wildlife | Animals, insects, and invasive plants that challenge or otherwise act. |
+| Event | One-time effects. |
 
 ---
 
@@ -76,9 +76,9 @@ Energy Cards are Restored during the Refresh Phase.
 
 ---
 
-### Flora
+### Support
 
-Flora Cards represent plants and habitat features that become permanent parts of a player's ecosystem.
+Support Cards represent plants and habitat features that become permanent parts of a player's ecosystem.
 
 Examples include:
 
@@ -91,15 +91,15 @@ Examples include:
 - Rock Outcroppings
 - Wetlands
 
-Flora Cards remain in play until:
+Support Cards remain in play until:
 
 - Defeated during a Challenge.
 - Removed by an Event.
 - Removed by another card effect.
 
-Flora Cards may provide passive effects, protection, ecological support, or other gameplay effects.
+Support Cards may provide passive effects, protection, ecological support, or other gameplay effects.
 
-Flora Cards remain in play until:
+Support Cards remain in play until:
 
 - Defeated during a Challenge.
 - Removed by an Event.
@@ -107,11 +107,11 @@ Flora Cards remain in play until:
 
 ---
 
-### Fauna
+### Wildlife
 
-Fauna Cards represent living organisms that become permanent members of a player's ecosystem.
+Wildlife Cards represent living organisms that become permanent members of a player's ecosystem.
 
-Fauna includes all animal life.
+Wildlife includes all animal life.
 
 Examples include:
 
@@ -124,9 +124,9 @@ Examples include:
 - Arachnids
 - Other animals
 
-Fauna Cards may provide gameplay effects.
+Wildlife Cards may provide gameplay effects.
 
-Fauna Cards remain in play until:
+Wildlife Cards remain in play until:
 
 - Defeated during a Challenge.
 - Removed by an Event.
@@ -221,7 +221,7 @@ It simply returns the card to its Ready state.
 
 Cards require Energy to enter play.
 
-Energy Costs represent the ecological effort required to establish or sustain a Flora or Fauna card.
+Energy Costs represent the ecological effort required to establish or sustain a Support or Wildlife card.
 
 Example
 
@@ -245,7 +245,7 @@ An Exhausted Energy Card cannot be used to pay another Energy Cost until it has 
 
 Challenges are interactions between permanent ecosystem cards.
 
-Only Ready Flora and Fauna Cards may declare Challenges.
+Only Ready Support and Wildlife Cards may declare Challenges.
 
 Event Cards may affect any cards described by their effects.
 
@@ -255,8 +255,8 @@ Energy Cards cannot initiate Challenges.
 
 #### Declaring a Challenge
 
-1. Choose one Ready Flora or Fauna Card you control as the challenger.
-2. Choose one eligible opposing Flora or Fauna Card as the defender.
+1. Choose one Ready Support or Wildlife Card you control as the challenger.
+2. Choose one eligible opposing Support or Wildlife Card as the defender.
 3. Resolve any effects that trigger when the Challenge is declared.
 4. Compare the Effective Rank of both cards.
 5. Resolve the Challenge.
@@ -349,8 +349,8 @@ During your Main Phase you may perform game actions in any order.
 These actions include:
 
 - Play one or more Energy Cards.
-- Play Flora Cards by paying their Energy Costs.
-- Play Fauna Cards by paying their Energy Costs.
+- Play Support Cards by paying their Energy Costs.
+- Play Wildlife Cards by paying their Energy Costs.
 - Play Event Cards by paying their Energy Costs.
 - Activate effects.
 - Resolve card effects.
@@ -361,7 +361,7 @@ A player may perform any number of legal actions during their Main Phase provide
 
 #### Phase 4 - Challenge Phase
 
-Declare Challenges using eligible Ready Flora or Fauna Cards.
+Declare Challenges using eligible Ready Support or Wildlife Cards.
 
 Resolve each Challenge completely before declaring another.
 
@@ -405,15 +405,15 @@ Ready Energy Cards score their Printed Rank.
 
 ---
 
-#### Flora
+#### Support
 
-Ready Flora Cards score their Printed Rank.
+Ready Support Cards score their Printed Rank.
 
 ---
 
-#### Fauna
+#### Wildlife
 
-Ready Fauna Cards score their Printed Rank.
+Ready Wildlife Cards score their Printed Rank.
 
 ---
 
@@ -456,7 +456,7 @@ The mechanics section contains all gameplay information.
 |------|-------------|
 | id | Unique card identifier. |
 | rank | Printed Rank used during gameplay. |
-| suit | Energy, Flora, Fauna, or Event. |
+| suit | Energy, Support, Wildlife, or Event. |
 | cost | Energy required to play the card. |
 | effects | Gameplay effects performed by the card. |
 
@@ -469,7 +469,7 @@ The mechanics section contains all gameplay information.
     "mechanics": {
         "id": 410,
         "rank": 4,
-        "suit": "Fauna",
+        "suit": "Wildlife",
         "cost": 2,
         "effects": [
             "Example effect."
@@ -482,7 +482,7 @@ The mechanics section contains all gameplay information.
 
 ### Metadata
 
-Metadata has no effect on gameplay.
+Metadata has no effect on gameplay. The game engine must use mechanics.suit and must never infer suit from metadata, artwork path, common name, scientific name, or facts.
 
 Metadata exists for presentation, artwork, educational content, and identification.
 
@@ -528,7 +528,7 @@ Metadata exists for presentation, artwork, educational content, and identificati
     "mechanics": {
         "id": 410,
         "rank": 4,
-        "suit": "Fauna",
+        "suit": "Wildlife",
         "cost": 2,
         "effects": [
             "Example effect."
@@ -643,9 +643,9 @@ Mechanically, every Energy Card functions the same unless another card effect ex
 
 ---
 
-### Flora Design
+### Support Design
 
-Flora Cards represent plants and habitat features that remain within the ecosystem.
+Support Cards represent plants and habitat features that remain within the ecosystem.
 
 Examples include:
 
@@ -657,7 +657,7 @@ Examples include:
 - Wetlands
 - Rock Shelters
 
-Flora cards generally provide:
+Support cards generally provide:
 
 - Shelter
 - Protection
@@ -667,9 +667,9 @@ Flora cards generally provide:
 
 ---
 
-### Fauna Design
+### Wildlife Design
 
-Fauna Cards represent living organisms.
+Wildlife Cards represent living organisms.
 
 Examples include:
 
@@ -681,7 +681,7 @@ Examples include:
 - Insects
 - Arachnids
 
-Fauna cards generally:
+Wildlife cards generally:
 
 - Challenge opposing cards.
 - Interact with Flora.
@@ -827,9 +827,9 @@ Each suit contains **13 cards**.
 | Suit | Cards | Represents |
 |------|------:|------------|
 | Energy | 13 | Ecological resources used to sustain life and pay Energy Costs. |
-| Flora | 13 | Plants and habitat features that remain in play. |
-| Fauna | 13 | Living organisms that remain in play. |
-| Event | 13 | Temporary ecological processes. |
+| Support | 13 | Buffs, shields, habitat, and attribute bonuses. |
+| Wildlife | 13 | Animals, insects, and invasive plants that challenge or otherwise act. |
+| Event | 13 | One-time effects. |
 
 ---
 
@@ -885,7 +885,7 @@ effects define what a card does and how it interacts with the game.
 
 ### Challenge
 
-An interaction initiated by a Ready Flora/Fauna Card against an eligible opposing Flora/Fauna Card.
+An interaction initiated by a Ready Support/Wildlife Card against an eligible opposing Support/Wildlife Card.
 
 Challenges are resolved using Effective Rank unless modified by another card effect.
 
@@ -909,7 +909,7 @@ The required Energy that must be paid before a card may be played.
 
 ### Defeat
 
-When a Flora/Fauna Card loses a Challenge and is placed into the Compost pile.
+When a Support/Wildlife Card loses a Challenge and is placed into the Compost pile.
 
 ---
 
@@ -1024,7 +1024,7 @@ Paid Energy Cards remain in play unless a card effect says otherwise.
 
 A card that remains in play after being played.
 
-Energy Cards, Flora Cards and, Fauna Cards, are permanent cards unless removed.
+Energy Cards, Support Cards and, Wildlife Cards, are permanent cards unless removed.
 
 ---
 
@@ -1115,8 +1115,8 @@ The primary gameplay classification of a card.
 Types are:
 
 * Energy
-* Flora
-* Fauna
+* Support
+* Wildlife
 * Event
 
 ---
@@ -1210,7 +1210,7 @@ Always identify the target.
 Examples
 
 ```text
-1 fauna you control
+1 wildlife you control
 ```
 
 ```text
@@ -1395,7 +1395,7 @@ Adjacent Herbivores have +1 Effective Rank.
 #### Event
 
 ```text
-Remove 1 opposing Flora Card or Fauna Card with Printed Rank 3 or less.
+Remove 1 opposing Support Card or Fauna Card with Printed Rank 3 or less.
 ```
 
 ---
@@ -1409,8 +1409,8 @@ The deck is organized into four card categories, each containing one card of eve
 | Category | Cards |
 |----------|------:|
 | Energy | 13 |
-| Flora | 13 |
-| Fauna | 13 |
+| Support | 13 |
+| Wildlife | 13 |
 | Event | 13 |
 
 Total: **52 cards**
@@ -1421,7 +1421,7 @@ Total: **52 cards**
 
 Each category contains exactly one card of every Printed Rank.
 
-| Printed Rank | Energy | Flora | Fauna | Event |
+| Printed Rank | Energy | Support | Wildlife | Event |
 |-------------:|:------:|:-----:|:-----:|:-----:|
 | 1 | x | x | x | x |
 | 2 | x | x | x | x |
@@ -1444,7 +1444,7 @@ Each category contains exactly one card of every Printed Rank.
 A legal Standard deck contains:
 
 - One Energy card of each Printed Rank.
-- One Flora card of each Printed Rank.
+- One Support card of each Printed Rank.
 - One Fauna card of each Printed Rank.
 - One Event card of each Printed Rank.
 
