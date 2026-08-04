@@ -155,6 +155,13 @@
 ,
   {
    "metadata":{
+    "name": "migration.svg",
+    "path": "artwork/event/migration.svg"
+   }
+  }
+,
+  {
+   "metadata":{
     "name": "desert_rainfall.svg",
     "path": "artwork/event/desert_rainfall.svg"
    }
