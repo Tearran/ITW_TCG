@@ -3,7 +3,7 @@
     "mechanics": {
       "id": 212,
       "rank": 1,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 1,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -25,7 +25,7 @@
     "mechanics": {
       "id": 206,
       "rank": 1,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 1,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -47,7 +47,7 @@
     "mechanics": {
       "id": 207,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 1,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -71,7 +71,7 @@
     "mechanics": {
       "id": 214,
       "rank": 2,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 1,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -93,7 +93,7 @@
     "mechanics": {
       "id": 219,
       "rank": 3,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 2,
       "effects": [
         "Challenge 1 opposing Flora."
@@ -115,7 +115,7 @@
     "mechanics": {
       "id": 211,
       "rank": 4,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 2,
       "effects": [
         "Challenge 1 opposing Fauna."
@@ -137,7 +137,7 @@
     "mechanics": {
       "id": 203,
       "rank": 5,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 3,
       "effects": [
         "Challenge 1 opposing Fauna."
@@ -159,7 +159,7 @@
     "mechanics": {
       "id": 213,
       "rank": 5,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 3,
       "effects": [
         "Challenge 1 opposing Fauna."
@@ -181,7 +181,7 @@
     "mechanics": {
       "id": 208,
       "rank": 6,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 3,
       "effects": [
         "Challenge 1 opposing Fauna."
@@ -203,7 +203,7 @@
     "mechanics": {
       "id": 217,
       "rank": 7,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 4,
       "effects": [
         "Challenge 1 opposing Fauna.",
@@ -226,7 +226,7 @@
     "mechanics": {
       "id": 218,
       "rank": 8,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 4,
       "effects": [
         "Challenge 1 opposing Fauna."
@@ -248,7 +248,7 @@
     "mechanics": {
       "id": 215,
       "rank": 9,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 4,
       "effects": [
         "Challenge 1 opposing Fauna."
@@ -268,7 +268,7 @@
     "mechanics": {
       "id": 209,
       "rank": 10,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 4,
       "effects": [
         "Challenge 1 opposing Fauna."
@@ -290,7 +290,7 @@
     "mechanics": {
       "id": 216,
       "rank": 11,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 5,
       "effects": [
         "Exhaust 1 Energy.",
@@ -313,7 +313,7 @@
     "mechanics": {
       "id": 204,
       "rank": 12,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 5,
       "effects": [
         "Exhaust 1 Energy.",
@@ -336,7 +336,7 @@
     "mechanics": {
       "id": 205,
       "rank": 13,
-      "suit": "Fauna",
+      "suit": "wildlife",
       "cost": 5,
       "effects": [
         "Exhaust 1 Energy.",
