@@ -3,7 +3,7 @@
     "mechanics": {
       "id": 301,
       "rank": 1,
-      "suit": "Event",
+      "suit": "event",
       "cost": 1,
       "effects": [
         "Prevent all Challenges this turn."
@@ -25,7 +25,7 @@
     "mechanics": {
       "id": 309,
       "rank": 3,
-      "suit": "Event",
+      "suit": "event",
       "cost": 2,
       "effects": [
         "Return 1 Energy to its owner's hand.",
@@ -48,7 +48,7 @@
     "mechanics": {
       "id": 304,
       "rank": 4,
-      "suit": "Event",
+      "suit": "event",
       "cost": 3,
       "effects": [
         "Compost 1 Fauna."
@@ -70,7 +70,7 @@
     "mechanics": {
       "id": 305,
       "rank": 5,
-      "suit": "Event",
+      "suit": "event",
       "cost": 2,
       "effects": [
         "Prevent all Challenges this turn."
@@ -92,7 +92,7 @@
     "mechanics": {
       "id": 320,
       "rank": 13,
-      "suit": "Event",
+      "suit": "event",
       "cost": 6,
       "effects": [
         "Exhaust all Energy.",
@@ -116,7 +116,7 @@
     "mechanics": {
       "id": 303,
       "rank": 7,
-      "suit": "Event",
+      "suit": "event",
       "cost": 3,
       "effects": [
         "Cancel the Challenge.",
@@ -139,7 +139,7 @@
     "mechanics": {
       "id": 308,
       "rank": 8,
-      "suit": "Event",
+      "suit": "event",
       "cost": 3,
       "effects": [
         "Draw 3 cards."
@@ -161,7 +161,7 @@
     "mechanics": {
       "id": 314,
       "rank": 9,
-      "suit": "Event",
+      "suit": "event",
       "cost": 4,
       "effects": [
         "Prevent all Challenges this turn.",
@@ -184,7 +184,7 @@
     "mechanics": {
       "id": 302,
       "rank": 10,
-      "suit": "Event",
+      "suit": "event",
       "cost": 5,
       "effects": [
         "Prevent all Challenges this turn.",
@@ -207,7 +207,7 @@
     "mechanics": {
       "id": 312,
       "rank": 11,
-      "suit": "Event",
+      "suit": "event",
       "cost": 5,
       "effects": [
         "Each player draws 1 card.",
@@ -230,7 +230,7 @@
     "mechanics": {
       "id": 313,
       "rank": 12,
-      "suit": "Event",
+      "suit": "event",
       "cost": 5,
       "effects": [
         "Draw 3 cards.",
@@ -253,7 +253,7 @@
     "mechanics": {
       "id": 315,
       "rank": 13,
-      "suit": "Event",
+      "suit": "event",
       "cost": 5,
       "effects": [
         "Compost 1 opposing Fauna.",
