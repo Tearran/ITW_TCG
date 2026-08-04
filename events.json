@@ -15,7 +15,7 @@
       "fact": [
         "Cold snaps can damage desert vegetation."
       ],
-      "illustration": "artwork/events/desert_frost.svg",
+      "illustration": "artwork/event/desert_frost.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -60,7 +60,7 @@
       "fact": [
         "Summer monsoons bring much of the desert's annual rainfall."
       ],
-      "illustration": "artwork/events/monsoon_storm.svg",
+      "illustration": "artwork/event/monsoon_storm.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Rare"
@@ -82,7 +82,7 @@
       "fact": [
         "Dust storms reduce visibility and reshape the landscape."
       ],
-      "illustration": "artwork/events/haboob_winds.svg",
+      "illustration": "artwork/event/haboob_winds.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Rare"
@@ -106,7 +106,7 @@
       "fact": [
         "The American Southwest experienced a megadrought beginning around 2000, considered the driest multi-decade period in at least 1,200 years."
       ],
-      "illustration": "artwork/events/mega_drought.svg",
+      "illustration": "artwork/event/mega_drought.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Rare"
@@ -129,7 +129,7 @@
       "fact": [
         "Flash floods rapidly reshape desert washes."
       ],
-      "illustration": "artwork/events/flash_flood.svg",
+      "illustration": "artwork/event/flash_flood.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Rare"
@@ -151,7 +151,7 @@
       "fact": [
         "Field surveys help scientists monitor ecosystem health."
       ],
-      "illustration": "artwork/events/nature_survey.svg",
+      "illustration": "artwork/event/nature_survey.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Common"
@@ -172,7 +172,7 @@
       "name": "Skunk Spray",
       "scientific_name": "",
       "fact": [],
-      "illustration": "artwork/events/skunk.svg",
+      "illustration": "artwork/event/skunk.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Uncommon"
@@ -195,7 +195,7 @@
       "fact": [
         "Extreme heat stresses both plants and animals."
       ],
-      "illustration": "artwork/events/extreme_heat.svg",
+      "illustration": "artwork/event/extreme_heat.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Uncommon"
@@ -218,7 +218,7 @@
       "fact": [
         "Rainfall rapidly restores activity across desert ecosystems."
       ],
-      "illustration": "artwork/events/desert_rainfall.svg",
+      "illustration": "artwork/event/desert_rainfall.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Rare"
@@ -241,7 +241,7 @@
       "fact": [
         "Exceptional years allow many species to flourish simultaneously."
       ],
-      "illustration": "artwork/events/Roosevelt_lake_dam.svg",
+      "illustration": "artwork/event/Roosevelt_lake_dam.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Rare"
@@ -262,10 +262,32 @@
       "name": "Desert-nesting Bald Eagle",
       "scientific_name": "",
       "fact": [],
-      "illustration": "artwork/events/desert-nesting_bald_eagle.svg",
+      "illustration": "artwork/event/desert-nesting_bald_eagle.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 306,
+      "rank": 2,
+      "suit": "Event",
+      "cost": 1,
+      "effects": [
+        "Reduce 1 opposing Flora's Rank by 1."
+      ]
+    },
+    "metadata": {
+      "name": "Light Frost",
+      "scientific_name": "",
+      "fact": [
+        "A mild overnight chill can stunt tender new growth without killing established plants."
+      ],
+      "illustration": "artwork/event/desert_frost.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
     }
   }
 ]

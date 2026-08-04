@@ -198,6 +198,267 @@
 			color: #6a7a5a;
 			font-size: 12px;
 		}
+
+		button:focus-visible,
+		input:focus-visible,
+		select:focus-visible,
+		textarea:focus-visible,
+		.tab:focus-visible {
+			outline: 2px solid #9fd47a;
+			outline-offset: 2px;
+		}
+
+		nav.tabs {
+			display: flex;
+			gap: 6px;
+			margin-top: 8px;
+		}
+
+		.tab {
+			background: #223018;
+			border: 1px solid #445236;
+			color: #cfe0bd;
+			padding: 6px 14px;
+			border-radius: 4px 4px 0 0;
+			cursor: pointer;
+			font-size: 13px;
+		}
+
+		.tab[aria-selected="true"] {
+			background: #3c5a2a;
+			color: #fff;
+		}
+
+		#deckBuilderView {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			padding: 12px;
+			height: calc(100vh - 96px);
+			overflow-y: auto;
+		}
+
+		.pool-panel {
+			flex: 1 1 340px;
+			min-width: 300px;
+			display: flex;
+			flex-direction: column;
+			border: 1px solid #445236;
+			border-radius: 6px;
+			padding: 10px;
+			max-height: 100%;
+		}
+
+		.pool-controls {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 6px;
+			margin-bottom: 8px;
+		}
+
+		.suit-filter-btn {
+			background: #223018;
+			border: 1px solid #445236;
+			color: #cfe0bd;
+			padding: 5px 10px;
+			border-radius: 12px;
+			cursor: pointer;
+			font-size: 12px;
+		}
+
+		.suit-filter-btn[aria-pressed="true"] {
+			background: #3c5a2a;
+			color: #fff;
+		}
+
+		#poolSearch {
+			width: 100%;
+			margin-bottom: 8px;
+		}
+
+		#poolList {
+			flex: 1;
+			overflow-y: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		.pool-card {
+			display: flex;
+			gap: 8px;
+			border: 1px solid #445236;
+			border-radius: 6px;
+			padding: 6px;
+			background: #202718;
+		}
+
+		.pc-thumb,
+		.dc-thumb {
+			width: 48px;
+			height: 48px;
+			flex: none;
+			border-radius: 4px;
+			background: #eff3e8;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 11px;
+			color: #445236;
+			text-align: center;
+		}
+
+		.pc-thumb img,
+		.dc-thumb img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		.pc-body {
+			flex: 1;
+			min-width: 0;
+		}
+
+		.pc-name {
+			font-size: 13px;
+			font-weight: bold;
+		}
+
+		.pc-meta {
+			font-size: 11px;
+			color: #9db388;
+			margin: 2px 0;
+		}
+
+		.pc-effects {
+			margin: 4px 0;
+			padding: 0;
+			list-style: none;
+			font-size: 11px;
+			color: #cfe0bd;
+		}
+
+		.pc-actions {
+			display: flex;
+			align-items: flex-start;
+		}
+
+		.pc-add {
+			font-size: 11px;
+			padding: 4px 8px;
+		}
+
+		.pc-add:disabled {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+
+		.deck-panel {
+			flex: 2 1 640px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			align-content: flex-start;
+		}
+
+		.deck-column {
+			flex: 1 1 260px;
+			min-width: 220px;
+			border: 1px solid #445236;
+			border-radius: 6px;
+			padding: 8px;
+			max-height: calc(100vh - 220px);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.deck-column h3 {
+			margin: 0 0 6px;
+			font-size: 14px;
+			color: #cfe0bd;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.deck-column h3 .count.complete {
+			color: #9fd47a;
+		}
+
+		.deck-list {
+			flex: 1;
+			overflow-y: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+		}
+
+		.deck-card {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			border: 1px solid #33402a;
+			border-radius: 4px;
+			padding: 4px;
+			font-size: 12px;
+		}
+
+		.dc-thumb {
+			width: 32px;
+			height: 32px;
+			font-size: 9px;
+		}
+
+		.dc-info {
+			flex: 1;
+			min-width: 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.dc-remove {
+			font-size: 11px;
+			padding: 2px 6px;
+			background: #6a2c2c;
+			border-color: #8a3c3c;
+		}
+
+		.deck-footer {
+			flex: 1 1 100%;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			border-top: 1px solid #445236;
+			padding-top: 10px;
+		}
+
+		#deckTotal {
+			font-size: 14px;
+			color: #cfe0bd;
+		}
+
+		#deckStatus {
+			font-size: 12px;
+			color: #cfe0bd;
+			flex: 1;
+		}
+
+		@media (max-width: 900px) {
+			#deckBuilderView {
+				flex-direction: column;
+				height: auto;
+			}
+
+			.pool-panel {
+				max-height: 400px;
+			}
+
+			.deck-column {
+				max-height: 320px;
+			}
+		}
 	</style>
 </head>
 
@@ -206,8 +467,12 @@
 		<h1>Into the Wild TCG - Card Builder</h1>
 		<p>Create, edit, and export the compiled card list (mechanics + metadata combined). No separate
 			Mechanics/Metadata JSON import needed.</p>
+		<nav class="tabs" role="tablist" aria-label="Views">
+			<button type="button" id="tabEditor" class="tab" role="tab" aria-selected="true" aria-controls="editorView">Card Editor</button>
+			<button type="button" id="tabDeckBuilder" class="tab" role="tab" aria-selected="false" aria-controls="deckBuilderView">Deck Builder</button>
+		</nav>
 	</header>
-	<main>
+	<main id="editorView">
 		<aside>
 			<div class="toolbar">
 				<button id="btnNew">+ New Card</button>
@@ -328,6 +593,46 @@
 				<button type="button" id="btnDelete" class="danger">Delete Card</button>
 			</form>
 		</section>
+	</main>
+
+	<main id="deckBuilderView" hidden>
+		<div class="pool-panel">
+			<h2 style="margin:0 0 8px;font-size:15px;">Card Pool</h2>
+			<div class="pool-controls" role="group" aria-label="Filter card pool by suit">
+				<button type="button" class="suit-filter-btn" data-suit="All" aria-pressed="true">All</button>
+				<button type="button" class="suit-filter-btn" data-suit="Energy" aria-pressed="false">Energy</button>
+				<button type="button" class="suit-filter-btn" data-suit="Flora" aria-pressed="false">Flora</button>
+				<button type="button" class="suit-filter-btn" data-suit="Fauna" aria-pressed="false">Fauna</button>
+				<button type="button" class="suit-filter-btn" data-suit="Event" aria-pressed="false">Event</button>
+			</div>
+			<label for="poolSearch" style="font-size:12px;color:#cfe0bd;">Search by name</label>
+			<input type="text" id="poolSearch" placeholder="Search card names...">
+			<div id="poolList" aria-label="Card pool"></div>
+		</div>
+		<div class="deck-panel">
+			<div class="deck-column" data-suit="Energy">
+				<h3>Energy <span class="count" id="countEnergy">0 / 13</span></h3>
+				<div class="deck-list" id="deckListEnergy" aria-label="Energy deck cards"></div>
+			</div>
+			<div class="deck-column" data-suit="Flora">
+				<h3>Flora <span class="count" id="countFlora">0 / 13</span></h3>
+				<div class="deck-list" id="deckListFlora" aria-label="Flora deck cards"></div>
+			</div>
+			<div class="deck-column" data-suit="Fauna">
+				<h3>Fauna <span class="count" id="countFauna">0 / 13</span></h3>
+				<div class="deck-list" id="deckListFauna" aria-label="Fauna deck cards"></div>
+			</div>
+			<div class="deck-column" data-suit="Event">
+				<h3>Event <span class="count" id="countEvent">0 / 13</span></h3>
+				<div class="deck-list" id="deckListEvent" aria-label="Event deck cards"></div>
+			</div>
+			<div class="deck-footer">
+				<span id="deckTotal">Total: 0 / 52</span>
+				<span id="deckStatus" role="status"></span>
+				<button type="button" id="btnExportDeck" disabled>Export Deck</button>
+				<button type="button" id="btnClearDeck" class="secondary">Clear Deck</button>
+			</div>
+		</div>
 	</main>
 
 	<script>
@@ -737,6 +1042,320 @@
 				} else {
 					setStatus('Ready.');
 				}
+			});
+
+			// ---- Deck Builder ----
+			var DECK_STORAGE_KEY = 'itw_tcg_deck_selection';
+			var DECK_SOURCES = [
+				{ suit: 'Energy', path: 'energy.json' },
+				{ suit: 'Flora', path: 'flora.json' },
+				{ suit: 'Fauna', path: 'fauna.json' },
+				{ suit: 'Event', path: 'events.json' }
+			];
+			var deckPool = [];
+			var deck = { Energy: [], Flora: [], Fauna: [], Event: [] };
+			var poolFilterSuit = 'All';
+			var poolSearchTerm = '';
+
+			function setDeckStatus(msg) {
+				document.getElementById('deckStatus').textContent = msg;
+			}
+
+			function loadDeck() {
+				try {
+					var raw = localStorage.getItem(DECK_STORAGE_KEY);
+					var parsed = raw ? JSON.parse(raw) : null;
+					if (parsed && typeof parsed === 'object') {
+						SUIT_ORDER.forEach(function (suit) {
+							deck[suit] = Array.isArray(parsed[suit])
+								? parsed[suit].filter(function (id) { return typeof id === 'number'; })
+								: [];
+						});
+					}
+				} catch (e) {
+					deck = { Energy: [], Flora: [], Fauna: [], Event: [] };
+				}
+			}
+
+			function persistDeck() {
+				localStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(deck));
+			}
+
+			function findPoolCard(id) {
+				for (var i = 0; i < deckPool.length; i++) {
+					if (deckPool[i].mechanics.id === id) return deckPool[i];
+				}
+				return null;
+			}
+
+			function isCardInDeck(id) {
+				return SUIT_ORDER.some(function (suit) { return deck[suit].indexOf(id) !== -1; });
+			}
+
+			function loadDeckSources() {
+				var errors = [];
+				var malformedCount = 0;
+				return Promise.all(DECK_SOURCES.map(function (src) {
+					return fetchJson(src.path).then(function (data) {
+						if (!Array.isArray(data)) {
+							errors.push(src.path + ': expected a JSON array.');
+							return [];
+						}
+						var normalized = [];
+						data.forEach(function (raw) {
+							var card = normalizeCard(raw);
+							if (!card) {
+								malformedCount++;
+							} else {
+								normalized.push(card);
+							}
+						});
+						return normalized;
+					}).catch(function (err) {
+						errors.push(src.path + ': ' + err.message);
+						return [];
+					});
+				})).then(function (results) {
+					deckPool = [].concat.apply([], results);
+					var msg = 'Deck builder: loaded ' + deckPool.length + ' card(s) from ' + DECK_SOURCES.length + ' source(s).';
+					if (malformedCount) msg += ' ' + malformedCount + ' malformed record(s) skipped.';
+					if (errors.length) msg += ' Errors: ' + errors.join(' ');
+					setDeckStatus(msg);
+					setStatus(msg);
+				});
+			}
+
+			function buildThumb(className, path, name) {
+				var thumb = document.createElement('div');
+				thumb.className = className;
+				var img = document.createElement('img');
+				img.src = path || '';
+				img.alt = name ? name + ' illustration' : 'Card illustration';
+				img.onerror = function () {
+					thumb.innerHTML = '';
+					var span = document.createElement('span');
+					span.textContent = (name || '?').charAt(0).toUpperCase();
+					thumb.appendChild(span);
+				};
+				thumb.appendChild(img);
+				return thumb;
+			}
+
+			function renderPool() {
+				var list = document.getElementById('poolList');
+				list.innerHTML = '';
+				var term = poolSearchTerm.trim().toLowerCase();
+				var filtered = deckPool.filter(function (card) {
+					var mech = card.mechanics;
+					var meta = card.metadata;
+					if (poolFilterSuit !== 'All' && mech.suit !== poolFilterSuit) return false;
+					if (term && (meta.name || '').toLowerCase().indexOf(term) === -1) return false;
+					return true;
+				});
+				if (!filtered.length) {
+					var empty = document.createElement('div');
+					empty.textContent = 'No cards match the current filter.';
+					list.appendChild(empty);
+					return;
+				}
+				filtered.forEach(function (card) {
+					var mech = card.mechanics;
+					var meta = card.metadata;
+					var row = document.createElement('div');
+					row.className = 'pool-card';
+					row.appendChild(buildThumb('pc-thumb', meta.illustration, meta.name));
+
+					var body = document.createElement('div');
+					body.className = 'pc-body';
+					var nameEl = document.createElement('div');
+					nameEl.className = 'pc-name';
+					nameEl.textContent = meta.name || '(unnamed)';
+					var metaEl = document.createElement('div');
+					metaEl.className = 'pc-meta';
+					metaEl.textContent = mech.suit + ' \u2022 Rank ' + mech.rank + ' \u2022 Cost ' + mech.cost + ' \u2022 ' + (meta.rarity || '');
+					var effectsEl = document.createElement('ul');
+					effectsEl.className = 'pc-effects';
+					(mech.effects || []).forEach(function (effect) {
+						var li = document.createElement('li');
+						li.textContent = effect;
+						effectsEl.appendChild(li);
+					});
+					body.appendChild(nameEl);
+					body.appendChild(metaEl);
+					body.appendChild(effectsEl);
+
+					var actions = document.createElement('div');
+					actions.className = 'pc-actions';
+					var addBtn = document.createElement('button');
+					addBtn.type = 'button';
+					addBtn.className = 'pc-add';
+					addBtn.textContent = '+ Add';
+					var inDeck = isCardInDeck(mech.id);
+					var suitFull = deck[mech.suit].length >= 13;
+					addBtn.disabled = inDeck || suitFull;
+					addBtn.setAttribute('aria-label',
+						(inDeck ? 'Already in deck: ' : suitFull ? mech.suit + ' deck is full, cannot add: ' : 'Add ') +
+						(meta.name || 'card') + ' to ' + mech.suit + ' deck');
+					addBtn.addEventListener('click', function () {
+						addCardToDeck(mech.id);
+					});
+					actions.appendChild(addBtn);
+
+					row.appendChild(body);
+					row.appendChild(actions);
+					list.appendChild(row);
+				});
+			}
+
+			function renderDeck() {
+				SUIT_ORDER.forEach(function (suit) {
+					var listEl = document.getElementById('deckList' + suit);
+					listEl.innerHTML = '';
+					deck[suit].forEach(function (id) {
+						var card = findPoolCard(id);
+						if (!card) return;
+						var mech = card.mechanics;
+						var meta = card.metadata;
+						var row = document.createElement('div');
+						row.className = 'deck-card';
+						row.appendChild(buildThumb('dc-thumb', meta.illustration, meta.name));
+						var info = document.createElement('div');
+						info.className = 'dc-info';
+						info.textContent = (meta.name || '(unnamed)') + ' \u2022 Rank ' + mech.rank;
+						var removeBtn = document.createElement('button');
+						removeBtn.type = 'button';
+						removeBtn.className = 'dc-remove';
+						removeBtn.textContent = '\u00d7';
+						removeBtn.setAttribute('aria-label', 'Remove ' + (meta.name || 'card') + ' from ' + suit + ' deck');
+						removeBtn.addEventListener('click', function () {
+							removeCardFromDeck(suit, id);
+						});
+						row.appendChild(info);
+						row.appendChild(removeBtn);
+						listEl.appendChild(row);
+					});
+					var countEl = document.getElementById('count' + suit);
+					var count = deck[suit].length;
+					countEl.textContent = count + ' / 13';
+					countEl.classList.toggle('complete', count === 13);
+				});
+				var total = SUIT_ORDER.reduce(function (sum, suit) { return sum + deck[suit].length; }, 0);
+				document.getElementById('deckTotal').textContent = 'Total: ' + total + ' / 52';
+				var allUnique = (function () {
+					var seen = {};
+					for (var s = 0; s < SUIT_ORDER.length; s++) {
+						for (var j = 0; j < deck[SUIT_ORDER[s]].length; j++) {
+							var id = deck[SUIT_ORDER[s]][j];
+							if (seen[id]) return false;
+							seen[id] = true;
+						}
+					}
+					return true;
+				})();
+				var valid = allUnique && total === 52 && SUIT_ORDER.every(function (suit) { return deck[suit].length === 13; });
+				document.getElementById('btnExportDeck').disabled = !valid;
+			}
+
+			function addCardToDeck(id) {
+				var card = findPoolCard(id);
+				if (!card) return;
+				var suit = card.mechanics.suit;
+				if (isCardInDeck(id)) {
+					setDeckStatus('Card is already in the deck.');
+					return;
+				}
+				if (deck[suit].length >= 13) {
+					setDeckStatus(suit + ' already has 13 cards.');
+					return;
+				}
+				deck[suit].push(id);
+				persistDeck();
+				renderPool();
+				renderDeck();
+				setDeckStatus('Added "' + (card.metadata.name || 'card') + '" to ' + suit + '.');
+			}
+
+			function removeCardFromDeck(suit, id) {
+				var idx = deck[suit].indexOf(id);
+				if (idx === -1) return;
+				deck[suit].splice(idx, 1);
+				persistDeck();
+				renderPool();
+				renderDeck();
+				setDeckStatus('Removed card from ' + suit + '.');
+			}
+
+			function clearDeck() {
+				SUIT_ORDER.forEach(function (suit) { deck[suit] = []; });
+				persistDeck();
+				renderPool();
+				renderDeck();
+				setDeckStatus('Deck cleared.');
+			}
+
+			function exportDeck() {
+				var total = SUIT_ORDER.reduce(function (sum, suit) { return sum + deck[suit].length; }, 0);
+				var valid = total === 52 && SUIT_ORDER.every(function (suit) { return deck[suit].length === 13; });
+				if (!valid) {
+					setDeckStatus('Deck must contain exactly 13 cards in each suit (52 total) to export.');
+					return;
+				}
+				var exportCards = [];
+				SUIT_ORDER.forEach(function (suit) {
+					deck[suit].forEach(function (id) {
+						var card = findPoolCard(id);
+						if (card) exportCards.push(card);
+					});
+				});
+				var blob = new Blob([JSON.stringify(exportCards, null, 2)], { type: 'application/json' });
+				var url = URL.createObjectURL(blob);
+				var a = document.createElement('a');
+				a.href = url;
+				a.download = 'standard-deck.json';
+				document.body.appendChild(a);
+				a.click();
+				document.body.removeChild(a);
+				URL.revokeObjectURL(url);
+				setDeckStatus('Exported standard-deck.json (52 cards).');
+			}
+
+			function showEditorView() {
+				document.getElementById('editorView').hidden = false;
+				document.getElementById('deckBuilderView').hidden = true;
+				document.getElementById('tabEditor').setAttribute('aria-selected', 'true');
+				document.getElementById('tabDeckBuilder').setAttribute('aria-selected', 'false');
+			}
+
+			function showDeckBuilderView() {
+				document.getElementById('editorView').hidden = true;
+				document.getElementById('deckBuilderView').hidden = false;
+				document.getElementById('tabEditor').setAttribute('aria-selected', 'false');
+				document.getElementById('tabDeckBuilder').setAttribute('aria-selected', 'true');
+			}
+
+			document.getElementById('tabEditor').addEventListener('click', showEditorView);
+			document.getElementById('tabDeckBuilder').addEventListener('click', showDeckBuilderView);
+
+			document.querySelectorAll('.suit-filter-btn').forEach(function (btn) {
+				btn.addEventListener('click', function () {
+					poolFilterSuit = btn.getAttribute('data-suit');
+					document.querySelectorAll('.suit-filter-btn').forEach(function (b) {
+						b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+					});
+					renderPool();
+				});
+			});
+			document.getElementById('poolSearch').addEventListener('input', function (e) {
+				poolSearchTerm = e.target.value;
+				renderPool();
+			});
+			document.getElementById('btnExportDeck').addEventListener('click', exportDeck);
+			document.getElementById('btnClearDeck').addEventListener('click', clearDeck);
+
+			loadDeck();
+			loadDeckSources().then(function () {
+				renderPool();
+				renderDeck();
 			});
 		})();
 	</script>

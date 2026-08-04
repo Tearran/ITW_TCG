@@ -250,5 +250,27 @@
       "expansion": "Alpha",
       "rarity": "Rare"
     }
+  },
+  {
+    "mechanics": {
+      "id": 114,
+      "rank": 10,
+      "suit": "Flora",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Fauna."
+      ]
+    },
+    "metadata": {
+      "name": "Teddy Bear Cholla",
+      "scientific_name": "Cylindropuntia bigelovii",
+      "fact": [
+        "Its barbed segments detach easily, deterring nearly every animal that brushes against it."
+      ],
+      "illustration": "artwork/flora/teddy_bear_cholla.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
   }
 ]
