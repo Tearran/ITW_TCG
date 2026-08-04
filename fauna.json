@@ -332,26 +332,5 @@
       "expansion": "Alpha",
       "rarity": "Rare"
     }
-  },
-  {
-    "mechanics": {
-      "id": 210,
-      "rank": 13,
-      "suit": "Fauna",
-      "cost": 5,
-      "effects": [
-        "Exhaust 1 Energy.",
-        "Compost 1 Fauna."
-      ]
-    },
-    "metadata": {
-      "name": "Bald Eagle",
-      "scientific_name": "",
-      "fact": [],
-      "illustration": "artwork/fauna/desert-nesting_bald_eagle.svg",
-      "artist": "Tearran Studios",
-      "expansion": "Alpha",
-      "rarity": "Rare"
-    }
   }
 ]
