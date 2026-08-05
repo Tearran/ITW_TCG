@@ -139,77 +139,132 @@
     return state.room.players[slot].name + (slot === state.room.youAre ? ' (You)' : '');
   }
 
-  function cardHtml(card, extra) {
-    const effects = (card.mechanics.effects || []).map(function (effect) {
-      return '<li>' + escapeHtml(effect) + '</li>';
-    }).join('');
-    const unsupported = (card.unsupportedEffects || []).length
-      ? '<p class="muted">Manual: ' + escapeHtml(card.unsupportedEffects.join(' | ')) + '</p>'
-      : '';
-    return '<article class="card">'
-      + '<header><h4>' + escapeHtml(card.metadata.name) + '</h4><span class="tag">R' + card.mechanics.rank + '</span></header>'
-      + '<div class="tags"><span class="tag">' + escapeHtml(card.mechanics.suit) + '</span><span class="tag">Cost ' + card.mechanics.cost + '</span>'
-      + '<span class="tag">Eff ' + card.effectiveRank + '</span>'
-      + '<span class="tag">' + (card.exhausted ? 'Exhausted' : 'Ready') + '</span></div>'
-      + (extra || '')
-      + '<ul>' + effects + '</ul>'
-      + unsupported
-      + '</article>';
+  function setChildren(parent, children) {
+    parent.replaceChildren.apply(parent, children);
+  }
+
+  function el(tag, options) {
+    const node = document.createElement(tag);
+    const opts = options || {};
+    if (opts.className) node.className = opts.className;
+    if (opts.text != null) node.textContent = String(opts.text);
+    if (opts.html != null) node.innerHTML = opts.html;
+    if (opts.attrs) {
+      Object.keys(opts.attrs).forEach(function (key) {
+        node.setAttribute(key, String(opts.attrs[key]));
+      });
+    }
+    if (opts.children) setChildren(node, opts.children);
+    return node;
+  }
+
+  function createCardNode(card, options) {
+    const article = el('article', { className: 'card' });
+    const header = el('header');
+    header.append(el('h4', { text: card.metadata.name }));
+    header.append(el('span', { className: 'tag', text: 'R' + card.mechanics.rank }));
+
+    const tags = el('div', { className: 'tags' });
+    ['' + card.mechanics.suit, 'Cost ' + card.mechanics.cost, 'Eff ' + card.effectiveRank, card.exhausted ? 'Exhausted' : 'Ready']
+      .forEach(function (label) {
+        tags.append(el('span', { className: 'tag', text: label }));
+      });
+
+    const list = el('ul');
+    (card.mechanics.effects || []).forEach(function (effect) {
+      list.append(el('li', { text: effect }));
+    });
+
+    article.append(header, tags);
+
+    if (options && typeof options.onPlay === 'function') {
+      const button = el('button', { text: 'Play card' });
+      button.addEventListener('click', options.onPlay);
+      article.append(button);
+    }
+
+    article.append(list);
+
+    if ((card.unsupportedEffects || []).length) {
+      article.append(el('p', { className: 'muted', text: 'Manual: ' + card.unsupportedEffects.join(' | ') }));
+    }
+
+    return article;
   }
 
   function renderPlayersStatus() {
     if (!state.room) {
-      elements.playersStatus.innerHTML = '<p class="muted">Create or join a room.</p>';
+      setChildren(elements.playersStatus, [el('p', { className: 'muted', text: 'Create or join a room.' })]);
       return;
     }
-    elements.playersStatus.innerHTML = ['player1', 'player2'].map(function (slot) {
+    const nodes = ['player1', 'player2'].map(function (slot) {
       const player = state.room.players[slot];
-      if (!player) return '<div class="player-pill"><span>' + slot + '</span><span>Waiting for player…</span></div>';
-      return '<div class="player-pill"><span>' + escapeHtml(player.name) + '</span><span>' + (player.connected ? 'Connected' : 'Disconnected') + '</span></div>';
-    }).join('');
+      const pill = el('div', { className: 'player-pill' });
+      pill.append(el('span', { text: player ? player.name : slot }));
+      pill.append(el('span', { text: player ? (player.connected ? 'Connected' : 'Disconnected') : 'Waiting for player…' }));
+      return pill;
+    });
+    setChildren(elements.playersStatus, nodes);
+  }
+
+  function renderZone(title, cards) {
+    const zone = el('div', { className: 'zone' });
+    zone.append(el('h4', { text: title }));
+    const list = el('div', { className: 'card-list' });
+    if (cards.length) {
+      cards.forEach(function (card) { list.append(createCardNode(card)); });
+    } else {
+      list.append(el('p', { className: 'muted', text: 'None' }));
+    }
+    zone.append(list);
+    return zone;
   }
 
   function renderBoard() {
     if (!state.room) {
-      elements.boardArea.innerHTML = '<p class="muted">No room joined.</p>';
+      setChildren(elements.boardArea, [el('p', { className: 'muted', text: 'No room joined.' })]);
       return;
     }
-    elements.boardArea.innerHTML = ['player1', 'player2'].map(function (slot) {
+    const nodes = ['player1', 'player2'].map(function (slot) {
       const player = state.room.players[slot];
-      if (!player) return '';
-      return '<section class="board-player ' + (state.room.turnPlayer === slot ? 'active' : '') + '">'
-        + '<header><h3>' + escapeHtml(zoneLabel(slot)) + '</h3><div class="muted">Deck ' + player.deckCount + ' • Hand ' + player.handCount + ' • Compost ' + player.compostCount + '</div></header>'
-        + '<div class="zone-grid">'
-        + renderZone('Energy', player.board.energy)
-        + renderZone('Support', player.board.support)
-        + renderZone('Wildlife', player.board.wildlife)
-        + '</div>'
-        + '</section>';
-    }).join('');
-  }
-
-  function renderZone(title, cards) {
-    return '<div class="zone"><h4>' + title + '</h4><div class="card-list">'
-      + (cards.length ? cards.map(function (card) { return cardHtml(card); }).join('') : '<p class="muted">None</p>')
-      + '</div></div>';
+      if (!player) return null;
+      const section = el('section', { className: 'board-player' + (state.room.turnPlayer === slot ? ' active' : '') });
+      const header = el('header');
+      header.append(el('h3', { text: zoneLabel(slot) }));
+      header.append(el('div', {
+        className: 'muted',
+        text: 'Deck ' + player.deckCount + ' • Hand ' + player.handCount + ' • Compost ' + player.compostCount
+      }));
+      const grid = el('div', { className: 'zone-grid' });
+      grid.append(renderZone('Energy', player.board.energy));
+      grid.append(renderZone('Support', player.board.support));
+      grid.append(renderZone('Wildlife', player.board.wildlife));
+      section.append(header, grid);
+      return section;
+    }).filter(Boolean);
+    setChildren(elements.boardArea, nodes);
   }
 
   function renderHand() {
     const you = state.room && state.room.players[state.room.youAre];
     if (!you) {
-      elements.handArea.innerHTML = '<p class="muted">Your hand will appear here.</p>';
       elements.handCountLabel.textContent = '0 cards';
+      setChildren(elements.handArea, [el('p', { className: 'muted', text: 'Your hand will appear here.' })]);
       return;
     }
     elements.handCountLabel.textContent = you.hand.length + ' card' + (you.hand.length === 1 ? '' : 's');
-    elements.handArea.innerHTML = you.hand.map(function (card, index) {
-      return cardHtml(card, '<button data-play-index="' + index + '">Play card</button>');
-    }).join('') || '<p class="muted">No cards in hand.</p>';
-    Array.prototype.forEach.call(elements.handArea.querySelectorAll('[data-play-index]'), function (button) {
-      button.addEventListener('click', function () {
-        sendAction({ type: 'play_card', handIndex: Number(button.getAttribute('data-play-index')) });
+    if (!you.hand.length) {
+      setChildren(elements.handArea, [el('p', { className: 'muted', text: 'No cards in hand.' })]);
+      return;
+    }
+    const cards = you.hand.map(function (card, index) {
+      return createCardNode(card, {
+        onPlay: function () {
+          sendAction({ type: 'play_card', handIndex: index });
+        }
       });
     });
+    setChildren(elements.handArea, cards);
   }
 
   function renderSelectors() {
@@ -227,30 +282,43 @@
   }
 
   function fillSelect(select, options) {
-    select.innerHTML = '<option value="">Select…</option>' + options.map(function (item) {
-      return '<option value="' + escapeHtml(item.value) + '">' + escapeHtml(item.label) + '</option>';
-    }).join('');
+    const nodes = [el('option', { text: 'Select…', attrs: { value: '' } })];
+    options.forEach(function (item) {
+      nodes.push(el('option', { text: item.label, attrs: { value: item.value } }));
+    });
+    setChildren(select, nodes);
   }
 
   function renderLog() {
     const log = state.room ? state.room.log : [];
-    elements.logArea.innerHTML = log.length ? log.slice().reverse().map(function (entry) {
-      return '<div class="log-entry ' + escapeHtml(entry.type) + '"><strong>' + escapeHtml(entry.type) + '</strong><div>' + escapeHtml(entry.text) + '</div></div>';
-    }).join('') : '<p class="muted">Action log is empty.</p>';
+    if (!log.length) {
+      setChildren(elements.logArea, [el('p', { className: 'muted', text: 'Action log is empty.' })]);
+      return;
+    }
+    const nodes = log.slice().reverse().map(function (entry) {
+      const wrapper = el('div', { className: 'log-entry ' + entry.type });
+      wrapper.append(el('strong', { text: entry.type }));
+      wrapper.append(el('div', { text: entry.text }));
+      return wrapper;
+    });
+    setChildren(elements.logArea, nodes);
   }
 
   function renderResult() {
     const room = state.room;
     if (!room || !room.gameOver || !room.finalResult) {
       elements.resultPanel.hidden = true;
+      setChildren(elements.resultBody, []);
       return;
     }
     elements.resultPanel.hidden = false;
     const winner = room.players[room.winner];
-    elements.resultBody.innerHTML = '<p><strong>Winner:</strong> ' + escapeHtml(winner ? winner.name : '—') + '</p>'
-      + '<p><strong>Reason:</strong> ' + escapeHtml(room.finalResult.reason || '—') + '</p>'
-      + '<p><strong>Seed:</strong> ' + escapeHtml(room.finalResult.seed || '—') + '</p>'
-      + '<p><strong>Scores:</strong> ' + room.finalResult.scores.player1 + ' - ' + room.finalResult.scores.player2 + '</p>';
+    setChildren(elements.resultBody, [
+      el('p', { text: 'Winner: ' + (winner ? winner.name : '—') }),
+      el('p', { text: 'Reason: ' + (room.finalResult.reason || '—') }),
+      el('p', { text: 'Seed: ' + (room.finalResult.seed || '—') }),
+      el('p', { text: 'Scores: ' + room.finalResult.scores.player1 + ' - ' + room.finalResult.scores.player2 })
+    ]);
   }
 
   function render() {
@@ -268,15 +336,6 @@
     renderSelectors();
     renderLog();
     renderResult();
-  }
-
-  function escapeHtml(value) {
-    return String(value == null ? '' : value)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
   }
 
   elements.createRoomButton.addEventListener('click', function () {
