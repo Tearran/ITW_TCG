@@ -1466,3 +1466,144 @@ The following choices were made to satisfy the one-card-per-rank invariant for e
 **events.json** — Rank 13 had two entries (Mega Drought id 320, Desert-nesting Bald Eagle id 315) and rank 2 and rank 6 were missing. Mega Drought was reassigned to rank 2. Diversion Dam (id 306) was added as the new Rank 6 Event card using existing artwork (`artwork/event/divertion_dam.svg`).
 
 > **Note:** `mechanics.suit` is the sole authoritative source of a card's suit. Metadata fields, artwork directory paths, common names, and scientific names must never be used to determine gameplay suit.
+
+
+---
+
+## Go HTTP/SSE Multiplayer Alpha
+
+This repository now includes a primary experimental multiplayer implementation in `/server` using a small Go server and a compact browser client in `/game.html`.
+
+### Architecture
+
+- `server/` contains a server-authoritative rules engine plus HTTP and SSE handlers.
+- The browser client sends **intent-only** JSON actions over HTTP POST.
+- The server validates actions, mutates room state serially, and pushes **player-specific sanitized** state snapshots over SSE-style event streams.
+- Rooms are in-memory for this alpha and are limited to **two players**.
+- Existing WebRTC/manual-signaling work is not used as the primary transport for this path.
+
+### Files
+
+- `/game.html` — compact single-page multiplayer UI
+- `/server/main` (run with `go run ./server`) — HTTP server entry point
+- `/server/engine.go` — rules engine
+- `/server/server.go` — room, API, and SSE logic
+- `/server/cards.go` — loader for `energy.json`, `support.json`, `wildlife.json`, and `events.json`
+
+### Run locally on Debian/Armbian
+
+Install Go, then from the repository root:
+
+```bash
+go run ./server
+```
+
+The server listens on:
+
+```text
+http://127.0.0.1:8080
+```
+
+Open the compact multiplayer UI in a browser by visiting:
+
+```text
+http://127.0.0.1:8080/game.html
+```
+
+To build a local binary:
+
+```bash
+cd server
+go build ./...
+```
+
+To run tests:
+
+```bash
+cd server
+go test ./...
+```
+
+### HTTP/SSE protocol overview
+
+Version string:
+
+```text
+v1alpha1
+```
+
+Endpoints:
+
+- `POST /api/rooms` — create a room and return `{ type, version, roomCode, playerIndex, playerToken }`
+- `POST /api/rooms/{code}/join` — join as player 1 and return `{ type, version, roomCode, playerIndex, playerToken }`
+- `GET /api/rooms/{code}/events` — authenticated player-specific SSE stream
+- `POST /api/rooms/{code}/actions` — authenticated action submission
+- `POST /api/rooms/{code}/leave` — authenticated leave action
+- `GET /healthz` — health check
+
+Example action envelope:
+
+```json
+{
+  "version": "v1alpha1",
+  "type": "action",
+  "action": {
+    "type": "mulliganDecision",
+    "choice": "keep"
+  }
+}
+```
+
+Structured error shape:
+
+```json
+{
+  "error": {
+    "code": "invalid_action",
+    "message": "challenge must resolve before other actions"
+  }
+}
+```
+
+### Security and state model
+
+- Room codes and player tokens use `crypto/rand`.
+- Request bodies are size-limited.
+- Actions are validated server-side.
+- Opponent hand contents, deck order, player tokens, and server-only deck state are not exposed in room snapshots.
+- Room mutation is serialized with per-room locking.
+- SSE streams send keepalive comments.
+- Reconnect support is snapshot-based for alpha: clients may send `Last-Event-ID`, and the server responds with a fresh full snapshot rather than replaying historical deltas.
+
+### Current alpha rules coverage
+
+Implemented and tested in the Go engine:
+
+- independent once-per-player mulligans before round 1
+- challenge declaration and full resolution with explicit pending challenge state
+- effective rank using printed rank, exhaustion, and hosted-wildlife `+2 Rank`
+- support-hosted wildlife relationships with explicit serializable host/hosted links
+- round-end scoring using printed rank in play minus printed rank still in hand
+- round-end game over when one or more players have zero cards in hand
+- deck-empty draw loss
+
+### Chosen alpha behavior for underspecified support interactions
+
+The current supported hosting behavior is intentionally narrow and explicit:
+
+- `Move 1 Wildlife to this card.` creates a pending player choice only when the acting player controls at least one legal Wildlife already in play.
+- If there is no legal Wildlife to move, the support stays in play and no extra prompt is shown.
+- Moving already-hosted Wildlife is allowed; the Wildlife is detached from its previous host and attached to the new Support.
+- If a Support leaves play, its hosted Wildlife remains in play under the same owner and becomes unhosted.
+- Hosted Wildlife stays challengeable unless another effect says otherwise.
+- Hosted Wildlife scoring still uses **Printed Rank** only; the host bonus affects **Effective Rank** during gameplay but not final scoring.
+
+### Limitations
+
+This is an in-memory alpha implementation.
+
+- No persistent storage
+- No spectator support
+- No replay buffer for old SSE events beyond fresh reconnect snapshots
+- The compact UI focuses on the tested vertical slice and does not yet cover every future card effect in the JSON data
+- Unsupported effects must still be implemented separately before claiming full rules completeness
