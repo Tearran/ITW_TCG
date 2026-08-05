@@ -1466,3 +1466,83 @@ The following choices were made to satisfy the one-card-per-rank invariant for e
 **events.json** — Rank 13 had two entries (Mega Drought id 320, Desert-nesting Bald Eagle id 315) and rank 2 and rank 6 were missing. Mega Drought was reassigned to rank 2. Diversion Dam (id 306) was added as the new Rank 6 Event card using existing artwork (`artwork/event/divertion_dam.svg`).
 
 > **Note:** `mechanics.suit` is the sole authoritative source of a card's suit. Metadata fields, artwork directory paths, common names, and scientific names must never be used to determine gameplay suit.
+
+
+## Multiplayer MVP (local development)
+
+A separate remote-play MVP is available at `/game.html`. The original card builder remains at `/index.html`.
+
+### Local installation
+
+1. Install Node.js 18+.
+2. From the repository root run:
+
+```bash
+npm install
+```
+
+### Start the server
+
+```bash
+npm start
+```
+
+The server serves both the builder and the multiplayer client from `http://localhost:3000/` by default.
+
+### Open the client
+
+- Card builder: `http://localhost:3000/index.html`
+- Multiplayer MVP: `http://localhost:3000/game.html`
+
+### Create and join a room
+
+1. Open `game.html` in two browser tabs or on two devices.
+2. Enter a player name.
+3. On the first client choose **Create game** and share the displayed 5-character room code.
+4. On the second client enter the code and choose **Join game**.
+5. The server automatically starts the match when Player 2 joins.
+
+### How the MVP interprets current rules
+
+- The authoritative game state lives on the Node.js server.
+- The server shuffles each player's 52-card deck from the repository card JSON using a server-generated seed; the seed is shown in the room and final result.
+- If `deck.json` is added later, the server will use it instead of rebuilding the deck from `energy.json`, `support.json`, `wildlife.json`, and `events.json`.
+- The first player begins directly in **Main** phase after setup. Later turns still follow **Refresh → Draw → Main → Challenge → End**.
+- Normal Challenges do not require additional Energy.
+- Challenge resolution uses Effective Rank and equal-rank Challenges compost both cards.
+- Final scoring currently follows the README literally: only **Ready** Energy, Support, and Wildlife cards still in play score points.
+- Cost/effect lines such as `Exhaust 2 Energy.` followed by another line are resolved in order on the server; if the Energy cost cannot be paid, the action is rejected.
+
+### Current MVP limitations
+
+This first version is intentionally narrow so local two-player testing works without adding a large framework.
+
+- No accounts, persistence database, matchmaking, bots, or production authentication.
+- Maximum two players per room; a third join is rejected.
+- Rooms are kept in memory only. A disconnected player can reconnect with the same local session, and disconnected status is shown to the opponent.
+- The server validates turns, energy payment, supported event effects, challenge legality, exhaustion, scoring, and malformed messages.
+- Many passive, hosting, adjacency, search, and prevention-style card texts are shown in the UI/log as **manual or unsupported** instead of being silently auto-resolved. Examples include adjacency bonuses, hosted wildlife movement/protection, most search effects, and one-off challenge cancellation/prevention text.
+- Target choice for supported compost-style event effects is simplified in this MVP and may auto-select the first legal target.
+- There is no full rules engine yet for nested triggered effects or all card-specific exceptions.
+
+### Test the MVP
+
+```bash
+npm test
+```
+
+Current automated coverage focuses on core server rules:
+
+- room joining limit
+- turn ownership
+- Energy payment
+- equal-rank Challenge composting
+- Exhaustion and Refresh
+- score calculation
+- illegal / malformed client action rejection
+
+### Deployment assumptions
+
+- A single Node.js process serves HTTP and WebSocket traffic.
+- No database is required.
+- For deployment, place this repo on any host that can run `node server.js` and allow WebSocket upgrades on the same origin.

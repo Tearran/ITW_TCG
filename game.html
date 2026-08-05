@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Into the Wild TCG — Multiplayer MVP</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Into the Wild TCG</p>
+        <h1>Remote two-player MVP</h1>
+        <p class="subtitle">Create a room, join with a short code, and play through synchronized phases with a shared action log.</p>
+      </div>
+      <div class="hero-links">
+        <a href="/index.html">Open card builder</a>
+        <a href="/README.md" target="_blank" rel="noreferrer">Rules / README</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel lobby-panel" id="lobbyPanel">
+        <h2>Connection</h2>
+        <label>
+          Player name
+          <input id="playerName" maxlength="24" placeholder="Enter your name">
+        </label>
+        <div class="lobby-actions">
+          <button id="createRoomButton">Create game</button>
+          <div class="join-row">
+            <input id="roomCodeInput" maxlength="5" placeholder="Room code">
+            <button id="joinRoomButton">Join game</button>
+          </div>
+        </div>
+        <p id="connectionStatus" class="status-text">Disconnected.</p>
+        <div class="room-summary" id="roomSummary" hidden>
+          <div><strong>Room:</strong> <span id="roomCodeValue">—</span></div>
+          <div><strong>You are:</strong> <span id="playerSlotValue">—</span></div>
+          <div><strong>Seed:</strong> <span id="seedValue">—</span></div>
+        </div>
+      </section>
+
+      <section class="panel waiting-panel">
+        <h2>Waiting room / status</h2>
+        <div id="playersStatus" class="player-status-list"></div>
+        <div class="status-grid">
+          <div><strong>Round</strong><span id="roundValue">—</span></div>
+          <div><strong>Phase</strong><span id="phaseValue">—</span></div>
+          <div><strong>Current player</strong><span id="turnPlayerValue">—</span></div>
+          <div><strong>Challenges</strong><span id="challengeStatusValue">—</span></div>
+        </div>
+        <div id="validationMessage" class="validation-message" aria-live="polite"></div>
+      </section>
+
+      <section class="panel board-panel">
+        <div class="board-header">
+          <h2>Board</h2>
+          <button id="endTurnButton" class="danger">End turn</button>
+        </div>
+        <div id="boardArea" class="board-area"></div>
+      </section>
+
+      <section class="panel hand-panel">
+        <div class="board-header">
+          <h2>Your hand</h2>
+          <span id="handCountLabel">0 cards</span>
+        </div>
+        <div id="handArea" class="hand-area"></div>
+      </section>
+
+      <section class="panel action-panel">
+        <h2>Actions</h2>
+        <div class="action-group">
+          <label>
+            Challenger
+            <select id="challengeAttacker"></select>
+          </label>
+          <label>
+            Defender
+            <select id="challengeDefender"></select>
+          </label>
+          <button id="challengeButton">Declare Challenge</button>
+        </div>
+        <div class="action-group">
+          <label>
+            Activate card in play
+            <select id="activateCardSelect"></select>
+          </label>
+          <button id="activateCardButton">Activate / resolve effects</button>
+        </div>
+        <p class="help-text">Legal actions are validated by the server. Unsupported or manual effect text is shown in warnings and the action log.</p>
+      </section>
+
+      <section class="panel log-panel">
+        <h2>Action log</h2>
+        <div id="logArea" class="log-area" aria-live="polite"></div>
+      </section>
+
+      <section class="panel result-panel" id="resultPanel" hidden>
+        <h2>Game result</h2>
+        <div id="resultBody"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

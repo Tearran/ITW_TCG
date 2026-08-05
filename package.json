@@ -1,0 +1,13 @@
+{
+  "name": "itw-tcg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Into the Wild TCG local multiplayer MVP",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}
