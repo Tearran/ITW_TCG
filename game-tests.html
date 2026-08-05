@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ITW TCG — Game Engine Tests</title>
+  <style>
+    body { font-family: monospace; padding: 1rem 2rem; }
+    h1 { font-size: 1.2rem; }
+    .suite { margin: 1.2rem 0; }
+    .suite h2 { font-size: 1rem; margin-bottom: .4rem; }
+    .pass { color: green; }
+    .fail { color: red; font-weight: bold; }
+    #summary { margin-top: 1.5rem; font-size: 1rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+<h1>Into the Wild TCG — Browser Test Suite</h1>
+<div id="output"></div>
+<div id="summary"></div>
+
+<script src="game.js"></script>
+<script>
+/* ------------------------------------------------------------------ */
+/* Minimal test harness                                                 */
+/* ------------------------------------------------------------------ */
+const results = [];
+
+function test(name, fn) {
+  try {
+    fn();
+    results.push({ name, ok: true });
+  } catch (e) {
+    results.push({ name, ok: false, error: e.message });
+  }
+}
+
+function assert(condition, message) {
+  if (!condition) throw new Error(message || 'Assertion failed');
+}
+
+function assertEqual(a, b, message) {
+  if (a !== b) throw new Error(`${message || 'Expected'}: ${JSON.stringify(a)} !== ${JSON.stringify(b)}`);
+}
+
+/* ------------------------------------------------------------------ */
+/* Helpers                                                              */
+/* ------------------------------------------------------------------ */
+
+const G = window.ITW_Game;
+
+/** Build a minimal card record for testing. */
+function makeCard(overrides) {
+  return Object.assign({
+    id: 1, rank: 1, suit: 'energy', cost: 0,
+    effects: [], name: 'Test Card',
+    illustration: '', ready: true, location: 'play',
+  }, overrides);
+}
+
+/** Build a minimal player object for testing. */
+function makePlayer({ play = [], hand = [], compost = [], deck = [] } = {}) {
+  return { play, hand, compost, deck };
+}
+
+/** Create a minimal 2-player game state without shuffling/dealing. */
+function makeState(overrides) {
+  return Object.assign({
+    phase: 'play',
+    round: 1,
+    activePlayer: 0,
+    turnCompleted: [false, false],
+    players: [
+      makePlayer(),
+      makePlayer(),
+    ],
+  }, overrides);
+}
+
+/* ------------------------------------------------------------------ */
+/* 1. Turn ownership — actions reject wrong player                     */
+/* ------------------------------------------------------------------ */
+
+test('Turn ownership: playCard rejects inactive player', function () {
+  const state = makeState({ activePlayer: 0 });
+  const card = makeCard({ id: 10, cost: 0, location: 'hand' });
+  state.players[1].hand.push(card);
+
+  let threw = false;
+  try {
+    G.playCard(state, 1, 10, []);
+  } catch (e) {
+    threw = true;
+  }
+  assert(threw, 'Should throw when inactive player attempts playCard');
+});
+
+test('Turn ownership: endTurn rejects inactive player', function () {
+  const state = makeState({ activePlayer: 0 });
+  let threw = false;
+  try {
+    G.endTurn(state, 1);
+  } catch (e) {
+    threw = true;
+  }
+  assert(threw, 'Should throw when inactive player attempts endTurn');
+});
+
+/* ------------------------------------------------------------------ */
+/* 2. Energy payment                                                    */
+/* ------------------------------------------------------------------ */
+
+test('Energy payment: card played when cost is covered', function () {
+  const state = makeState({ activePlayer: 0 });
+  const energyCard = makeCard({ id: 1, suit: 'energy', cost: 0, ready: true, location: 'play' });
+  const wildCard = makeCard({ id: 20, suit: 'wildlife', rank: 5, cost: 1, location: 'hand' });
+  state.players[0].play.push(energyCard);
+  state.players[0].hand.push(wildCard);
+
+  const result = G.playCard(state, 0, 20, [1]);
+  assert(result.ok, 'playCard should succeed: ' + result.error);
+  assert(!energyCard.ready, 'Energy card should be Exhausted after payment');
+  assertEqual(state.players[0].play.filter(c => c.id === 20).length, 1, 'Wildlife card should be in play');
+  assertEqual(state.players[0].hand.length, 0, 'Hand should be empty after playing');
+});
+
+test('Energy payment: rejected when insufficient energy provided', function () {
+  const state = makeState({ activePlayer: 0 });
+  const wildCard = makeCard({ id: 21, suit: 'wildlife', rank: 5, cost: 2, location: 'hand' });
+  state.players[0].hand.push(wildCard);
+
+  const result = G.playCard(state, 0, 21, []);  // provides 0, needs 2
+  assert(!result.ok, 'playCard should fail with insufficient energy');
+});
+
+/* ------------------------------------------------------------------ */
+/* 3. Refresh                                                           */
+/* ------------------------------------------------------------------ */
+
+test('Refresh: Exhausted cards become Ready', function () {
+  const state = makeState({ activePlayer: 0 });
+  const c1 = makeCard({ id: 1, suit: 'energy', ready: false });
+  const c2 = makeCard({ id: 2, suit: 'support', ready: false });
+  state.players[0].play.push(c1, c2);
+
+  G.refreshPhase(state, 0);
+  assert(c1.ready, 'Energy card should be Ready after refresh');
+  assert(c2.ready, 'Support card should be Ready after refresh');
+});
+
+/* ------------------------------------------------------------------ */
+/* 4. Equal-rank Challenge: both cards go to Compost                   */
+/* ------------------------------------------------------------------ */
+
+test('Challenge: equal Effective Rank sends both to Compost', function () {
+  const state = makeState({ activePlayer: 0 });
+  const att = makeCard({ id: 10, suit: 'wildlife', rank: 5, ready: true, location: 'play' });
+  const def = makeCard({ id: 20, suit: 'wildlife', rank: 5, ready: true, location: 'play' });
+  state.players[0].play.push(att);
+  state.players[1].play.push(def);
+
+  const result = G.challenge(state, 0, 10, 20);
+  assert(result.ok, 'Challenge should succeed');
+  assertEqual(result.result, 'both_compost', 'Result should be both_compost');
+  assertEqual(state.players[0].play.length, 0, 'Attacker should be removed from play');
+  assertEqual(state.players[1].play.length, 0, 'Defender should be removed from play');
+  assertEqual(state.players[0].compost.length, 1, 'Attacker should be in attacker Compost');
+  assertEqual(state.players[1].compost.length, 1, 'Defender should be in defender Compost');
+});
+
+/* ------------------------------------------------------------------ */
+/* 5. Invalid-action rejection                                         */
+/* ------------------------------------------------------------------ */
+
+test('Invalid action: Challenge rejected when game is over', function () {
+  const state = makeState({ phase: 'gameover', activePlayer: 0 });
+  const att = makeCard({ id: 1, suit: 'wildlife', ready: true });
+  const def = makeCard({ id: 2, suit: 'wildlife', ready: true });
+  state.players[0].play.push(att);
+  state.players[1].play.push(def);
+
+  const result = G.challenge(state, 0, 1, 2);
+  assert(!result.ok, 'Challenge should be rejected when game is over');
+});
+
+test('Invalid action: playCard rejected when game is over', function () {
+  const state = makeState({ phase: 'gameover', activePlayer: 0 });
+  const card = makeCard({ id: 5, cost: 0, location: 'hand' });
+  state.players[0].hand.push(card);
+
+  const result = G.playCard(state, 0, 5, []);
+  assert(!result.ok, 'playCard should be rejected when game is over');
+});
+
+/* ------------------------------------------------------------------ */
+/* 6. Score calculation — Exhausted card scores Printed Rank           */
+/*    (updated: Exhausted cards contribute to board score)             */
+/* ------------------------------------------------------------------ */
+
+test('Score: Exhausted Wildlife card scores its Printed Rank', function () {
+  const player = makePlayer({
+    play: [
+      makeCard({ id: 1, suit: 'wildlife', rank: 7, ready: false }),  // Exhausted
+    ],
+    hand: [],
+  });
+  const score = G.calculatePlayerScore(player);
+  assertEqual(score.boardScore, 7, 'Exhausted Wildlife rank 7 should score 7');
+  assertEqual(score.handPenalty, 0, 'No hand penalty expected');
+  assertEqual(score.finalScore, 7, 'Final score should be 7');
+});
+
+test('Score: mix of Ready and Exhausted cards all score Printed Rank', function () {
+  const player = makePlayer({
+    play: [
+      makeCard({ id: 1, suit: 'energy', rank: 4, ready: false }),    // Exhausted
+      makeCard({ id: 2, suit: 'energy', rank: 7, ready: true }),     // Ready
+      makeCard({ id: 3, suit: 'support', rank: 6, ready: false }),   // Exhausted
+      makeCard({ id: 4, suit: 'wildlife', rank: 9, ready: true }),   // Ready
+    ],
+    hand: [],
+  });
+  const score = G.calculatePlayerScore(player);
+  assertEqual(score.boardScore, 4 + 7 + 6 + 9, 'Board score should sum all Printed Ranks');
+  assertEqual(score.handPenalty, 0, 'No hand penalty expected');
+  assertEqual(score.finalScore, 26, 'Final score should be 26');
+});
+
+/* ------------------------------------------------------------------ */
+/* 7. Hand penalty                                                      */
+/* ------------------------------------------------------------------ */
+
+test('Score: hand penalty subtracts Printed Rank of cards in hand', function () {
+  const player = makePlayer({
+    play: [
+      makeCard({ id: 1, suit: 'energy', rank: 4, ready: true }),
+      makeCard({ id: 2, suit: 'wildlife', rank: 9, ready: true }),
+    ],
+    hand: [
+      makeCard({ id: 10, suit: 'event', rank: 3, location: 'hand' }),
+      makeCard({ id: 11, suit: 'wildlife', rank: 8, location: 'hand' }),
+    ],
+  });
+  const score = G.calculatePlayerScore(player);
+  assertEqual(score.boardScore, 4 + 9, 'Board score: 13');
+  assertEqual(score.handPenalty, 3 + 8, 'Hand penalty: 11');
+  assertEqual(score.finalScore, 13 - 11, 'Final score: 2');
+});
+
+test('Score: Event and Compost cards score zero', function () {
+  const player = makePlayer({
+    play: [
+      makeCard({ id: 1, suit: 'event', rank: 5, ready: true }),    // Event in play (edge case)
+    ],
+    compost: [
+      makeCard({ id: 2, suit: 'wildlife', rank: 8, location: 'compost' }),
+    ],
+    hand: [],
+  });
+  const score = G.calculatePlayerScore(player);
+  assertEqual(score.boardScore, 0, 'Event in play should score 0');
+  assertEqual(score.finalScore, 0, 'Final score should be 0');
+});
+
+/* ------------------------------------------------------------------ */
+/* 8. End-of-round timing: one empty hand ends game after round        */
+/*    (NOT immediately during a turn)                                  */
+/* ------------------------------------------------------------------ */
+
+test('End-of-round: one empty hand ends game only after round completes', function () {
+  const state = makeState({ activePlayer: 0 });
+
+  // Give player 0 a card to play (will empty their hand mid-turn)
+  const c = makeCard({ id: 1, suit: 'energy', rank: 2, cost: 0, location: 'hand' });
+  state.players[0].hand.push(c);
+  // Player 1 still has cards
+  state.players[1].hand.push(makeCard({ id: 2, suit: 'energy', rank: 3, location: 'hand' }));
+
+  // Player 0 plays their only card (hand becomes empty during their turn)
+  const playResult = G.playCard(state, 0, 1, []);
+  assert(playResult.ok, 'playCard should succeed');
+  assertEqual(state.players[0].hand.length, 0, 'Player 0 hand should be empty');
+
+  // Game should NOT be over yet — player 0 hasn't ended their turn
+  assertEqual(state.phase, 'play', 'Game should still be in play phase mid-turn');
+
+  // Player 0 ends their turn
+  const endResult0 = G.endTurn(state, 0);
+  assert(endResult0.ok, 'endTurn for player 0 should succeed');
+  // Round not complete yet (player 1 hasn't gone)
+  assertEqual(state.phase, 'play', 'Game should still be in play after player 0 ends turn');
+  assertEqual(endResult0.roundEnded, false, 'Round should not have ended yet');
+
+  // Player 1 takes their turn and ends it
+  const endResult1 = G.endTurn(state, 1);
+  assert(endResult1.ok, 'endTurn for player 1 should succeed');
+
+  // NOW the round ends and the empty-hand check fires
+  assert(endResult1.roundEnded, 'Round should have ended after both players finish');
+  assert(endResult1.gameOver, 'Game should be over: player 0 had empty hand at end of round');
+  assertEqual(state.phase, 'gameover', 'state.phase should be gameover');
+});
+
+test('End-of-round: no empty hand — game continues to next round', function () {
+  const state = makeState({ activePlayer: 0 });
+  state.players[0].hand.push(makeCard({ id: 1, location: 'hand' }));
+  state.players[1].hand.push(makeCard({ id: 2, location: 'hand' }));
+
+  G.endTurn(state, 0);   // player 0 ends
+  const result = G.endTurn(state, 1);  // player 1 ends, round check runs
+
+  assert(result.ok, 'endTurn should succeed');
+  assert(result.roundEnded, 'Round should have ended');
+  assert(!result.gameOver, 'Game should NOT be over (both players have cards)');
+  assertEqual(state.phase, 'play', 'Phase should still be play');
+  assertEqual(state.round, 2, 'Round should advance to 2');
+});
+
+test('End-of-round: both hands empty also ends game', function () {
+  const state = makeState({ activePlayer: 0 });
+  // Both players have empty hands from the start
+
+  G.endTurn(state, 0);
+  const result = G.endTurn(state, 1);
+
+  assert(result.gameOver, 'Game should end when both hands are empty');
+  assertEqual(state.phase, 'gameover', 'Phase should be gameover');
+});
+
+/* ------------------------------------------------------------------ */
+/* 9. normalizeCard utility                                             */
+/* ------------------------------------------------------------------ */
+
+test('normalizeCard: produces correct flat record from raw card', function () {
+  const raw = {
+    mechanics: { id: 206, rank: 5, suit: 'wildlife', cost: 3, effects: ['Challenge 1 opposing Support.'] },
+    metadata: { name: 'Kangaroo Rat', scientific_name: 'Dipodomys spp.', illustration: 'artwork/fauna/kangaroo_rat.svg' },
+  };
+  const card = G.normalizeCard(raw);
+  assertEqual(card.id, 206, 'id');
+  assertEqual(card.rank, 5, 'rank');
+  assertEqual(card.suit, 'wildlife', 'suit');
+  assertEqual(card.cost, 3, 'cost');
+  assertEqual(card.name, 'Kangaroo Rat', 'name');
+  assert(card.ready, 'card should start Ready');
+  assertEqual(card.location, 'deck', 'location should be deck');
+});
+
+/* ------------------------------------------------------------------ */
+/* Render results                                                       */
+/* ------------------------------------------------------------------ */
+
+(function renderResults() {
+  const out = document.getElementById('output');
+  const suites = {};
+
+  for (const r of results) {
+    const section = r.ok ? 'pass' : 'fail';
+    const li = document.createElement('div');
+    li.className = section;
+    li.textContent = (r.ok ? '✓ ' : '✗ ') + r.name + (r.error ? ' — ' + r.error : '');
+    out.appendChild(li);
+  }
+
+  const total = results.length;
+  const passed = results.filter(r => r.ok).length;
+  const failed = total - passed;
+  const summary = document.getElementById('summary');
+  summary.className = failed > 0 ? 'fail' : 'pass';
+  summary.textContent = `${passed}/${total} tests passed${failed > 0 ? ` (${failed} failed)` : ' ✓'}`;
+})();
+</script>
+</body>
+</html>

@@ -46,6 +46,10 @@ The deck is divided into **four suits** containing **13 cards each**.
 | Wildlife | Animals, insects, and invasive plants that challenge or otherwise act. |
 | Event | One-time effects. |
 
+The browser game (`game.js`) builds the standard 52-card pool directly
+from `energy.json`, `support.json`, `wildlife.json`, and `events.json`.
+**`deck.json` is not required and is not used.**
+
 ---
 
 ### Energy
@@ -385,43 +389,58 @@ Play passes to the next player.
 
 After every player has completed their turn, the round ends.
 
-Begin the next round.
+**Empty-hand check:** After both players complete their turns, check
+whether at least one player has zero cards in hand.
 
-After Round has no card in hand game is completed, calculate each player's final score.
+- If **at least one player has an empty hand**, the game ends and final
+  scores are calculated (see Scoring).
+- If **no player has an empty hand**, begin the next round.
+
+> **Important:** A player reaching zero cards in hand *during* their
+> turn does **not** immediately end the game. The current action and any
+> pending effects resolve normally. The active player completes their
+> turn. The other player completes their turn. Only then is the
+> empty-hand check performed.
 
 ---
 
 ### Scoring
 
-Only cards remaining in play score points.
+Only cards remaining in play or in a player's hand are considered
+during final scoring.
 
 Cards in the Compost pile score **0** points.
 
 ---
 
-#### Energy
+#### Cards Remaining in Play
 
-Ready Energy Cards score their Printed Rank.
+Every Energy, Support, and Wildlife card remaining in play scores its
+**Printed Rank**, whether the card is Ready or Exhausted.
 
----
+Exhaustion affects a card's actions and Effective Rank during gameplay.
+Exhaustion does **not** reduce the card's final scoring value.
 
-#### Support
-
-Ready Support Cards score their Printed Rank.
-
----
-
-#### Wildlife
-
-Ready Wildlife Cards score their Printed Rank.
+Event Cards never score points. After resolving, Event Cards are placed
+into the Compost pile.
 
 ---
 
-#### Events
+#### Hand Penalty
 
-Event Cards never score points.
+Each card remaining in a player's hand creates a penalty equal to that
+card's **Printed Rank**.
 
-After resolving, they are placed into the Compost pile.
+Subtract the total Printed Rank of cards in hand from that player's
+in-play score.
+
+The final score is calculated as:
+
+```text
+Final Score =
+Printed Rank total of cards remaining in play
+− Printed Rank total of cards remaining in hand
+```
 
 ---
 
@@ -1082,9 +1101,16 @@ A standard game lasts to one player play all cards in hand.
 
 ### Score
 
-The total value of a player's cards remaining in play at the end of the game.
+The total value of a player's cards remaining in play at the end of the
+game, minus the Printed Rank of any cards remaining in hand.
 
-Scoring is determined by the Core Game Engine.
+```text
+Final Score =
+Printed Rank total of cards in play (Energy, Support, Wildlife)
+− Printed Rank total of cards in hand
+```
+
+Scoring is determined by the Core Game Engine (`game.js`).
 
 ---
 
