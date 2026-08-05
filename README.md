@@ -393,9 +393,37 @@ After Round has no card in hand game is completed, calculate each player's final
 
 ### Scoring
 
-Only cards remaining in play score points.
+Only cards remaining in play or in a player's hand are considered during
+final scoring.
 
-Cards in the Compost pile score **0** points.
+Cards in the Compost pile score 0 points.
+
+#### Cards Remaining in Play
+
+Every Energy, Support, and Wildlife card remaining in play scores its
+Printed Rank, whether the card is Ready or Exhausted.
+
+Exhaustion affects a card's actions and Effective Rank during gameplay.
+Exhaustion does not reduce the card's final scoring value.
+
+Event Cards never score points. After resolving, Event Cards are placed
+into the Compost pile.
+
+#### Hand Penalty
+
+Each card remaining in a player's hand creates a penalty equal to that
+card's Printed Rank.
+
+Subtract the total Printed Rank of cards in hand from that player's
+in-play score.
+
+The final score is calculated as:
+
+```text
+Final Score =
+Printed Rank total of cards remaining in play
+− Printed Rank total of cards remaining in hand
+```
 
 ---
 
