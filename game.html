@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Into the Wild Multiplayer</title>
+  <style>
+    :root { color-scheme: dark; --bg:#122018; --panel:#1b2c22; --panel2:#22362a; --line:#395642; --text:#edf7ef; --muted:#b9c8bc; --accent:#7fd38a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,sans-serif; background:var(--bg); color:var(--text); }
+    .app { display:grid; gap:12px; padding:12px; max-width:1200px; margin:0 auto; }
+    .bar,.panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; }
+    .bar { position:sticky; top:0; z-index:10; padding:10px; display:grid; gap:8px; }
+    .status { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .pill { padding:4px 8px; border-radius:999px; background:var(--panel2); color:var(--muted); font-size:12px; }
+    .controls, .choice-actions { display:flex; flex-wrap:wrap; gap:8px; }
+    .panel { padding:10px; }
+    .setup { display:grid; gap:8px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+    input, button, select { font:inherit; border-radius:10px; border:1px solid var(--line); padding:8px 10px; }
+    input, select { background:#0f1813; color:var(--text); width:100%; }
+    button { background:var(--accent); color:#102014; font-weight:700; cursor:pointer; }
+    button.secondary { background:var(--panel2); color:var(--text); }
+    button:disabled { opacity:.5; cursor:not-allowed; }
+    .rows { display:grid; gap:10px; }
+    .row { display:grid; gap:6px; }
+    .cards { display:flex; gap:8px; overflow:auto; padding-bottom:4px; }
+    .card { min-width:140px; max-width:140px; background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:8px; }
+    .card.selected { outline:2px solid var(--accent); }
+    .meta { font-size:12px; color:var(--muted); }
+    details summary { cursor:pointer; }
+    .grid { display:grid; gap:12px; grid-template-columns:1fr; }
+    @media (min-width:900px){ .grid { grid-template-columns:1.2fr .8fr; } }
+    #logBox { max-height:180px; overflow:auto; font-size:13px; white-space:pre-wrap; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="bar">
+    <div class="status" id="statusBar"></div>
+    <div class="controls" id="phaseButtons"></div>
+  </div>
+
+  <div class="panel setup">
+    <div>
+      <label>Create room</label>
+      <button id="createRoom">Create Room</button>
+    </div>
+    <div>
+      <label for="roomCode">Join room code</label>
+      <input id="roomCode" maxlength="8" placeholder="ABCD">
+    </div>
+    <div>
+      <label>&nbsp;</label>
+      <button id="joinRoom">Join Room</button>
+    </div>
+    <div>
+      <label>&nbsp;</label>
+      <button id="leaveRoom" class="secondary">Leave Room</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="rows">
+      <div class="panel" id="pendingPanel"></div>
+      <div class="panel">
+        <div class="row"><strong>Opponent</strong><div id="opponentZone"></div></div>
+      </div>
+      <div class="panel">
+        <div class="row"><strong>Your board</strong><div id="boardZone"></div></div>
+      </div>
+      <div class="panel">
+        <div class="row"><strong>Your hand</strong><div id="handZone"></div></div>
+      </div>
+    </div>
+    <div class="rows">
+      <div class="panel"><strong>Selected</strong><div id="selectedCard" class="meta">No card selected.</div></div>
+      <details class="panel" open><summary><strong>Log</strong></summary><div id="logBox"></div></details>
+    </div>
+  </div>
+</div>
+<script>
+(() => {
+  const state = { roomCode:'', token:'', playerIndex:null, snapshot:null, eventSource:null, selected:null, challengeAttacker:null, pendingSupport:null };
+  const $ = id => document.getElementById(id);
+  const statusBar = $('statusBar'), phaseButtons = $('phaseButtons'), pendingPanel = $('pendingPanel');
+  const handZone = $('handZone'), boardZone = $('boardZone'), opponentZone = $('opponentZone');
+  const selectedCard = $('selectedCard'), logBox = $('logBox');
+
+  function api(path, options={}) {
+    const headers = Object.assign({'Content-Type':'application/json'}, options.headers || {});
+    if (state.token) headers.Authorization = 'Bearer ' + state.token;
+    return fetch(path, Object.assign({}, options, {headers})).then(async res => {
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data?.error?.message || ('HTTP ' + res.status));
+      return data;
+    });
+  }
+  function setStatus(msg){ console.log(msg); }
+  function connectEvents(){
+    if (!state.roomCode || !state.token) return;
+    if (state.eventSource) state.eventSource.close();
+    const es = new EventSource(`/api/rooms/${state.roomCode}/events`, { withCredentials:false });
+    // Native EventSource cannot set headers; use token query fallback via fetch-stream proxy is unavailable.
+    // Reconnect through cookie-less token in URL would expose token, so use polyfill-free fetch fallback impossible here.
+    // Therefore use auth bootstrap endpoint via sessionStorage-like local query is avoided; prompt user to open same tab after create/join.
+    es.close();
+    fetchEvents();
+  }
+  async function fetchEvents(){
+    const res = await fetch(`/api/rooms/${state.roomCode}/events`, { headers:{ Authorization:'Bearer '+state.token } });
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    while (true) {
+      const {value, done} = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, {stream:true});
+      const parts = buffer.split('\n\n');
+      buffer = parts.pop();
+      for (const part of parts) {
+        const line = part.split('\n').find(l => l.startsWith('data: '));
+        if (!line) continue;
+        const payload = JSON.parse(line.slice(6));
+        state.snapshot = payload;
+        render();
+      }
+    }
+  }
+  function cardView(entry, mine){
+    const card = entry.card || entry;
+    const wrap = document.createElement('button');
+    wrap.className = 'card' + (state.selected===entry.instanceId ? ' selected' : '');
+    wrap.type = 'button';
+    wrap.onclick = () => {
+      state.selected = entry.instanceId;
+      if (state.snapshot?.phase === 'challenge' && mine) {
+        if (!state.challengeAttacker) state.challengeAttacker = entry.instanceId;
+        else if (state.challengeAttacker !== entry.instanceId) sendAction({type:'declareChallenge', attackerInstanceId:state.challengeAttacker, defenderInstanceId:entry.instanceId});
+      }
+      renderSelected(card, entry);
+      render();
+    };
+    wrap.innerHTML = `<strong></strong><div class="meta"></div><div class="meta"></div>`;
+    wrap.children[0].textContent = card.name;
+    wrap.children[1].textContent = `${card.suit} • Rank ${card.rank} • Cost ${card.cost}`;
+    wrap.children[2].textContent = entry.exhausted ? 'Exhausted' : 'Ready';
+    return wrap;
+  }
+  function renderSelected(card, entry){
+    selectedCard.textContent = `${card.name} | ${card.suit} | Printed ${card.rank}` + (entry.host ? ` | Hosted by ${entry.host}` : '');
+  }
+  function renderZone(el, items, mine){ el.innerHTML=''; const box=document.createElement('div'); box.className='cards'; items.forEach(item=>box.appendChild(cardView(item,mine))); el.appendChild(box); }
+  function render(){
+    const snap = state.snapshot;
+    statusBar.innerHTML = '';
+    const pills = [
+      `Room ${state.roomCode || '—'}`,
+      `Connection ${snap ? 'live' : 'offline'}`,
+      `Round ${snap?.round ?? '—'}`,
+      `Phase ${snap?.phase ?? '—'}`,
+      `Current P${snap?.currentPlayer ?? '—'}`,
+      snap ? `Scores ${snap.players[0].score}-${snap.players[1].score}` : 'Scores —'
+    ];
+    pills.forEach(text => { const span=document.createElement('span'); span.className='pill'; span.textContent=text; statusBar.appendChild(span); });
+    phaseButtons.innerHTML='';
+    ['advancePhase','resolveChallenge'].forEach(type=>{ const b=document.createElement('button'); b.textContent=type; b.onclick=()=>sendAction({type}); phaseButtons.appendChild(b); });
+    if (!snap) return;
+    const me = snap.players[state.playerIndex ?? 0];
+    const opp = snap.players[(state.playerIndex ?? 0) ^ 1];
+    renderZone(handZone, me.hand || [], true);
+    renderZone(boardZone, me.board || [], true);
+    renderZone(opponentZone, opp.board || [], false);
+    pendingPanel.innerHTML = '<strong>Pending choices</strong><div class="meta">None</div>';
+    if (snap.phase === 'mulligan' && me && !me.mulliganResolved) {
+      pendingPanel.innerHTML = '<strong>Mulligan</strong><div class="choice-actions"><button id="keepBtn">Keep</button><button id="mullBtn">Mulligan</button></div>';
+      $('keepBtn').onclick = ()=>sendAction({type:'mulliganDecision', choice:'keep'});
+      $('mullBtn').onclick = ()=>sendAction({type:'mulliganDecision', choice:'mulligan'});
+    } else if (snap.pendingChoice && snap.pendingChoice.playerIndex === state.playerIndex) {
+      pendingPanel.innerHTML = `<strong>${snap.pendingChoice.prompt}</strong><div class="meta">Select one of your wildlife cards below, then press Host Selected.</div><div class="choice-actions"><button id="hostBtn">Host Selected</button></div>`;
+      $('hostBtn').onclick = ()=>sendAction({type:'chooseHostedWildlife', sourceInstanceId:snap.pendingChoice.sourceInstanceId, targetInstanceId:state.selected});
+    } else if (snap.pendingChallenge) {
+      pendingPanel.innerHTML = `<strong>Challenge pending</strong><div class="meta">Resolve the pending challenge before any other action.</div>`;
+    }
+    logBox.textContent = (snap.log || []).join('\n');
+  }
+  async function sendAction(action){
+    if (!state.roomCode) return;
+    try {
+      await api(`/api/rooms/${state.roomCode}/actions`, { method:'POST', body:JSON.stringify({ version:'v1alpha1', type:'action', action }) });
+    } catch (err) { alert(err.message); }
+  }
+  $('createRoom').onclick = async ()=>{
+    const data = await api('/api/rooms', { method:'POST' });
+    state.roomCode = data.roomCode; state.token = data.playerToken; state.playerIndex = data.playerIndex; $('roomCode').value = data.roomCode; connectEvents(); render();
+  };
+  $('joinRoom').onclick = async ()=>{
+    const code = $('roomCode').value.trim().toUpperCase();
+    const data = await api(`/api/rooms/${code}/join`, { method:'POST' });
+    state.roomCode = data.roomCode; state.token = data.playerToken; state.playerIndex = data.playerIndex; connectEvents(); render();
+  };
+  $('leaveRoom').onclick = async ()=>{ if (!state.roomCode) return; await api(`/api/rooms/${state.roomCode}/leave`, { method:'POST' }); if (state.eventSource) state.eventSource.close(); state.snapshot=null; render(); };
+  render();
+})();
+</script>
+</body>
+</html>
