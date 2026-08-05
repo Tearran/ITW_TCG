@@ -1466,3 +1466,118 @@ The following choices were made to satisfy the one-card-per-rank invariant for e
 **events.json** — Rank 13 had two entries (Mega Drought id 320, Desert-nesting Bald Eagle id 315) and rank 2 and rank 6 were missing. Mega Drought was reassigned to rank 2. Diversion Dam (id 306) was added as the new Rank 6 Event card using existing artwork (`artwork/event/divertion_dam.svg`).
 
 > **Note:** `mechanics.suit` is the sole authoritative source of a card's suit. Metadata fields, artwork directory paths, common names, and scientific names must never be used to determine gameplay suit.
+
+---
+
+## Browser Two-Player Game
+
+### Added Files
+
+| File | Purpose |
+|------|---------|
+| `game.html` | Main game page — WebRTC setup, board, hand, log, and actions |
+| `game.css` | Responsive styling for the game interface |
+| `game.js` | Game engine, rules, WebRTC signaling, and UI logic |
+| `game-tests.html` | Lightweight browser-runnable tests for core game rules |
+
+The existing `index.html` card builder is unchanged.
+
+---
+
+### Local Run Instructions
+
+1. Open a terminal in the repository directory.
+2. Start the static file server:
+   ```
+   python3 -m http.server 8000
+   ```
+3. Open two browser windows or profiles:
+   - Window A: `http://localhost:8000/game.html`
+   - Window B: `http://127.0.0.1:8000/game.html`
+
+---
+
+### Manual WebRTC Signaling Steps
+
+WebRTC requires both browsers to exchange connection details before the game can start. No server is needed — you copy and paste the signaling text yourself.
+
+**Window A (Host)**
+
+1. Enter your name in the **Your name** field.
+2. Click **Host**.
+3. Wait for the offer text to appear in the **Host offer output** area.
+4. Copy the entire offer text.
+
+**Window B (Guest)**
+
+5. Enter your name in the **Your name** field.
+6. Click **Join**.
+7. Paste the offer text into **Paste host offer here to join**.
+8. Click **Apply Offer / Create Answer**.
+9. Wait for the answer text to appear in **Guest answer output**.
+10. Copy the entire answer text.
+
+**Window A (Host)**
+
+11. Paste the answer text into **Paste guest answer here for host**.
+12. Click **Apply Answer**.
+
+**ICE Candidates (if needed)**
+
+13. If the connection does not establish, exchange the ICE candidate lines from the **ICE candidates you generated** area between both windows.
+    - Copy Window A's candidates into Window B's **Paste remote ICE candidates here** field and click **Add ICE Candidate(s)**.
+    - Copy Window B's candidates into Window A's **Paste remote ICE candidates here** field and click **Add ICE Candidate(s)**.
+
+**Starting the Game (Window A / Host)**
+
+14. Once both players are named and the connection status shows **Connected**, enter names in **Host player name** and **Guest player name**.
+15. Click **Start Hosted Game**.
+
+---
+
+### Static Hosting Instructions
+
+1. Upload all repository files to any static web host (GitHub Pages, Netlify, Cloudflare Pages, etc.).
+2. Make sure the host serves files over **HTTPS**. WebRTC requires a secure context on public hosts.
+3. Share the URL `https://your-site.example/game.html` with your friend.
+4. Follow the manual signaling steps above. Copy/paste the offer and answer via any messaging app.
+
+---
+
+### STUN/TURN Limitations
+
+The game uses a public Google STUN server (`stun:stun.l.google.com:19302`) as the default ICE server.
+
+- **STUN** is sufficient for most home and office networks where both players are behind standard NAT routers.
+- **TURN** is required when one or both players are behind a symmetric NAT, a corporate firewall, or a network that blocks peer-to-peer UDP traffic. TURN relays the connection through a server.
+- The MVP does **not** include a TURN server. If the connection fails on different networks after exchanging ICE candidates, you may need to deploy or subscribe to a TURN service (e.g., Twilio Network Traversal, Metered.ca, Xirsys) and add it to `STUN_CONFIG` in `game.js`.
+
+---
+
+### Security Note
+
+The host browser is authoritative. The guest sends action requests; the host validates and broadcasts state updates. The guest cannot directly modify scores, hands, board state, turn order, or challenge outcomes through data-channel messages.
+
+**This design is suitable for friendly play between trusted people. It is not cheat-resistant for competitive play.**
+
+---
+
+### MVP Limitations and Unimplemented Effects
+
+The following effects from the Alpha card set are not implemented in the MVP. Cards with these effects may be played but the effect resolves as a no-op and a log message is shown.
+
+| Effect | Reason |
+|--------|--------|
+| `Move 1 Wildlife to this card.` | Hosting/adjacency model not implemented |
+| `Hosted Wildlife gains +2 Rank.` | Hosted-card relationships not modeled |
+| `Hosted Wildlife cannot be Challenged.` | Hosted-card relationships not modeled |
+| `Adjacent Wildlife gains +1 Rank.` | Adjacency bonuses not modeled |
+| `Adjacent Wildlife gains +2 Rank.` | Adjacency bonuses not modeled |
+| `Search your deck for 1 Wildlife.` | Deck search not in MVP interaction flow |
+| `Opposing Energy cannot Refresh this turn.` | Delayed per-player refresh lock not modeled |
+
+Additional limitations:
+
+- Exhausted cards score 0 points (per the rules: only **Ready** cards score).
+- The game ends when a player's deck is empty on a required draw, or when both hands are empty at end of round.
+- Local testing with `localhost` and `127.0.0.1` works because browsers treat both as secure origins. Connections between these two addresses may not traverse NAT (both are loopback). For true two-device local network testing, use the host machine's LAN IP address (e.g., `http://192.168.1.x:8000/game.html`).

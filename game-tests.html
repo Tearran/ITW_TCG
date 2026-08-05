@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITW TCG Game Tests</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 1rem; background: #111; color: #eee; }
+    .pass { color: #7ddf7d; }
+    .fail { color: #ff8e8e; }
+    pre { white-space: pre-wrap; background: #1d1d1d; padding: 1rem; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Browser Tests</h1>
+  <div id="results"></div>
+  <script src="game.js"></script>
+  <script>
+    (async function () {
+      const output = document.getElementById('results');
+      function assert(condition, message) {
+        if (!condition) throw new Error(message);
+      }
+      function log(name, ok, error) {
+        const el = document.createElement('div');
+        el.className = ok ? 'pass' : 'fail';
+        el.textContent = (ok ? 'PASS: ' : 'FAIL: ') + name + (error ? ' – ' + error.message : '');
+        output.appendChild(el);
+      }
+      function makeEngine(cards) {
+        return new window.GameEngine(cards);
+      }
+      function makeCards() {
+        return [
+          { id: 1, name: 'Energy One', suit: 'energy', rank: 1, cost: 0, effects: ['Generate 1 Energy per turn.'] },
+          { id: 2, name: 'Energy Two', suit: 'energy', rank: 2, cost: 0, effects: ['Generate 1 Energy per turn.'] },
+          { id: 3, name: 'Support One', suit: 'support', rank: 3, cost: 1, effects: ['Challenge 1 opposing Support.'] },
+          { id: 4, name: 'Support Two', suit: 'support', rank: 3, cost: 1, effects: ['Challenge 1 opposing Support.'] },
+          { id: 5, name: 'Wild One', suit: 'wildlife', rank: 4, cost: 1, effects: ['Challenge 1 opposing Wildlife.'] },
+          { id: 6, name: 'Event Draw', suit: 'event', rank: 0, cost: 1, effects: ['Draw 3 cards.'] },
+          { id: 7, name: 'Filler A', suit: 'energy', rank: 4, cost: 0, effects: ['Generate 1 Energy per turn.'] },
+          { id: 8, name: 'Filler B', suit: 'energy', rank: 5, cost: 0, effects: ['Generate 1 Energy per turn.'] }
+        ];
+      }
+      function baseState(engine) {
+        const state = engine.newGame('A', 'B');
+        state.players.forEach((p) => { p.mulliganResolved = true; p.mustMulligan = false; });
+        state.phase = 'main';
+        state.currentPlayer = 0;
+        state.gameOver = false;
+        state.winner = null;
+        state.pendingEffect = null;
+        state.pendingChallenge = null;
+        state.log = [];
+        return state;
+      }
+
+      const tests = [
+        function turnOwnership() {
+          const engine = makeEngine(makeCards());
+          const state = baseState(engine);
+          state.players[1].hand = [1];
+          let threw = false;
+          try { engine.applyAction(state, { type: 'playEnergy', cardId: 1 }, 1); } catch (e) { threw = true; }
+          assert(threw, 'non-current player should not act');
+        },
+        function energyPayment() {
+          const engine = makeEngine(makeCards());
+          const state = baseState(engine);
+          state.players[0].hand = [3];
+          state.players[0].board.energy = [{ cardId: 1, exhausted: false }];
+          const result = engine.applyAction(state, { type: 'playCard', cardId: 3 }, 0);
+          assert(result.newState.players[0].board.energy[0].exhausted, 'energy should exhaust when paying cost');
+          let threw = false;
+          state.players[0].hand = [5];
+          state.players[0].board.energy = [];
+          try { engine.applyAction(state, { type: 'playCard', cardId: 5 }, 0); } catch (e) { threw = true; }
+          assert(threw, 'insufficient energy should be rejected');
+        },
+        function refreshPhaseRestoresCards() {
+          const engine = makeEngine(makeCards());
+          const state = baseState(engine);
+          state.players[0].board.energy = [{ cardId: 1, exhausted: true }];
+          state.players[0].board.support = [{ cardId: 3, exhausted: true }];
+          state.phase = 'challenge';
+          engine.applyAction(state, { type: 'endTurn' }, 0);
+          assert(state.players[1].board.energy.every((c) => !c.exhausted), 'next player energy refreshed');
+        },
+        function challengeEqualRankComposts() {
+          const engine = makeEngine(makeCards());
+          const state = baseState(engine);
+          state.phase = 'challenge';
+          state.players[0].board.support = [{ cardId: 3, exhausted: false }];
+          state.players[1].board.support = [{ cardId: 4, exhausted: false }];
+          let result = engine.applyAction(state, { type: 'declareChallenge', attackerCardId: 3, defenderCardId: 4, defenderPlayerIdx: 1 }, 0);
+          result = engine.applyAction(result.newState, { type: 'resolveChallenge' }, 0);
+          assert(result.newState.players[0].compost.includes(3), 'attacker composted on tie');
+          assert(result.newState.players[1].compost.includes(4), 'defender composted on tie');
+        },
+        function scoreCalculation() {
+          const engine = makeEngine(makeCards());
+          const state = baseState(engine);
+          state.phase = 'gameover';
+          state.gameOver = true;
+          state.players[0].board.energy = [{ cardId: 2, exhausted: false }];
+          state.players[0].board.support = [{ cardId: 3, exhausted: false }];
+          state.players[1].board.wildlife = [{ cardId: 5, exhausted: true }];
+          const over = engine.checkGameOver(state);
+          assert(over.scores[0] === 5, 'ready energy + support should score');
+          assert(over.scores[1] === 0, 'exhausted wildlife should score zero');
+        },
+        function invalidActionRejection() {
+          const engine = makeEngine(makeCards());
+          const state = baseState(engine);
+          let threw = false;
+          try { engine.applyAction(state, { type: 'playEnergy', cardId: 999 }, 0); } catch (e) { threw = true; }
+          assert(threw, 'unknown hand card should be rejected');
+        }
+      ];
+
+      for (const test of tests) {
+        try {
+          test();
+          log(test.name, true);
+        } catch (error) {
+          console.error(error);
+          log(test.name, false, error);
+        }
+      }
+    }());
+  </script>
+</body>
+</html>

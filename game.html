@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITW TCG WebRTC Game</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="setup" class="screen">
+      <h1>ITW TCG – Browser WebRTC Match</h1>
+      <p class="intro">Host is authoritative. Exchange offer/answer/ICE text manually for friendly two-player play.</p>
+      <div class="setup-grid">
+        <div class="panel">
+          <h2>Player</h2>
+          <label>Your name <input id="playerName" type="text" placeholder="Player name"></label>
+          <div class="button-row">
+            <button id="hostBtn" type="button">Host</button>
+            <button id="joinBtn" type="button">Join</button>
+          </div>
+          <label>Host player name <input id="hostName" type="text" placeholder="Host name"></label>
+          <label>Guest player name <input id="joinName" type="text" placeholder="Guest name"></label>
+          <button id="startBtn" type="button">Start Hosted Game</button>
+          <p id="connectionStatus" class="status">Loading…</p>
+        </div>
+        <div class="panel">
+          <h2>Manual signaling</h2>
+          <p>1. Host creates offer and shares it.</p>
+          <textarea id="offerOut" placeholder="Host offer output"></textarea>
+          <textarea id="offerIn" placeholder="Paste host offer here to join"></textarea>
+          <button id="addOfferBtn" type="button">Apply Offer / Create Answer</button>
+          <textarea id="answerOut" placeholder="Guest answer output"></textarea>
+          <textarea id="answerIn" placeholder="Paste guest answer here for host"></textarea>
+          <button id="addAnswerBtn" type="button">Apply Answer</button>
+          <textarea id="candidateOut" placeholder="ICE candidates you generated"></textarea>
+          <textarea id="candidateIn" placeholder="Paste remote ICE candidates here, one JSON blob per line"></textarea>
+          <button id="addCandidateBtn" type="button">Add ICE Candidate(s)</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="game" class="screen" hidden>
+      <header class="panel header-panel">
+        <div>Round <strong id="roundLabel">1</strong></div>
+        <div>Phase <strong id="phaseLabel">setup</strong></div>
+        <div>Current <strong id="currentPlayerLabel">-</strong></div>
+        <div>Scores <strong id="scoresLabel">0 - 0</strong></div>
+      </header>
+      <div id="promptBar" class="prompt-bar"></div>
+      <section class="layout-grid">
+        <aside class="panel log-panel">
+          <h2>Log</h2>
+          <div id="logPanel" class="log-scroll"></div>
+        </aside>
+        <section class="board-stack">
+          <div class="panel">
+            <h2>Opponent Board</h2>
+            <div id="opponentBoard"></div>
+          </div>
+          <div class="panel">
+            <h2>Your Hand</h2>
+            <div id="playerHand" class="card-row hand-row"></div>
+          </div>
+          <div class="panel">
+            <h2>Your Board</h2>
+            <div id="playerBoard"></div>
+          </div>
+        </section>
+        <aside class="panel sidebar-panel">
+          <h2>Actions</h2>
+          <div id="actionButtons" class="action-list"></div>
+          <h2>Selected Card</h2>
+          <div id="selectedCardInfo" class="selected-info"><p>Select a card to inspect it.</p></div>
+        </aside>
+      </section>
+    </section>
+
+    <section id="gameover" class="screen" hidden>
+      <div class="panel gameover-panel">
+        <h1>Game Over</h1>
+        <p>Winner: <strong id="winnerLabel">-</strong></p>
+        <p>Scores: <strong id="finalScores">0 - 0</strong></p>
+        <button id="playAgainBtn" type="button">Play Again</button>
+      </div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
