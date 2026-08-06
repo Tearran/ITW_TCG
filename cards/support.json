@@ -1,0 +1,274 @@
+[
+  {
+    "mechanics": {
+      "id": 102,
+      "rank": 1,
+      "suit": "support",
+      "cost": 1,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +1 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Cheeseweed Mallow",
+      "scientific_name": "Malva parviflora",
+      "fact": [
+        "A common flowering plant in disturbed habitats."
+      ],
+      "illustration": "artwork/flora/cheeseweed_mallow.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 106,
+      "rank": 2,
+      "suit": "support",
+      "cost": 1,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +1 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Thistle",
+      "scientific_name": "Cirsium spp.",
+      "fact": [
+        "Thistles provide nectar for butterflies and seeds for goldfinches, while their spines deter many grazers."
+      ],
+      "illustration": "artwork/flora/thistle.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 103,
+      "rank": 4,
+      "suit": "support",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Creosote Bush",
+      "scientific_name": "Larrea tridentata",
+      "fact": [
+        "One of the dominant shrubs of the Sonoran Desert."
+      ],
+      "illustration": "artwork/flora/creosote_bush.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 107,
+      "rank": 5,
+      "suit": "support",
+      "cost": 2,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Ironwood",
+      "scientific_name": "Olneya tesota",
+      "fact": [
+        "The hardest wood in North America, providing critical nesting cavities and shade for desert wildlife."
+      ],
+      "illustration": "artwork/flora/desert_ironwood_tree.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 113,
+      "rank": 6,
+      "suit": "support",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Reeds",
+      "scientific_name": "Arundo donax",
+      "fact": [
+        "Dense reed stands along desert waterways provide shelter and nesting sites for many birds and mammals."
+      ],
+      "illustration": "artwork/flora/arundo_donax_reeds.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 104,
+      "rank": 7,
+      "suit": "support",
+      "cost": 3,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Mesquite",
+      "scientific_name": "Prosopis spp.",
+      "fact": [
+        "Mesquite provides food and shelter for many species."
+      ],
+      "illustration": "artwork/flora/mesquite.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 111,
+      "rank": 8,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Adjacent Wildlife gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Barrel Cactus",
+      "scientific_name": "Ferocactus cylindraceus",
+      "fact": [
+        "Its bright yellow flowers and fruit provide vital food for birds and rodents throughout the dry season."
+      ],
+      "illustration": "artwork/flora/barrel_cactus.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 110,
+      "rank": 9,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife cannot be Challenged"
+      ]
+    },
+    "metadata": {
+      "name": "Palo Verde",
+      "scientific_name": "Parkinsonia florida",
+      "fact": [
+        "Arizona's state tree; its green bark photosynthesizes even when the tree sheds its leaves during drought."
+      ],
+      "illustration": "artwork/flora/palo_verde.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 114,
+      "rank": 10,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Adjacent Wildlife gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Teddy Bear Cholla",
+      "scientific_name": "Cylindropuntia bigelovii",
+      "fact": [
+        "Its barbed spines easily attach to passing animals, dispersing the cactus across the desert."
+      ],
+      "illustration": "artwork/flora/teddy_bear_cholla.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 109,
+      "rank": 11,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Adjacent Wildlife gains +1 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Ocotillo",
+      "scientific_name": "Fouquieria splendens",
+      "fact": [
+        "This spiny shrub bursts into brilliant red blooms after rain, attracting hummingbirds across the Sonoran Desert."
+      ],
+      "illustration": "artwork/flora/ocotillo.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 108,
+      "rank": 12,
+      "suit": "support",
+      "cost": 5,
+      "effects": [
+        "Exhaust 4 Energy.",
+        "Return 1 Support to its owner's hand."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Mistletoe",
+      "scientific_name": "Phoradendron californicum",
+      "fact": [
+        "A parasitic plant whose berries are a critical winter food source for phainopeplas and other desert birds."
+      ],
+      "illustration": "artwork/flora/desert_mistletoe.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 105,
+      "rank": 13,
+      "suit": "support",
+      "cost": 5,
+      "effects": [
+        "Adjacent Wildlife gains +2 Rank.",
+        "Exhaust 3 Energy.",
+        "End this Challenge."
+      ]
+    },
+    "metadata": {
+      "name": "Saguaro",
+      "scientific_name": "Carnegiea gigantea",
+      "fact": [
+        "Saguaros provide nesting sites and food for many animals."
+      ],
+      "illustration": "artwork/flora/saguaro.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  }
+]

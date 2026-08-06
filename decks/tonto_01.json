@@ -1,0 +1,1173 @@
+[
+  {
+    "mechanics": {
+      "id": 1,
+      "rank": 1,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Agave",
+      "scientific_name": "Agave spp.",
+      "fact": [
+        "Agaves store water in thick leaves, providing food and moisture for desert wildlife."
+      ],
+      "illustration": "artwork/energy/agave.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 2,
+      "rank": 2,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Bermuda Grass",
+      "scientific_name": "Cynodon dactylon",
+      "fact": [
+        "Its seeds and leaves provide food for many grazing animals and birds."
+      ],
+      "illustration": "artwork/energy/bermuda_grass.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 3,
+      "rank": 3,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Bird Eggs",
+      "scientific_name": "Aves",
+      "fact": [
+        "Eggs are nutrient-rich food for many reptiles, mammals, and birds."
+      ],
+      "illustration": "artwork/energy/bird_eggs.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 4,
+      "rank": 4,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Black-tailed Jackrabbit",
+      "scientific_name": "Lepus californicus",
+      "fact": [
+        "A primary prey animal that transfers plant energy to predators."
+      ],
+      "illustration": "artwork/energy/black_tailed_jackrabbit.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 5,
+      "rank": 5,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Chara",
+      "scientific_name": "Chara spp.",
+      "fact": [
+        "This freshwater algae supports aquatic food webs."
+      ],
+      "illustration": "artwork/energy/chara.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 6,
+      "rank": 6,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Coachwhip",
+      "scientific_name": "Masticophis flagellum",
+      "fact": [
+        "A fast-moving snake that converts prey into energy for higher predators."
+      ],
+      "illustration": "artwork/energy/coachwhip.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 7,
+      "rank": 7,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Cottontail",
+      "scientific_name": "Sylvilagus audubonii",
+      "fact": [
+        "A core prey species for hawks, coyotes, and snakes."
+      ],
+      "illustration": "artwork/energy/desert_cottontail.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 8,
+      "rank": 8,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Grass",
+      "scientific_name": "Poaceae",
+      "fact": [
+        "Native grasses feed insects, rodents, and grazing mammals."
+      ],
+      "illustration": "artwork/energy/desert_grass.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 9,
+      "rank": 9,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Ironwood Blossoms",
+      "scientific_name": "Olneya tesota",
+      "fact": [
+        "Its flowers provide nectar for native pollinators."
+      ],
+      "illustration": "artwork/energy/desert_ironwood_blossoms.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 10,
+      "rank": 10,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Ground Squirrel",
+      "scientific_name": "Xerospermophilus tereticaudus",
+      "fact": [
+        "An important prey animal for snakes, hawks, and coyotes."
+      ],
+      "illustration": "artwork/energy/ground_squirrel.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 11,
+      "rank": 11,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Jojoba Nut",
+      "scientific_name": "Simmondsia chinensis",
+      "fact": [
+        "Jojoba seeds are rich in stored oils and nutrients."
+      ],
+      "illustration": "artwork/energy/jojoba_nut.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 12,
+      "rank": 12,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Mesquite Beans",
+      "scientific_name": "Prosopis spp.",
+      "fact": [
+        "Mesquite beans are rich in protein and serve as a staple food source for many desert animals."
+      ],
+      "illustration": "artwork/energy/mesquite_beans.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 13,
+      "rank": 13,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Prickly Pear Tuna",
+      "scientific_name": "Opuntia spp.",
+      "fact": [
+        "The sweet fruits, called tunas, provide hydration and sugar to desert wildlife."
+      ],
+      "illustration": "artwork/energy/prickly_pear_tuna.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 301,
+      "rank": 1,
+      "suit": "event",
+      "cost": 1,
+      "effects": [
+        "Prevent all Challenges this turn."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Frost",
+      "scientific_name": "",
+      "fact": [
+        "Cold snaps can damage desert vegetation."
+      ],
+      "illustration": "artwork/event/desert_frost.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 320,
+      "rank": 2,
+      "suit": "event",
+      "cost": 6,
+      "effects": [
+        "Exhaust all Energy.",
+        "Opposing Energy cannot Refresh this turn.",
+        "Each player composts 1 Support."
+      ]
+    },
+    "metadata": {
+      "name": "Mega Drought",
+      "scientific_name": "",
+      "fact": [
+        "The American Southwest experienced a megadrought beginning around 2000, considered the driest multi-decade period in at least 1,200 years."
+      ],
+      "illustration": "artwork/event/mega_drought.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 309,
+      "rank": 3,
+      "suit": "event",
+      "cost": 2,
+      "effects": [
+        "Return 1 Energy to its owner's hand.",
+        "Search your deck for 1 Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Migration",
+      "scientific_name": "",
+      "fact": [
+        "Many species travel seasonally in search of food and breeding grounds."
+      ],
+      "illustration": "artwork/event/migration.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 304,
+      "rank": 4,
+      "suit": "event",
+      "cost": 3,
+      "effects": [
+        "Compost 1 Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Monsoon Storm",
+      "scientific_name": "",
+      "fact": [
+        "Summer monsoons bring much of the desert's annual rainfall."
+      ],
+      "illustration": "artwork/event/monsoon_storm.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 305,
+      "rank": 5,
+      "suit": "event",
+      "cost": 2,
+      "effects": [
+        "Prevent all Challenges this turn."
+      ]
+    },
+    "metadata": {
+      "name": "Haboob Winds",
+      "scientific_name": "",
+      "fact": [
+        "Dust storms reduce visibility and reshape the landscape."
+      ],
+      "illustration": "artwork/event/haboob_winds.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 306,
+      "rank": 6,
+      "suit": "event",
+      "cost": 3,
+      "effects": [
+        "Exhaust 1 opposing Energy.",
+        "Prevent 1 Challenge this turn."
+      ]
+    },
+    "metadata": {
+      "name": "Diversion Dam",
+      "scientific_name": "",
+      "fact": [
+        "Diversion dams redirect river flow, reshaping aquatic habitats for many desert species."
+      ],
+      "illustration": "artwork/event/divertion_dam.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 303,
+      "rank": 7,
+      "suit": "event",
+      "cost": 3,
+      "effects": [
+        "Cancel the Challenge.",
+        "Exhaust all Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Flash Flood",
+      "scientific_name": "",
+      "fact": [
+        "Flash floods rapidly reshape desert washes."
+      ],
+      "illustration": "artwork/event/flash_flood.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 308,
+      "rank": 8,
+      "suit": "event",
+      "cost": 3,
+      "effects": [
+        "Search your deck for 1 card.",
+        "Refresh all Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Nature Survey",
+      "scientific_name": "",
+      "fact": [
+        "Field surveys help scientists monitor ecosystem health."
+      ],
+      "illustration": "artwork/event/nature_survey.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 314,
+      "rank": 9,
+      "suit": "event",
+      "cost": 4,
+      "effects": [
+        "Prevent all Challenges this turn.",
+        "Return 1 opposing Wildlife to its owner's hand.",
+        "Return 1 opposing Support to its owner's hand."
+      ]
+    },
+    "metadata": {
+      "name": "Skunk Spray",
+      "scientific_name": "",
+      "fact": [
+        "The striped skunk's sulfurous spray can reach up to 10 feet and deter almost any predator."
+      ],
+      "illustration": "artwork/event/skunk.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 302,
+      "rank": 10,
+      "suit": "event",
+      "cost": 5,
+      "effects": [
+        "Prevent all Challenges this turn.",
+        "Compost 1 opposing Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Extreme Heat",
+      "scientific_name": "",
+      "fact": [
+        "Extreme heat stresses both plants and animals."
+      ],
+      "illustration": "artwork/event/extreme_heat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 312,
+      "rank": 11,
+      "suit": "event",
+      "cost": 5,
+      "effects": [
+        "Each player draws 1 card.",
+        "Prevent all Challenges this turn."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Rainfall",
+      "scientific_name": "",
+      "fact": [
+        "Rainfall rapidly restores activity across desert ecosystems."
+      ],
+      "illustration": "artwork/event/desert_rainfall.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 313,
+      "rank": 12,
+      "suit": "event",
+      "cost": 5,
+      "effects": [
+        "Draw 3 cards.",
+        "Refresh all Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Perfect Season",
+      "scientific_name": "",
+      "fact": [
+        "Exceptional years allow many species to flourish simultaneously."
+      ],
+      "illustration": "artwork/event/Roosevelt_lake_dam.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 315,
+      "rank": 13,
+      "suit": "event",
+      "cost": 5,
+      "effects": [
+        "Compost 1 opposing Wildlife.",
+        "Compost 1 opposing Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Desert-nesting Bald Eagle",
+      "scientific_name": "",
+      "fact": [
+        "A small population of bald eagles nests year-round near Arizona's desert lakes and rivers, unlike their migratory counterparts."
+      ],
+      "illustration": "artwork/event/desert-nesting_bald_eagle.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 102,
+      "rank": 1,
+      "suit": "support",
+      "cost": 1,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +1 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Cheeseweed Mallow",
+      "scientific_name": "Malva parviflora",
+      "fact": [
+        "A common flowering plant in disturbed habitats."
+      ],
+      "illustration": "artwork/flora/cheeseweed_mallow.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 106,
+      "rank": 2,
+      "suit": "support",
+      "cost": 1,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +1 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Thistle",
+      "scientific_name": "Cirsium spp.",
+      "fact": [
+        "Thistles provide nectar for butterflies and seeds for goldfinches, while their spines deter many grazers."
+      ],
+      "illustration": "artwork/flora/thistle.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 106,
+      "rank": 3,
+      "suit": "support",
+      "cost": 2,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife cannot be Challenged"
+      ]
+    },
+    "metadata": {
+      "name": "Thistle",
+      "scientific_name": "Cirsium spp.",
+      "fact": [
+        "Thistles provide nectar for butterflies and seeds for goldfinches, while their spines deter many grazers."
+      ],
+      "illustration": "artwork/flora/desert_grass.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 103,
+      "rank": 4,
+      "suit": "support",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Creosote Bush",
+      "scientific_name": "Larrea tridentata",
+      "fact": [
+        "One of the dominant shrubs of the Sonoran Desert."
+      ],
+      "illustration": "artwork/flora/creosote_bush.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 107,
+      "rank": 5,
+      "suit": "support",
+      "cost": 2,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Ironwood",
+      "scientific_name": "Olneya tesota",
+      "fact": [
+        "The hardest wood in North America, providing critical nesting cavities and shade for desert wildlife."
+      ],
+      "illustration": "artwork/flora/desert_ironwood_tree.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 113,
+      "rank": 6,
+      "suit": "support",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Reeds",
+      "scientific_name": "Arundo donax",
+      "fact": [
+        "Dense reed stands along desert waterways provide shelter and nesting sites for many birds and mammals."
+      ],
+      "illustration": "artwork/flora/arundo_donax_reeds.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 104,
+      "rank": 7,
+      "suit": "support",
+      "cost": 3,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Mesquite",
+      "scientific_name": "Prosopis spp.",
+      "fact": [
+        "Mesquite provides food and shelter for many species."
+      ],
+      "illustration": "artwork/flora/mesquite.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 111,
+      "rank": 8,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Adjacent Wildlife gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Barrel Cactus",
+      "scientific_name": "Ferocactus cylindraceus",
+      "fact": [
+        "Its bright yellow flowers and fruit provide vital food for birds and rodents throughout the dry season."
+      ],
+      "illustration": "artwork/flora/barrel_cactus.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 110,
+      "rank": 9,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife cannot be Challenged"
+      ]
+    },
+    "metadata": {
+      "name": "Palo Verde",
+      "scientific_name": "Parkinsonia florida",
+      "fact": [
+        "Arizona's state tree; its green bark photosynthesizes even when the tree sheds its leaves during drought."
+      ],
+      "illustration": "artwork/flora/palo_verde.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 114,
+      "rank": 10,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Adjacent Wildlife gains +2 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Teddy Bear Cholla",
+      "scientific_name": "Cylindropuntia bigelovii",
+      "fact": [
+        "Its barbed spines easily attach to passing animals, dispersing the cactus across the desert."
+      ],
+      "illustration": "artwork/flora/teddy_bear_cholla.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 109,
+      "rank": 11,
+      "suit": "support",
+      "cost": 4,
+      "effects": [
+        "Adjacent Wildlife gains +1 Rank."
+      ]
+    },
+    "metadata": {
+      "name": "Ocotillo",
+      "scientific_name": "Fouquieria splendens",
+      "fact": [
+        "This spiny shrub bursts into brilliant red blooms after rain, attracting hummingbirds across the Sonoran Desert."
+      ],
+      "illustration": "artwork/flora/ocotillo.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 108,
+      "rank": 12,
+      "suit": "support",
+      "cost": 5,
+      "effects": [
+        "Exhaust 4 Energy.",
+        "Return 1 Support to its owner's hand."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Mistletoe",
+      "scientific_name": "Phoradendron californicum",
+      "fact": [
+        "A parasitic plant whose berries are a critical winter food source for phainopeplas and other desert birds."
+      ],
+      "illustration": "artwork/flora/desert_mistletoe.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 105,
+      "rank": 13,
+      "suit": "support",
+      "cost": 5,
+      "effects": [
+        "Adjacent Wildlife gains +2 Rank.",
+        "Exhaust 3 Energy.",
+        "End this Challenge."
+      ]
+    },
+    "metadata": {
+      "name": "Saguaro",
+      "scientific_name": "Carnegiea gigantea",
+      "fact": [
+        "Saguaros provide nesting sites and food for many animals."
+      ],
+      "illustration": "artwork/flora/saguaro.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 206,
+      "rank": 1,
+      "suit": "wildlife",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Kangaroo Rat",
+      "scientific_name": "Dipodomys spp.",
+      "fact": [
+        "Can survive without drinking water, obtaining all moisture from seeds, and escapes predators with powerful hind-leg leaps."
+      ],
+      "illustration": "artwork/fauna/kangaroo_rat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 207,
+      "rank": 2,
+      "suit": "wildlife",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Cactus Wren",
+      "scientific_name": "Campylorhynchus brunneicapillus",
+      "fact": [
+        "Arizona's state bird.",
+        "Builds large, domed nests in cholla cactus for year-round protection from predators.",
+        "Feeds on insects, seeds, and small lizards."
+      ],
+      "illustration": "artwork/fauna/cactus_wren.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 219,
+      "rank": 3,
+      "suit": "wildlife",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Ringtail",
+      "scientific_name": "Bassariscus astutus",
+      "fact": [
+        "Arizona's state mammal; a nocturnal, cat-sized carnivore that navigates rocky terrain with a long, bushy, banded tail."
+      ],
+      "illustration": "artwork/fauna/ringtail.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 211,
+      "rank": 4,
+      "suit": "wildlife",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Iguana",
+      "scientific_name": "Dipsosaurus dorsalis",
+      "fact": [
+        "One of the most heat-tolerant lizards in North America, remaining active at temperatures that drive other reptiles to shade."
+      ],
+      "illustration": "artwork/fauna/desert_iguana.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 203,
+      "rank": 5,
+      "suit": "wildlife",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Roadrunner",
+      "scientific_name": "Geococcyx californianus",
+      "fact": [
+        "Roadrunners prey on reptiles, insects, and small mammals."
+      ],
+      "illustration": "artwork/fauna/roadrunner.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 208,
+      "rank": 6,
+      "suit": "wildlife",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Raven",
+      "scientific_name": "Corvus corax",
+      "fact": [
+        "Highly intelligent opportunists, common ravens follow predators and human activity to scavenge easy meals across the desert."
+      ],
+      "illustration": "artwork/fauna/common_raven.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 217,
+      "rank": 7,
+      "suit": "wildlife",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Wildlife.",
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Javelina",
+      "scientific_name": "Pecari tajacu",
+      "fact": [
+        "Collared peccaries travel in tight family groups and use musk glands to communicate and mark territory in the Sonoran Desert."
+      ],
+      "illustration": "artwork/fauna/javelina.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 218,
+      "rank": 8,
+      "suit": "wildlife",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Osprey",
+      "scientific_name": "Pandion haliaetus",
+      "fact": [
+        "A specialized fish hawk that plunges feet-first into water, appearing around Arizona's desert lakes and rivers during migration."
+      ],
+      "illustration": "artwork/fauna/osprey.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 215,
+      "rank": 9,
+      "suit": "wildlife",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Gray Fox",
+      "scientific_name": "Urocyon cinereoargenteus",
+      "fact": [
+        "Thrives in the rocky canyons, brush lands, and rough terrain around the Tonto National Forest and Tonto Basin region"
+      ],
+      "illustration": "artwork/fauna/gray_fox.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 209,
+      "rank": 10,
+      "suit": "wildlife",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Coyote",
+      "scientific_name": "Canis latrans",
+      "fact": [
+        "A highly adaptable predator and scavenger that thrives in desert scrub, preying on rodents, rabbits, and carrion."
+      ],
+      "illustration": "artwork/fauna/desert_coyote.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 216,
+      "rank": 11,
+      "suit": "wildlife",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Great Horned Owl",
+      "scientific_name": "Bubo virginianus",
+      "fact": [
+        "The apex nocturnal predator of the desert; its powerful talons can take prey as large as skunks and young herons."
+      ],
+      "illustration": "artwork/fauna/great_horned_owl.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 204,
+      "rank": 12,
+      "suit": "wildlife",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Compost 1 Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Bobcat",
+      "scientific_name": "Lynx rufus",
+      "fact": [
+        "Bobcats are adaptable predators found across North America."
+      ],
+      "illustration": "artwork/fauna/bobcat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 205,
+      "rank": 13,
+      "suit": "wildlife",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Compost 1 Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Mountain Lion",
+      "scientific_name": "Puma concolor",
+      "fact": [
+        "The mountain lion is an apex predator."
+      ],
+      "illustration": "artwork/fauna/mountain_lion.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  }
+]

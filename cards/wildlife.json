@@ -1,0 +1,294 @@
+[
+  {
+    "mechanics": {
+      "id": 206,
+      "rank": 1,
+      "suit": "wildlife",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Kangaroo Rat",
+      "scientific_name": "Dipodomys spp.",
+      "fact": [
+        "Can survive without drinking water, obtaining all moisture from seeds, and escapes predators with powerful hind-leg leaps."
+      ],
+      "illustration": "artwork/fauna/kangaroo_rat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 207,
+      "rank": 2,
+      "suit": "wildlife",
+      "cost": 1,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Cactus Wren",
+      "scientific_name": "Campylorhynchus brunneicapillus",
+      "fact": [
+        "Arizona's state bird.",
+        "Builds large, domed nests in cholla cactus for year-round protection from predators.",
+        "Feeds on insects, seeds, and small lizards."
+      ],
+      "illustration": "artwork/fauna/cactus_wren.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 219,
+      "rank": 3,
+      "suit": "wildlife",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Ringtail",
+      "scientific_name": "Bassariscus astutus",
+      "fact": [
+        "Arizona's state mammal; a nocturnal, cat-sized carnivore that navigates rocky terrain with a long, bushy, banded tail."
+      ],
+      "illustration": "artwork/fauna/ringtail.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 211,
+      "rank": 4,
+      "suit": "wildlife",
+      "cost": 2,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Iguana",
+      "scientific_name": "Dipsosaurus dorsalis",
+      "fact": [
+        "One of the most heat-tolerant lizards in North America, remaining active at temperatures that drive other reptiles to shade."
+      ],
+      "illustration": "artwork/fauna/desert_iguana.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 203,
+      "rank": 5,
+      "suit": "wildlife",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Roadrunner",
+      "scientific_name": "Geococcyx californianus",
+      "fact": [
+        "Roadrunners prey on reptiles, insects, and small mammals."
+      ],
+      "illustration": "artwork/fauna/roadrunner.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 208,
+      "rank": 6,
+      "suit": "wildlife",
+      "cost": 3,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Raven",
+      "scientific_name": "Corvus corax",
+      "fact": [
+        "Highly intelligent opportunists, common ravens follow predators and human activity to scavenge easy meals across the desert."
+      ],
+      "illustration": "artwork/fauna/common_raven.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 217,
+      "rank": 7,
+      "suit": "wildlife",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Wildlife.",
+        "Challenge 1 opposing Support."
+      ]
+    },
+    "metadata": {
+      "name": "Javelina",
+      "scientific_name": "Pecari tajacu",
+      "fact": [
+        "Collared peccaries travel in tight family groups and use musk glands to communicate and mark territory in the Sonoran Desert."
+      ],
+      "illustration": "artwork/fauna/javelina.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 218,
+      "rank": 8,
+      "suit": "wildlife",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Osprey",
+      "scientific_name": "Pandion haliaetus",
+      "fact": [
+        "A specialized fish hawk that plunges feet-first into water, appearing around Arizona's desert lakes and rivers during migration."
+      ],
+      "illustration": "artwork/fauna/osprey.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 215,
+      "rank": 9,
+      "suit": "wildlife",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Gray Fox",
+      "scientific_name": "Urocyon cinereoargenteus",
+      "fact": [
+        "Thrives in the rocky canyons, brush lands, and rough terrain around the Tonto National Forest and Tonto Basin region"
+      ],
+      "illustration": "artwork/fauna/gray_fox.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 209,
+      "rank": 10,
+      "suit": "wildlife",
+      "cost": 4,
+      "effects": [
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Coyote",
+      "scientific_name": "Canis latrans",
+      "fact": [
+        "A highly adaptable predator and scavenger that thrives in desert scrub, preying on rodents, rabbits, and carrion."
+      ],
+      "illustration": "artwork/fauna/desert_coyote.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Uncommon"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 216,
+      "rank": 11,
+      "suit": "wildlife",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Challenge 1 opposing Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Great Horned Owl",
+      "scientific_name": "Bubo virginianus",
+      "fact": [
+        "The apex nocturnal predator of the desert; its powerful talons can take prey as large as skunks and young herons."
+      ],
+      "illustration": "artwork/fauna/great_horned_owl.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 204,
+      "rank": 12,
+      "suit": "wildlife",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Compost 1 Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Bobcat",
+      "scientific_name": "Lynx rufus",
+      "fact": [
+        "Bobcats are adaptable predators found across North America."
+      ],
+      "illustration": "artwork/fauna/bobcat.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 205,
+      "rank": 13,
+      "suit": "wildlife",
+      "cost": 5,
+      "effects": [
+        "Exhaust 1 Energy.",
+        "Compost 1 Wildlife."
+      ]
+    },
+    "metadata": {
+      "name": "Mountain Lion",
+      "scientific_name": "Puma concolor",
+      "fact": [
+        "The mountain lion is an apex predator."
+      ],
+      "illustration": "artwork/fauna/mountain_lion.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Rare"
+    }
+  }
+]
