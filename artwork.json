@@ -393,13 +393,6 @@
 ,
   {
    "metadata":{
-    "name": "sago_pondweed.svg",
-    "path": "artwork/energy/sago_pondweed.svg"
-   }
-  }
-,
-  {
-   "metadata":{
     "name": "saguaro_cactus_bloom.svg",
     "path": "artwork/energy/saguaro_cactus_bloom.svg"
    }
@@ -528,20 +521,6 @@
    "metadata":{
     "name": "skunk.svg",
     "path": "artwork/event/skunk.svg"
-   }
-  }
-,
-  {
-   "metadata":{
-    "name": "bullfrog.svg",
-    "path": "artwork/misc/bullfrog.svg"
-   }
-  }
-,
-  {
-   "metadata":{
-    "name": "eelgrass.svg",
-    "path": "artwork/misc/eelgrass.svg"
    }
   }
 ]
