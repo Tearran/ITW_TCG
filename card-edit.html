@@ -333,7 +333,7 @@
 	<script>
 		(function () {
 			var STORAGE_KEY = 'itw_tcg_card_list';
-			var SUIT_ORDER = ['energy','support','wildlife','event'];
+			var SUIT_ORDER = ['energy', 'support', 'wildlife', 'event'];
 			var RARITY_OPTIONS = ['Common', 'Uncommon', 'Rare', 'Legendary'];
 			var cards = [];
 			var selectedIndex = -1;
@@ -343,7 +343,10 @@
 			function loadCards() {
 				try {
 					var raw = localStorage.getItem(STORAGE_KEY);
-					cards = raw ? JSON.parse(raw) : [];
+					var parsed = raw ? JSON.parse(raw) : [];
+					cards = Array.isArray(parsed)
+						? parsed.map(normalizeCard).filter(Boolean)
+						: [];
 				} catch (e) {
 					cards = [];
 				}
