@@ -36,6 +36,7 @@ type PlayerState struct {
 	Hand             []string   `json:"hand"`
 	Board            []ZoneCard `json:"board"`
 	Compost          []int      `json:"compost"`
+	EnergyPool       int        `json:"energyPool"`
 	MulliganResolved bool       `json:"mulliganResolved"`
 	MulliganUsed     bool       `json:"mulliganUsed"`
 }
@@ -212,9 +213,15 @@ func (e *Engine) advancePhase(state *GameState, player int) error {
 	}
 	switch state.Phase {
 	case PhaseRefresh:
+		energy := 0
 		for i := range state.Players[player].Board {
 			state.Players[player].Board[i].Exhausted = false
+			def := e.cards.MustCard(state.Players[player].Board[i].CardID)
+			if hasEffect(def, "Generate 1 Energy per turn.") {
+				energy++
+			}
 		}
+		state.Players[player].EnergyPool = energy
 		state.Phase = PhaseDraw
 		return nil
 	case PhaseDraw:
@@ -262,6 +269,12 @@ func (e *Engine) playCard(state *GameState, player int, instance string) error {
 	}
 	cardID, _ := e.cardIDFromInstance(instance)
 	def := e.cards.MustCard(cardID)
+	if def.Suit != "energy" && def.Cost > 0 {
+		if state.Players[player].EnergyPool < def.Cost {
+			return fmt.Errorf("not enough energy: need %d, have %d", def.Cost, state.Players[player].EnergyPool)
+		}
+		state.Players[player].EnergyPool -= def.Cost
+	}
 	state.Players[player].Hand = removeString(state.Players[player].Hand, idx)
 	if def.Suit == "event" {
 		state.Players[player].Compost = append(state.Players[player].Compost, cardID)

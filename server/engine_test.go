@@ -274,6 +274,7 @@ func TestSupportHostingAndScoring(t *testing.T) {
 		s.Phase = PhaseMain
 		s.CurrentPlayer = 0
 		s.Players[0].Board = nil
+		s.Players[0].EnergyPool = 2
 		wildlife := addBoardCard(s, 0, 211, false)
 		supportInst := instance(107, 999)
 		s.Players[0].Hand = []string{supportInst}
@@ -302,6 +303,7 @@ func TestSupportHostingAndScoring(t *testing.T) {
 		s.Phase = PhaseMain
 		s.CurrentPlayer = 0
 		s.Players[0].Board = nil
+		s.Players[0].EnergyPool = 2
 		supportInst := instance(107, 1000)
 		s.Players[0].Hand = []string{supportInst}
 		if err := e.Apply(s, 0, Action{Type: "playCard", SourceInstance: supportInst}); err != nil {

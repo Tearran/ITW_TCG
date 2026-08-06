@@ -17,17 +17,19 @@ type rawCard struct {
 		Effects []string `json:"effects"`
 	} `json:"mechanics"`
 	Metadata struct {
-		Name string `json:"name"`
+		Name         string `json:"name"`
+		Illustration string `json:"illustration"`
 	} `json:"metadata"`
 }
 
 type CardDef struct {
-	ID      int      `json:"id"`
-	Name    string   `json:"name"`
-	Suit    string   `json:"suit"`
-	Rank    int      `json:"rank"`
-	Cost    int      `json:"cost"`
-	Effects []string `json:"effects"`
+	ID           int      `json:"id"`
+	Name         string   `json:"name"`
+	Suit         string   `json:"suit"`
+	Rank         int      `json:"rank"`
+	Cost         int      `json:"cost"`
+	Effects      []string `json:"effects"`
+	Illustration string   `json:"illustration,omitempty"`
 }
 
 type CardCatalog struct {
@@ -51,12 +53,13 @@ func LoadCatalog(root string) (*CardCatalog, error) {
 		}
 		for _, entry := range raw {
 			def := CardDef{
-				ID:      entry.Mechanics.ID,
-				Name:    entry.Metadata.Name,
-				Suit:    entry.Mechanics.Suit,
-				Rank:    entry.Mechanics.Rank,
-				Cost:    entry.Mechanics.Cost,
-				Effects: append([]string(nil), entry.Mechanics.Effects...),
+				ID:           entry.Mechanics.ID,
+				Name:         entry.Metadata.Name,
+				Suit:         entry.Mechanics.Suit,
+				Rank:         entry.Mechanics.Rank,
+				Cost:         entry.Mechanics.Cost,
+				Effects:      append([]string(nil), entry.Mechanics.Effects...),
+				Illustration: entry.Metadata.Illustration,
 			}
 			cards[def.ID] = def
 			deck = append(deck, def.ID)

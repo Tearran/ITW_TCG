@@ -295,6 +295,7 @@ func (s *server) publicStateLocked(room *Room, player int) map[string]any {
 			"board":            board,
 			"compostCount":     len(p.Compost),
 			"score":            scores[i],
+			"energyPool":       p.EnergyPool,
 		}
 	}
 	return map[string]any{
