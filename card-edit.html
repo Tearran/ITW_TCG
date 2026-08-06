@@ -353,7 +353,13 @@
 			}
 
 			function persistCards() {
-				localStorage.setItem(STORAGE_KEY, JSON.stringify(cards, null, 2));
+				try {
+					localStorage.setItem(STORAGE_KEY, JSON.stringify(cards, null, 2));
+					return true;
+				} catch (e) {
+					setStatus('Warning: changes were not saved to local storage (' + e.name + '). Export the list.');
+					return false;
+				}
 			}
 
 			function setStatus(msg) {
