@@ -548,6 +548,13 @@
 					setStatus('Save failed: ID, Rank, and Rarity must be valid.');
 					return;
 				}
+				var clash = cards.some(function (c, i) {
+					return i !== selectedIndex && c.mechanics && c.mechanics.id === card.mechanics.id;
+				});
+				if (clash) {
+					setStatus('Save failed: ID ' + card.mechanics.id + ' is already used.');
+					return;
+				}
 				if (selectedIndex === -1) {
 					cards.push(card);
 					selectedIndex = cards.length - 1;
