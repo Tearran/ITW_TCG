@@ -343,6 +343,9 @@
 			function loadCards() {
 				try {
 					var raw = localStorage.getItem(STORAGE_KEY);
+			function loadCards() {
+				try {
+					var raw = localStorage.getItem(STORAGE_KEY);
 					var parsed = raw ? JSON.parse(raw) : [];
 					cards = Array.isArray(parsed)
 						? parsed.map(normalizeCard).filter(Boolean)
