@@ -337,135 +337,117 @@
 
 <br>
 
-57. sago_pondweed.svg
-
-![sago_pondweed.svg](artwork/energy/sago_pondweed.svg)
-
-<br>
-
-58. saguaro_cactus_bloom.svg
+57. saguaro_cactus_bloom.svg
 
 ![saguaro_cactus_bloom.svg](artwork/energy/saguaro_cactus_bloom.svg)
 
 <br>
 
-59. sunflower.svg
+58. sunflower.svg
 
 ![sunflower.svg](artwork/energy/sunflower.svg)
 
 <br>
 
-60. threadfin_shad.svg
+59. threadfin_shad.svg
 
 ![threadfin_shad.svg](artwork/energy/threadfin_shad.svg)
 
 <br>
 
-61. saguaro_cactus_bloom.svg
+60. saguaro_cactus_bloom.svg
 
 ![saguaro_cactus_bloom.svg](artwork/energy/saguaro_cactus_bloom.svg)
 
 <br>
 
-62. sunflower.svg
+61. sunflower.svg
 
 ![sunflower.svg](artwork/energy/sunflower.svg)
 
 <br>
 
-63. threadfin_shad.svg
+62. threadfin_shad.svg
 
 ![threadfin_shad.svg](artwork/energy/threadfin_shad.svg)
 
 <br>
 
-64. Roosevelt_lake_dam.svg
+63. Roosevelt_lake_dam.svg
 
 ![Roosevelt_lake_dam.svg](artwork/event/Roosevelt_lake_dam.svg)
 
 <br>
 
-65. desert-nesting_bald_eagle.svg
+64. desert-nesting_bald_eagle.svg
 
 ![desert-nesting_bald_eagle.svg](artwork/event/desert-nesting_bald_eagle.svg)
 
 <br>
 
-66. desert_frost.svg
+65. desert_frost.svg
 
 ![desert_frost.svg](artwork/event/desert_frost.svg)
 
 <br>
 
-67. desert_rainfall.svg
+66. desert_rainfall.svg
 
 ![desert_rainfall.svg](artwork/event/desert_rainfall.svg)
 
 <br>
 
-68. divertion_dam.svg
+67. divertion_dam.svg
 
 ![divertion_dam.svg](artwork/event/divertion_dam.svg)
 
 <br>
 
-69. extreme_heat.svg
+68. extreme_heat.svg
 
 ![extreme_heat.svg](artwork/event/extreme_heat.svg)
 
 <br>
 
-70. flash_flood.svg
+69. flash_flood.svg
 
 ![flash_flood.svg](artwork/event/flash_flood.svg)
 
 <br>
 
-71. haboob_winds.svg
+70. haboob_winds.svg
 
 ![haboob_winds.svg](artwork/event/haboob_winds.svg)
 
 <br>
 
-72. mega_drought.svg
+71. mega_drought.svg
 
 ![mega_drought.svg](artwork/event/mega_drought.svg)
 
 <br>
 
-73. migration.svg
+72. migration.svg
 
 ![migration.svg](artwork/event/migration.svg)
 
 <br>
 
-74. monsoon_storm.svg
+73. monsoon_storm.svg
 
 ![monsoon_storm.svg](artwork/event/monsoon_storm.svg)
 
 <br>
 
-75. nature_survey.svg
+74. nature_survey.svg
 
 ![nature_survey.svg](artwork/event/nature_survey.svg)
 
 <br>
 
-76. skunk.svg
+75. skunk.svg
 
 ![skunk.svg](artwork/event/skunk.svg)
-
-<br>
-
-77. bullfrog.svg
-
-![bullfrog.svg](artwork/misc/bullfrog.svg)
-
-<br>
-
-78. eelgrass.svg
-
-![eelgrass.svg](artwork/misc/eelgrass.svg)
 
 <br>
 
