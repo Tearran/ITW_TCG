@@ -1,0 +1,288 @@
+[
+  {
+    "mechanics": {
+      "id": 1,
+      "rank": 1,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Agave",
+      "scientific_name": "Agave spp.",
+      "fact": [
+        "Agaves store water in thick leaves, providing food and moisture for desert wildlife."
+      ],
+      "illustration": "artwork/energy/agave.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 2,
+      "rank": 2,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Bermuda Grass",
+      "scientific_name": "Cynodon dactylon",
+      "fact": [
+        "Its seeds and leaves provide food for many grazing animals and birds."
+      ],
+      "illustration": "artwork/energy/bermuda_grass.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 3,
+      "rank": 3,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Bird Eggs",
+      "scientific_name": "Aves",
+      "fact": [
+        "Eggs are nutrient-rich food for many reptiles, mammals, and birds."
+      ],
+      "illustration": "artwork/energy/bird_eggs.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 4,
+      "rank": 4,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Black-tailed Jackrabbit",
+      "scientific_name": "Lepus californicus",
+      "fact": [
+        "A primary prey animal that transfers plant energy to predators."
+      ],
+      "illustration": "artwork/energy/black_tailed_jackrabbit.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 5,
+      "rank": 5,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Chara",
+      "scientific_name": "Chara spp.",
+      "fact": [
+        "This freshwater algae supports aquatic food webs."
+      ],
+      "illustration": "artwork/energy/chara.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 6,
+      "rank": 6,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Coachwhip",
+      "scientific_name": "Masticophis flagellum",
+      "fact": [
+        "A fast-moving snake that converts prey into energy for higher predators."
+      ],
+      "illustration": "artwork/energy/coachwhip.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 7,
+      "rank": 7,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Cottontail",
+      "scientific_name": "Sylvilagus audubonii",
+      "fact": [
+        "A core prey species for hawks, coyotes, and snakes."
+      ],
+      "illustration": "artwork/energy/desert_cottontail.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 8,
+      "rank": 8,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Grass",
+      "scientific_name": "Poaceae",
+      "fact": [
+        "Native grasses feed insects, rodents, and grazing mammals."
+      ],
+      "illustration": "artwork/energy/desert_grass.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 9,
+      "rank": 9,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Desert Ironwood Blossoms",
+      "scientific_name": "Olneya tesota",
+      "fact": [
+        "Its flowers provide nectar for native pollinators."
+      ],
+      "illustration": "artwork/energy/desert_ironwood_blossoms.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 10,
+      "rank": 10,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Ground Squirrel",
+      "scientific_name": "Xerospermophilus tereticaudus",
+      "fact": [
+        "An important prey animal for snakes, hawks, and coyotes."
+      ],
+      "illustration": "artwork/energy/ground_squirrel.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 11,
+      "rank": 11,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Jojoba Nut",
+      "scientific_name": "Simmondsia chinensis",
+      "fact": [
+        "Jojoba seeds are rich in stored oils and nutrients."
+      ],
+      "illustration": "artwork/energy/jojoba_nut.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 12,
+      "rank": 12,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Mesquite Beans",
+      "scientific_name": "Prosopis spp.",
+      "fact": [
+        "Mesquite beans are rich in protein and serve as a staple food source for many desert animals."
+      ],
+      "illustration": "artwork/energy/mesquite_beans.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
+      "id": 13,
+      "rank": 13,
+      "suit": "energy",
+      "cost": 0,
+      "effects": [
+        "Gain 1 Energy."
+      ]
+    },
+    "metadata": {
+      "name": "Prickly Pear Tuna",
+      "scientific_name": "Opuntia spp.",
+      "fact": [
+        "The sweet fruits, called tunas, provide hydration and sugar to desert wildlife."
+      ],
+      "illustration": "artwork/energy/prickly_pear_tuna.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  }
+]
