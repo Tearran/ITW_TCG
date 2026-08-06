@@ -337,115 +337,103 @@
 
 <br>
 
-57. saguaro_cactus_bloom.svg
-
-![saguaro_cactus_bloom.svg](artwork/energy/saguaro_cactus_bloom.svg)
-
-<br>
-
-58. sunflower.svg
-
-![sunflower.svg](artwork/energy/sunflower.svg)
-
-<br>
-
-59. threadfin_shad.svg
+57. threadfin_shad.svg
 
 ![threadfin_shad.svg](artwork/energy/threadfin_shad.svg)
 
 <br>
 
-60. saguaro_cactus_bloom.svg
+58. saguaro_cactus_bloom.svg
 
 ![saguaro_cactus_bloom.svg](artwork/energy/saguaro_cactus_bloom.svg)
 
 <br>
 
-61. sunflower.svg
+59. sunflower.svg
 
 ![sunflower.svg](artwork/energy/sunflower.svg)
 
 <br>
 
-62. threadfin_shad.svg
+60. threadfin_shad.svg
 
 ![threadfin_shad.svg](artwork/energy/threadfin_shad.svg)
 
 <br>
 
-63. Roosevelt_lake_dam.svg
+61. Roosevelt_lake_dam.svg
 
 ![Roosevelt_lake_dam.svg](artwork/event/Roosevelt_lake_dam.svg)
 
 <br>
 
-64. desert-nesting_bald_eagle.svg
+62. desert-nesting_bald_eagle.svg
 
 ![desert-nesting_bald_eagle.svg](artwork/event/desert-nesting_bald_eagle.svg)
 
 <br>
 
-65. desert_frost.svg
+63. desert_frost.svg
 
 ![desert_frost.svg](artwork/event/desert_frost.svg)
 
 <br>
 
-66. desert_rainfall.svg
+64. desert_rainfall.svg
 
 ![desert_rainfall.svg](artwork/event/desert_rainfall.svg)
 
 <br>
 
-67. divertion_dam.svg
+65. divertion_dam.svg
 
 ![divertion_dam.svg](artwork/event/divertion_dam.svg)
 
 <br>
 
-68. extreme_heat.svg
+66. extreme_heat.svg
 
 ![extreme_heat.svg](artwork/event/extreme_heat.svg)
 
 <br>
 
-69. flash_flood.svg
+67. flash_flood.svg
 
 ![flash_flood.svg](artwork/event/flash_flood.svg)
 
 <br>
 
-70. haboob_winds.svg
+68. haboob_winds.svg
 
 ![haboob_winds.svg](artwork/event/haboob_winds.svg)
 
 <br>
 
-71. mega_drought.svg
+69. mega_drought.svg
 
 ![mega_drought.svg](artwork/event/mega_drought.svg)
 
 <br>
 
-72. migration.svg
+70. migration.svg
 
 ![migration.svg](artwork/event/migration.svg)
 
 <br>
 
-73. monsoon_storm.svg
+71. monsoon_storm.svg
 
 ![monsoon_storm.svg](artwork/event/monsoon_storm.svg)
 
 <br>
 
-74. nature_survey.svg
+72. nature_survey.svg
 
 ![nature_survey.svg](artwork/event/nature_survey.svg)
 
 <br>
 
-75. skunk.svg
+73. skunk.svg
 
 ![skunk.svg](artwork/event/skunk.svg)
 
