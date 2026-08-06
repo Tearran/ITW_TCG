@@ -220,7 +220,6 @@ func (s *server) handleEvents(w http.ResponseWriter, r *http.Request, room *Room
 	room.mu.Lock()
 	room.Streams[player] = append(room.Streams[player], ch)
 	snapshot := s.publicStateLocked(room, player)
-	lastEventID := r.Header.Get("Last-Event-ID")
 	room.LastEventID++
 	initialID := room.LastEventID
 	room.mu.Unlock()
@@ -229,11 +228,7 @@ func (s *server) handleEvents(w http.ResponseWriter, r *http.Request, room *Room
 	w.Header().Set("Cache-Control", "no-cache")
 	w.Header().Set("Connection", "keep-alive")
 	fmt.Fprintf(w, ": keepalive\n\n")
-	if lastEventID == "" {
-		writeSSE(w, serverEvent{ID: initialID, Name: "state", Data: snapshot})
-	} else {
-		writeSSE(w, serverEvent{ID: initialID, Name: "state", Data: snapshot})
-	}
+	writeSSE(w, serverEvent{ID: initialID, Name: "state", Data: snapshot})
 	flusher.Flush()
 
 	ticker := time.NewTicker(20 * time.Second)

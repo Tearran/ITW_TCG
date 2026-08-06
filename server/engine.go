@@ -226,7 +226,7 @@ func (e *Engine) advancePhase(state *GameState, player int) error {
 		return nil
 	case PhaseDraw:
 		if err := e.drawCards(state, player, 1); err != nil {
-			return nil
+			return err
 		}
 		state.Phase = PhaseMain
 		return nil
