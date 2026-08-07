@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Into the Wild Multiplayer</title>
+  <style>
+    :root { color-scheme: dark; --bg:#122018; --panel:#1b2c22; --panel2:#22362a; --line:#395642; --text:#edf7ef; --muted:#b9c8bc; --accent:#7fd38a; --danger:#e79b8f; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,sans-serif; background:var(--bg); color:var(--text); }
+    .app { display:grid; gap:12px; padding:12px; max-width:1200px; margin:0 auto; }
+    .bar,.panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; }
+    .bar { position:sticky; top:0; z-index:10; padding:10px; display:grid; gap:8px; }
+    .status,.controls,.choice-actions,.setup-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .pill { padding:4px 8px; border-radius:999px; background:var(--panel2); color:var(--muted); font-size:12px; }
+    .panel { padding:10px; }
+    .setup { display:grid; gap:8px; }
+    .setup-grid { display:grid; gap:8px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+    input, button { font:inherit; border-radius:10px; border:1px solid var(--line); padding:8px 10px; }
+    input { background:#0f1813; color:var(--text); width:100%; }
+    button { background:var(--accent); color:#102014; font-weight:700; cursor:pointer; }
+    button.secondary { background:var(--panel2); color:var(--text); }
+    button.danger { background:var(--danger); color:#26110d; }
+    button:disabled { opacity:.5; cursor:not-allowed; }
+    .rows { display:grid; gap:10px; }
+    .row { display:grid; gap:6px; }
+    .row-head { display:flex; justify-content:space-between; gap:8px; align-items:center; }
+    .cards { display:flex; gap:8px; overflow:auto; padding-bottom:4px; }
+    .card { min-width:150px; max-width:150px; background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:8px; text-align:left; }
+    .card.selected { outline:2px solid var(--accent); }
+    .card-art { width:100%; max-height:90px; object-fit:cover; border-radius:6px; display:block; margin-bottom:6px; background:var(--bg); }
+    .meta { font-size:12px; color:var(--muted); }
+    details summary { cursor:pointer; }
+    .grid { display:grid; gap:12px; grid-template-columns:1fr; }
+    @media (min-width:900px){ .grid { grid-template-columns:1.2fr .8fr; } }
+    #logBox { max-height:180px; overflow:auto; font-size:13px; white-space:pre-wrap; }
+    #pendingPanel:empty::before { content:'No pending choices.'; color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="bar">
+    <div class="status" id="statusBar"></div>
+    <div class="controls" id="phaseButtons"></div>
+  </div>
+
+  <div class="panel setup">
+    <div class="setup-grid">
+      <div>
+        <label for="serverUrl">Server URL</label>
+        <input id="serverUrl" value="" placeholder="http://127.0.0.1:8080">
+      </div>
+      <div>
+        <label for="roomCode">Room code</label>
+        <input id="roomCode" maxlength="8" placeholder="ABCD">
+      </div>
+    </div>
+    <div class="setup-actions">
+      <button id="createRoom">Create Room</button>
+      <button id="joinRoom">Join Room</button>
+      <button id="leaveRoom" class="secondary">Leave Room</button>
+      <span id="message" class="meta"></span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="rows">
+      <div class="panel" id="pendingPanel"></div>
+      <div class="panel">
+        <div class="row-head"><strong>Opponent board</strong><span class="meta" id="opponentSummary"></span></div>
+        <div id="opponentZone"></div>
+      </div>
+      <div class="panel">
+        <div class="row-head"><strong>Your board</strong><span class="meta" id="boardSummary"></span></div>
+        <div id="boardZone"></div>
+      </div>
+      <div class="panel">
+        <div class="row-head"><strong>Your hand</strong><span class="meta" id="handSummary"></span></div>
+        <div id="handZone"></div>
+      </div>
+    </div>
+    <div class="rows">
+      <details class="panel" open><summary><strong>Selected card</strong></summary><div id="selectedCard" class="meta">No card selected.</div></details>
+      <details class="panel" open><summary><strong>Log</strong></summary><div id="logBox"></div></details>
+    </div>
+  </div>
+</div>
+<script>
+(() => {
+  const state = { baseUrl: window.location.origin, roomCode:'', token:'', playerIndex:null, snapshot:null, selected:null, selectedZone:null, challengeAttacker:null, streamAbort:null, lastEventId:'' };
+  const $ = id => document.getElementById(id);
+  const statusBar = $('statusBar'), phaseButtons = $('phaseButtons'), pendingPanel = $('pendingPanel');
+  const handZone = $('handZone'), boardZone = $('boardZone'), opponentZone = $('opponentZone');
+  const selectedCard = $('selectedCard'), logBox = $('logBox'), message = $('message');
+  $('serverUrl').value = window.location.origin === 'null' ? 'http://127.0.0.1:8080' : window.location.origin;
+
+  function baseUrl() { return ($('serverUrl').value.trim() || window.location.origin).replace(/\/$/, ''); }
+  function setMessage(text) { message.textContent = text || ''; }
+  async function api(path, options={}) {
+    const headers = Object.assign({'Content-Type':'application/json'}, options.headers || {});
+    if (state.token) headers.Authorization = 'Bearer ' + state.token;
+    const res = await fetch(baseUrl() + path, Object.assign({}, options, {headers}));
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data?.error?.message || ('HTTP ' + res.status));
+    return data;
+  }
+  function clearSelection() { state.selected = null; state.selectedZone = null; }
+  function chooseCard(zone, instanceId, mine, isOpponent) {
+    state.selected = instanceId;
+    state.selectedZone = zone;
+    const snap = state.snapshot;
+    if (snap?.phase === 'challenge') {
+      if (mine && zone === 'board') {
+        state.challengeAttacker = instanceId;
+        setMessage('Attacker selected. Now choose an opponent board card to challenge.');
+      } else if (isOpponent && state.challengeAttacker) {
+        sendAction({type:'declareChallenge', attackerInstanceId:state.challengeAttacker, defenderInstanceId:instanceId});
+      }
+    }
+    renderSelected();
+    render();
+  }
+  function renderCard(entry, opts={}) {
+    const card = entry.card || entry;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'card' + (state.selected === entry.instanceId ? ' selected' : '');
+    button.onclick = () => chooseCard(opts.zone || '', entry.instanceId, !!opts.mine, !!opts.opponent);
+    const line3 = [];
+    line3.push(entry.exhausted ? 'Exhausted' : 'Ready');
+    if (entry.host) line3.push(`Hosted by ${entry.host}`);
+    if (entry.hosted && entry.hosted.length) line3.push(`Hosting ${entry.hosted.length}`);
+    if (card.illustration) {
+      const img = document.createElement('img');
+      img.src = card.illustration;
+      img.alt = card.name;
+      img.className = 'card-art';
+      button.appendChild(img);
+    }
+    const name = document.createElement('strong');
+    name.textContent = card.name;
+    const meta1 = document.createElement('div');
+    meta1.className = 'meta';
+    meta1.textContent = `${card.suit} • Rank ${card.rank} • Cost ${card.cost}`;
+    const meta2 = document.createElement('div');
+    meta2.className = 'meta';
+    meta2.textContent = line3.join(' • ');
+    button.append(name, meta1, meta2);
+    return button;
+  }
+  function renderZone(el, items, opts) {
+    el.innerHTML = '';
+    const box = document.createElement('div');
+    box.className = 'cards';
+    items.forEach(item => box.appendChild(renderCard(item, opts)));
+    el.appendChild(box);
+  }
+  function renderSelected() {
+    if (!state.snapshot || !state.selected) {
+      selectedCard.textContent = 'No card selected.';
+      return;
+    }
+    const me = state.snapshot.players[state.playerIndex ?? 0];
+    const opp = state.snapshot.players[(state.playerIndex ?? 0) ^ 1];
+    const entries = [...(me.hand || []), ...(me.board || []), ...(opp.board || [])];
+    const entry = entries.find(item => item.instanceId === state.selected);
+    if (!entry) {
+      selectedCard.textContent = 'No card selected.';
+      return;
+    }
+    const card = entry.card;
+    selectedCard.textContent = `${card.name} | ${card.suit} | Printed Rank ${card.rank} | Cost ${card.cost}` + (entry.host ? ` | Hosted by ${entry.host}` : '') + (entry.hosted?.length ? ` | Hosting: ${entry.hosted.join(', ')}` : '');
+  }
+  function phaseActionButton(label, action, disabled) {
+    const b = document.createElement('button');
+    b.textContent = label;
+    b.disabled = !!disabled;
+    b.onclick = () => sendAction(action);
+    return b;
+  }
+  function renderPending(me) {
+    pendingPanel.innerHTML = '';
+    const snap = state.snapshot;
+    if (!snap) return;
+    if (snap.phase === 'mulligan' && me && !me.mulliganResolved) {
+      const title = document.createElement('strong'); title.textContent = 'Opening hand choice';
+      const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = 'Each player resolves keep or one mulligan independently before round 1 starts.';
+      const actions = document.createElement('div'); actions.className = 'choice-actions';
+      actions.appendChild(phaseActionButton('Keep', {type:'mulliganDecision', choice:'keep'}));
+      actions.appendChild(phaseActionButton('Mulligan', {type:'mulliganDecision', choice:'mulligan'}));
+      pendingPanel.append(title, meta, actions); return;
+    }
+    if (snap.pendingChoice && snap.pendingChoice.playerIndex === state.playerIndex) {
+      const title = document.createElement('strong'); title.textContent = snap.pendingChoice.prompt;
+      const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = 'Select one of your wildlife cards on board, then confirm.';
+      const actions = document.createElement('div'); actions.className = 'choice-actions';
+      actions.appendChild(phaseActionButton('Host selected wildlife', {type:'chooseHostedWildlife', sourceInstanceId:snap.pendingChoice.sourceInstanceId, targetInstanceId:state.selected}, !state.selected));
+      pendingPanel.append(title, meta, actions); return;
+    }
+    if (snap.pendingChallenge) {
+      const title = document.createElement('strong'); title.textContent = 'Challenge pending';
+      const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = 'Resolve the current challenge before any other action.';
+      pendingPanel.append(title, meta); return;
+    }
+  }
+  function render() {
+    const snap = state.snapshot;
+    statusBar.innerHTML = '';
+    const pills = [
+      `Room ${state.roomCode || '—'}`,
+      `Connection ${snap ? 'live' : 'offline'}`,
+      `Round ${snap?.round ?? '—'}`,
+      `Phase ${snap?.phase ?? '—'}`,
+      `Current P${snap?.currentPlayer ?? '—'}`,
+      snap ? `Scores ${snap.players[0].score}-${snap.players[1].score}` : 'Scores —'
+    ];
+    pills.forEach(text => { const span = document.createElement('span'); span.className = 'pill'; span.textContent = text; statusBar.appendChild(span); });
+    phaseButtons.innerHTML = '';
+    const me = snap ? snap.players[state.playerIndex ?? 0] : null;
+    phaseButtons.appendChild(phaseActionButton('Advance Phase', {type:'advancePhase'}, !snap || snap.phase === 'mulligan' || !!snap.pendingChallenge || (snap.pendingChoice && snap.pendingChoice.playerIndex === state.playerIndex)));
+    phaseButtons.appendChild(phaseActionButton('Resolve Challenge', {type:'resolveChallenge'}, !snap || !snap.pendingChallenge));
+    if (me && me.hand) {
+      me.hand.forEach(entry => phaseButtons.appendChild(phaseActionButton(`Play ${entry.card.name}`, {type:'playCard', sourceInstanceId:entry.instanceId}, !snap || snap.phase !== 'main' || snap.currentPlayer !== state.playerIndex || !!snap.pendingChoice || !!snap.pendingChallenge)));
+    }
+    if (!snap) return;
+    const opp = snap.players[(state.playerIndex ?? 0) ^ 1];
+    $('handSummary').textContent = `${me.handCount} cards • score ${me.score}`;
+    $('boardSummary').textContent = `${me.board.length} in play • energy ${me.energyPool ?? 0} • compost ${me.compostCount}`;
+    $('opponentSummary').textContent = `${opp.handCount} cards in hand • score ${opp.score}`;
+    renderZone(handZone, me.hand || [], {zone:'hand', mine:true});
+    renderZone(boardZone, me.board || [], {zone:'board', mine:true});
+    renderZone(opponentZone, opp.board || [], {zone:'opponentBoard', opponent:true});
+    renderPending(me);
+    renderSelected();
+    logBox.textContent = (snap.log || []).join('\n') || 'No log entries yet.';
+  }
+  async function sendAction(action) {
+    if (!state.roomCode) return;
+    try {
+      await api(`/api/rooms/${state.roomCode}/actions`, { method:'POST', body:JSON.stringify({ version:'v1alpha1', type:'action', action }) });
+      if (action.type === 'declareChallenge') state.challengeAttacker = null;
+      setMessage('Action sent.');
+    } catch (err) { setMessage(err.message); alert(err.message); }
+  }
+  async function connectEvents() {
+    if (state.streamAbort) state.streamAbort.abort();
+    state.streamAbort = new AbortController();
+    const headers = { Authorization:'Bearer ' + state.token };
+    if (state.lastEventId) headers['Last-Event-ID'] = state.lastEventId;
+    const res = await fetch(baseUrl() + `/api/rooms/${state.roomCode}/events`, { headers, signal: state.streamAbort.signal });
+    if (!res.ok) throw new Error('Failed to open event stream');
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    setMessage('Connected to room stream.');
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream:true });
+      const blocks = buffer.split('\n\n');
+      buffer = blocks.pop();
+      for (const block of blocks) {
+        if (!block.trim() || block.startsWith(':')) continue;
+        let dataLine = '', idLine = '';
+        block.split('\n').forEach(line => {
+          if (line.startsWith('id:')) idLine = line.slice(3).trim();
+          if (line.startsWith('data:')) dataLine += line.slice(5).trim();
+        });
+        if (idLine) state.lastEventId = idLine;
+        if (dataLine) {
+          state.snapshot = JSON.parse(dataLine);
+          render();
+        }
+      }
+    }
+  }
+  $('createRoom').onclick = async () => {
+    try {
+      const data = await api('/api/rooms', { method:'POST' });
+      state.roomCode = data.roomCode; state.token = data.playerToken; state.playerIndex = data.playerIndex; state.lastEventId = ''; $('roomCode').value = data.roomCode; clearSelection(); await connectEvents(); render();
+    } catch (err) { setMessage(err.message); }
+  };
+  $('joinRoom').onclick = async () => {
+    try {
+      const code = $('roomCode').value.trim().toUpperCase();
+      const data = await api(`/api/rooms/${code}/join`, { method:'POST' });
+      state.roomCode = data.roomCode; state.token = data.playerToken; state.playerIndex = data.playerIndex; state.lastEventId = ''; clearSelection(); await connectEvents(); render();
+    } catch (err) { setMessage(err.message); }
+  };
+  $('leaveRoom').onclick = async () => {
+    try {
+      if (!state.roomCode) return;
+      await api(`/api/rooms/${state.roomCode}/leave`, { method:'POST' });
+      if (state.streamAbort) state.streamAbort.abort();
+      Object.assign(state, { roomCode:'', token:'', playerIndex:null, snapshot:null, selected:null, selectedZone:null, challengeAttacker:null, lastEventId:'' });
+      setMessage('Left room.'); render();
+    } catch (err) { setMessage(err.message); }
+  };
+  render();
+})();
+</script>
+</body>
+</html>
