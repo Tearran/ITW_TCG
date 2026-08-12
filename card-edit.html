@@ -343,9 +343,6 @@
 			function loadCards() {
 				try {
 					var raw = localStorage.getItem(STORAGE_KEY);
-			function loadCards() {
-				try {
-					var raw = localStorage.getItem(STORAGE_KEY);
 					var parsed = raw ? JSON.parse(raw) : [];
 					cards = Array.isArray(parsed)
 						? parsed.map(normalizeCard).filter(Boolean)
@@ -356,13 +353,7 @@
 			}
 
 			function persistCards() {
-				try {
-					localStorage.setItem(STORAGE_KEY, JSON.stringify(cards, null, 2));
-					return true;
-				} catch (e) {
-					setStatus('Warning: changes were not saved to local storage (' + e.name + '). Export the list.');
-					return false;
-				}
+				localStorage.setItem(STORAGE_KEY, JSON.stringify(cards, null, 2));
 			}
 
 			function setStatus(msg) {
@@ -555,13 +546,6 @@
 				var card = readForm();
 				if (!card) {
 					setStatus('Save failed: ID, Rank, and Rarity must be valid.');
-					return;
-				}
-				var clash = cards.some(function (c, i) {
-					return i !== selectedIndex && c.mechanics && c.mechanics.id === card.mechanics.id;
-				});
-				if (clash) {
-					setStatus('Save failed: ID ' + card.mechanics.id + ' is already used.');
 					return;
 				}
 				if (selectedIndex === -1) {
