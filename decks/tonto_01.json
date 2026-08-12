@@ -415,7 +415,7 @@
       "fact": [
         "Diversion dams redirect river flow, reshaping aquatic habitats for many desert species."
       ],
-      "illustration": "artwork/event/divertion_dam.svg",
+      "illustration": "artwork/event/diversion_dam.svg",
       "artist": "Tearran Studios",
       "expansion": "Alpha",
       "rarity": "Uncommon"
@@ -631,6 +631,29 @@
   },
   {
     "mechanics": {
+      "id": 112,
+      "rank": 3,
+      "suit": "support",
+      "cost": 2,
+      "effects": [
+        "Move 1 Wildlife to this card.",
+        "Hosted Wildlife cannot be Challenged"
+      ]
+    },
+    "metadata": {
+      "name": "Desert grass",
+      "scientific_name": "Panicum turgidum",
+      "fact": [
+        "Desert grass seeds provide essential nutrition and grain for local desert birds and small rodent."
+      ],
+      "illustration": "artwork/flora/desert_grass.svg",
+      "artist": "Tearran Studios",
+      "expansion": "Alpha",
+      "rarity": "Common"
+    }
+  },
+  {
+    "mechanics": {
       "id": 103,
       "rank": 4,
       "suit": "support",
@@ -743,7 +766,7 @@
   },
   {
     "mechanics": {
-      "id": 110,
+      "id": 115,
       "rank": 9,
       "suit": "support",
       "cost": 4,
