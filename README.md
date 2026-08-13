@@ -6,6 +6,32 @@
 
 Each expansion explores a real landscape, beginning with the **Tonto Basin Ranger District** of **Tonto National Forest** in Arizona, USA. Every card represents a real species, habitat, or natural feature.
 
+## Online Prototype (LAMP / JSON Storage)
+
+A minimal PHP prototype for online play lives under `prototype/`. It stores
+room data as JSON files instead of a database, and does not use SQL,
+accounts, SSE, WebSockets, or a framework.
+
+### Deployment requirements
+
+- PHP must be able to write to `prototype/data/rooms/`. This directory must
+  exist and be writable by the PHP process, since it holds each room's JSON
+  state file and a matching lock file used during updates.
+
+### Local test flow
+
+1. Open `prototype/index.php` in a browser.
+2. Click **Create game** to create a room and note the room code shown on
+   the page.
+3. Open `prototype/index.php` in a second browser session (or a private
+   window), enter the room code, and click **Join game**.
+
+### Current status
+
+Only room creation and joining are implemented. Game state polling and
+gameplay actions are not yet implemented and will be added in a future
+increment.
+
 ## Into the Wild - Living Design Document
 
 > **Status:** Alpha Design Draft
