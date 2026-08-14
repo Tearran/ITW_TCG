@@ -723,6 +723,9 @@
       const art =
         metadata.illustration || "";
 
+      const artSrc =
+        art ? "../" + art : "";
+
       const effects =
         Array.isArray(mechanics.effects)
           ? mechanics.effects
@@ -753,7 +756,7 @@
           ${art
           ? `
                 <img
-                  src="${escAttr(art)}"
+                  src="${escAttr(artSrc)}"
                   alt="${escAttr(
             metadata.name ||
             "Card artwork"
@@ -952,7 +955,7 @@
      * ------------------------------------------------------------
      */
 
-    fetch("./decks/tonto_01.json")
+    fetch("../decks/tonto_01.json")
       .then(response =>
         response.ok
           ? response.json()

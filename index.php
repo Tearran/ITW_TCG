@@ -107,7 +107,7 @@
     setBusy(true);
     setMessage('Creating room...', 'info');
     try {
-      const data = await callApi('../api/rooms.php');
+      const data = await callApi('api/rooms.php');
       sessionStorage.setItem('roomCode', data.roomCode);
       sessionStorage.setItem('playerToken', data.playerToken);
       setMessage('Room created: ' + data.roomCode + '. Redirecting...', 'info');
@@ -127,7 +127,7 @@
     setBusy(true);
     setMessage('Joining room...', 'info');
     try {
-      const data = await callApi('../api/join.php', { roomCode: roomCode });
+      const data = await callApi('api/join.php', { roomCode: roomCode });
       sessionStorage.setItem('roomCode', data.roomCode);
       sessionStorage.setItem('playerToken', data.playerToken);
       setMessage('Joined room: ' + data.roomCode + '. Redirecting...', 'info');
