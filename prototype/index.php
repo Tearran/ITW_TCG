@@ -98,10 +98,6 @@
     return data;
   }
 
-  function goToGame(roomCode) {
-    window.location.href = '../game.html?room=' + encodeURIComponent(roomCode);
-  }
-
   createBtn.addEventListener('click', async () => {
     setBusy(true);
     setMessage('Creating room...', 'info');
@@ -109,10 +105,10 @@
       const data = await callApi('api/rooms.php');
       sessionStorage.setItem('roomCode', data.roomCode);
       sessionStorage.setItem('playerToken', data.playerToken);
-      setMessage('Room created: ' + data.roomCode + '. Redirecting...', 'info');
-      goToGame(data.roomCode);
+      setMessage('Room created! Your room code is ' + data.roomCode + '. Share it with the other player, then wait here for them to join.', 'info');
     } catch (err) {
       setMessage(err.message, 'error');
+    } finally {
       setBusy(false);
     }
   });
@@ -129,10 +125,10 @@
       const data = await callApi('api/join.php', { roomCode: roomCode });
       sessionStorage.setItem('roomCode', data.roomCode);
       sessionStorage.setItem('playerToken', data.playerToken);
-      setMessage('Joined room: ' + data.roomCode + '. Redirecting...', 'info');
-      goToGame(data.roomCode);
+      setMessage('Joined room ' + data.roomCode + '! The room is ready.', 'info');
     } catch (err) {
       setMessage(err.message, 'error');
+    } finally {
       setBusy(false);
     }
   });
