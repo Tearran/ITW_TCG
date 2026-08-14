@@ -142,7 +142,7 @@
       query.set('sinceVersion', String(state.lastVersion));
     }
     try {
-      const data = await api('../api/state.php?' + query.toString(), { method: 'GET' });
+      const data = await api('api/state.php?' + query.toString(), { method: 'GET' });
       if (data) {
         state.snapshot = data;
         state.lastVersion = data.stateVersion;
@@ -155,7 +155,7 @@
 
   async function sendAction(action) {
     try {
-      const data = await api('../api/action.php', {
+      const data = await api('api/action.php', {
         method: 'POST',
         body: JSON.stringify({ roomCode, action }),
       });
@@ -171,7 +171,7 @@
 
   async function sendChat(text) {
     try {
-      const data = await api('../api/chat.php', {
+      const data = await api('api/chat.php', {
         method: 'POST',
         body: JSON.stringify({ roomCode, message: text }),
       });
@@ -196,7 +196,7 @@
 
     if (entry.illustration) {
       const img = document.createElement('img');
-      img.src = '../' + entry.illustration;
+      img.src = entry.illustration;
       img.alt = entry.name;
       img.className = 'card-art';
       button.appendChild(img);
@@ -447,7 +447,7 @@
 
   $('leaveBtn').addEventListener('click', async () => {
     try {
-      await api('../api/leave.php', { method: 'POST', body: JSON.stringify({ roomCode }) });
+      await api('api/leave.php', { method: 'POST', body: JSON.stringify({ roomCode }) });
     } catch (err) {
       // Ignore leave errors; still clear local session and redirect.
     }

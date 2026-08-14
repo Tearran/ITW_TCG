@@ -9,8 +9,9 @@ Each expansion explores a real landscape, beginning with the **Tonto Basin Range
 ## Online Prototype (LAMP / JSON Storage)
 
 A playable two-player PHP prototype lives under `api/` (the PHP API) and
-`game/` (the room client). It stores room data as JSON files instead of a
-database, and does not use SQL, accounts, SSE, WebSockets, or a framework.
+the root-level `index.php` and `index.html` (the room client). It stores
+room data as JSON files instead of a database, and does not use SQL,
+accounts, SSE, WebSockets, or a framework.
 Each room deals both players an independently shuffled 52-card Tonto deck
 (`decks/tonto_01.json`) and uses the existing card artwork, and plays a
 basic version of the game loop: mulligan, phases, playing cards, and
@@ -35,14 +36,14 @@ From the repository root, start PHP's built-in web server:
 php -S 127.0.0.1:8000
 ```
 
-Then open `http://127.0.0.1:8000/game/index.php` in a browser.
+Then open `http://127.0.0.1:8000/index.php` in a browser.
 
 ### Local test flow
 
-1. Open `game/index.php` in a browser.
+1. Open `index.php` in a browser.
 2. Click **Create game** to create a room and note the room code shown on
-   the page. You are redirected to `game/index.html`.
-3. Open `game/index.php` in a second browser session (or a private
+   the page. You are redirected to `index.html`.
+3. Open `index.php` in a second browser session (or a private
    window), enter the room code, and click **Join game**. Joining starts
    the game and deals both players a fresh shuffled deck and opening hand.
 4. In each browser, resolve the mulligan decision (Keep or Mulligan).
