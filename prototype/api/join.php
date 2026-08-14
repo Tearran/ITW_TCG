@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/lib.php';
+require __DIR__ . '/game.php';
 
 require_method('POST');
 
@@ -38,7 +39,9 @@ with_room_lock($roomCode, function (?array $room) use ($tokenHash, &$joinError, 
         'tokenHash' => $tokenHash,
         'joinedAt' => current_timestamp(),
     ];
-    $room['status'] = 'ready';
+    $room['status'] = 'active';
+    $room['state'] = create_initial_game_state();
+    $room['chat'] = [];
     $room['stateVersion'] = ($room['stateVersion'] ?? 0) + 1;
 
     $joined = true;
@@ -58,5 +61,5 @@ send_json([
     'roomCode' => $roomCode,
     'playerToken' => $playerToken,
     'playerIndex' => 1,
-    'status' => 'ready',
+    'status' => 'active',
 ]);

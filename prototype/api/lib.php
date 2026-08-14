@@ -27,9 +27,15 @@ function send_json(array $data, int $status = 200): void
  * The message is expected to be safe to show to a client; internal
  * details (file paths, PHP errors, etc.) must never be passed in.
  */
-function send_error(string $message, int $status = 400): void
+function send_error(string $message, int $status = 400, ?string $code = null): void
 {
-    send_json(['error' => ['message' => $message]], $status);
+    $body = ['error' => ['message' => $message]];
+
+    if ($code !== null) {
+        $body['error']['code'] = $code;
+    }
+
+    send_json($body, $status);
 }
 
 /**
@@ -210,4 +216,46 @@ function with_room_lock(string $roomCode, callable $callback): void
 function current_timestamp(): string
 {
     return gmdate('Y-m-d\TH:i:s\Z');
+}
+
+/**
+ * Read the `Authorization: Bearer <token>` header, if present.
+ */
+function get_bearer_token(): ?string
+{
+    $header = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+
+    if ($header === '' && function_exists('apache_request_headers')) {
+        $headers = apache_request_headers();
+        $header = $headers['Authorization'] ?? '';
+    }
+
+    if (stripos($header, 'Bearer ') !== 0) {
+        return null;
+    }
+
+    $token = trim(substr($header, 7));
+
+    return $token === '' ? null : $token;
+}
+
+/**
+ * Find the slot of the room player owning the given token. Returns
+ * null if the token is missing, revoked, or does not belong to this
+ * room.
+ */
+function find_player_slot(array $room, string $token): ?int
+{
+    $tokenHash = hash_player_token($token);
+
+    foreach ($room['players'] as $player) {
+        if ($player['revoked'] ?? false) {
+            continue;
+        }
+        if (hash_equals($player['tokenHash'], $tokenHash)) {
+            return $player['slot'];
+        }
+    }
+
+    return null;
 }

@@ -29,13 +29,14 @@
 <div class="app">
   <div class="panel">
     <h1>Into the Wild - Multiplayer Prototype</h1>
-    <p>This is an early prototype of the online room system.</p>
+    <p>This is a playable two-player prototype of the online room system, using the Tonto deck and existing card artwork.</p>
     <h2>Current limitations</h2>
     <ul>
       <li>Rooms are stored as plain JSON files, not a database.</li>
       <li>There are no player accounts; a temporary token identifies you for this room only.</li>
-      <li>Only room creation and joining are implemented so far.</li>
-      <li>Game state polling and gameplay actions are not implemented yet.</li>
+      <li>Each room deals both players an independently shuffled 52-card Tonto deck and plays the basic game loop: mulligan, phases, playing cards, and Challenges.</li>
+      <li>Room chat uses short HTTP polling; there is no SSE or WebSocket connection.</li>
+      <li>Event cards and free-form card effect text are not implemented yet.</li>
     </ul>
   </div>
 

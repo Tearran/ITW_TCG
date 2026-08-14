@@ -8,29 +8,59 @@ Each expansion explores a real landscape, beginning with the **Tonto Basin Range
 
 ## Online Prototype (LAMP / JSON Storage)
 
-A minimal PHP prototype for online play lives under `prototype/`. It stores
+A playable two-player PHP prototype lives under `prototype/`. It stores
 room data as JSON files instead of a database, and does not use SQL,
-accounts, SSE, WebSockets, or a framework.
+accounts, SSE, WebSockets, or a framework. Each room deals both players an
+independently shuffled 52-card Tonto deck (`decks/tonto_01.json`) and uses
+the existing card artwork, and plays a basic version of the game loop:
+mulligan, phases, playing cards, and Challenges. Room chat is available via
+short HTTP polling.
 
 ### Deployment requirements
 
+- PHP 8 or newer with the JSON extension (enabled by default in standard
+  PHP builds).
 - PHP must be able to write to `prototype/data/rooms/`. This directory must
   exist and be writable by the PHP process, since it holds each room's JSON
   state file and a matching lock file used during updates.
+
+### Running locally
+
+From the repository root, start PHP's built-in web server:
+
+```sh
+php -S 127.0.0.1:8000
+```
+
+Then open `http://127.0.0.1:8000/prototype/index.php` in a browser.
 
 ### Local test flow
 
 1. Open `prototype/index.php` in a browser.
 2. Click **Create game** to create a room and note the room code shown on
-   the page.
+   the page. You are redirected to `game.html`.
 3. Open `prototype/index.php` in a second browser session (or a private
-   window), enter the room code, and click **Join game**.
+   window), enter the room code, and click **Join game**. Joining starts
+   the game and deals both players a fresh shuffled deck and opening hand.
+4. In each browser, resolve the mulligan decision (Keep or Mulligan).
+5. On your turn, advance through the Refresh and Draw phases, play cards
+   from your hand during the Main phase (selecting Ready Energy cards on
+   your board to pay costs), and declare Challenges against the opponent's
+   Ready Support/Wildlife cards during the Challenge phase.
+6. Use the chat panel to send messages between the two browser sessions;
+   messages appear in both windows within a couple of seconds via polling.
+7. Play continues until a player's deck is empty or the game reaches a
+   Game Over state, at which point scores are shown.
 
-### Current status
+### Current limitations
 
-Only room creation and joining are implemented. Game state polling and
-gameplay actions are not yet implemented and will be added in a future
-increment.
+- Event cards and free-form card effect text are not implemented yet;
+  playing an Event card returns a "not implemented" error.
+- There are no player accounts; a temporary bearer token identifies each
+  player for the duration of a single room.
+- Room data is stored as plain JSON files, not a SQL database.
+- Real-time updates use short HTTP polling (every 2 seconds); there is no
+  SSE or WebSocket connection.
 
 ## Into the Wild - Living Design Document
 
