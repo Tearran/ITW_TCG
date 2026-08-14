@@ -8,7 +8,7 @@
     :root { color-scheme: dark; --bg:#122018; --panel:#1b2c22; --panel2:#22362a; --line:#395642; --text:#edf7ef; --muted:#b9c8bc; --accent:#7fd38a; --danger:#e79b8f; }
     * { box-sizing:border-box; }
     body { margin:0; font-family:system-ui,sans-serif; background:var(--bg); color:var(--text); }
-    .app { display:grid; gap:12px; padding:12px; max-width:1200px; margin:0 auto; }
+    .app { display:grid; gap:12px; padding:12px; max-width:1200px; min-width:0; margin:0 auto; }
     .bar,.panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; }
     .bar { position:sticky; top:0; z-index:10; padding:10px; display:grid; gap:8px; }
     .status,.controls,.choice-actions,.chat-input { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
@@ -20,9 +20,9 @@
     button.secondary { background:var(--panel2); color:var(--text); }
     button.danger { background:var(--danger); color:#26110d; }
     button:disabled { opacity:.5; cursor:not-allowed; }
-    .rows { display:grid; gap:10px; }
+    .rows { display:grid; gap:10px; min-width:0; }
     .row-head { display:flex; justify-content:space-between; gap:8px; align-items:center; }
-    .cards { display:flex; gap:8px; overflow:auto; padding-bottom:4px; }
+    .cards { display:flex; gap:8px; padding-bottom:4px; }
     .card { min-width:150px; max-width:150px; background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:8px; text-align:left; }
     .card.selected { outline:2px solid var(--accent); }
     .card.exhausted { opacity:.55; }
@@ -31,6 +31,8 @@
     details summary { cursor:pointer; }
     .grid { display:grid; gap:12px; grid-template-columns:1fr; }
     @media (min-width:900px){ .grid { grid-template-columns:1.2fr .8fr; } }
+    .grid, .grid > .rows, .panel, #handZone { min-width:0; }
+    #handZone .cards { overflow-x:auto; overflow-y:hidden; }
     #logBox { max-height:150px; overflow:auto; font-size:13px; white-space:pre-wrap; }
     #pendingPanel:empty::before { content:'No pending choices.'; color:var(--muted); font-size:12px; }
     #chatMessages { max-height:220px; overflow:auto; display:grid; gap:4px; font-size:13px; }
