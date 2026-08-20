@@ -163,6 +163,12 @@
 			border-color: #8a3c3c;
 		}
 
+		.hint {
+			font-size: 11px;
+			color: #9db388;
+			margin: 8px 0 0;
+		}
+
 		#status {
 			margin-top: 8px;
 			font-size: 12px;
@@ -291,6 +297,9 @@
 							<input type="text" id="fSci">
 						</div>
 					</div>
+					<p class="hint">Fill out the variables below. Character constraints are strictly enforced automatically.</p>
+					<label for="fParagraph">Paragraph Input</label>
+					<textarea id="fParagraph" placeholder="Paste paragraph text here..."></textarea>
 					<label for="fFact">Fact (one per line)</label>
 					<textarea id="fFact"></textarea>
 					<div class="row">
@@ -333,6 +342,7 @@
 	<script>
 		(function () {
 			var STORAGE_KEY = 'itw_tcg_card_list';
+			var FACT_LINE_LIMIT = 35;
 			var SUIT_ORDER = ['energy', 'support', 'wildlife', 'event'];
 			var RARITY_OPTIONS = ['Common', 'Uncommon', 'Rare', 'Legendary'];
 			var cards = [];
@@ -358,6 +368,69 @@
 
 			function setStatus(msg) {
 				document.getElementById('status').textContent = msg;
+			}
+
+			function splitLongWord(word, limit) {
+				var segments = [];
+				while (word.length > limit) {
+					segments.push(word.slice(0, limit));
+					word = word.slice(limit);
+				}
+				segments.push(word);
+				return segments;
+			}
+
+			function wrapLine(text, limit) {
+				var words = text.split(' ').filter(Boolean);
+				var lines = [];
+				var current = '';
+				words.forEach(function (word) {
+					if (word.length > limit) {
+						if (current) {
+							lines.push(current);
+							current = '';
+						}
+						var segments = splitLongWord(word, limit);
+						for (var i = 0; i < segments.length - 1; i++) {
+							lines.push(segments[i]);
+						}
+						current = segments[segments.length - 1];
+					} else if (!current) {
+						current = word;
+					} else if ((current + ' ' + word).length <= limit) {
+						current += ' ' + word;
+					} else {
+						lines.push(current);
+						current = word;
+					}
+				});
+				if (current) lines.push(current);
+				return lines;
+			}
+
+			function wrapParagraphs(text, limit) {
+				var paragraphs = text.split(/\n\s*\n/);
+				var lines = [];
+				paragraphs.forEach(function (para) {
+					var normalized = para.replace(/\s+/g, ' ').trim();
+					if (!normalized) return;
+					lines = lines.concat(wrapLine(normalized, limit));
+				});
+				return lines;
+			}
+
+			function enforceFactLineLimit(value) {
+				var lines = [];
+				value.split('\n').forEach(function (line) {
+					var trimmed = line.trim();
+					if (!trimmed) return;
+					if (trimmed.length > FACT_LINE_LIMIT) {
+						lines = lines.concat(wrapLine(trimmed, FACT_LINE_LIMIT));
+					} else {
+						lines.push(trimmed);
+					}
+				});
+				return lines;
 			}
 
 			function fetchJson(path) {
@@ -460,6 +533,7 @@
 				document.querySelectorAll('.effect-select').forEach(function (sel) { sel.value = ''; });
 				document.getElementById('fName').value = '';
 				document.getElementById('fSci').value = '';
+				document.getElementById('fParagraph').value = '';
 				document.getElementById('fFact').value = '';
 				document.getElementById('fIllustration').value = '';
 				document.getElementById('fArtist').value = 'Tearran Studios';
@@ -493,6 +567,7 @@
 				document.getElementById('fEffect3').value = effects[2] || '';
 				document.getElementById('fName').value = meta.name || '';
 				document.getElementById('fSci').value = meta.scientific_name || '';
+				document.getElementById('fParagraph').value = '';
 				document.getElementById('fFact').value = (meta.fact || []).join('\n');
 				document.getElementById('fIllustration').value = meta.illustration || '';
 				document.getElementById('fArtist').value = meta.artist || '';
@@ -517,10 +592,7 @@
 					document.getElementById('fEffect2').value,
 					document.getElementById('fEffect3').value
 				].filter(Boolean);
-				var factLines = document.getElementById('fFact').value
-					.split('\n')
-					.map(function (l) { return l.trim(); })
-					.filter(Boolean);
+				var factLines = enforceFactLineLimit(document.getElementById('fFact').value);
 				return {
 					mechanics: {
 						id: id,
@@ -706,6 +778,13 @@
 				clearForm();
 				renderCardList();
 				setStatus('New card form ready.');
+			});
+			document.getElementById('fParagraph').addEventListener('input', function () {
+				var lines = wrapParagraphs(this.value, FACT_LINE_LIMIT);
+				document.getElementById('fFact').value = lines.join('\n');
+			});
+			document.getElementById('fFact').addEventListener('blur', function () {
+				this.value = enforceFactLineLimit(this.value).join('\n');
 			});
 			document.getElementById('fIllustration').addEventListener('change', updateIllustrationPreview);
 			document.getElementById('fSuit').addEventListener('change', function () {
